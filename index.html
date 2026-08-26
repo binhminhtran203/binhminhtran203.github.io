@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Binh Minh Tran</title>
+<meta name="description" content="Binh Minh Tran — Honours student in Computational Data Science, School of Computer Science, The University of Sydney. Research in biomedical AI, graph learning, multimodal learning and spatial omics.">
+<script>(function () {
+  var theme = null;
+  try { theme = localStorage.getItem('bmt-academic-theme'); } catch (e) {}
+  document.documentElement.dataset.theme = theme || 'light';
+})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg: oklch(0.978 0.007 85);
+  --surface: oklch(0.995 0.004 85);
+  --ink: oklch(0.245 0.012 60);
+  --muted: oklch(0.505 0.014 60);
+  --faint: oklch(0.655 0.012 60);
+  --rule: oklch(0.885 0.009 80);
+  --accent: oklch(0.44 0.105 22);
+  --accent-soft: oklch(0.945 0.022 30);
+}
+html[data-theme="dark"]{
+  --bg: oklch(0.195 0.009 60);
+  --surface: oklch(0.238 0.010 60);
+  --ink: oklch(0.925 0.007 85);
+  --muted: oklch(0.700 0.012 70);
+  --faint: oklch(0.560 0.012 70);
+  --rule: oklch(0.325 0.010 60);
+  --accent: oklch(0.735 0.098 26);
+  --accent-soft: oklch(0.300 0.035 25);
+}
+*{ box-sizing: border-box; }
+html{ background: var(--bg); }
+body{ margin:0; background: var(--bg); color: var(--ink); font-family:'Newsreader',Georgia,serif; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+a{ color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in oklch, var(--accent) 35%, transparent); }
+a:hover{ color: var(--ink); border-bottom-color: var(--ink); }
+p{ text-wrap: pretty; }
+summary{ list-style: none; }
+summary::-webkit-details-marker{ display:none; }
+summary::marker{ content:""; }
+[data-navlink][data-nav-active="true"]{ color: var(--accent) !important; }
+html[data-theme="dark"] [data-theme-dark]{ display:none; }
+html:not([data-theme="dark"]) [data-theme-light]{ display:none; }
+[data-pubs][data-filter="multimodal"] [data-pub]:not([data-topics~="multimodal"]),
+[data-pubs][data-filter="graph"] [data-pub]:not([data-topics~="graph"]),
+[data-pubs][data-filter="spatial"] [data-pub]:not([data-topics~="spatial"]),
+[data-pubs][data-filter="imaging"] [data-pub]:not([data-topics~="imaging"]){ display:none !important; }
+[data-pubs][data-filter="all"] [data-topic="all"],
+[data-pubs][data-filter="multimodal"] [data-topic="multimodal"],
+[data-pubs][data-filter="graph"] [data-topic="graph"],
+[data-pubs][data-filter="spatial"] [data-topic="spatial"],
+[data-pubs][data-filter="imaging"] [data-topic="imaging"]{ background: var(--accent) !important; border-color: var(--accent) !important; color: var(--bg) !important; }
+[data-pubs][data-filter="multimodal"] [data-group]:not(:has([data-pub][data-topics~="multimodal"])),
+[data-pubs][data-filter="graph"] [data-group]:not(:has([data-pub][data-topics~="graph"])),
+[data-pubs][data-filter="spatial"] [data-group]:not(:has([data-pub][data-topics~="spatial"])),
+[data-pubs][data-filter="imaging"] [data-group]:not(:has([data-pub][data-topics~="imaging"])){ display:none !important; }
+@keyframes newsIn{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+[data-news]:hover [data-dot]{ background: var(--accent) !important; border-color: var(--accent) !important; transform: scale(1.35); }
+[data-news]:hover [data-date]{ color: var(--accent) !important; }
+[data-news]:last-child [data-rail]{ display: none !important; }
+[data-exp] [data-less]{ display: none; }
+[data-exp][open] [data-more]{ display: none; }
+[data-exp][open] [data-less]{ display: inline; }
+[data-exp][open] [data-caret]{ transform: rotate(90deg); }
+[data-exp] summary:hover{ color: var(--ink) !important; }
+@media (prefers-reduced-motion: reduce){ [data-news]{ animation: none !important; } }
+[data-navlink]{ border-left: 2px solid transparent; }
+[data-navlink][data-nav-active="true"]{ border-left-color: var(--accent) !important; }
+[data-scroll-box]{ scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
+[data-scroll-box]::-webkit-scrollbar{ width: 6px; }
+[data-scroll-box]::-webkit-scrollbar-track{ background: transparent; }
+[data-scroll-box]::-webkit-scrollbar-thumb{ background: var(--rule); border-radius: 3px; }
+@media (max-width: 940px){
+  [data-shell]{ flex-direction: column !important; }
+  [data-sidebar]{ position: static !important; width: 100% !important; height: auto !important; overflow: visible !important; border-right: none !important; border-bottom: 1px solid var(--rule) !important; padding: 38px 26px 30px !important; }
+  [data-main]{ padding: 34px 26px 100px !important; margin: 0 auto !important; }
+  [data-scroll-box]{ max-height: none !important; }
+}
+@media (max-width: 760px){
+  [data-row]{ grid-template-columns: 1fr !important; gap: 0.3rem !important; }
+  [data-portrait]{ width: 140px !important; height: 140px !important; }
+}
+
+[data-navlink]:hover{ color: var(--ink) !important; }
+[data-news]:hover{ background: var(--accent-soft) !important; transform: translateX(3px) !important; }
+#theme-toggle:hover{ color: var(--ink) !important; border-color: var(--ink) !important; }
+.badge-link:hover{ border-color: var(--accent) !important; }
+</style>
+</head>
+<body>
+<div style="min-height:100vh; background:var(--bg);">
+
+  
+<div data-shell="" style="display:flex; align-items:flex-start; min-height:100vh;">
+
+    <aside data-sidebar="" style="position:sticky; top:0; flex:none; width:314px; height:100vh; overflow-y:auto; border-right:1px solid var(--rule); background:var(--bg); padding:48px 32px 28px; display:flex; flex-direction:column; gap:26px;" data-scroll-box="">
+      <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:18px;">
+        <img data-portrait="" id="portrait" style="width:168px; height:168px; border-radius:50%; object-fit:cover;" src="uploads/portrait.jpg" alt="Portrait of Binh Minh Tran">
+        <div>
+          <h1 style="font-family:'Newsreader',serif; font-size:29px; font-weight:400; line-height:1.14; letter-spacing:-0.015em; margin:0 0 10px; color:var(--ink);">Binh Minh Tran</h1>
+          <p style="margin:0 0 4px; font-size:15.5px; line-height:1.45; color:var(--ink);">Honours Student, Computational Data Science</p>
+          <p style="margin:0; font-size:15px; line-height:1.45; color:var(--muted); font-style:italic;">School of Computer Science<br>The University of Sydney</p>
+        </div>
+      </div>
+
+      <nav style="display:flex; flex-direction:column; gap:1px; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:14px 0;">
+        <a data-navlink="" href="#about" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">About</a>
+        <a data-navlink="" href="#news" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">News</a>
+        <a data-navlink="" href="#publications" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Publications</a>
+        <a data-navlink="" href="#research" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Experience</a>
+        <a data-navlink="" href="#projects" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Projects</a>
+        <a data-navlink="" href="#awards" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Awards</a>
+        <a data-navlink="" href="#education" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Education</a>
+        <a data-navlink="" href="#skills" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Skills</a>
+        <a data-navlink="" href="#service" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Service</a>
+        <a data-navlink="" href="#contact" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Contact</a>
+      </nav>
+
+      <div style="display:flex; flex-direction:column; align-items:flex-start; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.02em; line-height:1.5;">
+        <a href="mailto:btra8435@uni.sydney.edu.au">Email</a>
+        <a href="https://scholar.google.com/citations?user=AYgkeCkAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://orcid.org/0009-0009-5601-6531" target="_blank" rel="noopener">ORCID ↗</a>
+        <a href="https://linkedin.com/in/binhminh2003" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="uploads/Binh_Minh_Tran_CV_3.pdf" target="_blank" rel="noopener">Curriculum Vitae ↓</a>
+      </div>
+
+      <button id="theme-toggle" title="Toggle dark mode" style="align-self:flex-start; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 10px; cursor:pointer;"><span data-theme-dark="">Dark</span><span data-theme-light="">Light</span></button>
+
+      <div style="margin-top:auto; padding-top:26px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.05em; line-height:1.8; color:var(--faint);">© Binh Minh Tran. All rights reserved.<br>Last updated August 2026.</div>
+    </aside>
+
+    <main data-main="" style="flex:1; min-width:0; max-width:880px; padding:52px 52px 120px;">
+
+    <section id="about" style="padding:0 0 8px;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:22px;">
+        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">About me</h2>
+        <div style="flex:1; height:1px; background:var(--rule);"></div>
+      </div>
+      <p style="margin:0 0 18px; font-size:15.5px; line-height:1.66; color:var(--ink);">I am a final-year Bachelor of Advanced Computing (Honours) student in Computational Data Science at the University of Sydney. My research lies at the intersection of biomedical artificial intelligence, graph representation learning, multimodal learning, spatial omics, and computational oncology.</p>
+      <p style="margin:0 0 18px; font-size:14.5px; line-height:1.7; color:var(--muted);">My Honours research focuses on developing robust and interpretable machine-learning methods for breast cancer survival prediction by integrating spatial single-cell imaging, clinicopathologic variables, and gene-level data. In particular, I am developing <em style="color:var(--ink); font-style:italic;">HiNT-Surv</em>, a hierarchical niche-aware graph-learning framework designed to capture cellular organisation within the tumour microenvironment while supporting cross-cohort and cross-panel generalisation.</p>
+      <p style="margin:0; font-size:14.5px; line-height:1.7; color:var(--muted);">Beyond my Honours project, I have contributed to research involving multimodal breast cancer receptor prediction, biological graph learning, medical image analysis, and clinical risk modelling. My work has resulted in peer-reviewed publications and manuscripts across biomedical AI and graph machine learning. Looking ahead, I am interested in research focused on multimodal biomedical AI, spatial omics, graph neural networks, and clinically reliable machine learning.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:7px; margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted);">
+        <span style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Biomedical AI</span>
+        <span style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Graph learning</span>
+        <span style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Multimodal learning</span>
+        <span style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Spatial omics</span>
+        <span style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Computational oncology</span>
+        <span style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Deep learning</span>
+      </div>
+    </section>
+
+    <section id="news" style="padding:52px 0 0;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:22px;">
+        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Latest news</h2>
+        <div style="flex:1; height:1px; background:var(--rule);"></div>
+      </div>
+      <div data-scroll-box="" style="display:flex; flex-direction:column; gap:4px; max-height:300px; overflow-y:auto; padding-right:12px;">
+        <div data-news="" data-row="" style="display:grid; grid-template-columns:5rem 16px minmax(0,1fr); gap:0 14px; padding:10px 10px 10px 4px; border-radius:3px; transition:background 240ms ease, transform 240ms ease; animation:newsIn 620ms cubic-bezier(0.2,0.7,0.2,1) both; animation-delay:0ms;">
+          <div data-date="" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px; transition:color 240ms ease;">Aug 2026</div>
+          <div style="position:relative; display:flex; justify-content:center;">
+            <div data-rail="" style="position:absolute; top:9px; bottom:-16px; width:1px; background:var(--rule);"></div>
+            <div data-dot="" style="position:relative; margin-top:5px; width:7px; height:7px; flex:none; border-radius:50%; background:var(--bg); border:1px solid var(--faint); transition:background 240ms ease, border-color 240ms ease, transform 240ms ease;"></div>
+          </div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Took part in welcoming a Vietnamese state-level delegation to Australia and spoke on VTV4 about the visit and the role of science, technology and the overseas Vietnamese community. <a href="https://www.facebook.com/reel/28124986507135508" target="_blank" rel="noopener">Watch the segment ↗</a></div>
+        </div>
+        <div data-news="" data-row="" style="display:grid; grid-template-columns:5rem 16px minmax(0,1fr); gap:0 14px; padding:10px 10px 10px 4px; border-radius:3px; transition:background 240ms ease, transform 240ms ease; animation:newsIn 620ms cubic-bezier(0.2,0.7,0.2,1) both; animation-delay:80ms;">
+          <div data-date="" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px; transition:color 240ms ease;">Aug 2026</div>
+          <div style="position:relative; display:flex; justify-content:center;">
+            <div data-rail="" style="position:absolute; top:9px; bottom:-16px; width:1px; background:var(--rule);"></div>
+            <div data-dot="" style="position:relative; margin-top:5px; width:7px; height:7px; flex:none; border-radius:50%; background:var(--bg); border:1px solid var(--faint); transition:background 240ms ease, border-color 240ms ease, transform 240ms ease;"></div>
+          </div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Published “Promoting the Role of Overseas Vietnamese Youth in Protecting the Party’s Ideological Foundation in the Digital Space” in <em>State Management Review</em>. <a href="https://www.quanlynhanuoc.vn/2026/08/17/phat-huy-vai-tro-cua-thanh-nien-viet-nam-o-nuoc-ngoai-trong-bao-ve-nen-tang-tu-tuong-cua-dang-tren-khong-gian-so/" target="_blank" rel="noopener">Read the article ↗</a></div>
+        </div>
+        <div data-news="" data-row="" style="display:grid; grid-template-columns:5rem 16px minmax(0,1fr); gap:0 14px; padding:10px 10px 10px 4px; border-radius:3px; transition:background 240ms ease, transform 240ms ease; animation:newsIn 620ms cubic-bezier(0.2,0.7,0.2,1) both; animation-delay:160ms;">
+          <div data-date="" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px; transition:color 240ms ease;">Jun 2026</div>
+          <div style="position:relative; display:flex; justify-content:center;">
+            <div data-rail="" style="position:absolute; top:9px; bottom:-16px; width:1px; background:var(--rule);"></div>
+            <div data-dot="" style="position:relative; margin-top:5px; width:7px; height:7px; flex:none; border-radius:50%; background:var(--bg); border:1px solid var(--faint); transition:background 240ms ease, border-color 240ms ease, transform 240ms ease;"></div>
+          </div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">“A Multimodal Deep Learning Framework for Breast Cancer Receptor Status Prediction” <a href="#publications">[C1]</a> accepted at IUKM 2026, Quy Nhon — to appear in Springer LNAI.</div>
+        </div>
+        <div data-news="" data-row="" style="display:grid; grid-template-columns:5rem 16px minmax(0,1fr); gap:0 14px; padding:10px 10px 10px 4px; border-radius:3px; transition:background 240ms ease, transform 240ms ease; animation:newsIn 620ms cubic-bezier(0.2,0.7,0.2,1) both; animation-delay:240ms;">
+          <div data-date="" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px; transition:color 240ms ease;">Jun 2026</div>
+          <div style="position:relative; display:flex; justify-content:center;">
+            <div data-rail="" style="position:absolute; top:9px; bottom:-16px; width:1px; background:var(--rule);"></div>
+            <div data-dot="" style="position:relative; margin-top:5px; width:7px; height:7px; flex:none; border-radius:50%; background:var(--bg); border:1px solid var(--faint); transition:background 240ms ease, border-color 240ms ease, transform 240ms ease;"></div>
+          </div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">“A Variational Graph Neural Network with Multi-view Integration for Predicting lncRNA–Disease Associations” <a href="#publications">[C2]</a> published in the ACIIDS 2026 proceedings, Springer CCIS vol. 2964. <a href="https://doi.org/10.1007/978-981-92-0068-9_24" target="_blank" rel="noopener">DOI ↗</a></div>
+        </div>
+        <div data-news="" data-row="" style="display:grid; grid-template-columns:5rem 16px minmax(0,1fr); gap:0 14px; padding:10px 10px 10px 4px; border-radius:3px; transition:background 240ms ease, transform 240ms ease; animation:newsIn 620ms cubic-bezier(0.2,0.7,0.2,1) both; animation-delay:320ms;">
+          <div data-date="" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px; transition:color 240ms ease;">Mar 2026</div>
+          <div style="position:relative; display:flex; justify-content:center;">
+            <div data-rail="" style="position:absolute; top:9px; bottom:-16px; width:1px; background:var(--rule);"></div>
+            <div data-dot="" style="position:relative; margin-top:5px; width:7px; height:7px; flex:none; border-radius:50%; background:var(--bg); border:1px solid var(--faint); transition:background 240ms ease, border-color 240ms ease, transform 240ms ease;"></div>
+          </div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Awarded a Certificate of Merit by the Central Committee of the Vietnam National Union of Students (Decision 137-QĐKT/TWHSV) for outstanding contribution to organising the national series of 11 student scientific conferences — one of 37 individual recipients.</div>
+        </div>
+        <div data-news="" data-row="" style="display:grid; grid-template-columns:5rem 16px minmax(0,1fr); gap:0 14px; padding:10px 10px 10px 4px; border-radius:3px; transition:background 240ms ease, transform 240ms ease; animation:newsIn 620ms cubic-bezier(0.2,0.7,0.2,1) both; animation-delay:400ms;">
+          <div data-date="" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px; transition:color 240ms ease;">Mar 2026</div>
+          <div style="position:relative; display:flex; justify-content:center;">
+            <div data-rail="" style="position:absolute; top:9px; bottom:-16px; width:1px; background:var(--rule);"></div>
+            <div data-dot="" style="position:relative; margin-top:5px; width:7px; height:7px; flex:none; border-radius:50%; background:var(--bg); border:1px solid var(--faint); transition:background 240ms ease, border-color 240ms ease, transform 240ms ease;"></div>
+          </div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Published “Dual-Stream Contrastive Graph Representation Learning for lncRNA–Disease Association Prediction” <a href="#publications">[C3]</a> in the proceedings of the FISU Joint Conference on Artificial Intelligence (FJCAI 2026), Can Tho. <a href="https://ebook365.vn/ky-yeu-hoi-thao-quoc-gia-ve-tri-tue-nhan-tao-2026-proceedings-of-the-fisu-joint-conference-on-artificial-intelligence-2026-fjcai-2026-r1881.html" target="_blank" rel="noopener">Proceedings ↗</a></div>
+        </div>
+        <div data-news="" data-row="" style="display:grid; grid-template-columns:5rem 16px minmax(0,1fr); gap:0 14px; padding:10px 10px 10px 4px; border-radius:3px; transition:background 240ms ease, transform 240ms ease; animation:newsIn 620ms cubic-bezier(0.2,0.7,0.2,1) both; animation-delay:480ms;">
+          <div data-date="" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px; transition:color 240ms ease;">Feb 2026</div>
+          <div style="position:relative; display:flex; justify-content:center;">
+            <div data-rail="" style="position:absolute; top:9px; bottom:-16px; width:1px; background:var(--rule);"></div>
+            <div data-dot="" style="position:relative; margin-top:5px; width:7px; height:7px; flex:none; border-radius:50%; background:var(--bg); border:1px solid var(--faint); transition:background 240ms ease, border-color 240ms ease, transform 240ms ease;"></div>
+          </div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Profiled by <em>Tiền Phong</em> newspaper on the January Star Award and research in AI for biomedical data at the University of Sydney. <a href="https://tienphong.vn/sao-thang-gieng-va-hanh-trinh-khai-mo-tri-thuc-ket-noi-o-xu-so-kangaroo-post1821795.tpo" target="_blank" rel="noopener">Read the article ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" style="padding:56px 0 0;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:18px;">
+        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Publications</h2>
+        <div style="flex:1; height:1px; background:var(--rule);"></div>
+      </div>
+      <p style="margin:0 0 22px; font-size:13px; line-height:1.6; color:var(--faint);">† Equal contribution. My name appears in bold. Quartiles: SCImago (SJR) 2025; ranks: CORE.</p>
+
+      <div data-pubs="" id="pubs" data-filter="all">
+
+        <div style="display:flex; flex-wrap:wrap; gap:7px; margin-bottom:8px;">
+          <button data-topic="all" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">All</button>
+          <button data-topic="multimodal" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">Multimodal</button>
+          <button data-topic="graph" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">Graph learning</button>
+          <button data-topic="spatial" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">Spatial omics</button>
+          <button data-topic="imaging" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">Medical imaging</button>
+        </div>
+
+        <div data-group="">
+          <h3 style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin:34px 0 0;">Journal publications</h3>
+
+          <div data-pub="" data-topics="multimodal imaging" style="display:grid; grid-template-columns:3.2rem minmax(0,1fr); gap:0 14px; padding:20px 0; border-top:1px solid var(--rule);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--faint); letter-spacing:0.04em; padding-top:6px;">[J1]</div>
+            <div>
+              <div style="font-family:'Newsreader',serif; font-size:16px; line-height:1.4; color:var(--ink); margin-bottom:7px;">Discrimination was retained but calibration was not: development and external evaluation of a multimodal deep-learning model for breast cancer receptor classification</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); margin-bottom:5px;"><strong style="color:var(--ink); font-weight:600;">B. M. Tran</strong><sup>†</sup>, V. A. Nguyen<sup>†</sup>, L. H. Nguyen, Q. A. Dang, N. M. H. Nguyen, Q. A. Nguyen, T. B. V. Nguyen, D. H. Tran</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); font-style:italic;">BMC Medical Informatics and Decision Making, 2026</div>
+              <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase;">
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">SJR Q1</span>
+                <span style="border:1px solid var(--accent); background:var(--accent-soft); border-radius:2px; padding:4px 7px; color:var(--accent); font-weight:500;">Under review</span>
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">Co-first author</span>
+              </div>
+              <details style="margin-top:12px;">
+                <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-block; padding:3px 0;">Abstract &amp; citation</summary>
+                <div style="margin-top:12px; padding-left:16px; border-left:2px solid var(--rule);">
+                  <p style="margin:0 0 12px; font-size:14px; line-height:1.62; color:var(--muted);">Development and external evaluation of a multimodal deep-learning model for breast cancer receptor classification, extending the framework reported in <a href="#publications">[C1]</a>. Abstract available on request while the manuscript is under review.</p>
+                  <pre data-bibtex="" style="margin:0 0 10px; font-family:'IBM Plex Mono',monospace; font-size:11px; line-height:1.65; color:var(--muted); background:var(--surface); border:1px solid var(--rule); border-radius:2px; padding:12px 14px; overflow-x:auto; max-width:100%; white-space:pre;">@article{tran2026calibration,
+  author  = {B. M. Tran and V. A. Nguyen and L. H. Nguyen and Q. A. Dang
+             and N. M. H. Nguyen and Q. A. Nguyen and T. B. V. Nguyen
+             and D. H. Tran},
+  title   = {Discrimination was retained but calibration was not: development
+             and external evaluation of a multimodal deep-learning model for
+             breast cancer receptor classification},
+  journal = {BMC Medical Informatics and Decision Making},
+  year    = {2026},
+  note    = {Under review}
+}</pre>
+                  <button data-copy="" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">Copy BibTeX</button>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <div data-pub="" data-topics="graph" style="display:grid; grid-template-columns:3.2rem minmax(0,1fr); gap:0 14px; padding:20px 0; border-top:1px solid var(--rule);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--faint); letter-spacing:0.04em; padding-top:6px;">[J2]</div>
+            <div>
+              <div style="font-family:'Newsreader',serif; font-size:16px; line-height:1.4; color:var(--ink); margin-bottom:7px;">H2F-GCN: Skeleton-based Hypergraph Frequency Coordinate Fusion Graph Convolution Network for Physical Rehabilitation Assessment</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); margin-bottom:5px;"><strong style="color:var(--ink); font-weight:600;">B. M. Tran</strong>, D. Q.-A. Nguyen, M.-H. Ha, D. M. Pham, T. D. Nguyen, Q. B. Doan, D. T. Doan, M.-A. Nguyen, D.-T. Nguyen, O. T.-C. Chen</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); font-style:italic;">IEEE Access, 2026</div>
+              <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase;">
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">SJR Q1</span>
+                <span style="border:1px solid var(--accent); background:var(--accent-soft); border-radius:2px; padding:4px 7px; color:var(--accent); font-weight:500;">Under review</span>
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">First author</span>
+              </div>
+              <details style="margin-top:12px;">
+                <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-block; padding:3px 0;">Abstract &amp; citation</summary>
+                <div style="margin-top:12px; padding-left:16px; border-left:2px solid var(--rule);">
+                  <p style="margin:0 0 12px; font-size:13.5px; line-height:1.62; color:var(--muted);">Abstract available on request while the manuscript is under review.</p>
+                  <pre data-bibtex="" style="margin:0 0 10px; font-family:'IBM Plex Mono',monospace; font-size:11px; line-height:1.65; color:var(--muted); background:var(--surface); border:1px solid var(--rule); border-radius:2px; padding:12px 14px; overflow-x:auto; max-width:100%; white-space:pre;">@article{tran2026h2fgcn,
+  author  = {B. M. Tran and D. Q.-A. Nguyen and M.-H. Ha and D. M. Pham
+             and T. D. Nguyen and Q. B. Doan and D. T. Doan and M.-A. Nguyen
+             and D.-T. Nguyen and O. T.-C. Chen},
+  title   = {{H2F-GCN}: Skeleton-based Hypergraph Frequency Coordinate Fusion
+             Graph Convolution Network for Physical Rehabilitation Assessment},
+  journal = {IEEE Access},
+  year    = {2026},
+  note    = {Under review}
+}</pre>
+                  <button data-copy="" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">Copy BibTeX</button>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <div data-pub="" data-topics="graph" style="display:grid; grid-template-columns:3.2rem minmax(0,1fr); gap:0 14px; padding:20px 0; border-top:1px solid var(--rule);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--faint); letter-spacing:0.04em; padding-top:6px;">[J3]</div>
+            <div>
+              <div style="font-family:'Newsreader',serif; font-size:16px; line-height:1.4; color:var(--ink); margin-bottom:7px;">Dual-Stream Contrastive Graph Representation Learning for lncRNA–Disease Association Prediction</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); margin-bottom:5px;">L. H. Nguyen, <strong style="color:var(--ink); font-weight:600;">B. M. Tran</strong>, D. H. Tran</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); font-style:italic;">Vietnam Journal of Computer Science, 2026 — invited journal extension of [C3]</div>
+              <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase;">
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">SJR Q3</span>
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">WoS ESCI</span>
+                <span style="border:1px solid var(--accent); background:var(--accent-soft); border-radius:2px; padding:4px 7px; color:var(--accent); font-weight:500;">Under review</span>
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">Invited</span>
+              </div>
+              <details style="margin-top:12px;">
+                <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-block; padding:3px 0;">Abstract &amp; citation</summary>
+                <div style="margin-top:12px; padding-left:16px; border-left:2px solid var(--rule);">
+                  <p style="margin:0 0 12px; font-size:13.5px; line-height:1.62; color:var(--muted);">Extended journal version of the FJCAI 2026 paper [C3] on dual-stream contrastive graph representation learning for lncRNA–disease association prediction. Abstract available on request while under review.</p>
+                  <pre data-bibtex="" style="margin:0 0 10px; font-family:'IBM Plex Mono',monospace; font-size:11px; line-height:1.65; color:var(--muted); background:var(--surface); border:1px solid var(--rule); border-radius:2px; padding:12px 14px; overflow-x:auto; max-width:100%; white-space:pre;">@article{nguyen2026dualstreamjournal,
+  author  = {L. H. Nguyen and B. M. Tran and D. H. Tran},
+  title   = {Dual-Stream Contrastive Graph Representation Learning for
+             {lncRNA}--Disease Association Prediction},
+  journal = {Vietnam Journal of Computer Science},
+  year    = {2026},
+  note    = {Under review}
+}</pre>
+                  <button data-copy="" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">Copy BibTeX</button>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <div data-pub="" data-topics="imaging" style="display:grid; grid-template-columns:3.2rem minmax(0,1fr); gap:0 14px; padding:20px 0; border-top:1px solid var(--rule);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--faint); letter-spacing:0.04em; padding-top:6px;">[J4]</div>
+            <div>
+              <div style="font-family:'Newsreader',serif; font-size:16px; line-height:1.4; color:var(--ink); margin-bottom:7px;">GRAU++: An Efficient Lightweight Ghost-Residual-Attention U-Net++ Architecture for Automated Angle of Progression Biometry</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); margin-bottom:5px;">M.-H. Ha, X.-H. Le, A.-T. Dang, D.-P. Dao, H.-M.-D. Vu, D.-T. Kim, <strong style="color:var(--ink); font-weight:600;">B. M. Tran</strong>, O. T.-C. Chen</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); font-style:italic;">EAI Endorsed Transactions on AI and Robotics, 2026</div>
+              <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase;">
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">SJR Q1</span>
+                <span style="border:1px solid var(--accent); background:var(--accent-soft); border-radius:2px; padding:4px 7px; color:var(--accent); font-weight:500;">Under review</span>
+              </div>
+              <details style="margin-top:12px;">
+                <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-block; padding:3px 0;">Abstract &amp; citation</summary>
+                <div style="margin-top:12px; padding-left:16px; border-left:2px solid var(--rule);">
+                  <p style="margin:0 0 12px; font-size:13.5px; line-height:1.62; color:var(--muted);">Abstract available on request while the manuscript is under review.</p>
+                  <pre data-bibtex="" style="margin:0 0 10px; font-family:'IBM Plex Mono',monospace; font-size:11px; line-height:1.65; color:var(--muted); background:var(--surface); border:1px solid var(--rule); border-radius:2px; padding:12px 14px; overflow-x:auto; max-width:100%; white-space:pre;">@article{ha2026grau,
+  author  = {M.-H. Ha and X.-H. Le and A.-T. Dang and D.-P. Dao
+             and H.-M.-D. Vu and D.-T. Kim and B. M. Tran and O. T.-C. Chen},
+  title   = {{GRAU++}: An Efficient Lightweight Ghost-Residual-Attention
+             {U-Net++} Architecture for Automated Angle of Progression Biometry},
+  journal = {EAI Endorsed Transactions on AI and Robotics},
+  year    = {2026},
+  note    = {Under review}
+}</pre>
+                  <button data-copy="" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">Copy BibTeX</button>
+                </div>
+              </details>
+            </div>
+          </div>
+
+        </div>
+
+        <div data-group="">
+          <h3 style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin:38px 0 0;">Peer-reviewed conference publications</h3>
+
+          <div data-pub="" data-topics="multimodal imaging" style="display:grid; grid-template-columns:3.2rem minmax(0,1fr); gap:0 14px; padding:20px 0; border-top:1px solid var(--rule);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--faint); letter-spacing:0.04em; padding-top:6px;">[C1]</div>
+            <div>
+              <div style="font-family:'Newsreader',serif; font-size:16px; line-height:1.4; color:var(--ink); margin-bottom:7px;">A Multimodal Deep Learning Framework for Breast Cancer Receptor Status Prediction</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); margin-bottom:5px;"><strong style="color:var(--ink); font-weight:600;">B. M. Tran</strong><sup>†</sup>, V. A. Nguyen<sup>†</sup>, L. H. Nguyen, Q. A. Dang, N. M. H. Nguyen, Q. A. Nguyen, H. N. Tran, T. B. V. Nguyen, D. H. Tran</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); font-style:italic;">12th International Symposium on Integrated Uncertainty in Knowledge Modelling and Decision Making (IUKM 2026), Quy Nhon, Vietnam — Springer LNAI</div>
+              <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase;">
+                <span style="border:1px solid var(--accent); background:var(--accent); border-radius:2px; padding:4px 7px; color:var(--bg); font-weight:500;">Accepted</span>
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">Springer LNAI</span>
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">Co-first author</span>
+              </div>
+              <details style="margin-top:12px;">
+                <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-block; padding:3px 0;">Abstract &amp; citation</summary>
+                <div style="margin-top:12px; padding-left:16px; border-left:2px solid var(--rule);">
+                  <p style="margin:0 0 12px; font-size:13.5px; line-height:1.62; color:var(--muted);">A multimodal, multitask deep-learning framework integrating clinical variables, H&amp;E whole-slide images and tumour RNA-seq for joint ER, PR and HER2 prediction. Patient-level stratified five-fold cross-validation on 937 TCGA-BRCA cases reached macro AUC 0.890 (ER 0.954, PR 0.868, HER2 0.848); frozen external testing on 122 CPTAC-BRCA cases, without retraining, tuning or threshold adjustment, reached macro AUC 0.931.</p>
+                  <pre data-bibtex="" style="margin:0 0 10px; font-family:'IBM Plex Mono',monospace; font-size:11px; line-height:1.65; color:var(--muted); background:var(--surface); border:1px solid var(--rule); border-radius:2px; padding:12px 14px; overflow-x:auto; max-width:100%; white-space:pre;">@inproceedings{tran2026multimodal,
+  author    = {B. M. Tran and V. A. Nguyen and L. H. Nguyen and Q. A. Dang
+               and N. M. H. Nguyen and Q. A. Nguyen and H. N. Tran
+               and T. B. V. Nguyen and D. H. Tran},
+  title     = {A Multimodal Deep Learning Framework for Breast Cancer
+               Receptor Status Prediction},
+  booktitle = {Proc. 12th Int. Symp. on Integrated Uncertainty in Knowledge
+               Modelling and Decision Making (IUKM)},
+  series    = {Lecture Notes in Artificial Intelligence},
+  publisher = {Springer},
+  address   = {Quy Nhon, Vietnam},
+  month     = sep,
+  year      = {2026},
+  note      = {Accepted, to appear}
+}</pre>
+                  <button data-copy="" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">Copy BibTeX</button>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <div data-pub="" data-topics="graph" style="display:grid; grid-template-columns:3.2rem minmax(0,1fr); gap:0 14px; padding:20px 0; border-top:1px solid var(--rule);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--faint); letter-spacing:0.04em; padding-top:6px;">[C2]</div>
+            <div>
+              <div style="font-family:'Newsreader',serif; font-size:16px; line-height:1.4; color:var(--ink); margin-bottom:7px;">A Variational Graph Neural Network with Multi-view Integration for Predicting lncRNA–Disease Associations</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); margin-bottom:5px;">L. H. Nguyen, <strong style="color:var(--ink); font-weight:600;">B. M. Tran</strong>, D. H. Tran</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); font-style:italic;">Recent Challenges in Intelligent Information and Database Systems (ACIIDS 2026), CCIS vol. 2964, Springer, pp. 355–369, 2026</div>
+              <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase; align-items:center;">
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">CORE B</span>
+                <span style="border:1px solid var(--ink); background:var(--ink); border-radius:2px; padding:4px 7px; color:var(--bg); font-weight:500;">Published</span>
+                <a href="https://doi.org/10.1007/978-981-92-0068-9_24" target="_blank" rel="noopener" style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--accent);" class="badge-link">DOI ↗</a>
+              </div>
+              <details style="margin-top:12px;">
+                <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-block; padding:3px 0;">Abstract &amp; citation</summary>
+                <div style="margin-top:12px; padding-left:16px; border-left:2px solid var(--rule);">
+                  <p style="margin:0 0 12px; font-size:13.5px; line-height:1.62; color:var(--muted);">A variational graph neural network that integrates multiple views of lncRNA and disease similarity to predict lncRNA–disease associations. Published in the ACIIDS 2026 proceedings (CORE B).</p>
+                  <pre data-bibtex="" style="margin:0 0 10px; font-family:'IBM Plex Mono',monospace; font-size:11px; line-height:1.65; color:var(--muted); background:var(--surface); border:1px solid var(--rule); border-radius:2px; padding:12px 14px; overflow-x:auto; max-width:100%; white-space:pre;">@inproceedings{nguyen2026variational,
+  author    = {L. H. Nguyen and B. M. Tran and D. H. Tran},
+  title     = {A Variational Graph Neural Network with Multi-view Integration
+               for Predicting {lncRNA}--Disease Associations},
+  booktitle = {Recent Challenges in Intelligent Information and Database
+               Systems (ACIIDS)},
+  series    = {Communications in Computer and Information Science},
+  volume    = {2964},
+  publisher = {Springer},
+  pages     = {355--369},
+  year      = {2026},
+  doi       = {10.1007/978-981-92-0068-9_24}
+}</pre>
+                  <button data-copy="" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">Copy BibTeX</button>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <div data-pub="" data-topics="graph" style="display:grid; grid-template-columns:3.2rem minmax(0,1fr); gap:0 14px; padding:20px 0; border-top:1px solid var(--rule);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--faint); letter-spacing:0.04em; padding-top:6px;">[C3]</div>
+            <div>
+              <div style="font-family:'Newsreader',serif; font-size:16px; line-height:1.4; color:var(--ink); margin-bottom:7px;">Dual-Stream Contrastive Graph Representation Learning for lncRNA–Disease Association Prediction</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); margin-bottom:5px;">L. H. Nguyen, <strong style="color:var(--ink); font-weight:600;">B. M. Tran</strong>, D. H. Tran</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); font-style:italic;">FISU Joint Conference on Artificial Intelligence (FJCAI 2026), Can Tho, Vietnam, pp. 151–158</div>
+              <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase;">
+                <span style="border:1px solid var(--ink); background:var(--ink); border-radius:2px; padding:4px 7px; color:var(--bg); font-weight:500;">Published</span>
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">Extended in [J3]</span>
+                <a href="https://ebook365.vn/ky-yeu-hoi-thao-quoc-gia-ve-tri-tue-nhan-tao-2026-proceedings-of-the-fisu-joint-conference-on-artificial-intelligence-2026-fjcai-2026-r1881.html" target="_blank" rel="noopener" style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--accent);" class="badge-link">Proceedings ↗</a>
+              </div>
+              <details style="margin-top:12px;">
+                <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-block; padding:3px 0;">Abstract &amp; citation</summary>
+                <div style="margin-top:12px; padding-left:16px; border-left:2px solid var(--rule);">
+                  <p style="margin:0 0 12px; font-size:13.5px; line-height:1.62; color:var(--muted);">A dual-stream contrastive graph representation learning approach to lncRNA–disease association prediction, presented at FJCAI 2026 and invited for journal extension as [J3].</p>
+                  <pre data-bibtex="" style="margin:0 0 10px; font-family:'IBM Plex Mono',monospace; font-size:11px; line-height:1.65; color:var(--muted); background:var(--surface); border:1px solid var(--rule); border-radius:2px; padding:12px 14px; overflow-x:auto; max-width:100%; white-space:pre;">@inproceedings{nguyen2026dualstream,
+  author    = {L. H. Nguyen and B. M. Tran and D. H. Tran},
+  title     = {Dual-Stream Contrastive Graph Representation Learning for
+               {lncRNA}--Disease Association Prediction},
+  booktitle = {Proc. FISU Joint Conference on Artificial Intelligence (FJCAI)},
+  address   = {Can Tho, Vietnam},
+  pages     = {151--158},
+  month     = mar,
+  year      = {2026},
+  isbn      = {978-604-45-2586-0}
+}</pre>
+                  <button data-copy="" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">Copy BibTeX</button>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <div data-pub="" data-topics="spatial multimodal" style="display:grid; grid-template-columns:3.2rem minmax(0,1fr); gap:0 14px; padding:20px 0; border-top:1px solid var(--rule);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--faint); letter-spacing:0.04em; padding-top:6px;">[C4]</div>
+            <div>
+              <div style="font-family:'Newsreader',serif; font-size:16px; line-height:1.4; color:var(--ink); margin-bottom:7px;">HiNT-Surv: Hierarchical Niche-Aware Multi-Microenvironment Learning from Imaging Mass Cytometry for Survival Prediction</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); margin-bottom:5px;"><strong style="color:var(--ink); font-weight:600;">B. M. Tran</strong>, L. Zhang, X. Wang</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); font-style:italic;">IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), IEEE SSCI 2027</div>
+              <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase;">
+                <span style="border:1px solid var(--accent); background:var(--accent-soft); border-radius:2px; padding:4px 7px; color:var(--accent); font-weight:500;">Under review</span>
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">First author</span>
+                <span style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--muted);">Honours thesis</span>
+              </div>
+              <details style="margin-top:12px;">
+                <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-block; padding:3px 0;">Abstract &amp; citation</summary>
+                <div style="margin-top:12px; padding-left:16px; border-left:2px solid var(--rule);">
+                  <p style="margin:0 0 12px; font-size:13.5px; line-height:1.62; color:var(--muted);">HiNT-Surv fuses imaging mass cytometry with clinicopathologic and gene-level variables for breast-cancer survival prediction, evaluated on 404 METABRIC and 285 Basel patients. Harrell's C-index 0.740 ± 0.020 and 0.734 ± 0.030 under patient-level cross-validation; cross-cohort transfer without fine-tuning reached 0.697 against 0.631 for the strongest published comparator.</p>
+                  <pre data-bibtex="" style="margin:0 0 10px; font-family:'IBM Plex Mono',monospace; font-size:11px; line-height:1.65; color:var(--muted); background:var(--surface); border:1px solid var(--rule); border-radius:2px; padding:12px 14px; overflow-x:auto; max-width:100%; white-space:pre;">@inproceedings{tran2027hintsurv,
+  author    = {B. M. Tran and L. Zhang and X. Wang},
+  title     = {{HiNT-Surv}: Hierarchical Niche-Aware Multi-Microenvironment
+               Learning from Imaging Mass Cytometry for Survival Prediction},
+  booktitle = {IEEE Symp. on Computational Intelligence in Health and Medicine
+               (CIHM), IEEE Symposium Series on Computational Intelligence},
+  year      = {2027},
+  note      = {Under review}
+}</pre>
+                  <button data-copy="" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 9px; cursor:pointer;">Copy BibTeX</button>
+                </div>
+              </details>
+            </div>
+          </div>
+
+        </div>
+
+        <div data-group="">
+          <h3 style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin:38px 0 0;">Other publications</h3>
+          <div data-pub="" data-topics="other" style="display:grid; grid-template-columns:3.2rem minmax(0,1fr); gap:0 14px; padding:20px 0; border-top:1px solid var(--rule);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--faint); letter-spacing:0.04em; padding-top:6px;">[O1]</div>
+            <div>
+              <div style="font-family:'Newsreader',serif; font-size:16px; line-height:1.4; color:var(--ink); margin-bottom:7px;">Promoting the Role of Overseas Vietnamese Youth in Protecting the Party's Ideological Foundation in the Digital Space</div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); margin-bottom:5px;"><strong style="color:var(--ink); font-weight:600;">B. M. Tran</strong></div>
+              <div style="font-size:13px; line-height:1.55; color:var(--muted); font-style:italic;">State Management Review, 17 Aug 2026 — in Vietnamese</div>
+              <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase;">
+                <a href="https://www.quanlynhanuoc.vn/2026/08/17/phat-huy-vai-tro-cua-thanh-nien-viet-nam-o-nuoc-ngoai-trong-bao-ve-nen-tang-tu-tuong-cua-dang-tren-khong-gian-so/" target="_blank" rel="noopener" style="border:1px solid var(--rule); border-radius:2px; padding:4px 7px; color:var(--accent);" class="badge-link">Full text ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="research" style="padding:60px 0 0;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:26px;">
+        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Experience</h2>
+        <div style="flex:1; height:1px; background:var(--rule);"></div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:34px;">
+
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Feb 2026<br>– Present</div>
+          <div>
+            <h3 style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Honours Research Student</h3>
+            <p style="margin:0 0 14px; font-size:13.5px; line-height:1.5; color:var(--muted);">School of Computer Science, The University of Sydney · Supervisor: A/Prof Xiuying Wang</p>
+            <details data-exp="" open="">
+              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more="">Details</span><span data-less="">Hide details</span></summary>
+              <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
+                <li>Designed <strong style="font-weight:600;">HiNT-Surv</strong>, a hierarchical niche-aware model that fuses imaging mass cytometry (IMC) with clinicopathologic and gene-level variables for survival prediction; evaluated on 404 METABRIC and 285 Basel patients (834 tissue cores, 50- and 52-marker panels).</li>
+                <li>Parameterised the encoder by antigen identity rather than fixed channel order, so a model trained on one antibody panel transfers to another; kept all preprocessing and label-free pretraining inside each outer fold's training partition to prevent patient-level leakage.</li>
+                <li>Reached Harrell's C-index 0.740 ± 0.020 (METABRIC) and 0.734 ± 0.030 (Basel) under patient-level cross-validation — gains of 0.028 and 0.057 over the clinical Cox-PH baseline — with median-risk stratification separating Kaplan–Meier curves in both cohorts (two-sided log-rank p &lt; 10⁻⁴).</li>
+                <li>Trained on METABRIC and evaluated on Basel without target-cohort fine-tuning, reaching C-index 0.697 against 0.631 for the strongest published comparator, with a smaller source-to-target decrease (0.043 vs 0.081).</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Dec 2025<br>– Present</div>
+          <div>
+            <h3 style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Research Collaborator</h3>
+            <p style="margin:0 0 14px; font-size:13.5px; line-height:1.5; color:var(--muted);">Department of Obstetrics &amp; Gynaecology, Hanoi Medical University</p>
+            <details data-exp="">
+              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more="">Details</span><span data-less="">Hide details</span></summary>
+              <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
+                <li>Co-developed a multimodal, multitask deep-learning framework integrating clinical variables, H&amp;E whole-slide images and tumour RNA-seq for joint ER, PR and HER2 prediction; reported in <a href="#publications">[C1]</a>.</li>
+                <li>Evaluated with patient-level stratified five-fold cross-validation on 937 TCGA-BRCA cases (macro AUC 0.890; ER 0.954, PR 0.868, HER2 0.848) and frozen external testing on 122 CPTAC-BRCA cases without retraining, tuning or threshold adjustment (macro AUC 0.931).</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Dec 2025<br>– Mar 2026</div>
+          <div>
+            <h3 style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Research Assistant</h3>
+            <p style="margin:0 0 14px; font-size:13.5px; line-height:1.5; color:var(--muted);">Center for Biomedical and Pharmaceutical Research, Vietnam Academy of Science and Technology (VAST)</p>
+            <details data-exp="">
+              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more="">Details</span><span data-less="">Hide details</span></summary>
+              <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
+                <li>Applied reproducible NGS preprocessing and annotation workflows (FastQC, Trimmomatic, genome assembly, gene prediction and functional annotation) to mutation and microbial gene-function analyses.</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+
+
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Dec 2024<br>– Mar 2025</div>
+          <div>
+            <h3 style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Data Engineer Intern — Viettel Software</h3>
+            <details data-exp="">
+              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more="">Details</span><span data-less="">Hide details</span></summary>
+              <p style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Built and maintained Python/SQL ETL pipelines for operational datasets; contributed to data-quality monitoring, schema design and query/pipeline performance tuning supporting analytics teams.</p>
+            </details>
+          </div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Jun 2024<br>– Jul 2024</div>
+          <div>
+            <h3 style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Data Engineer Intern — Agribank</h3>
+            <details data-exp="">
+              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more="">Details</span><span data-less="">Hide details</span></summary>
+              <p style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Supported ETL of banking datasets into reporting systems; contributed to dashboards and operational reports used by internal stakeholders.</p>
+            </details>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="projects" style="padding:60px 0 0;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:26px;">
+        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Research projects</h2>
+        <div style="flex:1; height:1px; background:var(--rule);"></div>
+      </div>
+      <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Dec 2026<br>– Nov 2027</div>
+        <div>
+          <h3 style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.32; margin:0 0 10px; color:var(--ink);">Development and Calibration of an AI Model for Individualised Post-Test Probability after High-Risk NIPT (Trisomy 21, 18 and 13)</h3>
+          <details data-exp="">
+            <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more="">Details</span><span data-less="">Hide details</span></summary>
+            <ul style="margin:0 0 14px; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
+              <li>Role: designing and calibrating the probability model — a retrospective cohort of high-risk NIPT referrals, converting a screen-positive label into an individualised probability of confirmed fetal aneuploidy from signed Z-score, fetal fraction and assay platform.</li>
+            </ul>
+            <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Principal investigator: Nguyen Van An. Supervisor: Nguyen Thi Bich Van, MD, PhD, Department of Obstetrics &amp; Gynaecology, Hanoi Medical University. Institutional research scheme, 12 months, total budget 10,000,000 VND — proposal submitted.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" style="padding:60px 0 0;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:24px;">
+        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Awards &amp; scholarships</h2>
+        <div style="flex:1; height:1px; background:var(--rule);"></div>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2025</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Certificate of Merit from the <strong style="font-weight:600;">Central Committee of the Ho Chi Minh Communist Youth Union</strong>.</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2025 ×2<br>2026</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Certificate of Merit from the <strong style="font-weight:600;">Central Committee of the Vietnam National Union of Students</strong> — awarded twice in 2025 and again in 2026.</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2026</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">Ambassador Extraordinary and Plenipotentiary of the Socialist Republic of Vietnam to Australia</strong>.</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2025</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">Consulate General of Vietnam in Sydney</strong>.</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2026</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">Executive Committee of the Party Organisation in Australia</strong>.</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2026</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">President of Hanoi Medical University</strong>.</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2025<br>2026</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">Executive Committee of the Vietnamese Students’ Association in Australia</strong>.</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2025</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">January Star Award</strong> (Giải thưởng Sao Tháng Giêng), Vietnam National Union of Students.</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2026</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Second Prize</strong>, Vietnamese Young Intellectuals Forum in Australia.</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2026</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Third Prize</strong>, Youth Science and Technology Conference, Hanoi Medical University — the work was subsequently selected to be presented and to compete at the 23rd Youth Science and Technology Conference of the Health Sector in 2026.</div>
+        </div>
+        <h3 style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin:30px 0 6px;">Scholarships</h3>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2023–2026</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Sydney International Student Award</strong>, The University of Sydney — merit-based tuition scholarship awarded at admission and held for the full degree.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" style="padding:60px 0 0;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:26px;">
+        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Education</h2>
+        <div style="flex:1; height:1px; background:var(--rule);"></div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:28px;">
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Feb 2023<br>– Dec 2026</div>
+          <div>
+            <h3 style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Bachelor of Advanced Computing (Honours), Computational Data Science</h3>
+            <p style="margin:0 0 12px; font-size:13.5px; line-height:1.5; color:var(--muted);">The University of Sydney, Sydney, Australia</p>
+            <p style="margin:0 0 8px; font-size:13.5px; line-height:1.62; color:var(--ink);">Thesis: “Hierarchical Niche-Aware Multimodal Learning for Breast Cancer Survival Prediction Using Imaging Mass Cytometry, Clinicopathologic Variables, and Gene-Level Data”, supervised by Associate Professor Xiuying Wang.</p>
+            <p style="margin:0; font-size:13.5px; line-height:1.6; color:var(--muted);">Cumulative WAM 82/100 (Distinction). First Class Honours expected; mark and class released December 2026.</p>
+          </div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">2019 – 2022</div>
+          <div>
+            <h3 style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">High School Diploma, Specialised Physics Programme</h3>
+            <p style="margin:0 0 12px; font-size:13.5px; line-height:1.5; color:var(--muted);">HUS High School for Gifted Students (HSGS), VNU University of Science, Vietnam National University, Hanoi</p>
+            <p style="margin:0; font-size:13.5px; line-height:1.6; color:var(--muted);">GPA 9.5/10. Outstanding academic achievement award, academic years 2019–2022.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" style="padding:60px 0 0;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:22px;">
+        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Technical skills</h2>
+        <div style="flex:1; height:1px; background:var(--rule);"></div>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Programming</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Python, R, SQL, Bash</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Deep learning</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">PyTorch, PyTorch Geometric, scikit-learn</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Methods</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Graph neural networks, self-supervised and contrastive learning, multimodal fusion, survival modelling</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Evaluation</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Patient-level stratified cross-validation, bootstrap confidence intervals, paired hypothesis testing, multiple-testing correction, effect-size analysis, external validation</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Biomedical data</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Spatial single-cell IMC, RNA-seq / gene expression, histopathology whole-slide images</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Research computing</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Git, Linux, experiment tracking</div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Languages</div>
+          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Vietnamese (native); English (fluent — all tertiary study in English)</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="service" style="padding:60px 0 0;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:26px;">
+        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Leadership &amp; service</h2>
+        <div style="flex:1; height:1px; background:var(--rule);"></div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:26px;">
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Mar 2026<br>– Present</div>
+          <div>
+            <h3 style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Chief of Administrative Office — Vietnamese Students in Australia (SVAU)</h3>
+            <p style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Manage administrative operations, advisory functions and student science and technology activities.</p>
+          </div>
+        </div>
+        <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Mar 2026<br>– Present</div>
+          <div>
+            <h3 style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Executive Committee Member — Vietnam–Australia Innovation Network (NIC-AU)</h3>
+            <p style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Support network governance and initiatives linking Vietnamese researchers in Australia with the Vietnam innovation ecosystem.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="references" style="padding:60px 0 0;">
+        <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:24px;">
+          <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">References</h2>
+          <div style="flex:1; height:1px; background:var(--rule);"></div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:24px;">
+          <div>
+            <h3 style="font-family:'Newsreader',serif; font-size:16px; font-weight:400; line-height:1.3; margin:0 0 6px; color:var(--ink);">A/Prof Xiuying Wang</h3>
+            <p style="margin:0 0 6px; font-size:13.5px; line-height:1.55; color:var(--muted);">School of Computer Science, The University of Sydney, Australia</p>
+            <a href="mailto:xiu.wang@sydney.edu.au" style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.02em; display:inline-block;">xiu.wang@sydney.edu.au</a>
+          </div>
+          <div>
+            <h3 style="font-family:'Newsreader',serif; font-size:16px; font-weight:400; line-height:1.3; margin:0 0 6px; color:var(--ink);">A/Prof Dang Hung Tran</h3>
+            <p style="margin:0 0 6px; font-size:13.5px; line-height:1.55; color:var(--muted);">Hanoi University of Industry, Hanoi, Vietnam</p>
+            <a href="mailto:hungtd@haui.edu.vn" style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.02em; display:inline-block;">hungtd@haui.edu.vn</a>
+          </div>
+          <div>
+            <h3 style="font-family:'Newsreader',serif; font-size:16px; font-weight:400; line-height:1.3; margin:0 0 6px; color:var(--ink);">Dr Manh Hung Ha</h3>
+            <p style="margin:0 0 6px; font-size:13.5px; line-height:1.55; color:var(--muted);">Faculty of Applied Sciences, International School, Vietnam National University, Hanoi</p>
+            <a href="mailto:hunghm@vnu.edu.vn" style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.02em; display:inline-block;">hunghm@vnu.edu.vn</a>
+          </div>
+        </div>
+      </section>
+
+    <section id="contact" style="margin-top:64px; padding:40px 0 0; border-top:1px solid var(--rule);">
+      <div data-row="" style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+        <div>
+          <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0 0 16px;">Contact</h2>
+          <p style="margin:0 0 10px; font-size:14px; line-height:1.6; color:var(--ink);">I am happy to hear from prospective supervisors, collaborators and anyone working on multimodal or spatial biomedical data.</p>
+          <div style="display:flex; flex-direction:column; align-items:flex-start; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.7;">
+            <a href="mailto:btra8435@uni.sydney.edu.au">btra8435@uni.sydney.edu.au</a>
+            <a href="mailto:binhminhtran.203@gmail.com">binhminhtran.203@gmail.com</a>
+            <span style="color:var(--muted);">+61 413 688 993</span>
+            <span style="color:var(--muted);">Sydney, New South Wales, Australia</span>
+          </div>
+        </div>
+        <div>
+          <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0 0 16px;">Elsewhere</h2>
+          <div style="display:flex; flex-direction:column; align-items:flex-start; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.7;">
+            <a href="https://scholar.google.com/citations?user=AYgkeCkAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+            <a href="https://orcid.org/0009-0009-5601-6531" target="_blank" rel="noopener">ORCID 0009-0009-5601-6531 ↗</a>
+            <a href="https://linkedin.com/in/binhminh2003" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="uploads/Binh_Minh_Tran_CV_3.pdf" target="_blank" rel="noopener">Curriculum Vitae (PDF) ↓</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </main>
+  </div></div>
+<script>(function () {
+  'use strict';
+
+  var themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var root = document.documentElement;
+      var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try { localStorage.setItem('bmt-academic-theme', next); } catch (e) {}
+    });
+  }
+
+  var pubs = document.getElementById('pubs');
+  if (pubs) {
+    pubs.addEventListener('click', function (e) {
+      var topicBtn = e.target.closest('[data-topic]');
+      if (topicBtn) {
+        pubs.dataset.filter = topicBtn.getAttribute('data-topic');
+        return;
+      }
+
+      var copyBtn = e.target.closest('[data-copy]');
+      if (!copyBtn) return;
+      var pre = copyBtn.parentNode.querySelector('[data-bibtex]');
+      if (!pre) return;
+
+      var flash = function (label) {
+        copyBtn.textContent = label;
+        setTimeout(function () { copyBtn.textContent = 'Copy BibTeX'; }, 1800);
+      };
+      var selectFallback = function () {
+        try {
+          var range = document.createRange();
+          range.selectNodeContents(pre);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          var ok = document.execCommand && document.execCommand('copy');
+          flash(ok ? 'Copied' : 'Selected \u2014 press \u2318C');
+        } catch (err) {
+          flash('Select the text above');
+        }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pre.textContent).then(function () { flash('Copied'); }, selectFallback);
+      } else {
+        selectFallback();
+      }
+    });
+  }
+
+  var pairs = Array.prototype.slice.call(document.querySelectorAll('[data-navlink]'))
+    .map(function (a) { return { link: a, el: document.getElementById(a.getAttribute('href').slice(1)) }; })
+    .filter(function (p) { return p.el; });
+
+  var queued = false;
+  function syncActiveNav() {
+    queued = false;
+    var y = (window.scrollY || document.documentElement.scrollTop || 0) + 90;
+    var active = null;
+    pairs.forEach(function (p) {
+      var top = 0, node = p.el;
+      while (node) { top += node.offsetTop || 0; node = node.offsetParent; }
+      if (top <= y) active = p.link;
+    });
+    pairs.forEach(function (p) { p.link.dataset.navActive = String(p.link === active); });
+  }
+  function onScroll() { if (!queued) { queued = true; requestAnimationFrame(syncActiveNav); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  syncActiveNav();
+})();
+</script>
+</body>
+</html>
