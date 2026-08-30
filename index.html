@@ -12,7 +12,19 @@
     lang = localStorage.getItem('bmt-academic-lang');
   } catch (e) {}
   document.documentElement.dataset.theme = theme || 'light';
-  var l = (lang === 'vi') ? 'vi' : 'en';
+  var l = (lang === 'vi' || lang === 'en') ? lang : null;
+  if (!l) {
+    // No saved choice yet: follow the browser's preferred languages, first match wins.
+    var prefs = (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || ''];
+    for (var i = 0; i < prefs.length; i++) {
+      var tag = String(prefs[i]).toLowerCase();
+      if (tag === 'vi' || tag.indexOf('vi-') === 0) { l = 'vi'; break; }
+      if (tag === 'en' || tag.indexOf('en-') === 0) { l = 'en'; break; }
+    }
+    l = l || 'en';
+  }
   document.documentElement.dataset.lang = l;
   document.documentElement.lang = l;
 })();</script>
