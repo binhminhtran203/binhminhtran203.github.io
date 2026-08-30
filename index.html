@@ -6,9 +6,15 @@
 <title>Binh Minh Tran</title>
 <meta name="description" content="Binh Minh Tran — Honours student in Computational Data Science, School of Computer Science, The University of Sydney. Research in biomedical AI, graph learning, multimodal learning and spatial omics.">
 <script>(function () {
-  var theme = null;
-  try { theme = localStorage.getItem('bmt-academic-theme'); } catch (e) {}
+  var theme = null, lang = null;
+  try {
+    theme = localStorage.getItem('bmt-academic-theme');
+    lang = localStorage.getItem('bmt-academic-lang');
+  } catch (e) {}
   document.documentElement.dataset.theme = theme || 'light';
+  var l = (lang === 'vi') ? 'vi' : 'en';
+  document.documentElement.dataset.lang = l;
+  document.documentElement.lang = l;
 })();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -46,6 +52,8 @@ summary::marker{ content:""; }
 [data-navlink][data-nav-active="true"]{ color: var(--accent) !important; }
 html[data-theme="dark"] [data-theme-dark]{ display:none; }
 html:not([data-theme="dark"]) [data-theme-light]{ display:none; }
+html[data-lang="vi"] [data-en]{ display:none !important; }
+html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
 [data-pubs][data-filter="multimodal"] [data-pub]:not([data-topics~="multimodal"]),
 [data-pubs][data-filter="graph"] [data-pub]:not([data-topics~="graph"]),
 [data-pubs][data-filter="spatial"] [data-pub]:not([data-topics~="spatial"]),
@@ -88,7 +96,7 @@ html:not([data-theme="dark"]) [data-theme-light]{ display:none; }
 
 [data-navlink]:hover{ color: var(--ink) !important; }
 [data-news]:hover{ background: var(--accent-soft) !important; transform: translateX(3px) !important; }
-#theme-toggle:hover{ color: var(--ink) !important; border-color: var(--ink) !important; }
+#theme-toggle:hover, #lang-toggle:hover{ color: var(--ink) !important; border-color: var(--ink) !important; }
 .badge-link:hover{ border-color: var(--accent) !important; }
 </style>
 </head>
@@ -103,54 +111,69 @@ html:not([data-theme="dark"]) [data-theme-light]{ display:none; }
         <img data-portrait="" id="portrait" style="width:168px; height:168px; border-radius:50%; object-fit:cover;" src="uploads/portrait.jpg" alt="Portrait of Binh Minh Tran">
         <div>
           <h1 style="font-family:'Newsreader',serif; font-size:29px; font-weight:400; line-height:1.14; letter-spacing:-0.015em; margin:0 0 10px; color:var(--ink);">Binh Minh Tran</h1>
-          <p style="margin:0 0 4px; font-size:15.5px; line-height:1.45; color:var(--ink);">Honours Student, Computational Data Science</p>
-          <p style="margin:0; font-size:15px; line-height:1.45; color:var(--muted); font-style:italic;">School of Computer Science<br>The University of Sydney</p>
+          <p data-en="" style="margin:0 0 4px; font-size:15.5px; line-height:1.45; color:var(--ink);">Honours Student, Computational Data Science</p>
+          <p data-vi="" lang="vi" style="margin:0 0 4px; font-size:15.5px; line-height:1.45; color:var(--ink);">Sinh viên Honours, ngành Khoa học Dữ liệu Tính toán</p>
+          <p data-en="" style="margin:0; font-size:15px; line-height:1.45; color:var(--muted); font-style:italic;">School of Computer Science<br>The University of Sydney</p>
+          <p data-vi="" lang="vi" style="margin:0; font-size:15px; line-height:1.45; color:var(--muted); font-style:italic;">Khoa Khoa học Máy tính<br>Đại học Sydney</p>
         </div>
       </div>
 
       <nav style="display:flex; flex-direction:column; gap:1px; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:14px 0;">
-        <a data-navlink="" href="#about" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">About</a>
-        <a data-navlink="" href="#news" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">News</a>
-        <a data-navlink="" href="#publications" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Publications</a>
-        <a data-navlink="" href="#research" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Experience</a>
-        <a data-navlink="" href="#projects" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Projects</a>
-        <a data-navlink="" href="#awards" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Awards</a>
-        <a data-navlink="" href="#education" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Education</a>
-        <a data-navlink="" href="#skills" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Skills</a>
-        <a data-navlink="" href="#service" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Service</a>
-        <a data-navlink="" href="#contact" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;">Contact</a>
+        <a data-navlink="" href="#about" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;"><span data-en="">About</span><span data-vi="" lang="vi">Giới thiệu</span></a>
+        <a data-navlink="" href="#news" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;"><span data-en="">News</span><span data-vi="" lang="vi">Tin tức</span></a>
+        <a data-navlink="" href="#publications" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;"><span data-en="">Publications</span><span data-vi="" lang="vi">Công bố</span></a>
+        <a data-navlink="" href="#research" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;"><span data-en="">Experience</span><span data-vi="" lang="vi">Kinh nghiệm</span></a>
+        <a data-navlink="" href="#projects" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;"><span data-en="">Projects</span><span data-vi="" lang="vi">Đề tài</span></a>
+        <a data-navlink="" href="#awards" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;"><span data-en="">Awards</span><span data-vi="" lang="vi">Giải thưởng</span></a>
+        <a data-navlink="" href="#education" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;"><span data-en="">Education</span><span data-vi="" lang="vi">Học vấn</span></a>
+        <a data-navlink="" href="#skills" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;"><span data-en="">Skills</span><span data-vi="" lang="vi">Kỹ năng</span></a>
+        <a data-navlink="" href="#service" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;"><span data-en="">Service</span><span data-vi="" lang="vi">Hoạt động</span></a>
+        <a data-navlink="" href="#contact" style="color:var(--muted); border-bottom:none; padding:5px 0 5px 12px;"><span data-en="">Contact</span><span data-vi="" lang="vi">Liên hệ</span></a>
       </nav>
 
       <div style="display:flex; flex-direction:column; align-items:flex-start; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.02em; line-height:1.5;">
-        <a href="mailto:btra8435@uni.sydney.edu.au">Email</a>
+        <a href="mailto:btra8435@uni.sydney.edu.au"><span data-en="">Email</span><span data-vi="" lang="vi">Thư điện tử</span></a>
         <a href="https://scholar.google.com/citations?user=AYgkeCkAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
         <a href="https://orcid.org/0009-0009-5601-6531" target="_blank" rel="noopener">ORCID ↗</a>
         <a href="https://linkedin.com/in/binhminh2003" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="uploads/Binh_Minh_Tran_CV_3.pdf" target="_blank" rel="noopener">Curriculum Vitae ↓</a>
+        <a href="uploads/Binh_Minh_Tran_CV_3.pdf" target="_blank" rel="noopener"><span data-en="">Curriculum Vitae ↓</span><span data-vi="" lang="vi">Lý lịch khoa học ↓</span></a>
       </div>
 
-      <button id="theme-toggle" title="Toggle dark mode" style="align-self:flex-start; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 10px; cursor:pointer;"><span data-theme-dark="">Dark</span><span data-theme-light="">Light</span></button>
+      <div style="align-self:flex-start; display:flex; gap:8px;">
+        <button id="theme-toggle" title="Toggle dark mode" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 10px; cursor:pointer;"><span data-theme-dark=""><span data-en="">Dark</span><span data-vi="" lang="vi">Tối</span></span><span data-theme-light=""><span data-en="">Light</span><span data-vi="" lang="vi">Sáng</span></span></button>
+        <button id="lang-toggle" title="Switch language / Chuyển ngôn ngữ" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 10px; cursor:pointer;"><span data-en="" lang="vi">Tiếng Việt</span><span data-vi="" lang="en">English</span></button>
+      </div>
 
-      <div style="margin-top:auto; padding-top:26px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.05em; line-height:1.8; color:var(--faint);">© Binh Minh Tran. All rights reserved.<br>Last updated August 2026.</div>
+      <div style="margin-top:auto; padding-top:26px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.05em; line-height:1.8; color:var(--faint);"><span data-en="">© Binh Minh Tran. All rights reserved.<br>Last updated August 2026.</span><span data-vi="" lang="vi">© Trần Bình Minh. Bảo lưu mọi quyền.<br>Cập nhật tháng 8 năm 2026.</span></div>
     </aside>
 
     <main data-main="" style="flex:1; min-width:0; max-width:880px; margin:0 auto; padding:52px 52px 120px;">
 
     <section id="about" style="padding:0 0 8px;">
       <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:22px;">
-        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">About me</h2>
+        <h2 data-en="" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">About me</h2>
+        <h2 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Giới thiệu</h2>
         <div style="flex:1; height:1px; background:var(--rule);"></div>
       </div>
-      <p style="margin:0 0 18px; font-size:15.5px; line-height:1.66; color:var(--ink);">I am a final-year Bachelor of Advanced Computing (Honours) student in Computational Data Science at the University of Sydney. My research lies at the intersection of biomedical artificial intelligence, graph representation learning, multimodal learning, spatial omics, and computational oncology.</p>
-      <p style="margin:0 0 18px; font-size:14.5px; line-height:1.7; color:var(--muted);">My Honours research focuses on developing robust and interpretable machine-learning methods for breast cancer survival prediction by integrating spatial single-cell imaging, clinicopathologic variables, and gene-level data. In particular, I am developing <em style="color:var(--ink); font-style:italic;">HiNT-Surv</em>, a hierarchical niche-aware graph-learning framework designed to capture cellular organisation within the tumour microenvironment while supporting cross-cohort and cross-panel generalisation.</p>
-      <p style="margin:0; font-size:14.5px; line-height:1.7; color:var(--muted);">Beyond my Honours project, I have contributed to research involving multimodal breast cancer receptor prediction, biological graph learning, medical image analysis, and clinical risk modelling. My work has resulted in peer-reviewed publications and manuscripts across biomedical AI and graph machine learning. Looking ahead, I am interested in research focused on multimodal biomedical AI, spatial omics, graph neural networks, and clinically reliable machine learning.</p>
+      <p data-en="" style="margin:0 0 18px; font-size:15.5px; line-height:1.66; color:var(--ink);">I am a final-year Bachelor of Advanced Computing (Honours) student in Computational Data Science at the University of Sydney. My research lies at the intersection of biomedical artificial intelligence, graph representation learning, multimodal learning, spatial omics, and computational oncology.</p>
+      <p data-vi="" lang="vi" style="margin:0 0 18px; font-size:15.5px; line-height:1.66; color:var(--ink);">Tôi là sinh viên năm cuối chương trình Cử nhân Điện toán Nâng cao (Honours), chuyên ngành Khoa học Dữ liệu Tính toán tại Đại học Sydney. Hướng nghiên cứu của tôi nằm ở giao điểm của trí tuệ nhân tạo y sinh, học biểu diễn đồ thị, học đa phương thức, omics không gian và ung thư học tính toán.</p>
+      <p data-en="" style="margin:0 0 18px; font-size:14.5px; line-height:1.7; color:var(--muted);">My Honours research focuses on developing robust and interpretable machine-learning methods for breast cancer survival prediction by integrating spatial single-cell imaging, clinicopathologic variables, and gene-level data. In particular, I am developing <em style="color:var(--ink); font-style:italic;">HiNT-Surv</em>, a hierarchical niche-aware graph-learning framework designed to capture cellular organisation within the tumour microenvironment while supporting cross-cohort and cross-panel generalisation.</p>
+      <p data-vi="" lang="vi" style="margin:0 0 18px; font-size:14.5px; line-height:1.7; color:var(--muted);">Nghiên cứu Honours của tôi tập trung phát triển các phương pháp học máy bền vững và có khả năng diễn giải cho bài toán dự đoán sống còn ung thư vú, thông qua tích hợp ảnh đơn bào không gian, biến lâm sàng – giải phẫu bệnh và dữ liệu mức gen. Cụ thể, tôi đang phát triển <em style="color:var(--ink); font-style:italic;">HiNT-Surv</em>, một khung học đồ thị phân cấp nhận biết ổ sinh thái (niche), được thiết kế để nắm bắt tổ chức tế bào trong vi môi trường khối u, đồng thời hỗ trợ khái quát hoá xuyên nhóm bệnh nhân và xuyên bảng kháng thể.</p>
+      <p data-en="" style="margin:0; font-size:14.5px; line-height:1.7; color:var(--muted);">Beyond my Honours project, I have contributed to research involving multimodal breast cancer receptor prediction, biological graph learning, medical image analysis, and clinical risk modelling. My work has resulted in peer-reviewed publications and manuscripts across biomedical AI and graph machine learning. Looking ahead, I am interested in research focused on multimodal biomedical AI, spatial omics, graph neural networks, and clinically reliable machine learning.</p>
+      <p data-vi="" lang="vi" style="margin:0; font-size:14.5px; line-height:1.7; color:var(--muted);">Ngoài đề tài Honours, tôi đã tham gia các nghiên cứu về dự đoán thụ thể ung thư vú đa phương thức, học đồ thị sinh học, phân tích ảnh y khoa và mô hình hoá nguy cơ lâm sàng. Các công trình của tôi đã được công bố trên tạp chí và hội nghị có phản biện trong lĩnh vực trí tuệ nhân tạo y sinh và học máy trên đồ thị. Trong thời gian tới, tôi quan tâm đến nghiên cứu về trí tuệ nhân tạo y sinh đa phương thức, omics không gian, mạng nơ-ron đồ thị và học máy đáng tin cậy trong lâm sàng.</p>
       <div style="display:flex; flex-wrap:wrap; gap:7px; margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted);">
-        <span style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Biomedical AI</span>
-        <span style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Graph learning</span>
-        <span style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Multimodal learning</span>
-        <span style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Spatial omics</span>
-        <span style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Computational oncology</span>
-        <span style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Deep learning</span>
+        <span data-en="" style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Biomedical AI</span>
+        <span data-vi="" lang="vi" style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">AI y sinh</span>
+        <span data-en="" style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Graph learning</span>
+        <span data-vi="" lang="vi" style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Học đồ thị</span>
+        <span data-en="" style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Multimodal learning</span>
+        <span data-vi="" lang="vi" style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Học đa phương thức</span>
+        <span data-en="" style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Spatial omics</span>
+        <span data-vi="" lang="vi" style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Omics không gian</span>
+        <span data-en="" style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Computational oncology</span>
+        <span data-vi="" lang="vi" style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Ung thư học tính toán</span>
+        <span data-en="" style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Deep learning</span>
+        <span data-vi="" lang="vi" style="background:var(--accent-soft); border-radius:2px; padding:5px 8px;">Học sâu</span>
       </div>
     </section>
 
@@ -834,6 +857,17 @@ html:not([data-theme="dark"]) [data-theme-light]{ display:none; }
       var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
       root.dataset.theme = next;
       try { localStorage.setItem('bmt-academic-theme', next); } catch (e) {}
+    });
+  }
+
+  var langToggle = document.getElementById('lang-toggle');
+  if (langToggle) {
+    langToggle.addEventListener('click', function () {
+      var root = document.documentElement;
+      var next = root.dataset.lang === 'vi' ? 'en' : 'vi';
+      root.dataset.lang = next;
+      root.lang = next;
+      try { localStorage.setItem('bmt-academic-lang', next); } catch (e) {}
     });
   }
 
