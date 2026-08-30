@@ -572,7 +572,7 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
 
     <section id="research" style="padding:60px 0 0;">
       <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:26px;">
-        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Experience</h2>
+        <h2 data-en="" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Experience</h2><h2 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Kinh nghiệm</h2>
         <div style="flex:1; height:1px; background:var(--rule);"></div>
       </div>
 
@@ -581,15 +581,20 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Feb 2026<br>– Present</div>
           <div>
-            <h3 style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Honours Research Student</h3>
-            <p style="margin:0 0 14px; font-size:13.5px; line-height:1.5; color:var(--muted);">School of Computer Science, The University of Sydney · Supervisor: A/Prof Xiuying Wang</p>
+            <h3 data-en="" style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Honours Research Student</h3><h3 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Sinh viên nghiên cứu Honours</h3>
+            <p data-en="" style="margin:0 0 14px; font-size:13.5px; line-height:1.5; color:var(--muted);">School of Computer Science, The University of Sydney · Supervisor: A/Prof Xiuying Wang</p><p data-vi="" lang="vi" style="margin:0 0 14px; font-size:13.5px; line-height:1.5; color:var(--muted);">Khoa Khoa học Máy tính, Đại học Sydney · Người hướng dẫn: PGS. Xiuying Wang</p>
             <details data-exp="" open="">
-              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more="">Details</span><span data-less="">Hide details</span></summary>
-              <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
+              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more=""><span data-en="">Details</span><span data-vi="" lang="vi">Chi tiết</span></span><span data-less=""><span data-en="">Hide details</span><span data-vi="" lang="vi">Ẩn chi tiết</span></span></summary>
+              <ul data-en="" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
                 <li>Designed <strong style="font-weight:600;">HiNT-Surv</strong>, a hierarchical niche-aware model that fuses imaging mass cytometry (IMC) with clinicopathologic and gene-level variables for survival prediction; evaluated on 404 METABRIC and 285 Basel patients (834 tissue cores, 50- and 52-marker panels).</li>
                 <li>Parameterised the encoder by antigen identity rather than fixed channel order, so a model trained on one antibody panel transfers to another; kept all preprocessing and label-free pretraining inside each outer fold's training partition to prevent patient-level leakage.</li>
                 <li>Reached Harrell's C-index 0.740 ± 0.020 (METABRIC) and 0.734 ± 0.030 (Basel) under patient-level cross-validation — gains of 0.028 and 0.057 over the clinical Cox-PH baseline — with median-risk stratification separating Kaplan–Meier curves in both cohorts (two-sided log-rank p &lt; 10⁻⁴).</li>
                 <li>Trained on METABRIC and evaluated on Basel without target-cohort fine-tuning, reaching C-index 0.697 against 0.631 for the strongest published comparator, with a smaller source-to-target decrease (0.043 vs 0.081).</li>
+              </ul><ul data-vi="" lang="vi" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
+                <li>Thiết kế <strong style="font-weight:600;">HiNT-Surv</strong>, mô hình phân cấp nhận biết ổ sinh thái, kết hợp tế bào học khối phổ hình ảnh (IMC) với biến lâm sàng – giải phẫu bệnh và dữ liệu mức gen để dự đoán sống còn; đánh giá trên 404 bệnh nhân METABRIC và 285 bệnh nhân Basel (834 lõi mô, bảng 50 và 52 dấu ấn).</li>
+                <li>Tham số hoá bộ mã hoá theo danh tính kháng nguyên thay vì thứ tự kênh cố định, nhờ đó mô hình huấn luyện trên một bảng kháng thể có thể chuyển sang bảng khác; toàn bộ tiền xử lý và tiền huấn luyện không nhãn được giữ trong phần huấn luyện của từng fold ngoài nhằm tránh rò rỉ ở mức bệnh nhân.</li>
+                <li>Đạt chỉ số C của Harrell 0,740 ± 0,020 (METABRIC) và 0,734 ± 0,030 (Basel) với kiểm định chéo ở mức bệnh nhân — cao hơn lần lượt 0,028 và 0,057 so với mô hình nền Cox-PH lâm sàng — đồng thời phân tầng nguy cơ theo trung vị tách biệt rõ đường cong Kaplan–Meier ở cả hai nhóm (log-rank hai phía p &lt; 10⁻⁴).</li>
+                <li>Huấn luyện trên METABRIC và đánh giá trên Basel mà không tinh chỉnh theo nhóm đích, đạt chỉ số C 0,697 so với 0,631 của phương pháp đối chứng tốt nhất đã công bố, với mức suy giảm nguồn–đích nhỏ hơn (0,043 so với 0,081).</li>
               </ul>
             </details>
           </div>
@@ -598,13 +603,16 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Dec 2025<br>– Present</div>
           <div>
-            <h3 style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Research Collaborator</h3>
-            <p style="margin:0 0 14px; font-size:13.5px; line-height:1.5; color:var(--muted);">Department of Obstetrics &amp; Gynaecology, Hanoi Medical University</p>
+            <h3 data-en="" style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Research Collaborator</h3><h3 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Cộng tác viên nghiên cứu</h3>
+            <p data-en="" style="margin:0 0 14px; font-size:13.5px; line-height:1.5; color:var(--muted);">Department of Obstetrics &amp; Gynaecology, Hanoi Medical University</p><p data-vi="" lang="vi" style="margin:0 0 14px; font-size:13.5px; line-height:1.5; color:var(--muted);">Bộ môn Sản Phụ khoa, Trường Đại học Y Hà Nội</p>
             <details data-exp="">
-              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more="">Details</span><span data-less="">Hide details</span></summary>
-              <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
+              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more=""><span data-en="">Details</span><span data-vi="" lang="vi">Chi tiết</span></span><span data-less=""><span data-en="">Hide details</span><span data-vi="" lang="vi">Ẩn chi tiết</span></span></summary>
+              <ul data-en="" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
                 <li>Co-developed a multimodal, multitask deep-learning framework integrating clinical variables, H&amp;E whole-slide images and tumour RNA-seq for joint ER, PR and HER2 prediction; reported in <a href="#publications">[C1]</a>.</li>
                 <li>Evaluated with patient-level stratified five-fold cross-validation on 937 TCGA-BRCA cases (macro AUC 0.890; ER 0.954, PR 0.868, HER2 0.848) and frozen external testing on 122 CPTAC-BRCA cases without retraining, tuning or threshold adjustment (macro AUC 0.931).</li>
+              </ul><ul data-vi="" lang="vi" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
+                <li>Đồng phát triển khung học sâu đa phương thức, đa nhiệm tích hợp biến lâm sàng, ảnh mô bệnh học toàn lát cắt H&amp;E và RNA-seq khối u để dự đoán đồng thời ER, PR và HER2; công bố tại <a href="#publications">[C1]</a>.</li>
+                <li>Đánh giá bằng kiểm định chéo phân tầng 5-fold ở mức bệnh nhân trên 937 ca TCGA-BRCA (AUC trung bình 0,890; ER 0,954, PR 0,868, HER2 0,848) và kiểm thử ngoại kiểm với mô hình đóng băng trên 122 ca CPTAC-BRCA, không huấn luyện lại, không tinh chỉnh hay điều chỉnh ngưỡng (AUC trung bình 0,931).</li>
               </ul>
             </details>
           </div>
@@ -613,12 +621,14 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Dec 2025<br>– Mar 2026</div>
           <div>
-            <h3 style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Research Assistant</h3>
-            <p style="margin:0 0 14px; font-size:13.5px; line-height:1.5; color:var(--muted);">Center for Biomedical and Pharmaceutical Research, Vietnam Academy of Science and Technology (VAST)</p>
+            <h3 data-en="" style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Research Assistant</h3><h3 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Trợ lý nghiên cứu</h3>
+            <p data-en="" style="margin:0 0 14px; font-size:13.5px; line-height:1.5; color:var(--muted);">Center for Biomedical and Pharmaceutical Research, Vietnam Academy of Science and Technology (VAST)</p><p data-vi="" lang="vi" style="margin:0 0 14px; font-size:13.5px; line-height:1.5; color:var(--muted);">Trung tâm Nghiên cứu Y Dược sinh học, Viện Hàn lâm Khoa học và Công nghệ Việt Nam (VAST)</p>
             <details data-exp="">
-              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more="">Details</span><span data-less="">Hide details</span></summary>
-              <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
+              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more=""><span data-en="">Details</span><span data-vi="" lang="vi">Chi tiết</span></span><span data-less=""><span data-en="">Hide details</span><span data-vi="" lang="vi">Ẩn chi tiết</span></span></summary>
+              <ul data-en="" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
                 <li>Applied reproducible NGS preprocessing and annotation workflows (FastQC, Trimmomatic, genome assembly, gene prediction and functional annotation) to mutation and microbial gene-function analyses.</li>
+              </ul><ul data-vi="" lang="vi" style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
+                <li>Áp dụng quy trình tiền xử lý và chú giải dữ liệu giải trình tự thế hệ mới có thể tái lập (FastQC, Trimmomatic, lắp ráp hệ gen, dự đoán gen và chú giải chức năng) cho các phân tích đột biến và chức năng gen vi sinh vật.</li>
               </ul>
             </details>
           </div>
@@ -628,20 +638,20 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Dec 2024<br>– Mar 2025</div>
           <div>
-            <h3 style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Data Engineer Intern — Viettel Software</h3>
+            <h3 data-en="" style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Data Engineer Intern — Viettel Software</h3><h3 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Thực tập sinh Kỹ sư Dữ liệu — Viettel Software</h3>
             <details data-exp="">
-              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more="">Details</span><span data-less="">Hide details</span></summary>
-              <p style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Built and maintained Python/SQL ETL pipelines for operational datasets; contributed to data-quality monitoring, schema design and query/pipeline performance tuning supporting analytics teams.</p>
+              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more=""><span data-en="">Details</span><span data-vi="" lang="vi">Chi tiết</span></span><span data-less=""><span data-en="">Hide details</span><span data-vi="" lang="vi">Ẩn chi tiết</span></span></summary>
+              <p data-en="" style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Built and maintained Python/SQL ETL pipelines for operational datasets; contributed to data-quality monitoring, schema design and query/pipeline performance tuning supporting analytics teams.</p><p data-vi="" lang="vi" style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Xây dựng và duy trì các pipeline ETL bằng Python/SQL cho dữ liệu vận hành; tham gia giám sát chất lượng dữ liệu, thiết kế lược đồ và tối ưu hiệu năng truy vấn/pipeline phục vụ các nhóm phân tích.</p>
             </details>
           </div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Jun 2024<br>– Jul 2024</div>
           <div>
-            <h3 style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Data Engineer Intern — Agribank</h3>
+            <h3 data-en="" style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Data Engineer Intern — Agribank</h3><h3 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Thực tập sinh Kỹ sư Dữ liệu — Agribank</h3>
             <details data-exp="">
-              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more="">Details</span><span data-less="">Hide details</span></summary>
-              <p style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Supported ETL of banking datasets into reporting systems; contributed to dashboards and operational reports used by internal stakeholders.</p>
+              <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more=""><span data-en="">Details</span><span data-vi="" lang="vi">Chi tiết</span></span><span data-less=""><span data-en="">Hide details</span><span data-vi="" lang="vi">Ẩn chi tiết</span></span></summary>
+              <p data-en="" style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Supported ETL of banking datasets into reporting systems; contributed to dashboards and operational reports used by internal stakeholders.</p><p data-vi="" lang="vi" style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Hỗ trợ ETL dữ liệu ngân hàng vào hệ thống báo cáo; đóng góp xây dựng dashboard và báo cáo vận hành phục vụ các bộ phận nội bộ.</p>
             </details>
           </div>
         </div>
@@ -651,19 +661,21 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
 
     <section id="projects" style="padding:60px 0 0;">
       <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:26px;">
-        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Research projects</h2>
+        <h2 data-en="" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Research projects</h2><h2 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Đề tài nghiên cứu</h2>
         <div style="flex:1; height:1px; background:var(--rule);"></div>
       </div>
       <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
         <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Dec 2026<br>– Nov 2027</div>
         <div>
-          <h3 style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.32; margin:0 0 10px; color:var(--ink);">Development and Calibration of an AI Model for Individualised Post-Test Probability after High-Risk NIPT (Trisomy 21, 18 and 13)</h3>
+          <h3 data-en="" style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.32; margin:0 0 10px; color:var(--ink);">Development and Calibration of an AI Model for Individualised Post-Test Probability after High-Risk NIPT (Trisomy 21, 18 and 13)</h3><h3 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.32; margin:0 0 10px; color:var(--ink);">Xây dựng và hiệu chỉnh mô hình trí tuệ nhân tạo ước tính xác suất hậu kiểm cá thể hoá sau sàng lọc NIPT nguy cơ cao (Trisomy 21, 18 và 13)</h3>
           <details data-exp="">
-            <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more="">Details</span><span data-less="">Hide details</span></summary>
-            <ul style="margin:0 0 14px; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
+            <summary style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:3px 0; margin-bottom:10px;"><span data-caret="" style="display:inline-block; transition:transform 200ms ease;">▸</span><span data-more=""><span data-en="">Details</span><span data-vi="" lang="vi">Chi tiết</span></span><span data-less=""><span data-en="">Hide details</span><span data-vi="" lang="vi">Ẩn chi tiết</span></span></summary>
+            <ul data-en="" style="margin:0 0 14px; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
               <li>Role: designing and calibrating the probability model — a retrospective cohort of high-risk NIPT referrals, converting a screen-positive label into an individualised probability of confirmed fetal aneuploidy from signed Z-score, fetal fraction and assay platform.</li>
+            </ul><ul data-vi="" lang="vi" style="margin:0 0 14px; padding-left:18px; display:flex; flex-direction:column; gap:9px; font-size:13.5px; line-height:1.62; color:var(--ink);">
+              <li>Vai trò: thiết kế và hiệu chỉnh mô hình xác suất — trên nhóm hồi cứu các trường hợp NIPT nguy cơ cao, chuyển nhãn sàng lọc dương tính thành xác suất cá thể hoá của lệch bội thai nhi được xác nhận, dựa trên Z-score có dấu, tỉ lệ ADN thai và nền tảng xét nghiệm.</li>
             </ul>
-            <p style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Principal investigator: Nguyen Van An. Supervisor: Nguyen Thi Bich Van, MD, PhD, Department of Obstetrics &amp; Gynaecology, Hanoi Medical University. Institutional research scheme, 12 months, total budget 10,000,000 VND — proposal submitted.</p>
+            <p data-en="" style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Principal investigator: Nguyen Van An. Supervisor: Nguyen Thi Bich Van, MD, PhD, Department of Obstetrics &amp; Gynaecology, Hanoi Medical University. Institutional research scheme, 12 months, total budget 10,000,000 VND — proposal submitted.</p><p data-vi="" lang="vi" style="margin:0; font-size:14px; line-height:1.6; color:var(--muted);">Chủ nhiệm đề tài: Nguyễn Văn An. Người hướng dẫn: TS.BS. Nguyễn Thị Bích Vân, Bộ môn Sản Phụ khoa, Trường Đại học Y Hà Nội. Đề tài cấp cơ sở, thời gian 12 tháng, tổng kinh phí 10.000.000 VNĐ — đã nộp thuyết minh.</p>
           </details>
         </div>
       </div>
@@ -671,80 +683,80 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
 
     <section id="awards" style="padding:60px 0 0;">
       <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:24px;">
-        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Awards &amp; scholarships</h2>
+        <h2 data-en="" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Awards &amp; scholarships</h2><h2 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Giải thưởng &amp; học bổng</h2>
         <div style="flex:1; height:1px; background:var(--rule);"></div>
       </div>
       <div style="display:flex; flex-direction:column;">
         
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2025</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Certificate of Merit from the <strong style="font-weight:600;">Central Committee of the Ho Chi Minh Communist Youth Union</strong>.</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);">Certificate of Merit from the <strong style="font-weight:600;">Central Committee of the Ho Chi Minh Communist Youth Union</strong>.</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);">Bằng khen của <strong style="font-weight:600;">Ban Chấp hành Trung ương Đoàn TNCS Hồ Chí Minh</strong>.</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2025 ×2<br>2026</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Certificate of Merit from the <strong style="font-weight:600;">Central Committee of the Vietnam National Union of Students</strong> — awarded twice in 2025 and again in 2026.</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);">Certificate of Merit from the <strong style="font-weight:600;">Central Committee of the Vietnam National Union of Students</strong> — awarded twice in 2025 and again in 2026.</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);">Bằng khen của <strong style="font-weight:600;">Trung ương Hội Sinh viên Việt Nam</strong> — hai lần năm 2025 và một lần năm 2026.</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2026</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">Ambassador Extraordinary and Plenipotentiary of the Socialist Republic of Vietnam to Australia</strong>.</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">Ambassador Extraordinary and Plenipotentiary of the Socialist Republic of Vietnam to Australia</strong>.</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);">Giấy khen của <strong style="font-weight:600;">Đại sứ Đặc mệnh toàn quyền nước Cộng hoà xã hội chủ nghĩa Việt Nam tại Australia</strong>.</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2025</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">Consulate General of Vietnam in Sydney</strong>.</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">Consulate General of Vietnam in Sydney</strong>.</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);">Giấy khen của <strong style="font-weight:600;">Tổng Lãnh sự quán Việt Nam tại Sydney</strong>.</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2026</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">Executive Committee of the Party Organisation in Australia</strong>.</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">Executive Committee of the Party Organisation in Australia</strong>.</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);">Giấy khen của <strong style="font-weight:600;">Ban Chấp hành Đảng bộ tại Australia</strong>.</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2026</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">President of Hanoi Medical University</strong>.</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">President of Hanoi Medical University</strong>.</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);">Giấy khen của <strong style="font-weight:600;">Hiệu trưởng Trường Đại học Y Hà Nội</strong>.</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2025<br>2026</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">Executive Committee of the Vietnamese Students’ Association in Australia</strong>.</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);">Commendation from the <strong style="font-weight:600;">Executive Committee of the Vietnamese Students’ Association in Australia</strong>.</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);">Giấy khen của <strong style="font-weight:600;">Ban Chấp hành Hội Sinh viên Việt Nam tại Australia</strong>.</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2025</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">January Star Award</strong> (Giải thưởng Sao Tháng Giêng), Vietnam National Union of Students.</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">January Star Award</strong> (Giải thưởng Sao Tháng Giêng), Vietnam National Union of Students.</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Giải thưởng Sao Tháng Giêng</strong>, Trung ương Hội Sinh viên Việt Nam.</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2026</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Second Prize</strong>, Vietnamese Young Intellectuals Forum in Australia.</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Second Prize</strong>, Vietnamese Young Intellectuals Forum in Australia.</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Giải Nhì</strong>, Diễn đàn Trí thức trẻ Việt Nam tại Australia.</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">Jun 2026</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Third Prize</strong>, Youth Science and Technology Conference, Hanoi Medical University — the work was subsequently selected to be presented and to compete at the 23rd Youth Science and Technology Conference of the Health Sector in 2026.</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Third Prize</strong>, Youth Science and Technology Conference, Hanoi Medical University — the work was subsequently selected to be presented and to compete at the 23rd Youth Science and Technology Conference of the Health Sector in 2026.</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Giải Ba</strong>, Hội nghị Khoa học và Công nghệ Tuổi trẻ Trường Đại học Y Hà Nội — công trình sau đó được lựa chọn báo cáo và dự thi tại Hội nghị Khoa học và Công nghệ Tuổi trẻ ngành Y tế lần thứ 23 năm 2026.</div>
         </div>
-        <h3 style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin:30px 0 6px;">Scholarships</h3>
+        <h3 data-en="" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin:30px 0 6px;">Scholarships</h3><h3 data-vi="" lang="vi" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin:30px 0 6px;">Học bổng</h3>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px; padding:15px 0; border-bottom:1px solid var(--rule);">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:4px;">2023–2026</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Sydney International Student Award</strong>, The University of Sydney — merit-based tuition scholarship awarded at admission and held for the full degree.</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Sydney International Student Award</strong>, The University of Sydney — merit-based tuition scholarship awarded at admission and held for the full degree.</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);"><strong style="font-weight:600;">Học bổng Sydney International Student Award</strong>, Đại học Sydney — học bổng học phí theo thành tích, được cấp khi nhập học và duy trì trong toàn khoá.</div>
         </div>
       </div>
     </section>
 
     <section id="education" style="padding:60px 0 0;">
       <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:26px;">
-        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Education</h2>
+        <h2 data-en="" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Education</h2><h2 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Học vấn</h2>
         <div style="flex:1; height:1px; background:var(--rule);"></div>
       </div>
       <div style="display:flex; flex-direction:column; gap:28px;">
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Feb 2023<br>– Dec 2026</div>
           <div>
-            <h3 style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Bachelor of Advanced Computing (Honours), Computational Data Science</h3>
-            <p style="margin:0 0 12px; font-size:13.5px; line-height:1.5; color:var(--muted);">The University of Sydney, Sydney, Australia</p>
-            <p style="margin:0 0 8px; font-size:13.5px; line-height:1.62; color:var(--ink);">Thesis: “Hierarchical Niche-Aware Multimodal Learning for Breast Cancer Survival Prediction Using Imaging Mass Cytometry, Clinicopathologic Variables, and Gene-Level Data”, supervised by Associate Professor Xiuying Wang.</p>
-            <p style="margin:0; font-size:13.5px; line-height:1.6; color:var(--muted);">Cumulative WAM 82/100 (Distinction). First Class Honours expected; mark and class released December 2026.</p>
+            <h3 data-en="" style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Bachelor of Advanced Computing (Honours), Computational Data Science</h3><h3 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Cử nhân Điện toán Nâng cao (Honours), chuyên ngành Khoa học Dữ liệu Tính toán</h3>
+            <p data-en="" style="margin:0 0 12px; font-size:13.5px; line-height:1.5; color:var(--muted);">The University of Sydney, Sydney, Australia</p><p data-vi="" lang="vi" style="margin:0 0 12px; font-size:13.5px; line-height:1.5; color:var(--muted);">Đại học Sydney, Sydney, Australia</p>
+            <p data-en="" style="margin:0 0 8px; font-size:13.5px; line-height:1.62; color:var(--ink);">Thesis: “Hierarchical Niche-Aware Multimodal Learning for Breast Cancer Survival Prediction Using Imaging Mass Cytometry, Clinicopathologic Variables, and Gene-Level Data”, supervised by Associate Professor Xiuying Wang.</p><p data-vi="" lang="vi" style="margin:0 0 8px; font-size:13.5px; line-height:1.62; color:var(--ink);">Khoá luận: “Hierarchical Niche-Aware Multimodal Learning for Breast Cancer Survival Prediction Using Imaging Mass Cytometry, Clinicopathologic Variables, and Gene-Level Data”, dưới sự hướng dẫn của PGS. Xiuying Wang.</p>
+            <p data-en="" style="margin:0; font-size:13.5px; line-height:1.6; color:var(--muted);">Cumulative WAM 82/100 (Distinction). First Class Honours expected; mark and class released December 2026.</p><p data-vi="" lang="vi" style="margin:0; font-size:13.5px; line-height:1.6; color:var(--muted);">Điểm trung bình tích luỹ (WAM) 82/100, xếp loại Giỏi. Dự kiến đạt Honours hạng Nhất; điểm và xếp hạng công bố tháng 12 năm 2026.</p>
           </div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">2019 – 2022</div>
           <div>
-            <h3 style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">High School Diploma, Specialised Physics Programme</h3>
-            <p style="margin:0 0 12px; font-size:13.5px; line-height:1.5; color:var(--muted);">HUS High School for Gifted Students (HSGS), VNU University of Science, Vietnam National University, Hanoi</p>
-            <p style="margin:0; font-size:13.5px; line-height:1.6; color:var(--muted);">GPA 9.5/10. Outstanding academic achievement award, academic years 2019–2022.</p>
+            <h3 data-en="" style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">High School Diploma, Specialised Physics Programme</h3><h3 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:18px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Bằng Tốt nghiệp Trung học phổ thông, chuyên Vật lý</h3>
+            <p data-en="" style="margin:0 0 12px; font-size:13.5px; line-height:1.5; color:var(--muted);">HUS High School for Gifted Students (HSGS), VNU University of Science, Vietnam National University, Hanoi</p><p data-vi="" lang="vi" style="margin:0 0 12px; font-size:13.5px; line-height:1.5; color:var(--muted);">Trường THPT Chuyên Khoa học Tự nhiên (HSGS), Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia Hà Nội</p>
+            <p data-en="" style="margin:0; font-size:13.5px; line-height:1.6; color:var(--muted);">GPA 9.5/10. Outstanding academic achievement award, academic years 2019–2022.</p><p data-vi="" lang="vi" style="margin:0; font-size:13.5px; line-height:1.6; color:var(--muted);">Điểm trung bình 9,5/10. Giấy khen thành tích học tập xuất sắc các năm học 2019–2022.</p>
           </div>
         </div>
       </div>
@@ -752,59 +764,59 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
 
     <section id="skills" style="padding:60px 0 0;">
       <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:22px;">
-        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Technical skills</h2>
+        <h2 data-en="" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Technical skills</h2><h2 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Kỹ năng chuyên môn</h2>
         <div style="flex:1; height:1px; background:var(--rule);"></div>
       </div>
       <div style="display:flex; flex-direction:column;">
         <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Programming</div>
+          <div data-en="" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Programming</div><div data-vi="" lang="vi" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Ngôn ngữ lập trình</div>
           <div style="font-size:14px; line-height:1.6; color:var(--ink);">Python, R, SQL, Bash</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Deep learning</div>
+          <div data-en="" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Deep learning</div><div data-vi="" lang="vi" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Học sâu</div>
           <div style="font-size:14px; line-height:1.6; color:var(--ink);">PyTorch, PyTorch Geometric, scikit-learn</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Methods</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Graph neural networks, self-supervised and contrastive learning, multimodal fusion, survival modelling</div>
+          <div data-en="" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Methods</div><div data-vi="" lang="vi" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Phương pháp</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);">Graph neural networks, self-supervised and contrastive learning, multimodal fusion, survival modelling</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);">Mạng nơ-ron đồ thị, học tự giám sát và học tương phản, hợp nhất đa phương thức, mô hình hoá sống còn</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Evaluation</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Patient-level stratified cross-validation, bootstrap confidence intervals, paired hypothesis testing, multiple-testing correction, effect-size analysis, external validation</div>
+          <div data-en="" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Evaluation</div><div data-vi="" lang="vi" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Đánh giá</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);">Patient-level stratified cross-validation, bootstrap confidence intervals, paired hypothesis testing, multiple-testing correction, effect-size analysis, external validation</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);">Kiểm định chéo phân tầng ở mức bệnh nhân, khoảng tin cậy bootstrap, kiểm định giả thuyết ghép cặp, hiệu chỉnh đa kiểm định, phân tích cỡ hiệu ứng, ngoại kiểm</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Biomedical data</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Spatial single-cell IMC, RNA-seq / gene expression, histopathology whole-slide images</div>
+          <div data-en="" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Biomedical data</div><div data-vi="" lang="vi" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Dữ liệu y sinh</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);">Spatial single-cell IMC, RNA-seq / gene expression, histopathology whole-slide images</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);">IMC đơn bào không gian, RNA-seq / biểu hiện gen, ảnh mô bệnh học toàn lát cắt</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Research computing</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Git, Linux, experiment tracking</div>
+          <div data-en="" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Research computing</div><div data-vi="" lang="vi" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Công cụ nghiên cứu</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);">Git, Linux, experiment tracking</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);">Git, Linux, theo dõi thí nghiệm</div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:0 18px; padding:13px 0; border-bottom:1px solid var(--rule);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Languages</div>
-          <div style="font-size:14px; line-height:1.6; color:var(--ink);">Vietnamese (native); English (fluent — all tertiary study in English)</div>
+          <div data-en="" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Languages</div><div data-vi="" lang="vi" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); padding-top:4px;">Ngoại ngữ</div>
+          <div data-en="" style="font-size:14px; line-height:1.6; color:var(--ink);">Vietnamese (native); English (fluent — all tertiary study in English)</div><div data-vi="" lang="vi" style="font-size:14px; line-height:1.6; color:var(--ink);">Tiếng Việt (bản ngữ); tiếng Anh (thành thạo — toàn bộ chương trình đại học bằng tiếng Anh)</div>
         </div>
       </div>
     </section>
 
     <section id="service" style="padding:60px 0 0;">
       <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:26px;">
-        <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Leadership &amp; service</h2>
+        <h2 data-en="" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Leadership &amp; service</h2><h2 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Hoạt động &amp; cống hiến</h2>
         <div style="flex:1; height:1px; background:var(--rule);"></div>
       </div>
       <div style="display:flex; flex-direction:column; gap:26px;">
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Mar 2026<br>– Present</div>
           <div>
-            <h3 style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Chief of Administrative Office — Vietnamese Students in Australia (SVAU)</h3>
-            <p style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Manage administrative operations, advisory functions and student science and technology activities.</p>
+            <h3 data-en="" style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Chief of Administrative Office — Vietnamese Students in Australia (SVAU)</h3><h3 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Chánh Văn phòng — Hội Sinh viên Việt Nam tại Australia (SVAU)</h3>
+            <p data-en="" style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Manage administrative operations, advisory functions and student science and technology activities.</p><p data-vi="" lang="vi" style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Phụ trách công tác hành chính, tham mưu và các hoạt động khoa học công nghệ của sinh viên.</p>
           </div>
         </div>
         <div data-row="" style="display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:0 18px;">
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:0.04em; padding-top:6px; line-height:1.5;">Mar 2026<br>– Present</div>
           <div>
-            <h3 style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Executive Committee Member — Vietnam–Australia Innovation Network (NIC-AU)</h3>
-            <p style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Support network governance and initiatives linking Vietnamese researchers in Australia with the Vietnam innovation ecosystem.</p>
+            <h3 data-en="" style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Executive Committee Member — Vietnam–Australia Innovation Network (NIC-AU)</h3><h3 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:17.5px; font-weight:400; line-height:1.3; margin:0 0 4px; color:var(--ink);">Uỷ viên Ban Chấp hành — Mạng lưới Đổi mới sáng tạo Việt Nam – Australia (NIC-AU)</h3>
+            <p data-en="" style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Support network governance and initiatives linking Vietnamese researchers in Australia with the Vietnam innovation ecosystem.</p><p data-vi="" lang="vi" style="margin:0; font-size:13.5px; line-height:1.62; color:var(--muted);">Hỗ trợ điều hành mạng lưới và các sáng kiến kết nối nhà nghiên cứu người Việt tại Australia với hệ sinh thái đổi mới sáng tạo trong nước.</p>
           </div>
         </div>
       </div>
@@ -812,7 +824,7 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
 
     <section id="references" style="padding:60px 0 0;">
         <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:24px;">
-          <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">References</h2>
+          <h2 data-en="" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">References</h2><h2 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0; white-space:nowrap;">Người giới thiệu</h2>
           <div style="flex:1; height:1px; background:var(--rule);"></div>
         </div>
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:24px;">
@@ -837,22 +849,22 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
     <section id="contact" style="margin-top:64px; padding:40px 0 0; border-top:1px solid var(--rule);">
       <div data-row="" style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
         <div>
-          <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0 0 16px;">Contact</h2>
-          <p style="margin:0 0 10px; font-size:14px; line-height:1.6; color:var(--ink);">I am happy to hear from prospective supervisors, collaborators and anyone working on multimodal or spatial biomedical data.</p>
+          <h2 data-en="" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0 0 16px;">Contact</h2><h2 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0 0 16px;">Liên hệ</h2>
+          <p data-en="" style="margin:0 0 10px; font-size:14px; line-height:1.6; color:var(--ink);">I am happy to hear from prospective supervisors, collaborators and anyone working on multimodal or spatial biomedical data.</p><p data-vi="" lang="vi" style="margin:0 0 10px; font-size:14px; line-height:1.6; color:var(--ink);">Tôi luôn sẵn sàng trao đổi với các thầy cô hướng dẫn tiềm năng, cộng sự và những ai đang làm việc với dữ liệu y sinh đa phương thức hoặc dữ liệu không gian.</p>
           <div style="display:flex; flex-direction:column; align-items:flex-start; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.7;">
             <a href="mailto:btra8435@uni.sydney.edu.au">btra8435@uni.sydney.edu.au</a>
             <a href="mailto:binhminhtran.203@gmail.com">binhminhtran.203@gmail.com</a>
             <span style="color:var(--muted);">+61 413 688 993</span>
-            <span style="color:var(--muted);">Sydney, New South Wales, Australia</span>
+            <span style="color:var(--muted);"><span data-en="">Sydney, New South Wales, Australia</span><span data-vi="" lang="vi">Sydney, bang New South Wales, Australia</span></span>
           </div>
         </div>
         <div>
-          <h2 style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0 0 16px;">Elsewhere</h2>
+          <h2 data-en="" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0 0 16px;">Elsewhere</h2><h2 data-vi="" lang="vi" style="font-family:'Newsreader',serif; font-size:12px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:0 0 16px;">Kênh khác</h2>
           <div style="display:flex; flex-direction:column; align-items:flex-start; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.7;">
             <a href="https://scholar.google.com/citations?user=AYgkeCkAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
             <a href="https://orcid.org/0009-0009-5601-6531" target="_blank" rel="noopener">ORCID 0009-0009-5601-6531 ↗</a>
             <a href="https://linkedin.com/in/binhminh2003" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a href="uploads/Binh_Minh_Tran_CV_3.pdf" target="_blank" rel="noopener">Curriculum Vitae (PDF) ↓</a>
+            <a href="uploads/Binh_Minh_Tran_CV_3.pdf" target="_blank" rel="noopener"><span data-en="">Curriculum Vitae (PDF) ↓</span><span data-vi="" lang="vi">Lý lịch khoa học (PDF) ↓</span></a>
           </div>
         </div>
       </div>
