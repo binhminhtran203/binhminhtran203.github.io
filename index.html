@@ -97,7 +97,7 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
 [data-scroll-box]::-webkit-scrollbar-thumb{ background: var(--rule); border-radius: 3px; }
 @media (max-width: 940px){
   [data-shell]{ flex-direction: column !important; }
-  [data-sidebar]{ position: static !important; width: 100% !important; height: auto !important; overflow: visible !important; border-right: none !important; border-bottom: 1px solid var(--rule) !important; padding: 38px 26px 30px !important; }
+  [data-sidebar]{ position: static !important; width: 100% !important; height: auto !important; overflow: visible !important; border-right: none !important; border-bottom: 1px solid var(--rule) !important; padding: 64px 26px 30px !important; }
   [data-main]{ padding: 34px 26px 100px !important; margin: 0 auto !important; }
   [data-scroll-box]{ max-height: none !important; }
 }
@@ -108,12 +108,25 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
 
 [data-navlink]:hover{ color: var(--ink) !important; }
 [data-news]:hover{ background: var(--accent-soft) !important; transform: translateX(3px) !important; }
-#theme-toggle:hover, #lang-toggle:hover{ color: var(--ink) !important; border-color: var(--ink) !important; }
+#prefs{ position: fixed; top: 16px; right: 18px; z-index: 50; display: flex; gap: 8px; }
+#prefs button{ font-family:'IBM Plex Mono',monospace; font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); background: var(--bg); border: 1px solid var(--rule); border-radius: 2px; padding: 7px 11px; cursor: pointer; box-shadow: 0 1px 6px color-mix(in oklch, var(--ink) 8%, transparent); }
+#prefs button:hover{ color: var(--ink); border-color: var(--ink); }
+#lang-toggle{ color: var(--accent) !important; border-color: color-mix(in oklch, var(--accent) 45%, transparent) !important; }
+#lang-toggle:hover{ color: var(--bg) !important; background: var(--accent) !important; border-color: var(--accent) !important; }
+@media (max-width: 940px){
+  #prefs{ top: 12px; right: 12px; }
+}
 .badge-link:hover{ border-color: var(--accent) !important; }
 </style>
 </head>
 <body>
 <div style="min-height:100vh; background:var(--bg);">
+
+  <div id="prefs">
+    <button id="theme-toggle" title="Toggle dark mode"><span data-theme-dark=""><span data-en="">Dark</span><span data-vi="" lang="vi">Tối</span></span><span data-theme-light=""><span data-en="">Light</span><span data-vi="" lang="vi">Sáng</span></span></button>
+    <button id="lang-toggle" title="Switch language / Chuyển ngôn ngữ"><span data-en="" lang="vi">Tiếng Việt</span><span data-vi="" lang="en">English</span></button>
+  </div>
+
 
   
 <div data-shell="" style="display:flex; align-items:flex-start; min-height:100vh;">
@@ -149,11 +162,6 @@ html:not([data-lang="vi"]) [data-vi]{ display:none !important; }
         <a href="https://orcid.org/0009-0009-5601-6531" target="_blank" rel="noopener">ORCID ↗</a>
         <a href="https://linkedin.com/in/binhminh2003" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a href="uploads/Binh_Minh_Tran_CV_3.pdf" target="_blank" rel="noopener"><span data-en="">Curriculum Vitae ↓</span><span data-vi="" lang="vi">Lý lịch khoa học ↓</span></a>
-      </div>
-
-      <div style="align-self:flex-start; display:flex; gap:8px;">
-        <button id="theme-toggle" title="Toggle dark mode" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 10px; cursor:pointer;"><span data-theme-dark=""><span data-en="">Dark</span><span data-vi="" lang="vi">Tối</span></span><span data-theme-light=""><span data-en="">Light</span><span data-vi="" lang="vi">Sáng</span></span></button>
-        <button id="lang-toggle" title="Switch language / Chuyển ngôn ngữ" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.09em; text-transform:uppercase; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:2px; padding:6px 10px; cursor:pointer;"><span data-en="" lang="vi">Tiếng Việt</span><span data-vi="" lang="en">English</span></button>
       </div>
 
       <div style="margin-top:auto; padding-top:26px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.05em; line-height:1.8; color:var(--faint);"><span data-en="">© Binh Minh Tran. All rights reserved.<br>Last updated August 2026.</span><span data-vi="" lang="vi">© Trần Bình Minh. Bảo lưu mọi quyền.<br>Cập nhật tháng 8 năm 2026.</span></div>
