@@ -1,0 +1,111 @@
+/* A compact academic masthead, shared by Home and About in both languages. */
+.academic-profile {
+  display: grid;
+  grid-template-columns: 172px minmax(0, 1fr);
+  grid-template-areas: "photo heading" "photo appointments" "photo links";
+  column-gap: 36px;
+  align-items: start;
+  border-bottom: 1px solid var(--line);
+  padding-block: 4px 28px;
+  margin-bottom: 28px;
+  min-width: 0;
+}
+
+.academic-profile-photo { grid-area: photo; width: 100%; margin: 0; }
+.academic-profile-photo .portrait-frame { border-color: #e0e3df; }
+.academic-profile-heading { grid-area: heading; min-width: 0; }
+.academic-profile-name {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  margin: -4px 0 7px;
+}
+.academic-profile-field {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 0 21px;
+}
+
+.academic-appointments {
+  grid-area: appointments;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 24px;
+  font-family: var(--sans);
+}
+.academic-appointments p { margin: 0; font-size: 13px; line-height: 1.65; }
+.academic-appointments p + p { border-left: 1px solid var(--line); padding-left: 24px; }
+.academic-appointments strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.appointment-institution { display: block; color: var(--ink); }
+.appointment-note { display: block; color: var(--muted); font-size: 12px; }
+.appointment-institution + .appointment-note { margin-top: 4px; }
+
+.academic-profile-links { grid-area: links; min-width: 0; padding-top: 17px; font-family: var(--sans); }
+.profile-contact-line { display: flex; flex-wrap: wrap; align-items: center; gap: 0 22px; }
+.academic-profile-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--green);
+  font-size: 13px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-color: #bacac0;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.academic-profile-links a:hover { color: var(--green-dark); text-decoration-color: currentColor; }
+.academic-profile-links a:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; border-radius: 1px; }
+.profile-email { gap: 8px; min-width: 0; overflow-wrap: anywhere; }
+.profile-email svg { flex-shrink: 0; }
+.profile-email span { min-width: 0; }
+.academic-location { margin: 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
+.profile-resource-links { display: flex; flex-wrap: wrap; gap: 0 23px; }
+.profile-file-type { margin-left: 6px; font-size: 10px; color: var(--muted); text-decoration: none; }
+
+@media (max-width: 800px) {
+  .academic-profile { grid-template-columns: 148px minmax(0, 1fr); column-gap: 28px; }
+  .academic-profile-name { font-size: 34px; }
+  .academic-appointments { grid-template-columns: 1fr; row-gap: 13px; }
+  .academic-appointments p + p { padding-left: 0; border-left: 0; }
+  .academic-profile-field { margin-bottom: 16px; }
+  .academic-profile-links { padding-top: 12px; }
+  .profile-contact-line { gap: 3px 22px; }
+  .profile-resource-links { gap: 0 20px; margin-top: 4px; }
+}
+
+@media (max-width: 650px) {
+  .academic-profile {
+    grid-template-columns: 92px minmax(0, 1fr);
+    grid-template-areas: "photo heading" "appointments appointments" "links links";
+    column-gap: 22px;
+    padding-block: 0 24px;
+    margin-bottom: 24px;
+  }
+  .academic-profile-heading { align-self: center; }
+  .academic-profile-name { font-size: 29px; margin: 0 0 8px; }
+  .academic-profile-field { font-size: 13px; line-height: 1.65; margin: 0; max-width: 27ch; }
+  .academic-appointments { margin-top: 23px; row-gap: 15px; }
+  .academic-appointments p { font-size: 13px; }
+  .academic-appointments strong { font-size: 14px; }
+  .academic-profile-links { padding-top: 13px; }
+  .academic-profile-links a { min-height: 44px; }
+  .profile-contact-line { display: block; }
+  .academic-location { margin-top: 1px; }
+  .profile-resource-links { display: grid; grid-template-columns: max-content max-content; margin-top: 9px; gap: 0 26px; }
+}
+
+@media (max-width: 360px) {
+  .academic-profile { grid-template-columns: 80px minmax(0, 1fr); column-gap: 18px; }
+  .academic-profile-name { font-size: 26px; }
+  .profile-resource-links { gap: 0 18px; }
+}
+
+@media print {
+  .academic-profile { display: block; padding: 0; border: 0; }
+  .academic-profile-photo, .academic-profile-links { display: none; }
+  .academic-appointments { grid-template-columns: 1fr 1fr; }
+}
