@@ -1,0 +1,30 @@
+{
+  "C1": {
+    "title": "Mô hình học sâu đa phương thức để dự đoán tình trạng biểu hiện thụ thể trong ung thư vú",
+    "citation": "IUKM 2026, bộ sách LNAI, tập 16918, phần I, Springer, tr. 102–114, 2027."
+  },
+  "C2": {
+    "title": "Mạng nơ-ron đồ thị biến phân tích hợp đa góc nhìn để dự đoán mối liên hệ giữa RNA dài không mã hóa và bệnh",
+    "citation": "Recent Challenges in Intelligent Information and Database Systems (ACIIDS 2026), bộ sách CCIS, tập 2964, Springer, tr. 355–369, 2026."
+  },
+  "C3": {
+    "title": "Học biểu diễn đồ thị tương phản hai luồng để dự đoán mối liên hệ giữa RNA dài không mã hóa và bệnh",
+    "citation": "Kỷ yếu FJCAI 2026, tr. 151–158, 2026. ISBN 978-604-45-2586-0."
+  },
+  "M1": {
+    "title": "Phát triển và đánh giá mô hình học sâu đa phương thức trên nhiều đoàn hệ để phân loại tình trạng biểu hiện ER, PR và HER2 trong ung thư vú",
+    "citation": "Bản thảo đang được phản biện tại tạp chí Scientific Reports, 2026."
+  },
+  "M2": {
+    "title": "H2F-GCN: Mạng tích chập đồ thị kết hợp siêu đồ thị, thông tin tần số và tọa độ khung xương để đánh giá phục hồi chức năng",
+    "citation": "Bản thảo đang được phản biện tại tạp chí IEEE Access, 2026."
+  },
+  "M3": {
+    "title": "Mô hình học sâu hỗ trợ phân loại và định vị tổn thương u vú trên ảnh siêu âm",
+    "citation": "Bản thảo tiếng Việt đang được phản biện tại Tạp chí Nghiên cứu Y học, Trường Đại học Y Hà Nội, 2026."
+  },
+  "M4": {
+    "title": "HiNT-Surv: Học đa vi môi trường phân cấp có xét đến vi vùng mô từ dữ liệu hình ảnh đo tế bào khối phổ để dự đoán sống còn",
+    "citation": "Bản thảo đang được phản biện tại Hội thảo IEEE về Trí tuệ tính toán trong Y tế và Y học (CIHM), thuộc SSCI 2027."
+  }
+}

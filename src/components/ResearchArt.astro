@@ -20,14 +20,14 @@ const rnaNodes = Array.from({ length: 22 }, (_, i) => ({ x: 58 + i * 15.5, y: 18
   {kind === 'nipt' && <g font-family="Arial, sans-serif" text-anchor="middle">
     <rect x="65" y="43" width="310" height="76" rx="3" fill="#fafcf9" stroke="#a6bdb1" />
     <text x="220" y="72" fill="#285b4b" font-size="19">{t("High-risk NIPT", "NIPT nguy cơ cao")}</text>
-    <text x="220" y="97" fill="#57635d" font-size="13">{t("Z-score · Fetal fraction · Platform", "Z-score · Tỷ lệ DNA thai · Nền tảng")}</text>
+    <text x="220" y="97" fill="#57635d" font-size="13">{t("Z-score · Fetal fraction · Platform", "Điểm Z · Tỷ lệ DNA thai · Nền tảng")}</text>
     <path d="M220 119v28m-5-6 5 6 5-6" stroke="#719586" stroke-width="2" />
     <rect x="65" y="151" width="310" height="76" rx="3" fill="#285b4b" />
     <text x="220" y="181" fill="#fff" font-size="19">{t("Probability modelling", "Mô hình hóa xác suất")}</text>
-    <text x="220" y="206" fill="#e3eee7" font-size="13">{t("Regression · Gradient boosting", "Hồi quy · Gradient boosting")}</text>
+    <text x="220" y="206" fill="#e3eee7" font-size="13">{t("Regression · Gradient boosting", "Hồi quy · Tăng cường theo độ dốc")}</text>
     <path d="M220 227v28m-5-6 5 6 5-6" stroke="#719586" stroke-width="2" />
     <rect x="65" y="259" width="310" height="67" rx="3" fill="#fafcf9" stroke="#a6bdb1" />
-    <text x="220" y="286" fill="#285b4b" font-size="18">{t("Calibration & validation", "Hiệu chuẩn & thẩm định")}</text>
+    <text x="220" y="286" fill="#285b4b" font-size="18">{t("Calibration & validation", "Hiệu chuẩn và thẩm định")}</text>
     <text x="220" y="308" fill="#57635d" font-size="13">{t("Planned research", "Nghiên cứu dự kiến")}</text>
   </g>}
   {kind === 'tissue' && <>
@@ -55,6 +55,6 @@ const rnaNodes = Array.from({ length: 22 }, (_, i) => ({ x: 58 + i * 15.5, y: 18
     {[0,1,2,3,4,5,6,7].map(i=><circle cx={306+(i%3)*18} cy={77+Math.floor(i/3)*17} r={i%2?5:7} fill={i%2?'#ba795e':'#d7a18b'} />)}
     <path d="M190 288q15-30 30 0t30 0M190 288q15 30 30 0t30 0" stroke="#427e70" stroke-width="2" />
     <circle cx="220" cy="185" r="35" fill="#286454" /><path d="m206 185 10-11 13 6-6 16-17-11m10-11 7 22m6-16-23 5" stroke="#fafbf5" stroke-width="1.5" />
-    <text x="78" y="156" class="art-label">{t("CLINICAL", "LÂM SÀNG")}</text><text x="304" y="156" class="art-label">{t("TISSUE", "MÔ")}</text><text x="195" y="353" class="art-label">RNA-SEQ</text>
+    <text x="78" y="156" class="art-label">{t("CLINICAL", "LÂM SÀNG")}</text><text x="304" y="156" class="art-label">{t("TISSUE", "MÔ")}</text><text x="195" y="353" class="art-label">{t("RNA-SEQ", "GIẢI TRÌNH TỰ RNA")}</text>
   </>}
 </svg>

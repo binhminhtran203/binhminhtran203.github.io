@@ -2,31 +2,31 @@
   "receptor-prediction": {
     "paper": "C1",
     "source": "/assets/papers/tran-multimodal-breast-cancer-receptor.pdf",
-    "intro": "Các hình gốc trong chương sách thuộc IUKM 2026, ghi năm xuất bản 2027.",
+    "intro": "Các hình gốc trong chương sách thuộc IUKM 2026, ghi năm xuất bản 2027. Các nhãn trong hình được giữ theo bản gốc; phần chú thích bên dưới được trình bày bằng tiếng Việt.",
     "figures": [
       {
         "label": "Hình 1",
         "page": 4,
         "printedPage": 105,
         "title": "Kiến trúc mô hình đa phương thức",
-        "alt": "Sơ đồ mô hình với ba nhánh mã hóa riêng cho biến lâm sàng, RNA-seq và các mảnh ảnh lấy từ ảnh toàn tiêu bản. Ba biểu diễn dữ liệu được tích hợp bằng cơ chế tự chú ý (self-attention), rồi đi qua mạng MLP dùng chung và các nhánh dự đoán tình trạng biểu hiện ER, PR, HER2.",
+        "alt": "Sơ đồ mô hình với ba nhánh mã hóa riêng cho biến lâm sàng, dữ liệu giải trình tự RNA và các mảnh ảnh lấy từ ảnh toàn tiêu bản. Ba biểu diễn dữ liệu được tích hợp bằng cơ chế tự chú ý, rồi đi qua mạng nơ-ron truyền thẳng đa tầng (MLP) dùng chung và các nhánh dự đoán tình trạng biểu hiện ER, PR, HER2.",
         "width": 1996,
         "height": 688,
         "src": "/assets/figures/receptor-architecture.png",
         "category": "architecture",
-        "caption": "Các bộ mã hóa dữ liệu lâm sàng, biểu hiện gen và ảnh toàn tiêu bản tạo ra biểu diễn cho từng phương thức. Cơ chế tự chú ý (self-attention) tích hợp các biểu diễn này; mạng đa nhiệm dùng chung dự đoán đồng thời tình trạng biểu hiện ER, PR và HER2. Nhánh xử lý ảnh sử dụng Transformer."
+        "caption": "Các bộ mã hóa dữ liệu lâm sàng, biểu hiện gen và ảnh toàn tiêu bản tạo ra biểu diễn cho từng phương thức. Cơ chế tự chú ý tích hợp các biểu diễn này; mạng đa nhiệm dùng chung dự đoán đồng thời tình trạng biểu hiện ER, PR và HER2. Nhánh xử lý ảnh sử dụng Transformer."
       },
       {
         "label": "Hình 2",
         "page": 9,
         "printedPage": 110,
         "title": "Đánh giá chéo dự đoán tình trạng biểu hiện thụ thể",
-        "alt": "Sáu biểu đồ cho ER, PR và HER2: hàng trên là đường cong ROC, hàng dưới là đường cong giá trị tiên đoán dương–độ nhạy (precision–recall). Chú giải thể hiện đầy đủ năm phần đánh giá chéo, giá trị trung bình, độ lệch chuẩn và đường cơ sở ngẫu nhiên. ER có khả năng phân biệt tốt nhất; HER2 có kết quả precision–recall thấp hơn.",
+        "alt": "Sáu biểu đồ cho ER, PR và HER2: hàng trên là đường cong ROC, hàng dưới là đường cong giá trị tiên đoán dương–độ nhạy. Chú giải thể hiện đầy đủ năm phần đánh giá chéo, giá trị trung bình, độ lệch chuẩn và đường cơ sở ngẫu nhiên. ER có khả năng phân biệt tốt nhất; HER2 có kết quả trên đường cong giá trị tiên đoán dương–độ nhạy thấp hơn.",
         "width": 2275,
         "height": 1553,
         "src": "/assets/figures/receptor-cross-validation.png",
         "category": "results",
-        "caption": "Đường cong ROC và đường cong giá trị tiên đoán dương–độ nhạy (precision–recall) cho ER, PR và HER2 trên TCGA-BRCA qua đánh giá chéo 5 phần (5-fold). Vùng tô thể hiện một độ lệch chuẩn. AUC trung bình lần lượt là 0.954, 0.868 và 0.848. Đây là kết quả đánh giá chéo nội bộ; kết quả thẩm định trên dữ liệu CPTAC-BRCA độc lập được báo cáo riêng."
+        "caption": "Đường cong ROC và đường cong giá trị tiên đoán dương–độ nhạy cho ER, PR và HER2 trên TCGA-BRCA qua đánh giá chéo 5 phần. Vùng tô thể hiện một độ lệch chuẩn. AUC trung bình lần lượt là 0.954, 0.868 và 0.848. Đây là kết quả đánh giá chéo nội bộ; kết quả thẩm định trên dữ liệu CPTAC-BRCA độc lập được báo cáo riêng."
       },
       {
         "label": "Hình 4",
@@ -38,14 +38,14 @@
         "height": 927,
         "src": "/assets/figures/receptor-modality-ablation.png",
         "category": "results",
-        "caption": "So sánh bảy tổ hợp dữ liệu lâm sàng, ảnh toàn tiêu bản và biểu hiện gen trên TCGA-BRCA. Thanh sai số thể hiện một độ lệch chuẩn qua đánh giá chéo năm phần. Mô hình tích hợp đầy đủ có AUC trung bình cao nhất (0.890) và AUC HER2 cao nhất (0.848); một số tổ hợp hai phương thức cho AUC cao hơn đối với ER hoặc PR."
+        "caption": "So sánh bảy tổ hợp dữ liệu lâm sàng, ảnh toàn tiêu bản và biểu hiện gen trên TCGA-BRCA. Thanh sai số thể hiện một độ lệch chuẩn qua đánh giá chéo 5 phần. Mô hình tích hợp đầy đủ có AUC trung bình cao nhất (0.890) và AUC HER2 cao nhất (0.848); một số tổ hợp hai phương thức cho AUC cao hơn đối với ER hoặc PR."
       }
     ]
   },
   "lncrna-graphs": {
     "paper": "C2",
     "source": "/assets/papers/nguyen-variational-gnn-lncrna-disease.pdf",
-    "intro": "Các hình gốc trong nghiên cứu học trên đồ thị biến phân tại ACIIDS 2026. Nghiên cứu học tương phản hai luồng là một công trình riêng, được liệt kê ở phần công bố liên quan.",
+    "intro": "Các hình gốc trong nghiên cứu học trên đồ thị biến phân tại ACIIDS 2026. Nghiên cứu học tương phản hai luồng là một công trình riêng, được liệt kê ở phần công bố liên quan. Các nhãn trong hình được giữ theo bản gốc; phần chú thích bên dưới được trình bày bằng tiếng Việt.",
     "figures": [
       {
         "label": "Hình 1",
@@ -64,12 +64,12 @@
         "page": 7,
         "printedPage": 361,
         "title": "Tích hợp đặc trưng đa góc nhìn bằng cơ chế chú ý",
-        "alt": "Ba nhánh song song dùng mạng tích chập đồ thị (GCN) và cơ chế chú ý (attention) để mã hóa các góc nhìn tương đồng của lncRNA, bệnh và miRNA. Các biểu diễn sau đó được kết hợp với ma trận tương tác giữa các loại thực thể.",
+        "alt": "Ba nhánh song song dùng mạng tích chập đồ thị (GCN) và cơ chế chú ý để mã hóa các góc nhìn tương đồng của lncRNA, bệnh và miRNA. Các biểu diễn sau đó được kết hợp với ma trận tương tác giữa các loại thực thể.",
         "width": 942,
         "height": 509,
         "src": "/assets/figures/lncrna-fig3-attention-fusion.png",
         "category": "architecture",
-        "caption": "Mỗi góc nhìn được xử lý bằng một bộ mã hóa GCN riêng. Cơ chế chú ý (attention) tích hợp các đặc trưng, bổ sung thông tin cho những biểu diễn tương đồng trong mạng dị thể. Đây là một bước của mô hình biến phân."
+        "caption": "Mỗi góc nhìn được xử lý bằng một bộ mã hóa GCN riêng. Cơ chế chú ý tích hợp các đặc trưng, bổ sung thông tin cho những biểu diễn tương đồng trong mạng dị thể. Đây là một bước của mô hình biến phân."
       },
       {
         "label": "Hình 4",
@@ -88,24 +88,24 @@
         "page": 9,
         "printedPage": 363,
         "title": "Dự đoán mối liên hệ bằng mạng có cơ chế cổng",
-        "alt": "Sơ đồ bộ dự đoán MLP có cơ chế cổng, gồm các lớp tuyến tính, ReLU, tổng hợp và đầu ra sigmoid. Hình nhỏ minh họa cổng quên, cổng đầu vào và cổng cập nhật.",
+        "alt": "Sơ đồ bộ dự đoán dùng mạng nơ-ron truyền thẳng đa tầng (MLP) có cơ chế cổng, gồm các lớp tuyến tính, ReLU, tổng hợp và đầu ra sigmoid. Hình nhỏ minh họa cổng quên, cổng đầu vào và cổng cập nhật.",
         "width": 1141,
         "height": 728,
         "src": "/assets/figures/lncrna-fig5-gated-predictor.png",
         "category": "architecture",
-        "caption": "Ở bước dự đoán, mạng MLP kết hợp các đặc trưng thông qua cổng quên, cổng đầu vào và cổng cập nhật. Hàm sigmoid sau đó cho điểm dự đoán mối liên hệ."
+        "caption": "Ở bước dự đoán, mạng nơ-ron truyền thẳng đa tầng (MLP) kết hợp các đặc trưng thông qua cổng quên, cổng đầu vào và cổng cập nhật. Hàm sigmoid sau đó cho điểm dự đoán mối liên hệ."
       },
       {
         "label": "Hình 6",
         "page": 10,
         "printedPage": 364,
-        "title": "Đường cong ROC và precision–recall",
-        "alt": "Hai biểu đồ so sánh đánh giá chéo 2 phần, 5 phần và 10 phần: đường cong ROC và đường cong giá trị tiên đoán dương–độ nhạy (precision–recall). Hình giữ đầy đủ chú giải cùng các giá trị AUC và AUPR.",
+        "title": "Đường cong ROC và giá trị tiên đoán dương–độ nhạy",
+        "alt": "Hai biểu đồ so sánh đánh giá chéo 2 phần, 5 phần và 10 phần: đường cong ROC và đường cong giá trị tiên đoán dương–độ nhạy. Hình giữ đầy đủ chú giải cùng các giá trị AUC và AUPR.",
         "width": 1416,
         "height": 751,
         "src": "/assets/figures/lncrna-fig6-cross-validation-curves.png",
         "category": "results",
-        "caption": "Kết quả trên Bộ dữ liệu 1 qua đánh giá chéo 2 phần, 5 phần và 10 phần. Đánh giá 5 phần (5-fold) ghi nhận AUC 0.9584 và AUPR 0.9590."
+        "caption": "Kết quả trên Bộ dữ liệu 1 qua đánh giá chéo 2 phần, 5 phần và 10 phần. Đánh giá 5 phần ghi nhận AUC 0.9584 và AUPR 0.9590."
       },
       {
         "label": "Hình 10",

@@ -61,3 +61,6 @@ body{background:#fff;font-family:var(--serif);font-size:16px;line-height:1.65}ht
 
 /* Use a system sans-serif with complete Vietnamese glyphs. */
 html[lang="vi"]{--sans:Arial,"Helvetica Neue",sans-serif}
+
+/* Original bibliographic titles remain available beneath their Vietnamese translations. */
+.publication-original-title{font-size:13px;line-height:1.65;color:var(--muted);margin:2px 0 7px;font-style:italic}
