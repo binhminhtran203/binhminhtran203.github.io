@@ -1,7 +1,6 @@
 export const profile = {
   name: 'Binh Minh Tran',
   email: 'btra8435@uni.sydney.edu.au',
-  location: 'Sydney & Canberra, Australia',
   updated: 'October 2026',
   scholar: 'https://scholar.google.com/citations?user=AYgkeCkAAAAJ',
   orcid: 'https://orcid.org/0009-0009-5601-6531',

@@ -29,7 +29,6 @@ const isHome = localizePath(Astro.url.pathname, 'en') === '/';
   <div class="academic-profile-links">
     <div class="profile-contact-line">
       <a class="profile-email" href={`mailto:${profile.email}`}><Icon name="mail" size={15} /><span>{profile.email}</span></a>
-      <p class="academic-location">{t("Sydney & Canberra, Australia", "Sydney & Canberra, Úc")}</p>
     </div>
     <nav class="profile-resource-links" aria-label={t("Academic profiles and CV", "Hồ sơ học thuật và CV")}>
       <a href={profile.cv} target="_blank" rel="noopener noreferrer">{t("Curriculum vitae", "CV tiếng Anh")} <span class="profile-file-type">PDF</span></a>

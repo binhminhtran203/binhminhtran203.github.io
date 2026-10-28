@@ -62,7 +62,6 @@
 .profile-email { gap: 8px; min-width: 0; overflow-wrap: anywhere; }
 .profile-email svg { flex-shrink: 0; }
 .profile-email span { min-width: 0; }
-.academic-location { margin: 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
 .profile-resource-links { display: flex; flex-wrap: wrap; gap: 0 23px; }
 .profile-file-type { margin-left: 6px; font-size: 10px; color: var(--muted); text-decoration: none; }
 
@@ -94,7 +93,6 @@
   .academic-profile-links { padding-top: 13px; }
   .academic-profile-links a { min-height: 44px; }
   .profile-contact-line { display: block; }
-  .academic-location { margin-top: 1px; }
   .profile-resource-links { display: grid; grid-template-columns: max-content max-content; margin-top: 9px; gap: 0 26px; }
 }
 

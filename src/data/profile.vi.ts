@@ -3,7 +3,6 @@ import type { projects } from './profile';
 
 export const profileVi: typeof profile = {
   ...profile,
-  location: 'Sydney & Canberra, Úc',
   updated: 'Tháng 10 năm 2026',
 };
 
