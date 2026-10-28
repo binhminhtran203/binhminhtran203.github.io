@@ -11,7 +11,7 @@ const nodes = Array.from({ length: 72 }, (_, i) => {
 });
 const rnaNodes = Array.from({ length: 22 }, (_, i) => ({ x: 58 + i * 15.5, y: 180 + Math.sin(i * 0.62) * 62 }));
 ---
-<svg class:list={['research-art', { 'research-art-large': large }]} viewBox="0 0 440 370" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={kind === 'nipt' ? t('Conceptual NIPT research workflow: high-risk referrals, probability modelling, and planned calibration and validation', 'Sơ đồ khái niệm nghiên cứu NIPT: ca nguy cơ cao, mô hình hóa xác suất, hiệu chỉnh và thẩm định dự kiến') : kind === 'tissue' ? t('Conceptual graph of a tissue microenvironment, with linked cell populations', 'Đồ thị khái niệm về vi môi trường mô, với các quần thể tế bào liên kết') : kind === 'rna' ? t('Conceptual RNA network with linked molecular and disease representations', 'Mạng RNA khái niệm liên kết các biểu diễn phân tử và bệnh') : t('Conceptual integration of clinical, tissue, and RNA data into a shared model', 'Minh họa việc tích hợp dữ liệu lâm sàng, mô và RNA vào mô hình chung')}>
+<svg class:list={['research-art', { 'research-art-large': large }]} viewBox="0 0 440 370" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={kind === 'nipt' ? t('Conceptual NIPT research workflow: high-risk referrals, probability modelling, and planned calibration and validation', 'Sơ đồ nghiên cứu NIPT dự kiến: tiếp nhận các trường hợp có kết quả nguy cơ cao, xây dựng mô hình xác suất, đánh giá độ hiệu chuẩn và thẩm định mô hình') : kind === 'tissue' ? t('Conceptual graph of a tissue microenvironment, with linked cell populations', 'Sơ đồ minh họa vi môi trường mô dưới dạng đồ thị liên kết các quần thể tế bào') : kind === 'rna' ? t('Conceptual RNA network with linked molecular and disease representations', 'Sơ đồ minh họa mạng RNA kết nối thông tin phân tử và bệnh') : t('Conceptual integration of clinical, tissue, and RNA data into a shared model', 'Minh họa việc tích hợp dữ liệu lâm sàng, mô và RNA vào mô hình chung')}>
   {kind !== 'nipt' && <>
   <circle cx="220" cy="185" r="151" stroke="currentColor" stroke-opacity=".1" stroke-dasharray="2 7" />
   <circle cx="220" cy="185" r="112" stroke="currentColor" stroke-opacity=".08" />
@@ -27,7 +27,7 @@ const rnaNodes = Array.from({ length: 22 }, (_, i) => ({ x: 58 + i * 15.5, y: 18
     <text x="220" y="206" fill="#e3eee7" font-size="13">{t("Regression · Gradient boosting", "Hồi quy · Gradient boosting")}</text>
     <path d="M220 227v28m-5-6 5 6 5-6" stroke="#719586" stroke-width="2" />
     <rect x="65" y="259" width="310" height="67" rx="3" fill="#fafcf9" stroke="#a6bdb1" />
-    <text x="220" y="286" fill="#285b4b" font-size="18">{t("Calibration & validation", "Hiệu chỉnh & thẩm định")}</text>
+    <text x="220" y="286" fill="#285b4b" font-size="18">{t("Calibration & validation", "Hiệu chuẩn & thẩm định")}</text>
     <text x="220" y="308" fill="#57635d" font-size="13">{t("Planned research", "Nghiên cứu dự kiến")}</text>
   </g>}
   {kind === 'tissue' && <>

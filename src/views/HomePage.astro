@@ -19,24 +19,24 @@ const interests = [t('Multimodal learning', 'Học đa phương thức'), t('Gra
     <div class="academic-main">
       <section class="academic-introduction" aria-labelledby="biography-title">
         <h2 id="biography-title">{t('Research overview', 'Tổng quan nghiên cứu')}</h2>
-        <p>{t('My research focuses on graph and multimodal learning for biomedical applications, connecting molecular signals, tissue organisation, and patient outcomes. I aim to develop trustworthy, interpretable AI methods that connect biological discovery with precision medicine.', 'Nghiên cứu của tôi tập trung vào học trên đồ thị và học đa phương thức cho các ứng dụng y sinh, kết nối tín hiệu phân tử, tổ chức mô và kết cục của bệnh nhân. Tôi hướng tới phát triển các phương pháp AI đáng tin cậy, có khả năng diễn giải, nhằm kết nối khám phá sinh học với y học chính xác.')}</p>
-        <p>{t('At the Australian National University, I am undertaking preliminary research in computational RNA biology with Professor Eduardo Eyras at the Centre for Computational Biomedical Sciences, John Curtin School of Medical Research.', 'Tại Đại học Quốc gia Australia, tôi đang thực hiện nghiên cứu giai đoạn đầu về sinh học RNA tính toán cùng Giáo sư Eduardo Eyras tại Trung tâm Khoa học Y sinh Tính toán, Trường Nghiên cứu Y khoa John Curtin.')}</p>
-        <a class="text-link" href={path('/about/')}>{t('Biography and academic background', 'Giới thiệu và quá trình học tập')}</a>
+        <p>{t('My research focuses on graph and multimodal learning for biomedical applications, connecting molecular signals, tissue organisation, and patient outcomes. I aim to develop trustworthy, interpretable AI methods that connect biological discovery with precision medicine.', 'Tôi nghiên cứu các phương pháp học trên đồ thị và học đa phương thức trong y sinh, nhằm tìm hiểu mối liên hệ giữa tín hiệu phân tử, cấu trúc mô và kết cục lâm sàng. Tôi mong muốn phát triển những phương pháp AI đáng tin cậy, có thể diễn giải, để đưa các khám phá sinh học đến gần hơn với y học chính xác.')}</p>
+        <p>{t('At the Australian National University, I am undertaking preliminary research in computational RNA biology with Professor Eduardo Eyras at the Centre for Computational Biomedical Sciences, John Curtin School of Medical Research.', 'Hiện tôi đang thực hiện những nghiên cứu ban đầu về sinh học RNA tính toán cùng Giáo sư Eduardo Eyras tại Trung tâm Khoa học Y sinh Tính toán, Trường Nghiên cứu Y khoa John Curtin, Đại học Quốc gia Australia.')}</p>
+        <a class="text-link" href={path('/about/')}>{t('Biography and academic background', 'Giới thiệu và hành trình học thuật')}</a>
       </section>
       <section class="academic-section" aria-labelledby="interests-title">
         <h2 id="interests-title">{t('Research interests', 'Hướng nghiên cứu')}</h2>
         <ul class="research-interest-list">{interests.map(interest=><li>{interest}</li>)}</ul>
       </section>
       <section class="academic-section academic-selected-publications" aria-labelledby="selected-title">
-        <div class="academic-section-heading"><h2 id="selected-title">{t('Selected publications', 'Công bố tiêu biểu')}</h2><a class="text-link" href={path('/publications/')}>{t('All publications', 'Tất cả công bố')}</a></div>
+        <div class="academic-section-heading"><h2 id="selected-title">{t('Selected publications', 'Công bố tiêu biểu')}</h2><a class="text-link" href={path('/publications/')}>{t('All publications', 'Danh sách công bố')}</a></div>
         <div class="publication-list">{publications.filter(p=>p.status==='published').map(paper=><Publication paper={paper} compact />)}</div>
-        <p class="section-footnote">{t('† Equal contribution. Manuscripts under review are listed separately on the publications page.', '† Đóng góp ngang nhau. Các bản thảo đang phản biện được liệt kê riêng trên trang công bố.')}</p>
+        <p class="section-footnote">{t('† Equal contribution. Manuscripts under review are listed separately on the publications page.', '† Các tác giả có đóng góp ngang nhau. Bản thảo đang phản biện được trình bày riêng trong danh sách công bố.')}</p>
       </section>
       <section class="academic-section" aria-labelledby="projects-title">
         <div class="academic-section-heading"><h2 id="projects-title">{t('Research projects', 'Dự án nghiên cứu')}</h2><a class="text-link" href={path('/research/')}>{t('Project details', 'Chi tiết dự án')}</a></div>
         <div class="research-summaries">{projects.map(project=><article><div class="research-summary-heading"><h3><a href={path(`/research/${project.slug}/`)}>{project.short}</a></h3><span>{project.period}</span></div><p>{project.description}</p></article>)}</div>
       </section>
-      <section class="academic-section academic-community-note" aria-labelledby="service-title"><h2 id="service-title">{t('Academic & community engagement', 'Hoạt động học thuật và cộng đồng')}</h2><p>{t('Alongside research, I contribute to the Vietnamese student community in Australia through student leadership and organisational service.', 'Bên cạnh nghiên cứu, tôi đóng góp cho cộng đồng sinh viên Việt Nam tại Australia thông qua công tác Hội và các vai trò lãnh đạo sinh viên.')}</p><a class="text-link" href={path('/about/#community')}>{t('Leadership & public engagement', 'Công tác Hội và hoạt động cộng đồng')} <Icon size={15} /></a></section>
+      <section class="academic-section academic-community-note" aria-labelledby="service-title"><h2 id="service-title">{t('Academic & community engagement', 'Hoạt động học thuật và cộng đồng')}</h2><p>{t('Alongside research, I contribute to the Vietnamese student community in Australia through student leadership and organisational service.', 'Bên cạnh nghiên cứu, tôi tham gia công tác Hội và các hoạt động kết nối, đóng góp cho cộng đồng sinh viên Việt Nam tại Australia.')}</p><a class="text-link" href={path('/about/#community')}>{t('Leadership & public engagement', 'Công tác Hội và hoạt động cộng đồng')} <Icon size={15} /></a></section>
     </div>
   </div>
 </Layout>

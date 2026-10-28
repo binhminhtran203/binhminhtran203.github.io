@@ -8,9 +8,9 @@ const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
 const href = (path: string) => localizePath(path, locale);
 interface Props { title?: string; description?: string; noindex?: boolean; }
-const { title, description = t('Binh Minh Tran works on graph and multimodal learning for biomedical research, with interests in computational RNA biology, spatial omics, and cancer AI.', 'Binh Minh Tran nghiên cứu học trên đồ thị và học đa phương thức trong y sinh, với các hướng quan tâm về sinh học RNA tính toán, omics không gian và AI trong ung thư.'), noindex = false } = Astro.props;
+const { title, description = t('Binh Minh Tran works on graph and multimodal learning for biomedical research, with interests in computational RNA biology, spatial omics, and cancer AI.', 'Binh Minh Tran nghiên cứu các phương pháp học trên đồ thị và học đa phương thức trong y sinh, tập trung vào sinh học RNA tính toán, omics không gian và ứng dụng AI trong nghiên cứu ung thư.'), noindex = false } = Astro.props;
 const pageTitle = title ? `${title} — Binh Minh Tran` : t('Binh Minh Tran — Biomedical AI & Computational Biology', 'Binh Minh Tran — AI y sinh & Sinh học tính toán');
-const nav = [{ href: '/', label: t('Home', 'Trang chủ') }, { href: '/research/', label: t('Research', 'Nghiên cứu') }, { href: '/publications/', label: t('Publications', 'Công bố') }, { href: '/about/', label: t('About & CV', 'Giới thiệu & CV') }].map(item => ({ ...item, href: href(item.href) }));
+const nav = [{ href: '/', label: t('Home', 'Trang chủ') }, { href: '/research/', label: t('Research', 'Nghiên cứu') }, { href: '/publications/', label: t('Publications', 'Công bố') }, { href: '/about/', label: t('About & CV', 'Giới thiệu và CV') }].map(item => ({ ...item, href: href(item.href) }));
 const path = Astro.url.pathname;
 const origin = Astro.site?.origin;
 const canonical = !noindex && origin && !origin.includes('example.invalid') ? new URL(path, origin).href : undefined;
@@ -51,7 +51,7 @@ const canonical = !noindex && origin && !origin.includes('example.invalid') ? ne
             <span aria-hidden="true">/</span>
             <a href={noindex ? '/vi/' : localizePath(path, 'vi')} lang="vi" hreflang="vi" aria-current={locale === 'vi' ? 'true' : undefined} aria-label="Tiếng Việt" data-language="vi"><span class="language-full">Tiếng Việt</span><span class="language-short" aria-hidden="true">VI</span></a>
           </nav>
-          <button class="menu-toggle" type="button" aria-label={t('Open navigation', 'Mở điều hướng')} data-open-label={t('Open navigation', 'Mở điều hướng')} data-close-label={t('Close navigation', 'Đóng điều hướng')} aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span></button>
+          <button class="menu-toggle" type="button" aria-label={t('Open navigation', 'Mở menu')} data-open-label={t('Open navigation', 'Mở menu')} data-close-label={t('Close navigation', 'Đóng menu')} aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span></button>
         </div>
       </div>
     </header>

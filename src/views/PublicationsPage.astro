@@ -13,27 +13,27 @@ const review = publications.filter(p=>p.status==='review').length;
 const topicAliases: Record<string, string[]> = {
   'Cancer AI': ['AI ung thư', 'ung thư vú', 'trí tuệ nhân tạo y sinh'],
   'Multimodal learning': ['học đa phương thức'],
-  'Receptor prediction': ['dự đoán trạng thái thụ thể', 'ER PR HER2'],
+  'Receptor prediction': ['dự đoán tình trạng biểu hiện thụ thể', 'ER PR HER2'],
   'Graph learning': ['học trên đồ thị', 'mạng nơ-ron đồ thị'],
-  'RNA biology': ['sinh học RNA', 'liên kết RNA bệnh'],
+  'RNA biology': ['sinh học RNA', 'mối liên hệ RNA bệnh', 'liên kết RNA bệnh'],
   'Rehabilitation': ['phục hồi chức năng', 'đánh giá vận động'],
 };
 const searchablePublications = publications.map(paper=>({ ...paper, topics: [...paper.topics, ...paper.topics.flatMap(topic=>topicAliases[topic] || [])] }));
-const searchLabel = text(locale, 'Search publications by title, author, venue, or topic', 'Tìm công bố theo tiêu đề, tác giả, nơi công bố hoặc chủ đề');
+const searchLabel = text(locale, 'Search publications by title, author, venue, or topic', 'Tìm công trình theo tên bài, tác giả, tạp chí, hội nghị hoặc chủ đề');
 ---
 <Layout
   title={text(locale, 'Publications', 'Công bố khoa học')}
   description={text(locale,
     'Publications and manuscripts by Binh Minh Tran on multimodal learning, graph neural networks, RNA-disease associations, and computational oncology.',
-    'Các công bố khoa học và bản thảo của Trần Bình Minh về học đa phương thức, mạng nơ-ron đồ thị, liên kết RNA–bệnh và nghiên cứu ung thư bằng phương pháp tính toán.')}
+    'Các công bố khoa học và bản thảo của Trần Bình Minh về học đa phương thức, mạng nơ-ron đồ thị, mối liên hệ giữa RNA và bệnh, cùng các ứng dụng tính toán trong nghiên cứu ung thư.')}
 >
   <section class="page-header container">
     <p class="academic-kicker">{text(locale, 'Research output', 'Kết quả nghiên cứu')}</p>
-    <h1>{text(locale, 'Publications & manuscripts', 'Công bố & bản thảo')}</h1>
+    <h1>{text(locale, 'Publications & manuscripts', 'Công bố khoa học và bản thảo')}</h1>
     <div class="publication-header-bottom">
       <p class="page-lead">{text(locale,
         'Peer-reviewed publications and manuscripts under review. My name is in bold; † indicates equal contribution.',
-        'Các công bố đã qua phản biện và bản thảo đang được phản biện. Tên tôi được in đậm; † biểu thị đóng góp ngang nhau.')}</p>
+        'Các công trình đã công bố qua phản biện và những bản thảo đang được phản biện. Tên tôi được in đậm; dấu † chỉ các tác giả có đóng góp ngang nhau.')}</p>
       <a class="text-link" href={profile.scholar} target="_blank" rel="noopener noreferrer">Google Scholar <Icon name="external" /></a>
     </div>
   </section>
@@ -47,7 +47,7 @@ const searchLabel = text(locale, 'Search publications by title, author, venue, o
       <label class="search-box">
         <Icon name="search" size={17} />
         <span class="sr-only">{searchLabel}</span>
-        <input id="publication-search" type="search" placeholder={text(locale, 'Search publications…', 'Tìm công bố…')} autocomplete="off" />
+        <input id="publication-search" type="search" placeholder={text(locale, 'Search publications…', 'Tìm công trình…')} autocomplete="off" />
       </label>
     </div>
     <div class="publication-results">
@@ -66,13 +66,13 @@ const searchLabel = text(locale, 'Search publications by title, author, venue, o
     </div>
     <div class="empty-state" hidden>
       <p class="eyebrow">{text(locale, 'No matches', 'Không có kết quả phù hợp')}</p>
-      <h2>{text(locale, 'Try another search.', 'Thử từ khóa khác.')}</h2>
-      <p>{text(locale, 'Search by a title, author, venue, or research topic.', 'Tìm theo tiêu đề, tác giả, nơi công bố hoặc chủ đề nghiên cứu.')}</p>
-      <button class="button button-primary" id="reset-filters" type="button">{text(locale, 'Clear search & filters', 'Xóa tìm kiếm & bộ lọc')} <Icon /></button>
+      <h2>{text(locale, 'Try another search.', 'Thử tìm bằng từ khóa khác.')}</h2>
+      <p>{text(locale, 'Search by a title, author, venue, or research topic.', 'Bạn có thể tìm theo tên bài, tác giả, tạp chí, hội nghị hoặc chủ đề nghiên cứu.')}</p>
+      <button class="button button-primary" id="reset-filters" type="button">{text(locale, 'Clear search & filters', 'Xóa từ khóa và bộ lọc')} <Icon /></button>
     </div>
     <p class="section-footnote">{text(locale,
       'Under review indicates an active submission, not an accepted publication. The HiNT-Surv manuscript targets CIHM at SSCI 2027; its record is dated 2026.',
-      '“Đang phản biện” chỉ bản thảo đã được gửi để xem xét, chưa phải công bố được chấp nhận. Bản thảo HiNT-Surv được gửi tới CIHM thuộc SSCI 2027; hồ sơ bản thảo ghi năm 2026.')}</p>
+      '“Đang phản biện” nghĩa là bản thảo đang được xem xét và chưa được chấp nhận xuất bản. Bản thảo HiNT-Surv được gửi tới CIHM thuộc SSCI 2027 và được ghi nhận trong danh mục năm 2026.')}</p>
     <p class="sr-only" id="clipboard-status" aria-live="polite"></p>
   </section>
   <script>
