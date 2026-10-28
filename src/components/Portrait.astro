@@ -1,0 +1,10 @@
+---
+interface Props { caption?: boolean; }
+const { caption = true } = Astro.props;
+---
+<figure class="portrait">
+  <div class="portrait-frame">
+    <img src="/assets/binh-minh-tran-portrait.png" alt="Portrait of Binh Minh Tran" width="472" height="709" loading="eager" decoding="async" fetchpriority="high" />
+  </div>
+  {caption && <figcaption><span>Binh Minh Tran</span><span>Sydney & Canberra, Australia</span></figcaption>}
+</figure>

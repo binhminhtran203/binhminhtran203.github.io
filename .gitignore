@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.sites-runtime/
+.DS_Store
+*.log
+
+# Generated compatibility copy of the current public CV
+public/uploads/Binh_Minh_Tran_CV.pdf

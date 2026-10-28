@@ -1,0 +1,192 @@
+[
+  {
+    "id": "C1",
+    "title": "A Multimodal Deep Learning Framework for Breast Cancer Receptor Status Prediction",
+    "authors": [
+      "B. M. Tran",
+      "V. A. Nguyen",
+      "L. H. Nguyen",
+      "Q. A. Dang",
+      "N. M. H. Nguyen",
+      "Q. A. Nguyen",
+      "H. N. Tran",
+      "T. B. V. Nguyen",
+      "D. H. Tran"
+    ],
+    "equalContribution": [
+      "B. M. Tran",
+      "V. A. Nguyen"
+    ],
+    "year": 2027,
+    "status": "published",
+    "venue": "IUKM 2026",
+    "citation": "IUKM 2026, LNAI 16918, Part I, Springer, pp. 102–114, 2027.",
+    "topics": [
+      "Cancer AI",
+      "Multimodal learning",
+      "Receptor prediction"
+    ],
+    "links": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1007/978-981-92-5641-9_9"
+      },
+      {
+        "label": "Full paper (PDF)",
+        "url": "/assets/papers/tran-multimodal-breast-cancer-receptor.pdf",
+        "download": true
+      }
+    ],
+    "bibtex": "@inproceedings{tran2027multimodal,\n  author = {Tran, B. M. and Nguyen, V. A. and Nguyen, L. H. and Dang, Q. A. and Nguyen, N. M. H. and Nguyen, Q. A. and Tran, H. N. and Nguyen, T. B. V. and Tran, D. H.},\n  title = {A Multimodal Deep Learning Framework for Breast Cancer Receptor Status Prediction},\n  booktitle = {IUKM 2026},\n  series = {LNAI},\n  volume = {16918},\n  pages = {102--114},\n  publisher = {Springer},\n  year = {2027},\n  doi = {10.1007/978-981-92-5641-9_9},\n  note = {Part I; B. M. Tran and V. A. Nguyen contributed equally}\n}"
+  },
+  {
+    "id": "C2",
+    "title": "A Variational Graph Neural Network with Multi-view Integration for Predicting LncRNA–Disease Associations",
+    "authors": [
+      "L. H. Nguyen",
+      "B. M. Tran",
+      "D. H. Tran"
+    ],
+    "equalContribution": [],
+    "year": 2026,
+    "status": "published",
+    "venue": "ACIIDS 2026",
+    "citation": "Recent Challenges in Intelligent Information and Database Systems (ACIIDS 2026), CCIS 2964, Springer, pp. 355–369, 2026.",
+    "topics": [
+      "Graph learning",
+      "RNA biology"
+    ],
+    "links": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1007/978-981-92-0068-9_24"
+      },
+      {
+        "label": "Full paper (PDF)",
+        "url": "/assets/papers/nguyen-variational-gnn-lncrna-disease.pdf",
+        "download": true
+      }
+    ],
+    "bibtex": "@inproceedings{nguyen2026variational,\n  author = {Nguyen, L. H. and Tran, B. M. and Tran, D. H.},\n  title = {A Variational Graph Neural Network with Multi-view Integration for Predicting {LncRNA}--Disease Associations},\n  booktitle = {Recent Challenges in Intelligent Information and Database Systems (ACIIDS 2026)},\n  series = {CCIS},\n  volume = {2964},\n  pages = {355--369},\n  publisher = {Springer},\n  year = {2026},\n  doi = {10.1007/978-981-92-0068-9_24}\n}"
+  },
+  {
+    "id": "C3",
+    "title": "Dual-Stream Contrastive Graph Representation Learning for lncRNA–Disease Association Prediction",
+    "authors": [
+      "L. H. Nguyen",
+      "B. M. Tran",
+      "D. H. Tran"
+    ],
+    "equalContribution": [],
+    "year": 2026,
+    "status": "published",
+    "venue": "FJCAI 2026",
+    "citation": "Proceedings of the FISU Joint Conference on Artificial Intelligence (FJCAI 2026), pp. 151–158, 2026. ISBN 978-604-45-2586-0.",
+    "topics": [
+      "Graph learning",
+      "RNA biology"
+    ],
+    "links": [
+      {
+        "label": "Proceedings",
+        "url": "https://ebook365.vn/ky-yeu-hoi-thao-quoc-gia-ve-tri-tue-nhan-tao-2026-proceedings-of-the-fisu-joint-conference-on-artificial-intelligence-2026-fjcai-2026-r1881.html"
+      }
+    ],
+    "bibtex": "@inproceedings{nguyen2026dualstream,\n  author = {Nguyen, L. H. and Tran, B. M. and Tran, D. H.},\n  title = {Dual-Stream Contrastive Graph Representation Learning for {lncRNA}--Disease Association Prediction},\n  booktitle = {Proceedings of the FISU Joint Conference on Artificial Intelligence (FJCAI 2026)},\n  pages = {151--158},\n  year = {2026},\n  isbn = {978-604-45-2586-0}\n}"
+  },
+  {
+    "id": "M1",
+    "title": "Development and cross-cohort evaluation of a multimodal deep-learning model for ER, PR and HER2 status classification in breast cancer",
+    "authors": [
+      "B. M. Tran",
+      "V. A. Nguyen",
+      "Q. A. Dang",
+      "N. M. H. Nguyen",
+      "Q. A. Nguyen",
+      "H. N. Tran",
+      "D. H. Tran",
+      "T. B. V. Nguyen"
+    ],
+    "equalContribution": [
+      "B. M. Tran",
+      "V. A. Nguyen"
+    ],
+    "year": 2026,
+    "status": "review",
+    "venue": "Scientific Reports",
+    "citation": "Manuscript under review at Scientific Reports, 2026.",
+    "topics": [
+      "Cancer AI"
+    ],
+    "links": [],
+    "bibtex": "@unpublished{tran2026crosscohort,\n  author = {Tran, B. M. and Nguyen, V. A. and Dang, Q. A. and Nguyen, N. M. H. and Nguyen, Q. A. and Tran, H. N. and Tran, D. H. and Nguyen, T. B. V.},\n  title = {Development and cross-cohort evaluation of a multimodal deep-learning model for {ER}, {PR} and {HER2} status classification in breast cancer},\n  year = {2026},\n  note = {Under review at Scientific Reports; B. M. Tran and V. A. Nguyen contributed equally}\n}"
+  },
+  {
+    "id": "M2",
+    "title": "H2F-GCN: Skeleton-based Hypergraph Frequency Coordinate Fusion Graph Convolution Network for Physical Rehabilitation Assessment",
+    "authors": [
+      "B. M. Tran",
+      "D. Q.-A. Nguyen",
+      "M.-H. Ha",
+      "D. M. Pham",
+      "T. D. Nguyen",
+      "Q. B. Doan",
+      "D. T. Doan",
+      "M.-A. Nguyen",
+      "D.-T. Nguyen",
+      "O. T.-C. Chen"
+    ],
+    "equalContribution": [],
+    "year": 2026,
+    "status": "review",
+    "venue": "IEEE Access",
+    "citation": "Manuscript under review at IEEE Access, 2026.",
+    "topics": [
+      "Graph learning",
+      "Rehabilitation"
+    ],
+    "links": [],
+    "bibtex": "@unpublished{tran2026h2fgcn,\n  author = {Tran, B. M. and Nguyen, D. Q.-A. and Ha, M.-H. and Pham, D. M. and Nguyen, T. D. and Doan, Q. B. and Doan, D. T. and Nguyen, M.-A. and Nguyen, D.-T. and Chen, O. T.-C.},\n  title = {{H2F-GCN}: Skeleton-based Hypergraph Frequency Coordinate Fusion Graph Convolution Network for Physical Rehabilitation Assessment},\n  year = {2026},\n  note = {Under review at IEEE Access}\n}"
+  },
+  {
+    "id": "M3",
+    "title": "A Deep Learning Model Supporting Classification and Localisation of Breast Tumour Lesions on Ultrasound",
+    "authors": [
+      "T. B. V. Nguyen",
+      "N. M. H. Nguyen",
+      "B. M. Tran",
+      "Q. A. Dang",
+      "V. A. Nguyen"
+    ],
+    "equalContribution": [],
+    "year": 2026,
+    "status": "review",
+    "venue": "Journal of Medical Research",
+    "citation": "Manuscript in Vietnamese, under review at Journal of Medical Research (Hanoi Medical University), 2026.",
+    "topics": [
+      "Cancer AI"
+    ],
+    "links": [],
+    "bibtex": "@unpublished{nguyen2026ultrasound,\n  author = {Nguyen, T. B. V. and Nguyen, N. M. H. and Tran, B. M. and Dang, Q. A. and Nguyen, V. A.},\n  title = {A Deep Learning Model Supporting Classification and Localisation of Breast Tumour Lesions on Ultrasound},\n  year = {2026},\n  note = {Under review at Journal of Medical Research (Hanoi Medical University); manuscript in Vietnamese}\n}"
+  },
+  {
+    "id": "M4",
+    "title": "HiNT-Surv: Hierarchical Niche-Aware Multi-Microenvironment Learning from Imaging Mass Cytometry for Survival Prediction",
+    "authors": [
+      "B. M. Tran",
+      "L. Zhang",
+      "X. Wang"
+    ],
+    "equalContribution": [],
+    "year": 2026,
+    "status": "review",
+    "venue": "CIHM, SSCI 2027",
+    "citation": "Manuscript under review for the IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), SSCI 2027.",
+    "topics": [
+      "Cancer AI",
+      "Graph learning"
+    ],
+    "links": [],
+    "bibtex": "@unpublished{tran2026hintsurv,\n  author = {Tran, B. M. and Zhang, L. and Wang, X.},\n  title = {{HiNT-Surv}: Hierarchical Niche-Aware Multi-Microenvironment Learning from Imaging Mass Cytometry for Survival Prediction},\n  year = {2026},\n  note = {Under review for the IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), SSCI 2027}\n}"
+  }
+]

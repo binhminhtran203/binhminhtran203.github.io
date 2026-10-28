@@ -1,0 +1,124 @@
+{
+  "receptor-prediction": {
+    "paper": "C1",
+    "source": "/assets/papers/tran-multimodal-breast-cancer-receptor.pdf",
+    "intro": "Original figures from the published IUKM 2026 chapter (2027 imprint).",
+    "figures": [
+      {
+        "label": "Figure 1",
+        "page": 4,
+        "printedPage": 105,
+        "title": "Multimodal model architecture",
+        "alt": "Architecture with clinical variables, RNA-seq, and whole-slide tile embeddings entering separate encoders; three modality tokens feed self-attention fusion, a shared MLP trunk, and ER, PR, and HER2 prediction heads.",
+        "width": 1996,
+        "height": 688,
+        "src": "/assets/figures/receptor-architecture.png",
+        "category": "architecture",
+        "caption": "Clinical and gene-expression encoders and a Transformer-based whole-slide image encoder produce modality tokens. Self-attention fusion and a shared multitask network support joint ER, PR, and HER2 prediction."
+      },
+      {
+        "label": "Figure 2",
+        "page": 9,
+        "printedPage": 110,
+        "title": "Receptor prediction across five folds",
+        "alt": "Six panels show ROC curves above precision–recall curves for ER, PR, and HER2. The legends retain all five folds, means, standard deviations, and chance baselines. ER has the strongest discrimination, while HER2 has lower precision–recall performance.",
+        "width": 2275,
+        "height": 1553,
+        "src": "/assets/figures/receptor-cross-validation.png",
+        "category": "results",
+        "caption": "ROC and precision–recall curves for ER, PR, and HER2 on TCGA-BRCA across five folds; shaded bands show one standard deviation. Mean AUCs are 0.954, 0.868, and 0.848, respectively. These plots show internal cross-validation; the external CPTAC-BRCA results are reported separately."
+      },
+      {
+        "label": "Figure 4",
+        "page": 10,
+        "printedPage": 111,
+        "title": "Contribution of each data modality",
+        "alt": "Grouped bar chart compares seven modality combinations for ER, PR, HER2, and mean AUC. Gray bars are unimodal, blue bars are bimodal, and red bars use all modalities. Full fusion reaches mean AUC 0.890 and HER2 AUC 0.848; axes, values, legend, and uncertainty bars are preserved.",
+        "width": 2290,
+        "height": 927,
+        "src": "/assets/figures/receptor-modality-ablation.png",
+        "category": "results",
+        "caption": "Seven modality combinations compare clinical, whole-slide image, and gene-expression inputs on TCGA-BRCA. Error bars show one standard deviation across five folds. The full model has the highest mean AUC (0.890) and HER2 AUC (0.848), while some bimodal combinations score higher for ER or PR."
+      }
+    ]
+  },
+  "lncrna-graphs": {
+    "paper": "C2",
+    "source": "/assets/papers/nguyen-variational-gnn-lncrna-disease.pdf",
+    "intro": "Original figures from the ACIIDS 2026 variational graph study. These figures describe that model; the separate dual-stream contrastive study is listed under related publications.",
+    "figures": [
+      {
+        "label": "Figure 1",
+        "page": 6,
+        "printedPage": 360,
+        "title": "Multi-view network construction",
+        "alt": "Network-construction diagram showing successive fusion of lncRNA, disease, and miRNA similarity matrices with interaction matrices to produce heterogeneous network views.",
+        "width": 1211,
+        "height": 640,
+        "src": "/assets/figures/lncrna-fig1-network-construction.png",
+        "category": "architecture",
+        "caption": "The feature-construction stage combines functional, semantic, and Gaussian interaction-profile similarities with known interactions among lncRNAs, miRNAs, and diseases to form a heterogeneous network."
+      },
+      {
+        "label": "Figure 3",
+        "page": 7,
+        "printedPage": 361,
+        "title": "Attention-based multi-view feature fusion",
+        "alt": "Three parallel branches encode lncRNA, disease, and miRNA similarity views with GCNs and attention, then combine their representations with cross-entity interaction matrices.",
+        "width": 942,
+        "height": 509,
+        "src": "/assets/figures/lncrna-fig3-attention-fusion.png",
+        "category": "architecture",
+        "caption": "View-specific GCN encoders and attention-based fusion produce enriched similarity representations for the heterogeneous network. This is one stage of the variational model."
+      },
+      {
+        "label": "Figure 4",
+        "page": 8,
+        "printedPage": 362,
+        "title": "Variational graph representation learning",
+        "alt": "Variational graph autoencoder diagram showing a heterogeneous adjacency matrix, an encoder, latent embeddings, a decoder, and a reconstructed matrix.",
+        "width": 941,
+        "height": 197,
+        "src": "/assets/figures/lncrna-fig4-variational-autoencoder.png",
+        "category": "architecture",
+        "caption": "The VGAE stage encodes the heterogeneous network into a probabilistic latent representation and reconstructs its topology, using reconstruction and KL-divergence objectives."
+      },
+      {
+        "label": "Figure 5",
+        "page": 9,
+        "printedPage": 363,
+        "title": "Gated association predictor",
+        "alt": "Gated MLP predictor with stacked linear and ReLU layers, aggregation layers, and a sigmoid output; an inset details the forget, input, and update gates.",
+        "width": 1141,
+        "height": 728,
+        "src": "/assets/figures/lncrna-fig5-gated-predictor.png",
+        "category": "architecture",
+        "caption": "The prediction stage combines features in an MLP with forget, input, and update gates, followed by a sigmoid association score."
+      },
+      {
+        "label": "Figure 6",
+        "page": 10,
+        "printedPage": 364,
+        "title": "ROC and precision–recall curves",
+        "alt": "Two plots compare 2-fold, 5-fold, and 10-fold cross-validation: a receiver-operating characteristic curve and a precision–recall curve, with complete legends and reported AUC and AUPR values.",
+        "width": 1416,
+        "height": 751,
+        "src": "/assets/figures/lncrna-fig6-cross-validation-curves.png",
+        "category": "results",
+        "caption": "Dataset 1 performance under 2-, 5-, and 10-fold cross-validation. The five-fold evaluation reports AUC 0.9584 and AUPR 0.9590."
+      },
+      {
+        "label": "Figure 10",
+        "page": 13,
+        "printedPage": 367,
+        "title": "Dataset 1 benchmark comparison",
+        "alt": "Grouped bar chart comparing AUC and AUPR for DBATNDA, HGC-GAN, NAGTLDA, and the proposed model; the proposed model bars are labelled 0.9584 and 0.9590.",
+        "width": 1137,
+        "height": 662,
+        "src": "/assets/figures/lncrna-fig10-benchmark-comparison.png",
+        "category": "results",
+        "caption": "AUC and AUPR comparisons with DBATNDA, HGC-GAN, and NAGTLDA, as reported in the paper. The proposed model records AUC 0.9584 and AUPR 0.9590. Comparisons are specific to this benchmark protocol and are not clinical performance estimates."
+      }
+    ]
+  }
+}

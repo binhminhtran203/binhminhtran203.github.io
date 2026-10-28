@@ -1,0 +1,15 @@
+{
+  "name": "binh-minh-tran-academic",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "prebuild": "node scripts/prepare-assets.mjs"
+  },
+  "dependencies": {
+    "astro": "7.4.2"
+  }
+}

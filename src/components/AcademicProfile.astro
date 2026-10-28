@@ -1,0 +1,21 @@
+---
+import Portrait from './Portrait.astro';
+import { profile } from '../data/profile';
+const isHome = Astro.url.pathname === '/';
+---
+<aside class="academic-profile" aria-label="Academic profile and contact details">
+  <div class="academic-profile-photo"><Portrait caption={false} /></div>
+  <div class="academic-profile-details">
+    {isHome ? <h1 class="academic-profile-name">Binh Minh Tran</h1> : <h2 class="academic-profile-name">Binh Minh Tran</h2>}
+    <p class="academic-profile-field">Biomedical AI · Computational biology</p>
+    <div class="academic-appointments">
+      <p><strong>Visiting Researcher</strong><span>Australian National University</span></p>
+      <p><strong>Honours Student, Advanced Computing</strong><span>The University of Sydney · Expected completion December 2026</span></p>
+    </div>
+    <p class="academic-location">Sydney & Canberra, Australia</p>
+  </div>
+  <nav class="academic-profile-links" aria-label="Academic profiles and CV">
+    <a class="profile-email" href={`mailto:${profile.email}`}>{profile.email}</a>
+    <div class="profile-resource-links"><a href={profile.cv} target="_blank" rel="noopener noreferrer">[CV]</a><a href={profile.scholar} target="_blank" rel="noopener noreferrer">[Google Scholar]</a><a href={profile.orcid} target="_blank" rel="noopener noreferrer">[ORCID]</a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">[LinkedIn]</a></div>
+  </nav>
+</aside>
