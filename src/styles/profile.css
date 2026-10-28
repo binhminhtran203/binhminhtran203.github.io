@@ -48,3 +48,16 @@ body{background:#fff;font-family:var(--serif);font-size:16px;line-height:1.65}ht
 .figure-dialog-footer{padding:12px 20px 15px}.figure-dialog-footer p{font-size:13px;line-height:1.6;margin-bottom:6px}.figure-dialog-source{font-family:var(--sans);font-size:12px;min-height:36px;display:inline-flex;align-items:center;color:var(--green);text-decoration:underline;text-underline-offset:3px}
 @media(max-width:650px){.project-section-nav{gap:0 18px}.paper-section-heading{display:block}.paper-section-heading h2{font-size:24px}.paper-section-heading>a{margin-top:3px}.paper-figure-section{padding-top:24px}.paper-figure-open{padding:8px 8px 0}.paper-figure figcaption h3{font-size:18px}.paper-figure figcaption p{font-size:14px}.figure-dialog{width:calc(100vw - 20px);max-height:calc(100dvh - 20px)}.figure-dialog-header{padding:10px 12px;gap:10px;align-items:start}.figure-dialog-header h2{font-size:17px}.figure-dialog-toolbar{padding:8px 12px;gap:13px}.figure-dialog-viewport{margin:0 12px;max-height:52dvh}.figure-dialog-image{max-height:50dvh}.figure-dialog-footer{padding:10px 12px}.figure-dialog-footer p{font-size:12px}.paper-figure{margin-bottom:26px}}
 @media print{.paper-figure-open{border:0;padding:0}.figure-enlarge-label,.project-section-nav,.figure-dialog{display:none}.paper-figure-section{break-before:page}.paper-figure figcaption{max-width:none}}
+
+/* A persistent, compact language choice, independent of the mobile menu. */
+.header-tools{display:flex;align-items:center;gap:22px;margin-left:auto;min-width:0}
+.language-switch{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;font-family:var(--sans);font-size:12px;color:var(--muted)}
+.language-switch a{display:inline-flex;align-items:center;min-height:44px;color:var(--green)}
+.language-switch a[aria-current=true]{font-weight:700;text-decoration:underline;text-underline-offset:5px}
+.language-short{display:none}.language-switch>span{color:var(--line)}
+@media(max-width:980px){.header-tools{gap:13px}.menu-toggle{display:block;margin-right:-10px}.primary-nav{position:absolute;top:62px;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:12px 24px 18px;box-shadow:0 7px 10px #00000005}.primary-nav.is-open{display:flex}.primary-nav>a{font-size:14px;min-height:44px;padding:10px 2px}.primary-nav>a[aria-current=page]:after{width:20px;bottom:5px;left:2px}.primary-nav .nav-contact{display:flex;margin:7px 0 0;border:0;padding:10px 2px;justify-content:space-between}}
+@media(max-width:650px){.primary-nav{top:60px;padding-inline:18px}.header-inner{gap:10px}.header-tools{gap:9px}.language-full{display:none}.language-short{display:inline}.language-switch{gap:7px;font-size:12px}.language-switch a{min-width:25px;justify-content:center}.menu-toggle{padding-inline:9px;min-width:41px}.figure-dialog-toolbar{flex-wrap:wrap;gap:4px 13px}}
+@media print{.language-switch{display:none}}
+
+/* Use a system sans-serif with complete Vietnamese glyphs. */
+html[lang="vi"]{--sans:Arial,"Helvetica Neue",sans-serif}

@@ -35,7 +35,7 @@ The earlier single-page website remains available in Git history, before the Ast
 - `src/data/profile.ts`: profile links, research descriptions, evaluation results, and project status.
 - `src/data/publications.json`: bibliography, publication status, paper links, and BibTeX.
 - `src/data/community.ts`: the supplied biography and community activity.
-- `src/pages/about.astro`: education, experience, awards, and skills.
+- `src/views/AboutPage.astro`: education, experience, awards, and skills in both languages.
 - `src/data/paper-figures.json`: figure captions, alt text, dimensions, and PDF page references.
 - `public/assets/papers/`: the two supplied Springer chapter PDFs, unchanged.
 - `public/assets/figures/`: nine original figures extracted without resampling or redrawing.
@@ -43,6 +43,12 @@ The earlier single-page website remains available in Git history, before the Ast
 - `src/styles/global.css` and `src/styles/profile.css`: layout and typography.
 
 Preserve explicit academic status when editing: planned doctoral study remains subject to formal admission, NIPT is funded and planned, and manuscripts under review are not accepted publications. NIMSurv and HiNT-Surv are distinct models. The IUKM 2026 chapter uses the publisher's 2027 imprint year.
+
+## English and Vietnamese
+
+The English site remains at `/`; the Vietnamese edition is at `/vi/`. The header language links switch to the corresponding page and retain the section anchor. Navigation stays within the chosen language. These are static pages and do not require a translation service or JavaScript to read.
+
+Shared page markup lives in `src/views/`; the files in `src/pages/` and `src/pages/vi/` are route wrappers. `src/i18n.ts` defines locale and route helpers. Keep `profile.vi.ts`, `community.vi.ts`, and `paper-figures.vi.json` in sync with their English sources, including numeric results and study status. Publication titles, citations, BibTeX, original figures, and downloadable PDFs retain the source language. Each page has its own canonical URL and reciprocal English/Vietnamese `hreflang` links, also included in the sitemap.
 
 ## Assets and checks
 

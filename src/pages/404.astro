@@ -2,4 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
 ---
-<Layout title="Page not found" noindex><section class="container not-found"><p class="eyebrow">404 / Page not found</p><h1>A different path<br /><em>back to the research.</em></h1><p>This page may have moved. You can explore my research or return to the homepage.</p><div class="hero-actions"><a class="button button-primary" href="/">Back to home <Icon /></a><a class="button button-quiet" href="/research/">Explore research <Icon /></a></div></section></Layout>
+<Layout title="Page not found / Không tìm thấy trang" description="The requested page could not be found. Không tìm thấy trang bạn yêu cầu." noindex>
+  <section class="container not-found">
+    <p class="eyebrow">404</p>
+    <h1><span lang="en">Page not found</span><br /><span lang="vi">Không tìm thấy trang</span></h1>
+    <p lang="en">This page may have moved. Choose a language to return to the homepage.</p>
+    <p lang="vi">Trang này có thể đã được chuyển sang địa chỉ khác. Chọn ngôn ngữ để trở về trang chủ.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="/" lang="en">English homepage <Icon /></a>
+      <a class="button button-quiet" href="/vi/" lang="vi">Trang chủ tiếng Việt <Icon /></a>
+    </div>
+  </section>
+</Layout>

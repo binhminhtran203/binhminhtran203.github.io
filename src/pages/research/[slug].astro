@@ -1,22 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ResearchArt from '../../components/ResearchArt.astro';
-import PaperFigures from '../../components/PaperFigures.astro';
-import figureCollections from '../../data/paper-figures.json';
-import Publication from '../../components/Publication.astro';
-import Icon from '../../components/Icon.astro';
+import ProjectPage from '../../views/ProjectPage.astro';
 import { projects } from '../../data/profile';
-import publications from '../../data/publications.json';
-export function getStaticPaths() { return projects.map(project=>({ params: {slug: project.slug}, props: { project } })); }
-const { project } = Astro.props;
-const figures = figureCollections[project.slug as keyof typeof figureCollections];
-const next = projects.find(p=>p.slug===project.next)!;
-const relatedPapers = publications.filter(p=>project.papers.includes(p.id));
+export function getStaticPaths() {
+  return projects.map(project => ({ params: { slug: project.slug } }));
+}
+const { slug } = Astro.params;
 ---
-<Layout title={project.short} description={project.description}>
-  <section class="container project-detail-header"><a class="back-link" href="/research/">← All research</a><div class:list={['detail-hero-grid', {'has-paper-figures': Boolean(figures)}]}><div><p class="eyebrow">Project {project.number} · {project.category}</p><h1>{project.title}</h1><p class="page-lead">{project.description}</p><div class="detail-meta"><span>{project.role}</span><span>{project.period}</span><span>{project.status}</span></div></div>{!figures && <div class:list={['detail-visual',`visual-${project.visual}`]}><ResearchArt kind={project.visual} /><span class="project-visual-caption">Conceptual illustration</span></div>}</div>{figures && <nav class="project-section-nav" aria-label="On this project page"><a href="#project-overview">Overview</a><a href="#model-architecture">Model architecture</a><a href="#key-results">Key results</a><a href="#related-work">Publications</a></nav>}</section>
-  <section class="container project-content" id="project-overview"><aside><p class="eyebrow">Methods & data</p><div class="tag-row">{project.technologies.map(t=><span>{t}</span>)}</div>{relatedPapers.length > 0 && <a class="text-link" href="#related-work">Related work <Icon /></a>}{project.details && <a class="text-link" href="#project-details">Team & support <Icon /></a>}</aside><div class="project-narrative"><p class="eyebrow">The question</p><h2>{project.question}</h2><h3>{project.planned ? 'Planned approach' : 'Approach'}</h3><p>{project.approach}</p><h3>{project.planned ? 'My role' : 'My contribution'}</h3><p>{project.contribution}</p><h3>{project.planned ? 'Planned evaluation & outputs' : 'Evaluation & outputs'}</h3><ul class="evaluation-list">{project.evaluation.map(item=><li>{item}</li>)}</ul>{project.evidence && <p class="project-evidence">Source: <a href={project.evidence.url} target="_blank" rel="noopener noreferrer">{project.evidence.label}</a></p>}{project.details && <section class="project-facts" id="project-details"><h3>Research team & support</h3><dl>{project.details.map(item=><div><dt>{item.label}</dt><dd>{item.value}</dd></div>)}</dl></section>}<div class="research-note"><span class="eyebrow">Research context</span><p>{project.note}</p></div></div></section>
-  {figures && <PaperFigures collection={figures} />}
-  {relatedPapers.length > 0 && <section class="container related-section" id="related-work"><div class="section-heading section-heading-inline"><div><p class="eyebrow">Read the work</p><h2>Related publications</h2></div><a class="text-link" href="/publications/">Full publication list <Icon /></a></div>{relatedPapers.map(paper=><Publication paper={paper} compact />)}</section>}
-  <section class="container next-project"><span class="eyebrow">Keep exploring</span><a href={`/research/${next.slug}/`}><span>{next.title}</span><Icon size={30} /></a></section>
-</Layout>
+<ProjectPage slug={slug!} />

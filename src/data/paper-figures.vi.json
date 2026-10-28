@@ -1,0 +1,124 @@
+{
+  "receptor-prediction": {
+    "paper": "C1",
+    "source": "/assets/papers/tran-multimodal-breast-cancer-receptor.pdf",
+    "intro": "Hình gốc từ chương sách đã xuất bản thuộc IUKM 2026 (mang năm xuất bản 2027).",
+    "figures": [
+      {
+        "label": "Hình 1",
+        "page": 4,
+        "printedPage": 105,
+        "title": "Kiến trúc mô hình đa phương thức",
+        "alt": "Kiến trúc trong đó các biến lâm sàng, RNA-seq và biểu diễn nhúng của các ô ảnh toàn phiến đi vào những bộ mã hóa riêng; ba token phương thức được đưa vào khối kết hợp self-attention, mạng MLP dùng chung và các nhánh dự đoán ER, PR, HER2.",
+        "width": 1996,
+        "height": 688,
+        "src": "/assets/figures/receptor-architecture.png",
+        "category": "architecture",
+        "caption": "Bộ mã hóa lâm sàng, biểu hiện gen và bộ mã hóa ảnh toàn phiến dựa trên Transformer tạo ra các token phương thức. Khối kết hợp self-attention cùng mạng đa nhiệm dùng chung hỗ trợ dự đoán đồng thời ER, PR và HER2."
+      },
+      {
+        "label": "Hình 2",
+        "page": 9,
+        "printedPage": 110,
+        "title": "Dự đoán trạng thái thụ thể qua năm fold",
+        "alt": "Sáu biểu đồ thể hiện các đường ROC ở hàng trên và đường precision–recall ở hàng dưới cho ER, PR, HER2. Chú giải giữ đầy đủ năm fold, giá trị trung bình, độ lệch chuẩn và đường cơ sở ngẫu nhiên. ER có khả năng phân biệt tốt nhất, trong khi HER2 có hiệu năng precision–recall thấp hơn.",
+        "width": 2275,
+        "height": 1553,
+        "src": "/assets/figures/receptor-cross-validation.png",
+        "category": "results",
+        "caption": "Các đường ROC và precision–recall cho ER, PR và HER2 trên TCGA-BRCA qua năm fold; vùng tô thể hiện một độ lệch chuẩn. AUC trung bình lần lượt là 0.954, 0.868 và 0.848. Các biểu đồ thể hiện kiểm định chéo nội bộ; kết quả ngoại bộ trên CPTAC-BRCA được báo cáo riêng."
+      },
+      {
+        "label": "Hình 4",
+        "page": 10,
+        "printedPage": 111,
+        "title": "Đóng góp của từng phương thức dữ liệu",
+        "alt": "Biểu đồ cột nhóm so sánh bảy tổ hợp phương thức theo AUC của ER, PR, HER2 và AUC trung bình. Cột xám biểu thị một phương thức, cột xanh biểu thị hai phương thức và cột đỏ sử dụng tất cả phương thức. Mô hình kết hợp đầy đủ đạt AUC trung bình 0.890 và AUC HER2 0.848; các trục, giá trị, chú giải và thanh bất định được giữ nguyên.",
+        "width": 2290,
+        "height": 927,
+        "src": "/assets/figures/receptor-modality-ablation.png",
+        "category": "results",
+        "caption": "Bảy tổ hợp phương thức so sánh các đầu vào lâm sàng, ảnh toàn phiến và biểu hiện gen trên TCGA-BRCA. Thanh sai số thể hiện một độ lệch chuẩn qua năm fold. Mô hình đầy đủ có AUC trung bình cao nhất (0.890) và AUC HER2 cao nhất (0.848), trong khi một số tổ hợp hai phương thức có điểm cao hơn cho ER hoặc PR."
+      }
+    ]
+  },
+  "lncrna-graphs": {
+    "paper": "C2",
+    "source": "/assets/papers/nguyen-variational-gnn-lncrna-disease.pdf",
+    "intro": "Hình gốc từ nghiên cứu đồ thị biến phân tại ACIIDS 2026. Các hình mô tả mô hình này; nghiên cứu tương phản hai luồng riêng biệt được liệt kê trong phần công bố liên quan.",
+    "figures": [
+      {
+        "label": "Hình 1",
+        "page": 6,
+        "printedPage": 360,
+        "title": "Xây dựng mạng đa góc nhìn",
+        "alt": "Sơ đồ xây dựng mạng thể hiện quá trình lần lượt kết hợp ma trận tương đồng lncRNA, bệnh và miRNA với các ma trận tương tác để tạo ra các góc nhìn mạng không đồng nhất.",
+        "width": 1211,
+        "height": 640,
+        "src": "/assets/figures/lncrna-fig1-network-construction.png",
+        "category": "architecture",
+        "caption": "Giai đoạn xây dựng đặc trưng kết hợp độ tương đồng chức năng, ngữ nghĩa và hồ sơ tương tác Gaussian với các tương tác đã biết giữa lncRNA, miRNA và bệnh để hình thành mạng không đồng nhất."
+      },
+      {
+        "label": "Hình 3",
+        "page": 7,
+        "printedPage": 361,
+        "title": "Kết hợp đặc trưng đa góc nhìn bằng attention",
+        "alt": "Ba nhánh song song mã hóa các góc nhìn tương đồng của lncRNA, bệnh và miRNA bằng GCN và attention, sau đó kết hợp các biểu diễn với ma trận tương tác giữa các loại thực thể.",
+        "width": 942,
+        "height": 509,
+        "src": "/assets/figures/lncrna-fig3-attention-fusion.png",
+        "category": "architecture",
+        "caption": "Các bộ mã hóa GCN riêng cho từng góc nhìn và cơ chế kết hợp dựa trên attention tạo ra những biểu diễn tương đồng được làm giàu cho mạng không đồng nhất. Đây là một giai đoạn của mô hình biến phân."
+      },
+      {
+        "label": "Hình 4",
+        "page": 8,
+        "printedPage": 362,
+        "title": "Học biểu diễn đồ thị biến phân",
+        "alt": "Sơ đồ bộ tự mã hóa đồ thị biến phân gồm ma trận kề không đồng nhất, bộ mã hóa, các biểu diễn nhúng tiềm ẩn, bộ giải mã và ma trận được tái tạo.",
+        "width": 941,
+        "height": 197,
+        "src": "/assets/figures/lncrna-fig4-variational-autoencoder.png",
+        "category": "architecture",
+        "caption": "Giai đoạn VGAE mã hóa mạng không đồng nhất thành biểu diễn tiềm ẩn xác suất và tái tạo cấu trúc tô-pô của mạng, sử dụng các hàm mục tiêu tái tạo và phân kỳ KL."
+      },
+      {
+        "label": "Hình 5",
+        "page": 9,
+        "printedPage": 363,
+        "title": "Bộ dự đoán liên kết có cơ chế cổng",
+        "alt": "Bộ dự đoán MLP có cơ chế cổng với các lớp tuyến tính và ReLU xếp chồng, các lớp tổng hợp và đầu ra sigmoid; hình nhỏ mô tả chi tiết các cổng quên, đầu vào và cập nhật.",
+        "width": 1141,
+        "height": 728,
+        "src": "/assets/figures/lncrna-fig5-gated-predictor.png",
+        "category": "architecture",
+        "caption": "Giai đoạn dự đoán kết hợp các đặc trưng trong mạng MLP với cổng quên, đầu vào và cập nhật, sau đó tính điểm liên kết bằng sigmoid."
+      },
+      {
+        "label": "Hình 6",
+        "page": 10,
+        "printedPage": 364,
+        "title": "Các đường ROC và precision–recall",
+        "alt": "Hai biểu đồ so sánh kiểm định chéo 2 fold, 5 fold và 10 fold: đường đặc trưng hoạt động của bộ phân loại (ROC) và đường precision–recall, với đầy đủ chú giải cùng các giá trị AUC và AUPR được báo cáo.",
+        "width": 1416,
+        "height": 751,
+        "src": "/assets/figures/lncrna-fig6-cross-validation-curves.png",
+        "category": "results",
+        "caption": "Hiệu năng trên Bộ dữ liệu 1 khi kiểm định chéo 2 fold, 5 fold và 10 fold. Đánh giá 5 fold ghi nhận AUC 0.9584 và AUPR 0.9590."
+      },
+      {
+        "label": "Hình 10",
+        "page": 13,
+        "printedPage": 367,
+        "title": "So sánh benchmark trên Bộ dữ liệu 1",
+        "alt": "Biểu đồ cột nhóm so sánh AUC và AUPR của DBATNDA, HGC-GAN, NAGTLDA và mô hình đề xuất; các cột của mô hình đề xuất có nhãn 0.9584 và 0.9590.",
+        "width": 1137,
+        "height": 662,
+        "src": "/assets/figures/lncrna-fig10-benchmark-comparison.png",
+        "category": "results",
+        "caption": "So sánh AUC và AUPR với DBATNDA, HGC-GAN và NAGTLDA theo báo cáo trong bài báo. Mô hình đề xuất ghi nhận AUC 0.9584 và AUPR 0.9590. Các so sánh chỉ áp dụng cho quy trình benchmark này và không phải ước lượng hiệu năng lâm sàng."
+      }
+    ]
+  }
+}

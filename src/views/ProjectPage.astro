@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ResearchArt from '../components/ResearchArt.astro';
+import PaperFigures from '../components/PaperFigures.astro';
+import figureCollectionsEn from '../data/paper-figures.json';
+import figureCollectionsVi from '../data/paper-figures.vi.json';
+import Publication from '../components/Publication.astro';
+import Icon from '../components/Icon.astro';
+import { projects as projectsEn } from '../data/profile';
+import { projectsVi } from '../data/profile.vi';
+import { getLocale, localizePath, text } from '../i18n';
+import publications from '../data/publications.json';
+interface Props { slug: string; }
+const { slug } = Astro.props;
+const locale = getLocale(Astro.url.pathname);
+const t = (en: string, vi: string) => text(locale, en, vi);
+const path = (value: string) => localizePath(value, locale);
+const projects = locale === 'vi' ? projectsVi : projectsEn;
+const figureCollections = locale === 'vi' ? figureCollectionsVi : figureCollectionsEn;
+const project = projects.find(item => item.slug === slug)!;
+const figures = figureCollections[project.slug as keyof typeof figureCollections];
+const next = projects.find(p=>p.slug===project.next)!;
+const relatedPapers = publications.filter(p=>project.papers.includes(p.id));
+---
+<Layout title={project.short} description={project.description}>
+  <section class="container project-detail-header"><a class="back-link" href={path('/research/')}>{t("← All research", "← Tất cả nghiên cứu")}</a><div class:list={['detail-hero-grid', {'has-paper-figures': Boolean(figures)}]}><div><p class="eyebrow">{t('Project', 'Dự án')} {project.number} · {project.category}</p><h1>{project.title}</h1><p class="page-lead">{project.description}</p><div class="detail-meta"><span>{project.role}</span><span>{project.period}</span><span>{project.status}</span></div></div>{!figures && <div class:list={['detail-visual',`visual-${project.visual}`]}><ResearchArt kind={project.visual} /><span class="project-visual-caption">{t("Conceptual illustration", "Minh họa khái niệm")}</span></div>}</div>{figures && <nav class="project-section-nav" aria-label={t('On this project page', 'Nội dung trang dự án')}><a href="#project-overview">{t("Overview", "Tổng quan")}</a><a href="#model-architecture">{t("Model architecture", "Kiến trúc mô hình")}</a><a href="#key-results">{t("Key results", "Kết quả chính")}</a><a href="#related-work">{t("Publications", "Công bố")}</a></nav>}</section>
+  <section class="container project-content" id="project-overview"><aside><p class="eyebrow">{t("Methods & data", "Phương pháp và dữ liệu")}</p><div class="tag-row">{project.technologies.map(t=><span>{t}</span>)}</div>{relatedPapers.length > 0 && <a class="text-link" href="#related-work">{t("Related work", "Công bố liên quan")} <Icon /></a>}{project.details && <a class="text-link" href="#project-details">{t("Team & support", "Nhóm nghiên cứu và hỗ trợ")} <Icon /></a>}</aside><div class="project-narrative"><p class="eyebrow">{t("The question", "Câu hỏi nghiên cứu")}</p><h2>{project.question}</h2><h3>{project.planned ? t('Planned approach', 'Phương pháp dự kiến') : t('Approach', 'Phương pháp')}</h3><p>{project.approach}</p><h3>{project.planned ? t('My role', 'Vai trò của tôi') : t('My contribution', 'Đóng góp của tôi')}</h3><p>{project.contribution}</p><h3>{project.planned ? t('Planned evaluation & outputs', 'Đánh giá và sản phẩm dự kiến') : t('Evaluation & outputs', 'Đánh giá và kết quả')}</h3><ul class="evaluation-list">{project.evaluation.map(item=><li>{item}</li>)}</ul>{project.evidence && <p class="project-evidence">{t("Source:", "Nguồn:")} <a href={project.evidence.url} target="_blank" rel="noopener noreferrer">{project.evidence.label}</a></p>}{project.details && <section class="project-facts" id="project-details"><h3>{t("Research team & support", "Nhóm nghiên cứu và hỗ trợ")}</h3><dl>{project.details.map(item=><div><dt>{item.label}</dt><dd>{item.value}</dd></div>)}</dl></section>}<div class="research-note"><span class="eyebrow">{t("Research context", "Bối cảnh nghiên cứu")}</span><p>{project.note}</p></div></div></section>
+  {figures && <PaperFigures collection={figures} />}
+  {relatedPapers.length > 0 && <section class="container related-section" id="related-work"><div class="section-heading section-heading-inline"><div><p class="eyebrow">{t("Read the work", "Đọc công trình")}</p><h2>{t("Related publications", "Công bố liên quan")}</h2></div><a class="text-link" href={path('/publications/')}>{t("Full publication list", "Danh sách công bố đầy đủ")} <Icon /></a></div>{relatedPapers.map(paper=><Publication paper={paper} compact />)}</section>}
+  <section class="container next-project"><span class="eyebrow">{t("Keep exploring", "Xem thêm")}</span><a href={path(`/research/${next.slug}/`)}><span>{next.title}</span><Icon size={30} /></a></section>
+</Layout>

@@ -3,16 +3,20 @@ import '../styles/global.css';
 import '../styles/profile.css';
 import Icon from '../components/Icon.astro';
 import { profile } from '../data/profile';
+import { getLocale, localizePath, text } from '../i18n';
+const locale = getLocale(Astro.url.pathname);
+const t = (en: string, vi: string) => text(locale, en, vi);
+const href = (path: string) => localizePath(path, locale);
 interface Props { title?: string; description?: string; noindex?: boolean; }
-const { title, description = 'Binh Minh Tran works on graph and multimodal learning for biomedical research, with interests in computational RNA biology, spatial omics, and cancer AI.', noindex = false } = Astro.props;
-const pageTitle = title ? `${title} — Binh Minh Tran` : 'Binh Minh Tran — Biomedical AI & Computational Biology';
-const nav = [{ href: '/', label: 'Home' }, { href: '/research/', label: 'Research' }, { href: '/publications/', label: 'Publications' }, { href: '/about/', label: 'About & CV' }];
+const { title, description = t('Binh Minh Tran works on graph and multimodal learning for biomedical research, with interests in computational RNA biology, spatial omics, and cancer AI.', 'Binh Minh Tran nghiên cứu học trên đồ thị và học đa phương thức trong y sinh, với các hướng quan tâm về sinh học RNA tính toán, omics không gian và AI trong ung thư.'), noindex = false } = Astro.props;
+const pageTitle = title ? `${title} — Binh Minh Tran` : t('Binh Minh Tran — Biomedical AI & Computational Biology', 'Binh Minh Tran — AI y sinh & Sinh học tính toán');
+const nav = [{ href: '/', label: t('Home', 'Trang chủ') }, { href: '/research/', label: t('Research', 'Nghiên cứu') }, { href: '/publications/', label: t('Publications', 'Công bố') }, { href: '/about/', label: t('About & CV', 'Giới thiệu & CV') }].map(item => ({ ...item, href: href(item.href) }));
 const path = Astro.url.pathname;
 const origin = Astro.site?.origin;
 const canonical = !noindex && origin && !origin.includes('example.invalid') ? new URL(path, origin).href : undefined;
 ---
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,41 +27,55 @@ const canonical = !noindex && origin && !origin.includes('example.invalid') ? ne
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    {canonical && <><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /><meta property="og:image" content={new URL('/assets/social-card.png', origin).href} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content="Binh Minh Tran — Graph and multimodal learning for biomedical research" /></>}
+    {canonical && <><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /><meta property="og:image" content={new URL('/assets/social-card.png', origin).href} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content={t("Binh Minh Tran — Graph and multimodal learning for biomedical research", "Binh Minh Tran — Học trên đồ thị và học đa phương thức cho nghiên cứu y sinh")} /></>}
+    <meta property="og:locale" content={locale === 'vi' ? 'vi_VN' : 'en_AU'} />
+    <meta property="og:locale:alternate" content={locale === 'vi' ? 'en_AU' : 'vi_VN'} />
+    {canonical && <>{(['en', 'vi'] as const).map(language => <link rel="alternate" hreflang={language} href={new URL(localizePath(path, language), origin).href} />)}<link rel="alternate" hreflang="x-default" href={new URL(localizePath(path, 'en'), origin).href} /></>}
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preload" href="/assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
+    {locale === 'en' && <link rel="preload" href="/assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />}
     <title>{pageTitle}</title>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">{t("Skip to content", "Đến nội dung chính")}</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="/" class="brand" aria-label="Binh Minh Tran home"><span>Binh Minh Tran<span class="brand-subtitle">Biomedical AI & computational biology</span></span></a>
-        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span></button>
-        <nav id="primary-navigation" class="primary-nav" aria-label="Main navigation">
-          {nav.map(item => <a href={item.href} aria-current={item.href === '/' ? path === '/' ? 'page' : undefined : path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>)}
-          <a class="nav-contact" href="#contact">Contact <Icon name="mail" size={15} /></a>
-        </nav>
+        <a href={href("/")} class="brand" aria-label={t("Binh Minh Tran home", "Trang chủ Binh Minh Tran")}><span>Binh Minh Tran<span class="brand-subtitle">{t("Biomedical AI & computational biology", "AI y sinh & sinh học tính toán")}</span></span></a>
+        <div class="header-tools">
+          <nav id="primary-navigation" class="primary-nav" aria-label={t('Main navigation', 'Điều hướng chính')}>
+            {nav.map(item => <a href={item.href} aria-current={item.href === href('/') ? path === href('/') ? 'page' : undefined : path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>)}
+            <a class="nav-contact" href="#contact">{t('Contact', 'Liên hệ')} <Icon name="mail" size={15} /></a>
+          </nav>
+          <nav class="language-switch" aria-label={t('Language', 'Ngôn ngữ')}>
+            <a href={noindex ? '/' : localizePath(path, 'en')} lang="en" hreflang="en" aria-current={locale === 'en' ? 'true' : undefined} aria-label="English" data-language="en"><span class="language-full">English</span><span class="language-short" aria-hidden="true">EN</span></a>
+            <span aria-hidden="true">/</span>
+            <a href={noindex ? '/vi/' : localizePath(path, 'vi')} lang="vi" hreflang="vi" aria-current={locale === 'vi' ? 'true' : undefined} aria-label="Tiếng Việt" data-language="vi"><span class="language-full">Tiếng Việt</span><span class="language-short" aria-hidden="true">VI</span></a>
+          </nav>
+          <button class="menu-toggle" type="button" aria-label={t('Open navigation', 'Mở điều hướng')} data-open-label={t('Open navigation', 'Mở điều hướng')} data-close-label={t('Close navigation', 'Đóng điều hướng')} aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span></button>
+        </div>
       </div>
     </header>
     <main id="main"><slot /></main>
     <footer class="site-footer" id="contact">
       <div class="container">
         <div class="contact-grid">
-          <div><h2>Contact</h2><p>For research enquiries and academic collaboration.</p><a class="email-link" href={`mailto:${profile.email}`}>{profile.email} <Icon name="mail" size={16} /></a></div>
-          <nav class="contact-links" aria-label="Contact and academic profiles"><a href={profile.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a><a href={profile.orcid} target="_blank" rel="noopener noreferrer">ORCID</a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a><a href={profile.cv} target="_blank" rel="noopener noreferrer">Curriculum vitae</a></nav>
+          <div><h2>{t('Contact', 'Liên hệ')}</h2><p>{t('For research enquiries and academic collaboration.', 'Trao đổi và hợp tác nghiên cứu.')}</p><a class="email-link" href={`mailto:${profile.email}`}>{profile.email} <Icon name="mail" size={16} /></a></div>
+          <nav class="contact-links" aria-label={t("Contact and academic profiles", "Liên hệ và hồ sơ học thuật")}><a href={profile.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a><a href={profile.orcid} target="_blank" rel="noopener noreferrer">ORCID</a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a><a href={profile.cv} target="_blank" rel="noopener noreferrer">{t("Curriculum vitae", "CV (tiếng Anh)")}</a></nav>
         </div>
-        <div class="footer-bottom"><span>© 2026 Binh Minh Tran</span><span>Sydney & Canberra, Australia</span><span>Updated {profile.updated}</span></div>
+        <div class="footer-bottom"><span>© 2026 Binh Minh Tran</span><span>{t("Sydney & Canberra, Australia", "Sydney & Canberra, Úc")}</span><span>{t(`Updated ${profile.updated}`, "Cập nhật tháng 10/2026")}</span></div>
       </div>
     </footer>
     <script>
       const menu = document.querySelector<HTMLButtonElement>('.menu-toggle');
       const nav = document.querySelector<HTMLElement>('.primary-nav');
-      function closeMenu() { menu?.setAttribute('aria-expanded', 'false'); menu?.setAttribute('aria-label', 'Open navigation'); nav?.classList.remove('is-open'); }
-      menu?.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(open)); menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); nav?.classList.toggle('is-open', open); });
+      function closeMenu() { menu?.setAttribute('aria-expanded', 'false'); menu?.setAttribute('aria-label', menu.dataset.openLabel || ''); nav?.classList.remove('is-open'); }
+      menu?.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(open)); menu.setAttribute('aria-label', (open ? menu.dataset.closeLabel : menu.dataset.openLabel) || ''); nav?.classList.toggle('is-open', open); });
       nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+      // Keep section anchors when switching between equivalent pages.
+      document.querySelectorAll<HTMLAnchorElement>('[data-language]').forEach(link => {
+        if (location.hash) link.hash = location.hash;
+        window.addEventListener('hashchange', () => { link.hash = location.hash; });
+      });
       document.addEventListener('keydown', event => { if(event.key === 'Escape' && menu?.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); } });
       document.addEventListener('click', event => { if(event.target instanceof Node && !document.querySelector('.site-header')?.contains(event.target)) closeMenu(); });
     </script>

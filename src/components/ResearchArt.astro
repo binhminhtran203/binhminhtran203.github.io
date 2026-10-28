@@ -1,4 +1,7 @@
 ---
+import { getLocale, localizePath, text } from '../i18n';
+const locale = getLocale(Astro.url.pathname);
+const t = (en: string, vi: string) => text(locale, en, vi);
 interface Props { kind?: string; large?: boolean; }
 const { kind = 'tissue', large = false } = Astro.props;
 const nodes = Array.from({ length: 72 }, (_, i) => {
@@ -8,7 +11,7 @@ const nodes = Array.from({ length: 72 }, (_, i) => {
 });
 const rnaNodes = Array.from({ length: 22 }, (_, i) => ({ x: 58 + i * 15.5, y: 180 + Math.sin(i * 0.62) * 62 }));
 ---
-<svg class:list={['research-art', { 'research-art-large': large }]} viewBox="0 0 440 370" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={kind === 'nipt' ? 'Conceptual NIPT research workflow: high-risk referrals, probability modelling, and planned calibration and validation' : kind === 'tissue' ? 'Conceptual graph of a tissue microenvironment, with linked cell populations' : kind === 'rna' ? 'Conceptual RNA network with linked molecular and disease representations' : 'Conceptual integration of clinical, tissue, and RNA data into a shared model'}>
+<svg class:list={['research-art', { 'research-art-large': large }]} viewBox="0 0 440 370" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={kind === 'nipt' ? t('Conceptual NIPT research workflow: high-risk referrals, probability modelling, and planned calibration and validation', 'Sơ đồ khái niệm nghiên cứu NIPT: ca nguy cơ cao, mô hình hóa xác suất, hiệu chỉnh và thẩm định dự kiến') : kind === 'tissue' ? t('Conceptual graph of a tissue microenvironment, with linked cell populations', 'Đồ thị khái niệm về vi môi trường mô, với các quần thể tế bào liên kết') : kind === 'rna' ? t('Conceptual RNA network with linked molecular and disease representations', 'Mạng RNA khái niệm liên kết các biểu diễn phân tử và bệnh') : t('Conceptual integration of clinical, tissue, and RNA data into a shared model', 'Minh họa việc tích hợp dữ liệu lâm sàng, mô và RNA vào mô hình chung')}>
   {kind !== 'nipt' && <>
   <circle cx="220" cy="185" r="151" stroke="currentColor" stroke-opacity=".1" stroke-dasharray="2 7" />
   <circle cx="220" cy="185" r="112" stroke="currentColor" stroke-opacity=".08" />
@@ -16,16 +19,16 @@ const rnaNodes = Array.from({ length: 22 }, (_, i) => ({ x: 58 + i * 15.5, y: 18
   </>}
   {kind === 'nipt' && <g font-family="Arial, sans-serif" text-anchor="middle">
     <rect x="65" y="43" width="310" height="76" rx="3" fill="#fafcf9" stroke="#a6bdb1" />
-    <text x="220" y="72" fill="#285b4b" font-size="19">High-risk NIPT</text>
-    <text x="220" y="97" fill="#57635d" font-size="13">Z-score · Fetal fraction · Platform</text>
+    <text x="220" y="72" fill="#285b4b" font-size="19">{t("High-risk NIPT", "NIPT nguy cơ cao")}</text>
+    <text x="220" y="97" fill="#57635d" font-size="13">{t("Z-score · Fetal fraction · Platform", "Z-score · Tỷ lệ DNA thai · Nền tảng")}</text>
     <path d="M220 119v28m-5-6 5 6 5-6" stroke="#719586" stroke-width="2" />
     <rect x="65" y="151" width="310" height="76" rx="3" fill="#285b4b" />
-    <text x="220" y="181" fill="#fff" font-size="19">Probability modelling</text>
-    <text x="220" y="206" fill="#e3eee7" font-size="13">Regression · Gradient boosting</text>
+    <text x="220" y="181" fill="#fff" font-size="19">{t("Probability modelling", "Mô hình hóa xác suất")}</text>
+    <text x="220" y="206" fill="#e3eee7" font-size="13">{t("Regression · Gradient boosting", "Hồi quy · Gradient boosting")}</text>
     <path d="M220 227v28m-5-6 5 6 5-6" stroke="#719586" stroke-width="2" />
     <rect x="65" y="259" width="310" height="67" rx="3" fill="#fafcf9" stroke="#a6bdb1" />
-    <text x="220" y="286" fill="#285b4b" font-size="18">Calibration & validation</text>
-    <text x="220" y="308" fill="#57635d" font-size="13">Planned research</text>
+    <text x="220" y="286" fill="#285b4b" font-size="18">{t("Calibration & validation", "Hiệu chỉnh & thẩm định")}</text>
+    <text x="220" y="308" fill="#57635d" font-size="13">{t("Planned research", "Nghiên cứu dự kiến")}</text>
   </g>}
   {kind === 'tissue' && <>
     <path d="M119 118C154 56 241 49 296 92s79 83 44 140-118 99-185 54-83-92-36-168Z" fill="#dee7d9" fill-opacity=".55" />
@@ -36,13 +39,13 @@ const rnaNodes = Array.from({ length: 22 }, (_, i) => ({ x: 58 + i * 15.5, y: 18
       <circle cx={node.x-1} cy={node.y-1} r="1.2" fill="#fafbf5" fill-opacity=".6" />
     </>)}
     <path d="M90 94h54l21 29M282 252l29 24h49" stroke="#427e70" stroke-opacity=".6" />
-    <text x="39" y="88" class="art-label">TISSUE NICHES</text><text x="291" y="293" class="art-label">INTERFACES</text>
+    <text x="39" y="88" class="art-label">{t("TISSUE NICHES", "VI VÙNG MÔ")}</text><text x="291" y="293" class="art-label">{t("INTERFACES", "VÙNG TIẾP GIÁP")}</text>
     <circle cx="165" cy="123" r="3" fill="#427e70" /><circle cx="282" cy="252" r="3" fill="#427e70" />
   </>}
   {kind === 'rna' && <>
     {rnaNodes.slice(0, -1).map((n,i) => <><path d={`M${n.x} ${n.y} L${rnaNodes[i+1].x} ${rnaNodes[i+1].y}`} stroke="#427e70" stroke-width="2" /><path d={`M${n.x} ${370-n.y} L${rnaNodes[i+1].x} ${370-rnaNodes[i+1].y}`} stroke="#c47758" stroke-width="2" />{i%2===0 && <line x1={n.x} y1={n.y} x2={n.x} y2={370-n.y} stroke="#b5bfab" stroke-width="1" />}</>)}
     {rnaNodes.map((n,i) => <><circle cx={n.x} cy={n.y} r="5" fill="#427e70" /><circle cx={n.x} cy={370-n.y} r="5" fill="#c47758" /></>)}
-    <text x="65" y="74" class="art-label">MOLECULAR NETWORKS</text><text x="241" y="315" class="art-label">SHARED STRUCTURE</text>
+    <text x="65" y="74" class="art-label">{t("MOLECULAR NETWORKS", "MẠNG PHÂN TỬ")}</text><text x="241" y="315" class="art-label">{t("SHARED STRUCTURE", "CẤU TRÚC CHUNG")}</text>
     <path d="M78 82v44M333 294v-35" stroke="#427e70" stroke-opacity=".5" />
   </>}
   {kind === 'multimodal' && <>
@@ -52,6 +55,6 @@ const rnaNodes = Array.from({ length: 22 }, (_, i) => ({ x: 58 + i * 15.5, y: 18
     {[0,1,2,3,4,5,6,7].map(i=><circle cx={306+(i%3)*18} cy={77+Math.floor(i/3)*17} r={i%2?5:7} fill={i%2?'#ba795e':'#d7a18b'} />)}
     <path d="M190 288q15-30 30 0t30 0M190 288q15 30 30 0t30 0" stroke="#427e70" stroke-width="2" />
     <circle cx="220" cy="185" r="35" fill="#286454" /><path d="m206 185 10-11 13 6-6 16-17-11m10-11 7 22m6-16-23 5" stroke="#fafbf5" stroke-width="1.5" />
-    <text x="78" y="156" class="art-label">CLINICAL</text><text x="304" y="156" class="art-label">TISSUE</text><text x="195" y="353" class="art-label">RNA-SEQ</text>
+    <text x="78" y="156" class="art-label">{t("CLINICAL", "LÂM SÀNG")}</text><text x="304" y="156" class="art-label">{t("TISSUE", "MÔ")}</text><text x="195" y="353" class="art-label">RNA-SEQ</text>
   </>}
 </svg>

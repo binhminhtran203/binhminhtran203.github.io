@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import Publication from '../components/Publication.astro';
+import publications from '../data/publications.json';
+import { profile } from '../data/profile';
+import { getLocale, text } from '../i18n';
+
+const locale = getLocale(Astro.url.pathname);
+const published = publications.filter(p=>p.status==='published').length;
+const review = publications.filter(p=>p.status==='review').length;
+// Search aliases leave the original English bibliographic records unchanged.
+const topicAliases: Record<string, string[]> = {
+  'Cancer AI': ['AI ung thư', 'ung thư vú', 'trí tuệ nhân tạo y sinh'],
+  'Multimodal learning': ['học đa phương thức'],
+  'Receptor prediction': ['dự đoán trạng thái thụ thể', 'ER PR HER2'],
+  'Graph learning': ['học trên đồ thị', 'mạng nơ-ron đồ thị'],
+  'RNA biology': ['sinh học RNA', 'liên kết RNA bệnh'],
+  'Rehabilitation': ['phục hồi chức năng', 'đánh giá vận động'],
+};
+const searchablePublications = publications.map(paper=>({ ...paper, topics: [...paper.topics, ...paper.topics.flatMap(topic=>topicAliases[topic] || [])] }));
+const searchLabel = text(locale, 'Search publications by title, author, venue, or topic', 'Tìm công bố theo tiêu đề, tác giả, nơi công bố hoặc chủ đề');
+---
+<Layout
+  title={text(locale, 'Publications', 'Công bố khoa học')}
+  description={text(locale,
+    'Publications and manuscripts by Binh Minh Tran on multimodal learning, graph neural networks, RNA-disease associations, and computational oncology.',
+    'Các công bố khoa học và bản thảo của Trần Bình Minh về học đa phương thức, mạng nơ-ron đồ thị, liên kết RNA–bệnh và nghiên cứu ung thư bằng phương pháp tính toán.')}
+>
+  <section class="page-header container">
+    <p class="academic-kicker">{text(locale, 'Research output', 'Kết quả nghiên cứu')}</p>
+    <h1>{text(locale, 'Publications & manuscripts', 'Công bố & bản thảo')}</h1>
+    <div class="publication-header-bottom">
+      <p class="page-lead">{text(locale,
+        'Peer-reviewed publications and manuscripts under review. My name is in bold; † indicates equal contribution.',
+        'Các công bố đã qua phản biện và bản thảo đang được phản biện. Tên tôi được in đậm; † biểu thị đóng góp ngang nhau.')}</p>
+      <a class="text-link" href={profile.scholar} target="_blank" rel="noopener noreferrer">Google Scholar <Icon name="external" /></a>
+    </div>
+  </section>
+  <section class="container publication-section" data-locale={locale}>
+    <div class="publication-toolbar">
+      <div class="filter-group" role="group" aria-label={text(locale, 'Filter publications by status', 'Lọc công bố theo trạng thái')}>
+        <button type="button" data-filter="all" aria-pressed="true">{text(locale, 'All work', 'Tất cả')} <span>{publications.length}</span></button>
+        <button type="button" data-filter="published" aria-pressed="false">{text(locale, 'Published', 'Đã công bố')} <span>{published}</span></button>
+        <button type="button" data-filter="review" aria-pressed="false">{text(locale, 'Under review', 'Đang phản biện')} <span>{review}</span></button>
+      </div>
+      <label class="search-box">
+        <Icon name="search" size={17} />
+        <span class="sr-only">{searchLabel}</span>
+        <input id="publication-search" type="search" placeholder={text(locale, 'Search publications…', 'Tìm công bố…')} autocomplete="off" />
+      </label>
+    </div>
+    <div class="publication-results">
+      <span id="result-count" role="status" aria-live="polite">{text(locale, `Showing all ${publications.length} works`, `Hiển thị tất cả ${publications.length} công trình`)}</span>
+      <span>{text(locale, 'Updated October 2026', 'Cập nhật tháng 10 năm 2026')}</span>
+    </div>
+    <div class="publication-list" id="publication-list">
+      <section class="publication-group" data-publication-group="published" aria-labelledby="published-papers-title">
+        <h2 id="published-papers-title">{text(locale, 'Published papers', 'Bài báo đã công bố')}</h2>
+        {searchablePublications.filter(paper=>paper.status==='published').map(paper=><Publication paper={paper} />)}
+      </section>
+      <section class="publication-group" data-publication-group="review" aria-labelledby="review-manuscripts-title">
+        <h2 id="review-manuscripts-title">{text(locale, 'Manuscripts under review', 'Bản thảo đang phản biện')}</h2>
+        {searchablePublications.filter(paper=>paper.status==='review').map(paper=><Publication paper={paper} />)}
+      </section>
+    </div>
+    <div class="empty-state" hidden>
+      <p class="eyebrow">{text(locale, 'No matches', 'Không có kết quả phù hợp')}</p>
+      <h2>{text(locale, 'Try another search.', 'Thử từ khóa khác.')}</h2>
+      <p>{text(locale, 'Search by a title, author, venue, or research topic.', 'Tìm theo tiêu đề, tác giả, nơi công bố hoặc chủ đề nghiên cứu.')}</p>
+      <button class="button button-primary" id="reset-filters" type="button">{text(locale, 'Clear search & filters', 'Xóa tìm kiếm & bộ lọc')} <Icon /></button>
+    </div>
+    <p class="section-footnote">{text(locale,
+      'Under review indicates an active submission, not an accepted publication. The HiNT-Surv manuscript targets CIHM at SSCI 2027; its record is dated 2026.',
+      '“Đang phản biện” chỉ bản thảo đã được gửi để xem xét, chưa phải công bố được chấp nhận. Bản thảo HiNT-Surv được gửi tới CIHM thuộc SSCI 2027; hồ sơ bản thảo ghi năm 2026.')}</p>
+    <p class="sr-only" id="clipboard-status" aria-live="polite"></p>
+  </section>
+  <script>
+    const section = document.querySelector<HTMLElement>('.publication-section');
+    const vietnamese = section?.dataset.locale === 'vi';
+    const search = document.querySelector<HTMLInputElement>('#publication-search');
+    const papers = [...document.querySelectorAll<HTMLElement>('#publication-list .publication')];
+    const groups = [...document.querySelectorAll<HTMLElement>('#publication-list .publication-group')];
+    const filters = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    const count = document.querySelector('#result-count');
+    const empty = document.querySelector<HTMLElement>('.empty-state');
+    function normalizeSearch(value: string) {
+      return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[đĐ]/g, 'd').toLowerCase();
+    }
+    const searchIndex = new Map(papers.map(paper=>[paper, normalizeSearch(paper.dataset.search || '')]));
+    let selected = 'all';
+
+    function updateResults() {
+      const query = normalizeSearch(search?.value.trim() || '');
+      let visible = 0;
+      papers.forEach(paper => {
+        const matches = (selected === 'all' || paper.dataset.status === selected) && (!query || searchIndex.get(paper)?.includes(query));
+        paper.hidden = !matches;
+        if (matches) visible++;
+      });
+      groups.forEach(group => { group.hidden = !group.querySelector('.publication:not([hidden])'); });
+      if (count) count.textContent = vietnamese ? `Hiển thị ${visible}/${papers.length} công trình` : `Showing ${visible} of ${papers.length} works`;
+      if (empty) empty.hidden = visible !== 0;
+      filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === selected)));
+    }
+
+    filters.forEach(button=>button.addEventListener('click',()=>{ selected=button.dataset.filter||'all'; updateResults(); }));
+    search?.addEventListener('input',updateResults);
+    document.querySelector('#reset-filters')?.addEventListener('click',()=>{ selected='all'; if(search)search.value=''; updateResults(); search?.focus(); });
+    document.querySelectorAll<HTMLButtonElement>('.copy-bibtex').forEach(button=>button.addEventListener('click',async()=>{
+      const label=button.querySelector('span');
+      const status=document.querySelector('#clipboard-status');
+      try {
+        await navigator.clipboard.writeText(button.dataset.bibtex||'');
+        if(label)label.textContent=vietnamese?'Đã sao chép':'Copied';
+        if(status)status.textContent=vietnamese?'Đã sao chép trích dẫn BibTeX vào bảng nhớ tạm.':'BibTeX citation copied to clipboard.';
+        setTimeout(()=>{if(label)label.textContent=vietnamese?'Sao chép BibTeX':'Copy BibTeX';},2200);
+      } catch {
+        const details=button.closest('.pub-body')?.querySelector('details');
+        if(details)details.open=true;
+        if(status)status.textContent=vietnamese?'Không thể truy cập bảng nhớ tạm. Trích dẫn đã được mở bên dưới để bạn sao chép thủ công.':'Clipboard unavailable. The citation is open below for manual copying.';
+      }
+    }));
+  </script>
+</Layout>
+<style>
+  .filter-group { flex-wrap: wrap; }
+  .publication-results { flex-wrap: wrap; gap: 8px 20px; }
+</style>

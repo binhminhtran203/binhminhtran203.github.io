@@ -1,32 +1,35 @@
 ---
+import { getLocale, localizePath, text } from '../i18n';
+const locale = getLocale(Astro.url.pathname);
+const t = (en: string, vi: string) => text(locale, en, vi);
 interface Figure { label: string; page: number; printedPage: number; title: string; caption: string; alt: string; width: number; height: number; src: string; category: string; }
 interface Collection { paper: string; source: string; intro: string; figures: Figure[]; }
 interface Props { collection: Collection; }
 const { collection } = Astro.props;
 const groups = [
-  { id: 'model-architecture', category: 'architecture', title: 'Model architecture' },
-  { id: 'key-results', category: 'results', title: 'Key results' },
+  { id: 'model-architecture', category: 'architecture', title: t('Model architecture', 'Kiến trúc mô hình') },
+  { id: 'key-results', category: 'results', title: t('Key results', 'Kết quả chính') },
 ];
 ---
 <div class="container paper-figures">
   {groups.map(group => <section class="paper-figure-section" id={group.id} aria-labelledby={`${group.id}-title`}>
-    <div class="paper-section-heading"><h2 id={`${group.id}-title`}>{group.title}</h2><a href={`${collection.source}#page=1`} target="_blank" rel="noopener noreferrer">Read paper [{collection.paper}]</a></div>
-    {group.category === 'architecture' && <p class="paper-figure-intro">{collection.intro} Select a figure to enlarge it.</p>}
+    <div class="paper-section-heading"><h2 id={`${group.id}-title`}>{group.title}</h2><a href={`${collection.source}#page=1`} target="_blank" rel="noopener noreferrer">{t("Read paper", "Đọc bài báo")} [{collection.paper}]</a></div>
+    {group.category === 'architecture' && <p class="paper-figure-intro">{collection.intro} {t("Select a figure to enlarge it.", "Chọn hình để xem lớn hơn.")}</p>}
     <div class="paper-figure-list">
-      {collection.figures.filter(figure=>figure.category===group.category).map(figure=><figure class="paper-figure" id={`paper-figure-${figure.label.replace('Figure ','')}`}>
-        <a class="paper-figure-open" href={figure.src} target="_blank" rel="noopener noreferrer" aria-label={`Enlarge ${figure.label}: ${figure.title}`} data-figure-title={`${figure.label}. ${figure.title}`} data-figure-caption={figure.caption} data-figure-source={`${collection.source}#page=${figure.page}`} data-figure-source-label={`Source: [${collection.paper}], ${figure.label}, p. ${figure.printedPage}`}>
+      {collection.figures.filter(figure=>figure.category===group.category).map(figure=><figure class="paper-figure" id={`paper-figure-${figure.label.replace(/^(Figure|Hình) /,'')}`}>
+        <a class="paper-figure-open" href={figure.src} target="_blank" rel="noopener noreferrer" aria-label={`${t("Enlarge", "Phóng lớn")} ${figure.label}: ${figure.title}`} data-figure-title={`${figure.label}. ${figure.title}`} data-figure-caption={figure.caption} data-figure-source={`${collection.source}#page=${figure.page}`} data-figure-source-label={`${t("Source", "Nguồn")}: [${collection.paper}], ${figure.label}, ${t("p.", "tr.")} ${figure.printedPage}`}>
           <img src={figure.src} alt={figure.alt} width={figure.width} height={figure.height} loading="lazy" decoding="async" />
-          <span class="figure-enlarge-label" aria-hidden="true">Enlarge figure ↗</span>
+          <span class="figure-enlarge-label" aria-hidden="true">{t("Enlarge figure", "Phóng lớn hình")} ↗</span>
         </a>
-        <figcaption><h3>{figure.label}. {figure.title}</h3><p>{figure.caption}</p><a class="figure-source" href={`${collection.source}#page=${figure.page}`} target="_blank" rel="noopener noreferrer">Source: [{collection.paper}], {figure.label}, p. {figure.printedPage} (PDF)</a></figcaption>
+        <figcaption><h3>{figure.label}. {figure.title}</h3><p>{figure.caption}</p><a class="figure-source" href={`${collection.source}#page=${figure.page}`} target="_blank" rel="noopener noreferrer">{t("Source", "Nguồn")}: [{collection.paper}], {figure.label}, {t("p.", "tr.")} {figure.printedPage} (PDF)</a></figcaption>
       </figure>)}
     </div>
   </section>)}
 </div>
 <dialog class="figure-dialog" id="paper-figure-dialog" aria-labelledby="figure-dialog-title" aria-describedby="figure-dialog-caption">
-  <div class="figure-dialog-header"><h2 id="figure-dialog-title"></h2><button type="button" class="figure-close" autofocus>Close <span aria-hidden="true">×</span></button></div>
-  <div class="figure-dialog-toolbar"><button type="button" class="figure-zoom" aria-pressed="false">Actual size</button><a class="figure-original" target="_blank" rel="noopener noreferrer">Open original image ↗</a></div>
-  <div class="figure-dialog-viewport" tabindex="0" aria-label="Figure image. Use arrow keys to pan when zoomed."><img class="figure-dialog-image" alt="" /></div>
+  <div class="figure-dialog-header"><h2 id="figure-dialog-title"></h2><button type="button" class="figure-close" autofocus>{t("Close", "Đóng")} <span aria-hidden="true">×</span></button></div>
+  <div class="figure-dialog-toolbar"><button type="button" class="figure-zoom" aria-pressed="false" data-actual-label={t("Actual size", "Kích thước gốc")} data-fit-label={t("Fit to screen", "Vừa màn hình")}>{t("Actual size", "Kích thước gốc")}</button><a class="figure-original" target="_blank" rel="noopener noreferrer">{t("Open original image", "Mở ảnh gốc")} ↗</a></div>
+  <div class="figure-dialog-viewport" tabindex="0" aria-label={t("Figure image. Use arrow keys to pan when zoomed.", "Hình minh họa. Dùng phím mũi tên để di chuyển khi phóng lớn.")}><img class="figure-dialog-image" alt="" /></div>
   <div class="figure-dialog-footer"><p id="figure-dialog-caption"></p><a class="figure-dialog-source" target="_blank" rel="noopener noreferrer"></a></div>
 </dialog>
 <script>
@@ -42,7 +45,7 @@ const groups = [
   function setZoom(value: boolean) {
     viewport?.classList.toggle('is-zoomed', value);
     zoom?.setAttribute('aria-pressed', String(value));
-    if (zoom) zoom.textContent = value ? 'Fit to screen' : 'Actual size';
+    if (zoom) zoom.textContent = (value ? zoom.dataset.fitLabel : zoom.dataset.actualLabel) || '';
     if (viewport) { viewport.scrollTop = 0; viewport.scrollLeft = 0; }
   }
   document.querySelectorAll<HTMLAnchorElement>('.paper-figure-open').forEach(link=>link.addEventListener('click', event=>{
@@ -54,7 +57,7 @@ const groups = [
     title.textContent = link.dataset.figureTitle || '';
     caption.textContent = link.dataset.figureCaption || '';
     source.href = link.dataset.figureSource || '';
-    source.textContent = link.dataset.figureSourceLabel || 'Source paper';
+    source.textContent = link.dataset.figureSourceLabel || '';
     original.href = link.href;
     setZoom(false);
     dialog.showModal();
