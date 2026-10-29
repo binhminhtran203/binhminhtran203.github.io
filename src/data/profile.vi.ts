@@ -3,6 +3,7 @@ import type { projects } from './profile';
 
 export const profileVi: typeof profile = {
   ...profile,
+  name: 'Trần Bình Minh',
   updated: 'Tháng 10 năm 2026',
 };
 

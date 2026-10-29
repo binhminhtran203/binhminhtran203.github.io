@@ -9,8 +9,8 @@ const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
 const href = (path: string) => localizePath(path, locale);
 interface Props { title?: string; description?: string; noindex?: boolean; }
-const { title, description = t('Trần Bình Minh works on graph and multimodal learning for biomedical research, with interests in computational RNA biology, spatial omics, and cancer AI.', 'Trần Bình Minh nghiên cứu các phương pháp học trên đồ thị và học đa phương thức trong y sinh, tập trung vào sinh học RNA tính toán, dữ liệu phân tử theo không gian và ứng dụng trí tuệ nhân tạo trong nghiên cứu ung thư.'), noindex = false } = Astro.props;
-const pageTitle = title ? `${title} — Trần Bình Minh` : t('Trần Bình Minh — Biomedical AI & Computational Biology', 'Trần Bình Minh — Trí tuệ nhân tạo y sinh và Sinh học tính toán');
+const { title, description = t('Binh Minh Tran works on graph and multimodal learning for biomedical research, with interests in computational RNA biology, spatial omics, and cancer AI.', 'Trần Bình Minh nghiên cứu các phương pháp học trên đồ thị và học đa phương thức trong y sinh, tập trung vào sinh học RNA tính toán, dữ liệu phân tử theo không gian và ứng dụng trí tuệ nhân tạo trong nghiên cứu ung thư.'), noindex = false } = Astro.props;
+const pageTitle = title ? `${title} — ${t("Binh Minh Tran", "Trần Bình Minh")}` : t('Binh Minh Tran — Biomedical AI & Computational Biology', 'Trần Bình Minh — Trí tuệ nhân tạo y sinh và Sinh học tính toán');
 const nav = [{ href: '/', label: t('Home', 'Trang chủ') }, { href: '/research/', label: t('Research', 'Nghiên cứu') }, { href: '/publications/', label: t('Publications', 'Công bố') }, { href: '/about/', label: t('About & CV', 'Giới thiệu và CV') }].map(item => ({ ...item, href: href(item.href) }));
 const path = Astro.url.pathname;
 const origin = Astro.site?.origin;
@@ -23,12 +23,12 @@ const canonical = !noindex && origin && !origin.includes('example.invalid') ? ne
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#ffffff" />
-    <meta name="author" content={profile.name} />
+    <meta name="author" content={t(profile.name, "Trần Bình Minh")} />
     {noindex && <meta name="robots" content="noindex" />}
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    {canonical && <><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /><meta property="og:image" content={new URL('/assets/social-card.png', origin).href} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content={t("Trần Bình Minh — Graph and multimodal learning for biomedical research", "Trần Bình Minh — Học trên đồ thị và học đa phương thức cho nghiên cứu y sinh")} /></>}
+    {canonical && <><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /><meta property="og:image" content={new URL('/assets/social-card.png', origin).href} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content={t("Binh Minh Tran — Graph and multimodal learning for biomedical research", "Trần Bình Minh — Học trên đồ thị và học đa phương thức cho nghiên cứu y sinh")} /></>}
     <meta property="og:locale" content={locale === 'vi' ? 'vi_VN' : 'en_AU'} />
     <meta property="og:locale:alternate" content={locale === 'vi' ? 'en_AU' : 'vi_VN'} />
     {canonical && <>{(['en', 'vi'] as const).map(language => <link rel="alternate" hreflang={language} href={new URL(localizePath(path, language), origin).href} />)}<link rel="alternate" hreflang="x-default" href={new URL(localizePath(path, 'en'), origin).href} /></>}
@@ -41,7 +41,7 @@ const canonical = !noindex && origin && !origin.includes('example.invalid') ? ne
     <a class="skip-link" href="#main">{t("Skip to content", "Đến nội dung chính")}</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a href={href("/")} class="brand" aria-label={t("Trần Bình Minh home", "Trang chủ Trần Bình Minh")}><span>Trần Bình Minh<span class="brand-subtitle">{t("Biomedical AI & computational biology", "Trí tuệ nhân tạo y sinh và sinh học tính toán")}</span></span></a>
+        <a href={href("/")} class="brand" aria-label={t("Binh Minh Tran home", "Trang chủ Trần Bình Minh")}><span>{t("Binh Minh Tran", "Trần Bình Minh")}<span class="brand-subtitle">{t("Biomedical AI & computational biology", "Trí tuệ nhân tạo y sinh và sinh học tính toán")}</span></span></a>
         <div class="header-tools">
           <nav id="primary-navigation" class="primary-nav" aria-label={t('Main navigation', 'Điều hướng chính')}>
             {nav.map(item => <a href={item.href} aria-current={item.href === href('/') ? path === href('/') ? 'page' : undefined : path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>)}
@@ -63,7 +63,7 @@ const canonical = !noindex && origin && !origin.includes('example.invalid') ? ne
           <div><h2>{t('Contact', 'Liên hệ')}</h2><p>{t('For research enquiries and academic collaboration.', 'Trao đổi và hợp tác nghiên cứu.')}</p><a class="email-link" href={`mailto:${profile.email}`}>{profile.email} <Icon name="mail" size={16} /></a></div>
           <nav class="contact-links" aria-label={t("Contact and academic profiles", "Liên hệ và hồ sơ học thuật")}><a href={profile.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a><a href={profile.orcid} target="_blank" rel="noopener noreferrer">ORCID</a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a><a href={profile.cv} target="_blank" rel="noopener noreferrer">{t("Curriculum vitae", "CV (tiếng Anh)")}</a></nav>
         </div>
-        <div class="footer-bottom"><span>© 2026 Trần Bình Minh</span><span>{t(`Updated ${profile.updated}`, "Cập nhật tháng 10/2026")}</span></div>
+        <div class="footer-bottom"><span>© 2026 {t("Binh Minh Tran", "Trần Bình Minh")}</span><span>{t(`Updated ${profile.updated}`, "Cập nhật tháng 10/2026")}</span></div>
       </div>
     </footer>
     <script>

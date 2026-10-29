@@ -1,5 +1,5 @@
 export const profile = {
-  name: 'Trần Bình Minh',
+  name: 'Binh Minh Tran',
   email: 'btra8435@uni.sydney.edu.au',
   updated: 'October 2026',
   scholar: 'https://scholar.google.com/citations?user=AYgkeCkAAAAJ',
