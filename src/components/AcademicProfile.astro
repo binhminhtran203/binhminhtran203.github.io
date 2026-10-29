@@ -10,6 +10,7 @@ const isHome = localizePath(Astro.url.pathname, 'en') === '/';
 <aside class="academic-profile" aria-label={t("Academic profile and contact details", "Hồ sơ học thuật và thông tin liên hệ")}>
   <div class="academic-profile-photo"><Portrait caption={false} /></div>
   <div class="academic-profile-heading">
+    <p class="profile-overline">{t("Academic profile", "Hồ sơ học thuật")}</p>
     {isHome ? <h1 class="academic-profile-name">{t("Binh Minh Tran", "Trần Bình Minh")}</h1> : <h2 class="academic-profile-name">{t("Binh Minh Tran", "Trần Bình Minh")}</h2>}
     <p class="academic-profile-field">{t("Biomedical AI · Computational biology", "Trí tuệ nhân tạo y sinh · Sinh học tính toán")}</p>
   </div>
