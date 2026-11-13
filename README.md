@@ -60,7 +60,7 @@ Use a natural first-person academic voice while preserving the original evidence
 
 ## Assets and checks
 
-The portrait was supplied by Binh Minh Tran. The paper figures retain the originals' labels, panels, legends, and resolution. Source links appear alongside every figure. Other research illustrations are labelled conceptual. Fonts are hosted locally, with their SIL Open Font License and Ubuntu Font Licence notices included.
+The portrait was supplied by Binh Minh Tran. The sidebar avatar, `public/assets/binh-minh-tran-avatar.jpg`, is a 360px square crop of `public/uploads/portrait.jpg`, framed so the whole head fits inside the circle. The paper figures retain the originals' labels, panels, legends, and resolution. Source links appear alongside every figure. Other research illustrations are labelled conceptual. Fonts are hosted locally, with their SIL Open Font License and Ubuntu Font Licence notices included.
 
 The production build, internal routes and assets, PDF downloads, citation copying, mobile layouts, and figure viewer were checked during implementation. Repository history records subsequent changes and deployments.
 
