@@ -13,6 +13,22 @@ interface NewsItem {
 // and project records; publication years are not treated as acceptance dates.
 export const news: NewsItem[] = [
   {
+    // Acceptance confirmed by the author in November 2026. This is the website
+    // update month, not a claim about the date on the acceptance notification.
+    id: 'hintsurv-ssci-accepted',
+    date: '2026-11',
+    dateLabel: { en: 'Update · Nov. 2026', vi: 'Cập nhật · 11/2026' },
+    before: { en: 'Our paper ', vi: 'Bài báo ' },
+    link: {
+      href: '/publications/#paper-M4',
+      label: { en: 'HiNT-Surv', vi: 'HiNT-Surv' },
+    },
+    after: {
+      en: ' has been accepted at CIHM, IEEE SSCI 2027.',
+      vi: ' của nhóm nghiên cứu đã được chấp nhận tại CIHM, thuộc IEEE SSCI 2027.',
+    },
+  },
+  {
     id: 'anu-visiting-research',
     date: '2026-10',
     dateLabel: { en: 'Oct. 2026', vi: '10/2026' },

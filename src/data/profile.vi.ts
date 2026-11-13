@@ -26,7 +26,7 @@ export const projectsVi: typeof projects = [
       'Trên 544 bệnh nhân thuộc METABRIC, chỉ số C của Uno đạt 0.703 cho kết cục sống còn đặc hiệu bệnh tại mốc 10 năm, qua đánh giá chéo 5 × 5 phần ở cấp bệnh nhân. Kết quả cao hơn 0.078 so với mô hình cơ sở kết hợp dữ liệu lâm sàng và các đặc trưng tóm tắt.',
       'Thử nghiệm trên đoàn hệ Basel sử dụng các đầu vào chung và giữ nguyên mô hình đã huấn luyện ghi nhận chỉ số C của Uno tại mốc 5 năm là 0.725. Đây là kết quả chuyển mô hình mang tính thăm dò.',
     ],
-    note: 'HiNT-Surv là mô hình trước đó, với bản thảo đang được phản biện tại CIHM thuộc SSCI 2027. Đây là mô hình riêng biệt với NIMSurv.',
+    note: 'HiNT-Surv là mô hình trước đó, với bài báo đã được chấp nhận tại CIHM thuộc IEEE SSCI 2027. Đây là mô hình riêng biệt với NIMSurv.',
     technologies: ['Mạng nơ-ron đồ thị', 'Đo tế bào khối phổ tạo ảnh (IMC)', 'Phân tích sống còn', 'PyTorch Geometric'],
     papers: ['M4'],
     next: 'receptor-prediction',

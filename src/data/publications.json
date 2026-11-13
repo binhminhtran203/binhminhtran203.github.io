@@ -178,15 +178,15 @@
       "X. Wang"
     ],
     "equalContribution": [],
-    "year": 2026,
-    "status": "review",
+    "year": 2027,
+    "status": "accepted",
     "venue": "CIHM, SSCI 2027",
-    "citation": "Manuscript under review for the IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), SSCI 2027.",
+    "citation": "Accepted at the IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), SSCI 2027.",
     "topics": [
       "Cancer AI",
       "Graph learning"
     ],
     "links": [],
-    "bibtex": "@unpublished{tran2026hintsurv,\n  author = {Tran, B. M. and Zhang, L. and Wang, X.},\n  title = {{HiNT-Surv}: Hierarchical Niche-Aware Multi-Microenvironment Learning from Imaging Mass Cytometry for Survival Prediction},\n  year = {2026},\n  note = {Under review for the IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), SSCI 2027}\n}"
+    "bibtex": "@inproceedings{tran2026hintsurv,\n  author = {Tran, B. M. and Zhang, L. and Wang, X.},\n  title = {{HiNT-Surv}: Hierarchical Niche-Aware Multi-Microenvironment Learning from Imaging Mass Cytometry for Survival Prediction},\n  booktitle = {IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), SSCI 2027},\n  year = {2027},\n  note = {Accepted for publication}\n}"
   }
 ]

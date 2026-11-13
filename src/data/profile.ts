@@ -27,7 +27,7 @@ export const projects = [
       'On 544 METABRIC patients: 10-year disease-specific survival Uno’s C of 0.703 under patient-level 5 × 5-fold cross-validation, an improvement of 0.078 over a clinical-plus-summary baseline.',
       'Exploratory transfer of a frozen common-input model to the Basel cohort: 5-year Uno’s C of 0.725. This is an exploratory transfer result.',
     ],
-    note: 'HiNT-Surv is an earlier model, with a manuscript under review for CIHM at SSCI 2027. It is distinct from NIMSurv.',
+    note: 'HiNT-Surv is an earlier model, with a paper accepted at CIHM, IEEE SSCI 2027. It is distinct from NIMSurv.',
     technologies: ['Graph neural networks', 'Imaging mass cytometry', 'Survival analysis', 'PyTorch Geometric'],
     papers: ['M4'],
     next: 'receptor-prediction',

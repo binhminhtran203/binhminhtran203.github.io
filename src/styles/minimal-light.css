@@ -113,6 +113,7 @@ strong { font-weight: 500; color: var(--strong); }
 .pub-actions>a:hover, .copy-bibtex:hover, .button:hover { border-color: var(--link); color: var(--link); text-decoration: none; background: var(--soft); }
 .pub-meta { margin: 4px 0 7px; }
 .badge { color: var(--link); font-size: 13px; }
+.badge-accepted { font-weight: 600; }
 .badge-review { color: #a33e26; font-style: italic; }
 .bibtex-details { font-size: 13px; margin-top: 5px; }
 .bibtex-details summary { cursor: pointer; color: var(--link); min-height: 32px; display: list-item; padding-top: 4px; }

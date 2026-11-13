@@ -44,7 +44,7 @@ The earlier single-page website remains available in Git history, before the Ast
 - `src/styles/minimal-light.css`: the active Minimal Light layout, typography, and responsive/dark-mode rules.
 - `src/styles/fonts.css` and `src/styles/paper-figures.css`: self-hosted fonts and scientific figure viewer styles.
 
-Preserve explicit academic status when editing: planned doctoral study remains subject to formal admission, NIPT is funded and planned, and manuscripts under review are not accepted publications. NIMSurv and HiNT-Surv are distinct models. The IUKM 2026 chapter uses the publisher's 2027 imprint year.
+Preserve explicit academic status when editing: planned doctoral study remains subject to formal admission, NIPT is funded and planned, and manuscripts under review are not accepted publications. HiNT-Surv (M4) is accepted at CIHM, IEEE SSCI 2027, as confirmed by the author in November 2026. Its status is `accepted`, separate from `published`; DOI and proceedings details have not been supplied. Keep the stable M4 identifier and legacy BibTeX key. NIMSurv and HiNT-Surv are distinct models. The IUKM 2026 chapter uses the publisher's 2027 imprint year.
 
 ## English and Vietnamese
 
