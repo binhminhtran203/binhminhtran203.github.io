@@ -196,8 +196,8 @@
     "year": 2026,
     "status": "review",
     "venue": "Scientific Reports",
-    "badge": "Sci. Rep.",
-    "citation": "Scientific Reports, 2026.",
+    "badge": "bioRxiv",
+    "citation": "bioRxiv preprint, 2026; submitted to Scientific Reports.",
     "note": "Under review",
     "summary": "A journal study related to [C3] that develops a multimodal deep-learning model for ER, PR, and HER2 status classification and evaluates it across independent cohorts.",
     "project": "receptor-prediction",
@@ -207,8 +207,13 @@
     "topics": [
       "Cancer AI"
     ],
-    "links": [],
-    "bibtex": "@unpublished{tran2026crosscohort,\n  author = {Tran, B. M. and Nguyen, V. A. and Dang, Q. A. and Nguyen, N. M. H. and Nguyen, Q. A. and Tran, H. N. and Tran, D. H. and Nguyen, T. B. V.},\n  title = {Development and Cross-Cohort Evaluation of a Multimodal Deep-Learning Model for {ER}, {PR} and {HER2} Status Classification in Breast Cancer},\n  year = {2026},\n  note = {Under review at Scientific Reports; B. M. Tran and V. A. Nguyen contributed equally}\n}"
+    "links": [
+      {
+        "label": "bioRxiv",
+        "url": "https://doi.org/10.64898/2026.11.01.761587"
+      }
+    ],
+    "bibtex": "@article{tran2026crosscohort,\n  author = {Tran, B. M. and Nguyen, V. A. and Dang, Q. A. and Nguyen, N. M. H. and Nguyen, Q. A. and Tran, H. N. and Tran, D. H. and Nguyen, T. B. V.},\n  title = {Development and cross-cohort evaluation of a multimodal deep-learning model for {ER}, {PR} and {HER2} status classification in breast cancer},\n  journal = {bioRxiv},\n  year = {2026},\n  doi = {10.64898/2026.11.01.761587},\n  note = {Preprint; under review at Scientific Reports; B. M. Tran and V. A. Nguyen contributed equally}\n}"
   },
   {
     "id": "M1",
