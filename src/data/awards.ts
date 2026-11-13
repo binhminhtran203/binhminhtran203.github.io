@@ -19,7 +19,7 @@ export const awards: Award[] = [
   {
     id: 'award-youth-science-national-2026',
     year: '2026',
-    title: { en: 'Fourth Prize', vi: 'Giải Tư' },
+    title: { en: 'Fourth Prize', vi: 'Giải Khuyến khích' },
     organisation: {
       en: '23rd Youth Science and Technology Conference of the Vietnamese Health Sector',
       vi: 'Hội nghị Khoa học và Công nghệ tuổi trẻ ngành Y tế lần thứ 23',
@@ -58,6 +58,14 @@ export const awards: Award[] = [
       en: 'Youth Science and Technology Conference, Hanoi Medical University',
       vi: 'Hội nghị Khoa học và Công nghệ tuổi trẻ, Trường Đại học Y Hà Nội',
     },
+  },
+  {
+    // Added at the author's request; not in the November 2026 CV. The English
+    // name omits "Communist" at the author's request.
+    id: 'award-youth-union-merit-2026',
+    year: '2026',
+    title: { en: 'Certificate of Merit', vi: 'Bằng khen' },
+    organisation: { en: 'Central Committee of the Ho Chi Minh Youth Union', vi: 'Trung ương Đoàn Thanh niên Cộng sản Hồ Chí Minh' },
   },
   {
     // Added at the author's request; not in the November 2026 CV.
