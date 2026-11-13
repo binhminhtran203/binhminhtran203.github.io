@@ -40,13 +40,14 @@ The earlier single-page website remains available in Git history, before the Ast
 - `public/assets/papers/`: the two supplied Springer chapter PDFs, unchanged.
 - `public/assets/figures/`: nine original figures extracted without resampling or redrawing.
 - `public/assets/binh-minh-tran-cv.pdf`: the current public CV, excluding phone and referee contacts.
-- `src/styles/global.css` and `src/styles/profile.css`: layout and typography.
+- `src/styles/minimal-light.css`: the active Minimal Light layout, typography, and responsive/dark-mode rules.
+- `src/styles/fonts.css` and `src/styles/paper-figures.css`: self-hosted fonts and scientific figure viewer styles.
 
 Preserve explicit academic status when editing: planned doctoral study remains subject to formal admission, NIPT is funded and planned, and manuscripts under review are not accepted publications. NIMSurv and HiNT-Surv are distinct models. The IUKM 2026 chapter uses the publisher's 2027 imprint year.
 
 ## English and Vietnamese
 
-The English site remains at `/`; the Vietnamese edition is at `/vi/`. The header language links switch to the corresponding page and retain the section anchor. Navigation stays within the chosen language. These are static pages and do not require a translation service or JavaScript to read.
+The English site remains at `/`; the Vietnamese edition is at `/vi/`. The sidebar language links switch to the corresponding page and retain the section anchor. Navigation stays within the chosen language. These are static pages and do not require a translation service or JavaScript to read.
 
 Shared page markup lives in `src/views/`; the files in `src/pages/` and `src/pages/vi/` are route wrappers. `src/i18n.ts` defines locale and route helpers. Keep `profile.vi.ts`, `community.vi.ts`, and `paper-figures.vi.json` in sync with their English sources, including numeric results and study status. Publication titles, citations, BibTeX, original figures, and downloadable PDFs retain the source language. Each page has its own canonical URL and reciprocal English/Vietnamese `hreflang` links, also included in the sitemap.
 
@@ -56,6 +57,12 @@ Use a natural first-person academic voice while preserving the original evidence
 
 ## Assets and checks
 
-The portrait was supplied by Binh Minh Tran. The paper figures retain the originals' labels, panels, legends, and resolution. Source links appear alongside every figure. Other research illustrations are labelled conceptual. Fonts are hosted locally, with their SIL Open Font Licenses included.
+The portrait was supplied by Binh Minh Tran. The paper figures retain the originals' labels, panels, legends, and resolution. Source links appear alongside every figure. Other research illustrations are labelled conceptual. Fonts are hosted locally, with their SIL Open Font License and Ubuntu Font Licence notices included.
 
 The production build, internal routes and assets, PDF downloads, citation copying, mobile layouts, and figure viewer were checked during implementation. Repository history records subsequent changes and deployments.
+
+## Minimal Light template
+
+The design is adapted from [Minimal Light by Yaoyao Liu](https://github.com/yaoyao-liu/minimal-light), upstream commit `dd114c3fef2d97adc1c6b6d46901e0d96ab83a7c`, under CC0-1.0 (see `licenses/minimal-light-CC0.txt`). The original 232px profile sidebar and 650px reading column, Crimson Pro typography, blue palette, circular portrait, publication previews, and automatic light/dark mode are adapted to the existing Astro pages. Navigation, two languages, publication filters, and figure viewers remain available. No Jekyll runtime or third-party analytics is required.
+
+Crimson Pro includes Latin, extended Latin and Vietnamese glyphs, including italic styles. Font licences are bundled in `public/assets/fonts/`. Genuine paper architecture figures are used as previews for C1 and C2; other publication records retain their bibliographic index.

@@ -1,19 +1,15 @@
 ---
 import { getLocale, localizePath, text } from '../i18n';
+import Portrait from './Portrait.astro';
+import { profile } from '../data/profile';
 const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
-import Portrait from './Portrait.astro';
-import Icon from './Icon.astro';
-import { profile } from '../data/profile';
 const isHome = localizePath(Astro.url.pathname, 'en') === '/';
 ---
 <aside class="academic-profile" aria-label={t("Academic profile and contact details", "Hồ sơ học thuật và thông tin liên hệ")}>
-  <div class="academic-profile-photo"><Portrait caption={false} /></div>
-  <div class="academic-profile-heading">
-    <p class="profile-overline">{t("Academic profile", "Hồ sơ học thuật")}</p>
-    {isHome ? <h1 class="academic-profile-name">{t("Binh Minh Tran", "Trần Bình Minh")}</h1> : <h2 class="academic-profile-name">{t("Binh Minh Tran", "Trần Bình Minh")}</h2>}
-    <p class="academic-profile-field">{t("Biomedical AI · Computational biology", "Trí tuệ nhân tạo y sinh · Sinh học tính toán")}</p>
-  </div>
+  <a class="profile-home" href={localizePath('/', locale)} aria-label={t("Binh Minh Tran home", "Trang chủ Trần Bình Minh")}><Portrait caption={false} /></a>
+  {isHome ? <h1 class="academic-profile-name">{t("Binh Minh Tran", "Trần Bình Minh")}</h1> : <p class="academic-profile-name">{t("Binh Minh Tran", "Trần Bình Minh")}</p>}
+  <p class="academic-profile-field">{t("Biomedical AI · Computational biology", "Trí tuệ nhân tạo y sinh · Sinh học tính toán")}</p>
   <div class="academic-appointments">
     <p>
       <strong>{t("Visiting Researcher", "Nghiên cứu viên khách mời")}</strong>
@@ -27,15 +23,11 @@ const isHome = localizePath(Astro.url.pathname, 'en') === '/';
       <span class="appointment-note">{t("Bachelor of Advanced Computing", "Cử nhân Khoa học Máy tính nâng cao (danh dự)")}</span>
     </p>
   </div>
-  <div class="academic-profile-links">
-    <div class="profile-contact-line">
-      <a class="profile-email" href={`mailto:${profile.email}`}><Icon name="mail" size={15} /><span>{profile.email}</span></a>
-    </div>
-    <nav class="profile-resource-links" aria-label={t("Academic profiles and CV", "Hồ sơ học thuật và CV")}>
-      <a href={profile.cv} target="_blank" rel="noopener noreferrer">{t("Curriculum vitae", "CV tiếng Anh")} <span class="profile-file-type">PDF</span></a>
-      <a href={profile.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a>
-      <a href={profile.orcid} target="_blank" rel="noopener noreferrer">ORCID</a>
-      <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </nav>
-  </div>
+  <a class="profile-email" href={`mailto:${profile.email}`}>{profile.email}</a>
+  <nav class="social-icons" aria-label={t("Academic profiles and CV", "Hồ sơ học thuật và CV")}>
+    <a href={profile.scholar} target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 9l10-6 10 6-10 6L2 9zm4 3v5c4 3 8 3 12 0v-5M22 9v9" /></svg></a>
+    <a href={profile.cv} target="_blank" rel="noopener noreferrer" aria-label={t("Curriculum vitae (PDF)", "CV tiếng Anh (PDF)")} title={t("Curriculum vitae (PDF)", "CV tiếng Anh (PDF)")}><span class="social-cv" aria-hidden="true">CV</span></a>
+    <a href={profile.orcid} target="_blank" rel="noopener noreferrer" aria-label="ORCID" title="ORCID"><span class="social-orcid" aria-hidden="true">iD</span></a>
+    <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><span class="social-linkedin" aria-hidden="true">in</span></a>
+  </nav>
 </aside>

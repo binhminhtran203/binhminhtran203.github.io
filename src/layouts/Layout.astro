@@ -1,7 +1,8 @@
 ---
-import '../styles/global.css';
-import '../styles/profile.css';
-import '../styles/academic-profile.css';
+import '../styles/fonts.css';
+import '../styles/minimal-light.css';
+import '../styles/paper-figures.css';
+import AcademicProfile from '../components/AcademicProfile.astro';
 import Icon from '../components/Icon.astro';
 import { profile } from '../data/profile';
 import { getLocale, localizePath, text } from '../i18n';
@@ -34,51 +35,38 @@ const canonical = !noindex && origin && !origin.includes('example.invalid') ? ne
     {canonical && <>{(['en', 'vi'] as const).map(language => <link rel="alternate" hreflang={language} href={new URL(localizePath(path, language), origin).href} />)}<link rel="alternate" hreflang="x-default" href={new URL(localizePath(path, 'en'), origin).href} /></>}
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    {locale === 'en' && <link rel="preload" href="/assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />}
+    <link rel="preload" href="/assets/fonts/crimson-pro-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
     <title>{pageTitle}</title>
   </head>
   <body>
     <a class="skip-link" href="#main">{t("Skip to content", "Đến nội dung chính")}</a>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href={href("/")} class="brand" aria-label={t("Binh Minh Tran home", "Trang chủ Trần Bình Minh")}><span>{t("Binh Minh Tran", "Trần Bình Minh")}<span class="brand-subtitle">{t("Biomedical AI & computational biology", "Trí tuệ nhân tạo y sinh và sinh học tính toán")}</span></span></a>
-        <div class="header-tools">
-          <nav id="primary-navigation" class="primary-nav" aria-label={t('Main navigation', 'Điều hướng chính')}>
-            {nav.map(item => <a href={item.href} aria-current={item.href === href('/') ? path === href('/') ? 'page' : undefined : path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>)}
-            <a class="nav-contact" href="#contact">{t('Contact', 'Liên hệ')} <Icon name="mail" size={15} /></a>
-          </nav>
-          <nav class="language-switch" aria-label={t('Language', 'Ngôn ngữ')}>
-            <a href={noindex ? '/' : localizePath(path, 'en')} lang="en" hreflang="en" aria-current={locale === 'en' ? 'true' : undefined} aria-label="English" data-language="en"><span class="language-full">English</span><span class="language-short" aria-hidden="true">EN</span></a>
-            <span aria-hidden="true">/</span>
-            <a href={noindex ? '/vi/' : localizePath(path, 'vi')} lang="vi" hreflang="vi" aria-current={locale === 'vi' ? 'true' : undefined} aria-label="Tiếng Việt" data-language="vi"><span class="language-full">Tiếng Việt</span><span class="language-short" aria-hidden="true">VI</span></a>
-          </nav>
-          <button class="menu-toggle" type="button" aria-label={t('Open navigation', 'Mở điều hướng')} data-open-label={t('Open navigation', 'Mở điều hướng')} data-close-label={t('Close navigation', 'Đóng điều hướng')} aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span></button>
-        </div>
+    <div class="minimal-wrapper">
+      <div class="minimal-sidebar">
+        <AcademicProfile />
+        <nav class="language-switch" aria-label={t('Language', 'Ngôn ngữ')}>
+          <a href={noindex ? '/' : localizePath(path, 'en')} lang="en" hreflang="en" aria-current={locale === 'en' ? 'true' : undefined} data-language="en">English</a>
+          <span aria-hidden="true">/</span>
+          <a href={noindex ? '/vi/' : localizePath(path, 'vi')} lang="vi" hreflang="vi" aria-current={locale === 'vi' ? 'true' : undefined} data-language="vi">Tiếng Việt</a>
+        </nav>
       </div>
-    </header>
-    <main id="main"><slot /></main>
-    <footer class="site-footer" id="contact">
-      <div class="container">
-        <div class="contact-grid">
-          <div><h2>{t('Contact', 'Liên hệ')}</h2><p>{t('For research enquiries and academic collaboration.', 'Trao đổi và hợp tác nghiên cứu.')}</p><a class="email-link" href={`mailto:${profile.email}`}>{profile.email} <Icon name="mail" size={16} /></a></div>
-          <nav class="contact-links" aria-label={t("Contact and academic profiles", "Liên hệ và hồ sơ học thuật")}><a href={profile.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a><a href={profile.orcid} target="_blank" rel="noopener noreferrer">ORCID</a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a><a href={profile.cv} target="_blank" rel="noopener noreferrer">{t("Curriculum vitae", "CV (tiếng Anh)")}</a></nav>
-        </div>
-        <div class="footer-bottom"><span>© 2026 {t("Binh Minh Tran", "Trần Bình Minh")}</span><span>{t(`Updated ${profile.updated}`, "Cập nhật tháng 10/2026")}</span></div>
+      <div class="minimal-content">
+        <nav id="primary-navigation" class="primary-nav" aria-label={t('Main navigation', 'Điều hướng chính')}>
+          {nav.map(item => <a href={item.href} aria-current={item.href === href('/') ? path === href('/') ? 'page' : undefined : path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>)}
+        </nav>
+        <main id="main"><slot /></main>
+        <footer class="site-footer" id="contact">
+          <h2>{t('Contact', 'Liên hệ')}</h2>
+          <p>{t('For research enquiries and academic collaboration.', 'Trao đổi và hợp tác nghiên cứu.')}<br /><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
+          <p class="theme-credit">© 2026 {t("Binh Minh Tran", "Trần Bình Minh")}<br />{t('Design adapted from', 'Giao diện dựa trên')} <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener noreferrer">Minimal Light</a> {t('by Yaoyao Liu.', 'của Yaoyao Liu.')}</p>
+        </footer>
       </div>
-    </footer>
+    </div>
     <script>
-      const menu = document.querySelector<HTMLButtonElement>('.menu-toggle');
-      const nav = document.querySelector<HTMLElement>('.primary-nav');
-      function closeMenu() { menu?.setAttribute('aria-expanded', 'false'); menu?.setAttribute('aria-label', menu.dataset.openLabel || ''); nav?.classList.remove('is-open'); }
-      menu?.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(open)); menu.setAttribute('aria-label', (open ? menu.dataset.closeLabel : menu.dataset.openLabel) || ''); nav?.classList.toggle('is-open', open); });
-      nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-      // Keep section anchors when switching between equivalent pages.
+      // Keep section anchors when switching between equivalent language pages.
       document.querySelectorAll<HTMLAnchorElement>('[data-language]').forEach(link => {
         if (location.hash) link.hash = location.hash;
         window.addEventListener('hashchange', () => { link.hash = location.hash; });
       });
-      document.addEventListener('keydown', event => { if(event.key === 'Escape' && menu?.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); } });
-      document.addEventListener('click', event => { if(event.target instanceof Node && !document.querySelector('.site-header')?.contains(event.target)) closeMenu(); });
     </script>
   </body>
 </html>

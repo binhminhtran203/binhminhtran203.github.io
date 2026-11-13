@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
-import AcademicProfile from '../components/AcademicProfile.astro';
 import { profile as profileEn } from '../data/profile';
 import { profileVi } from '../data/profile.vi';
 import { researchStory as researchStoryEn, leadership as leadershipEn, media as mediaEn } from '../data/community';
@@ -30,7 +29,6 @@ const awards = [
 ---
 <Layout title={t("About & CV", "Giới thiệu và CV")} description={t("Academic background, research experience, selected awards, and curriculum vitae of Binh Minh Tran.", "Quá trình học tập, kinh nghiệm nghiên cứu, giải thưởng tiêu biểu và hồ sơ học thuật của Trần Bình Minh.")}>
   <div class="container academic-shell about-shell">
-    <AcademicProfile />
     <section class="academic-main biography-section" aria-labelledby="about-title">
       <p class="academic-kicker">{t("Biography & research motivation", "Câu chuyện và động lực nghiên cứu")}</p>
       <h1 id="about-title">{t("About", "Giới thiệu")}</h1>
