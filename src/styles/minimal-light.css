@@ -77,7 +77,9 @@ strong { font-weight: 500; color: var(--strong); }
 .academic-section-heading .text-link { font-size: 13px; }
 .home-interests { margin-bottom: 24px; }
 .academic-selected-publications .publication-list { margin-top: 30px; }
-.research-interest-list, .home-project-list { padding-left: 40px; margin: 0 0 20px; }
+.research-interest-list, .home-project-list, .news-list { padding-left: 40px; margin: 0 0 20px; }
+.news-list li { margin-bottom: 5px; }
+.news-date { white-space: nowrap; }
 .home-project-list li { margin-bottom: 5px; }
 .project-period { color: var(--muted); font-size: 14px; }
 
@@ -231,7 +233,7 @@ strong { font-weight: 500; color: var(--strong); }
   .academic-profile { max-width: 280px; }
   .primary-nav { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px; font-size: 14px; }
   .primary-nav a { min-height: 44px; justify-content: center; text-align: center; }
-  .research-interest-list, .home-project-list { padding-left: 25px; }
+  .research-interest-list, .home-project-list, .news-list { padding-left: 25px; }
   .publication.has-preview { grid-template-columns: 1fr; gap: 15px; }
   .pub-preview { width: 200px; margin-left: 0; }
   .pub-preview-image { height: 123px; }

@@ -34,6 +34,7 @@ The earlier single-page website remains available in Git history, before the Ast
 
 - `src/data/profile.ts`: profile links, research descriptions, evaluation results, and project status.
 - `src/data/publications.json`: bibliography, publication status, paper links, and BibTeX.
+- `src/data/news.ts`: bilingual homepage news, newest month first. Keep date precision and study status faithful to the source; the homepage renders localized links and a stable `#news` anchor.
 - `src/data/community.ts`: the supplied biography and community activity.
 - `src/views/AboutPage.astro`: education, experience, awards, and skills in both languages.
 - `src/data/paper-figures.json`: figure captions, alt text, dimensions, and PDF page references.
