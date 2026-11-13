@@ -19,7 +19,7 @@ const preview = previewProject ? figureCollections[previewProject].figures.find(
   {preview && previewProject ? <div class="pub-preview">
     <a href={localizePath(`/research/${previewProject}/`, locale)} aria-label={`${t("Research project", "Dự án nghiên cứu")}: ${displayTitle}`}>
       <img class="pub-preview-image" src={preview.src} alt={preview.alt} width={preview.width} height={preview.height} loading="lazy" decoding="async" />
-      <span class="pub-venue-label">{paper.venue}</span>
+      <span class="pub-venue-label">{paper.venue.replace(/\s+20\d{2}$/, '')}</span>
     </a>
     <span class="sr-only">[{paper.id}]</span>
   </div> : <div class="pub-index"><span>[{paper.id}]</span></div>}
@@ -29,7 +29,7 @@ const preview = previewProject ? figureCollections[previewProject].figures.find(
     <p class="authors">{paper.authors.map((author,i)=><>{i > 0 && ', '}{author === 'B. M. Tran' ? <strong>{author}</strong> : author}{paper.equalContribution.includes(author) && <sup>†</sup>}</>)}</p>
     <p class="citation" lang={translation ? 'vi' : 'en'}>{translation?.citation || paper.citation}</p>
     {paper.status === 'review' && <div class="pub-meta"><span class="badge badge-review">{t("Under review", "Đang phản biện")}</span></div>}
-    <div class="pub-actions">{paper.links.map(link=><a href={link.url} target="_blank" rel="noopener noreferrer" download={link.download || undefined} aria-label={link.download ? `${t("Download full paper (PDF)", "Tải toàn văn (PDF)")}: ${displayTitle}` : undefined}>{link.label === "Proceedings" ? t("Proceedings", "Kỷ yếu") : link.label === "Full paper (PDF)" ? t("Full paper (PDF)", "Toàn văn (PDF)") : link.label}</a>)}{!compact && <button class="copy-bibtex" type="button" data-bibtex={paper.bibtex} aria-label={`${t("Copy BibTeX for", "Sao chép BibTeX cho")} ${displayTitle}`}><span>{t("Copy BibTeX", "Sao chép BibTeX")}</span></button>}</div>
+    <div class="pub-actions">{paper.links.map(link=><a href={link.url} target="_blank" rel="noopener noreferrer" download={link.download || undefined} aria-label={link.download ? `${t("Download full paper (PDF)", "Tải toàn văn (PDF)")}: ${displayTitle}` : undefined}>{link.label === "Proceedings" ? t("Proceedings", "Kỷ yếu") : link.label === "Full paper (PDF)" ? "PDF" : link.label}</a>)}{!compact && <button class="copy-bibtex" type="button" data-bibtex={paper.bibtex} aria-label={`${t("Copy BibTeX for", "Sao chép BibTeX cho")} ${displayTitle}`}><span>{t("Copy BibTeX", "Sao chép BibTeX")}</span></button>}</div>
     {!compact && <details class="bibtex-details"><summary>{t("BibTeX source", "Mã BibTeX")}</summary><pre><code>{paper.bibtex}</code></pre></details>}
   </div>
 </article>

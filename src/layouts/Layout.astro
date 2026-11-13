@@ -3,7 +3,6 @@ import '../styles/fonts.css';
 import '../styles/minimal-light.css';
 import '../styles/paper-figures.css';
 import AcademicProfile from '../components/AcademicProfile.astro';
-import Icon from '../components/Icon.astro';
 import { profile } from '../data/profile';
 import { getLocale, localizePath, text } from '../i18n';
 const locale = getLocale(Astro.url.pathname);
@@ -43,6 +42,9 @@ const canonical = !noindex && origin && !origin.includes('example.invalid') ? ne
     <div class="minimal-wrapper">
       <div class="minimal-sidebar">
         <AcademicProfile />
+        <nav id="primary-navigation" class="primary-nav" aria-label={t('Main navigation', 'Điều hướng chính')}>
+          {nav.map(item => <a href={item.href} aria-current={item.href === href('/') ? path === href('/') ? 'page' : undefined : path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>)}
+        </nav>
         <nav class="language-switch" aria-label={t('Language', 'Ngôn ngữ')}>
           <a href={noindex ? '/' : localizePath(path, 'en')} lang="en" hreflang="en" aria-current={locale === 'en' ? 'true' : undefined} data-language="en">English</a>
           <span aria-hidden="true">/</span>
@@ -50,14 +52,9 @@ const canonical = !noindex && origin && !origin.includes('example.invalid') ? ne
         </nav>
       </div>
       <div class="minimal-content">
-        <nav id="primary-navigation" class="primary-nav" aria-label={t('Main navigation', 'Điều hướng chính')}>
-          {nav.map(item => <a href={item.href} aria-current={item.href === href('/') ? path === href('/') ? 'page' : undefined : path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>)}
-        </nav>
         <main id="main"><slot /></main>
         <footer class="site-footer" id="contact">
-          <h2>{t('Contact', 'Liên hệ')}</h2>
-          <p>{t('For research enquiries and academic collaboration.', 'Trao đổi và hợp tác nghiên cứu.')}<br /><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
-          <p class="theme-credit">© 2026 {t("Binh Minh Tran", "Trần Bình Minh")}<br />{t('Design adapted from', 'Giao diện dựa trên')} <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener noreferrer">Minimal Light</a> {t('by Yaoyao Liu.', 'của Yaoyao Liu.')}</p>
+          <p class="theme-credit">© 2026 {t("Binh Minh Tran", "Trần Bình Minh")} · {t('Design adapted from', 'Giao diện dựa trên')} <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener noreferrer">Minimal Light</a>.</p>
         </footer>
       </div>
     </div>

@@ -1,0 +1,32 @@
+/* Academicons 1.8.6 by James Walsh and Katja Bercic.
+ * https://github.com/jpswalsh/academicons/tree/v1.8.6
+ * Font: SIL OFL 1.1; adapted CSS: MIT. See licenses/academicons-license.txt.
+ */
+@font-face {
+  font-family: 'Academicons';
+  src: url('/assets/fonts/academicons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.academic-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  font-family: 'Academicons';
+  font-size: 1.15rem;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.academic-icon-scholar { font-size: 1.2rem; }
+.academic-icon-cv { font-size: 1.3rem; }
+.academic-icon-scholar::before { content: '\e9d4'; }
+.academic-icon-cv::before { content: '\e9a5'; }
+.academic-icon-orcid::before { content: '\e9d9'; }
+.academic-icon-linkedin { width: 1.00625rem; height: 1.15rem; }
