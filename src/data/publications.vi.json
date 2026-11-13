@@ -7,10 +7,11 @@
     "imageAlt": "Tổng quan HiNT-Surv: các lõi mô từ dữ liệu đo tế bào khối phổ tạo ảnh (IMC) được đưa vào ba nhánh song song (tóm tắt tế bào, mạng nơ-ron đồ thị cho ngữ cảnh không gian, và tương tác vi vùng với các nguyên mẫu học được), sau đó kết hợp với bộ mã hóa lâm sàng và hệ gen bằng cơ chế hợp nhất cộng để cho ra nguy cơ của bệnh nhân và đóng góp của mô."
   },
   "J1": {
-    "title": "Mô hình học sâu hỗ trợ phân loại và định vị tổn thương u vú trên ảnh siêu âm",
+    "title": "Mô hình học sâu hỗ trợ phân loại và định hướng vùng tổn thương u vú trên siêu âm",
     "citation": "Tạp chí Nghiên cứu Y học, Trường Đại học Y Hà Nội, 2026. Bài báo bằng tiếng Việt.",
     "note": "Đã được chấp nhận",
-    "summary": "Mô hình học sâu hỗ trợ phân loại tổn thương u vú trên ảnh siêu âm và xác định vị trí của từng tổn thương trên ảnh."
+    "summary": "ResNet18-LGCT phân loại u vú lành tính – ác tính trên siêu âm, kèm bản đồ nhiệt Grad-CAM định hướng vùng tổn thương; được kiểm định nội bộ và kiểm định ngoài trên dữ liệu Trung Quốc và Thái Lan.",
+    "imageAlt": "Bản đồ nhiệt Grad-CAM của mô hình ResNet18-LGCT (Hình 1a): tổn thương ác tính trên ảnh siêu âm thuộc tập kiểm định ngoài, được phân loại đúng, với vùng nóng nằm trên tổn thương."
   },
   "C3": {
     "title": "Mô hình học sâu đa phương thức để dự đoán tình trạng biểu hiện thụ thể trong ung thư vú",
