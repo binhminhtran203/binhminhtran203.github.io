@@ -35,7 +35,7 @@ export const news: NewsItem[] = [
     date: '2026-11',
     dateLabel: nov2026,
     before: { en: 'Our breast cancer receptor-status research won a national ', vi: 'Nghiên cứu về tình trạng biểu hiện thụ thể trong ung thư vú đạt ' },
-    link: { href: '/about/#award-youth-science-national-2026', label: { en: 'Fourth Prize', vi: 'giải Tư' } },
+    link: { href: '/#awards', label: { en: 'Fourth Prize', vi: 'giải Tư' } },
     after: { en: '.', vi: ' toàn quốc.' },
   },
   {
@@ -51,7 +51,7 @@ export const news: NewsItem[] = [
     date: '2026-11',
     dateLabel: nov2026,
     before: { en: 'I will join ', vi: 'Tôi sẽ thực tập nghiên cứu về tin học y sinh tại ' },
-    link: { href: '/about/#experience', label: { en: 'VinBigdata', vi: 'VinBigdata' } },
+    link: { href: 'https://vingen.vinbigdata.org/en/', label: { en: 'VinBigdata', vi: 'VinBigdata' } },
     after: { en: ' in Hanoi as a Research Intern in biomedical informatics.', vi: ', Hà Nội.' },
   },
   {
@@ -66,9 +66,9 @@ export const news: NewsItem[] = [
     id: 'anu-visiting-research',
     date: '2026-10',
     dateLabel: oct2026,
-    before: { en: "I joined Prof. Eduardo Eyras's group at ", vi: 'Tôi làm nghiên cứu viên khách mời trong nhóm GS. Eduardo Eyras, ' },
-    link: { href: '/about/#experience', label: { en: 'ANU', vi: 'ANU' } },
-    after: { en: ' as a Visiting Researcher.', vi: '.' },
+    before: { en: 'I joined ', vi: 'Tôi làm nghiên cứu viên khách mời trong ' },
+    link: { href: 'https://researchportalplus.anu.edu.au/en/persons/eduardo-eyras/', label: { en: "Prof. Eduardo Eyras's group", vi: 'nhóm GS. Eduardo Eyras' } },
+    after: { en: ' at ANU as a Visiting Researcher.', vi: ', ANU.' },
   },
   {
     // Funding supported by the review council on 8 October 2026; the study is
