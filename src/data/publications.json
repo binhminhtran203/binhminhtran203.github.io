@@ -1,6 +1,48 @@
 [
   {
-    "id": "C1",
+    "id": "C4",
+    "title": "HiNT-Surv: Hierarchical Niche-Aware Multimodal Survival Prediction from Imaging Mass Cytometry, Clinicopathologic Variables, and Genomic Data",
+    "authors": [
+      "B. M. Tran",
+      "L. Zhang",
+      "X. Wang"
+    ],
+    "equalContribution": [],
+    "year": 2027,
+    "status": "accepted",
+    "venue": "CIHM, SSCI 2027",
+    "citation": "Accepted as a full paper at the IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), IEEE SSCI 2027.",
+    "topics": [
+      "Cancer AI",
+      "Graph learning",
+      "Multimodal learning"
+    ],
+    "links": [],
+    "bibtex": "@inproceedings{tran2026hintsurv,\n  author = {Tran, B. M. and Zhang, L. and Wang, X.},\n  title = {{HiNT-Surv}: Hierarchical Niche-Aware Multimodal Survival Prediction from Imaging Mass Cytometry, Clinicopathologic Variables, and Genomic Data},\n  booktitle = {IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), IEEE SSCI 2027},\n  year = {2027},\n  note = {Accepted for publication (full paper)}\n}"
+  },
+  {
+    "id": "J1",
+    "title": "A Deep Learning Model Supporting Classification and Localisation of Breast Tumour Lesions on Ultrasound",
+    "authors": [
+      "T. B. V. Nguyen",
+      "N. M. H. Nguyen",
+      "B. M. Tran",
+      "Q. A. Dang",
+      "V. A. Nguyen"
+    ],
+    "equalContribution": [],
+    "year": 2026,
+    "status": "accepted",
+    "venue": "Journal of Medical Research",
+    "citation": "Accepted at Journal of Medical Research (Hanoi Medical University), 2026. Article in Vietnamese.",
+    "topics": [
+      "Cancer AI"
+    ],
+    "links": [],
+    "bibtex": "@article{nguyen2026ultrasound,\n  author = {Nguyen, T. B. V. and Nguyen, N. M. H. and Tran, B. M. and Dang, Q. A. and Nguyen, V. A.},\n  title = {A Deep Learning Model Supporting Classification and Localisation of Breast Tumour Lesions on Ultrasound},\n  journal = {Journal of Medical Research (Hanoi Medical University)},\n  year = {2026},\n  note = {Accepted for publication; article in Vietnamese}\n}"
+  },
+  {
+    "id": "C3",
     "title": "A Multimodal Deep Learning Framework for Breast Cancer Receptor Status Prediction",
     "authors": [
       "B. M. Tran",
@@ -70,7 +112,7 @@
     "bibtex": "@inproceedings{nguyen2026variational,\n  author = {Nguyen, L. H. and Tran, B. M. and Tran, D. H.},\n  title = {A Variational Graph Neural Network with Multi-view Integration for Predicting {LncRNA}--Disease Associations},\n  booktitle = {Recent Challenges in Intelligent Information and Database Systems (ACIIDS 2026)},\n  series = {CCIS},\n  volume = {2964},\n  pages = {355--369},\n  publisher = {Springer},\n  year = {2026},\n  doi = {10.1007/978-981-92-0068-9_24}\n}"
   },
   {
-    "id": "C3",
+    "id": "C1",
     "title": "Dual-Stream Contrastive Graph Representation Learning for lncRNA–Disease Association Prediction",
     "authors": [
       "L. H. Nguyen",
@@ -95,8 +137,8 @@
     "bibtex": "@inproceedings{nguyen2026dualstream,\n  author = {Nguyen, L. H. and Tran, B. M. and Tran, D. H.},\n  title = {Dual-Stream Contrastive Graph Representation Learning for {lncRNA}--Disease Association Prediction},\n  booktitle = {Proceedings of the FISU Joint Conference on Artificial Intelligence (FJCAI 2026)},\n  pages = {151--158},\n  year = {2026},\n  isbn = {978-604-45-2586-0}\n}"
   },
   {
-    "id": "M1",
-    "title": "Development and cross-cohort evaluation of a multimodal deep-learning model for ER, PR and HER2 status classification in breast cancer",
+    "id": "M2",
+    "title": "Development and Cross-Cohort Evaluation of a Multimodal Deep-Learning Model for ER, PR and HER2 Status Classification in Breast Cancer",
     "authors": [
       "B. M. Tran",
       "V. A. Nguyen",
@@ -119,10 +161,10 @@
       "Cancer AI"
     ],
     "links": [],
-    "bibtex": "@unpublished{tran2026crosscohort,\n  author = {Tran, B. M. and Nguyen, V. A. and Dang, Q. A. and Nguyen, N. M. H. and Nguyen, Q. A. and Tran, H. N. and Tran, D. H. and Nguyen, T. B. V.},\n  title = {Development and cross-cohort evaluation of a multimodal deep-learning model for {ER}, {PR} and {HER2} status classification in breast cancer},\n  year = {2026},\n  note = {Under review at Scientific Reports; B. M. Tran and V. A. Nguyen contributed equally}\n}"
+    "bibtex": "@unpublished{tran2026crosscohort,\n  author = {Tran, B. M. and Nguyen, V. A. and Dang, Q. A. and Nguyen, N. M. H. and Nguyen, Q. A. and Tran, H. N. and Tran, D. H. and Nguyen, T. B. V.},\n  title = {Development and Cross-Cohort Evaluation of a Multimodal Deep-Learning Model for {ER}, {PR} and {HER2} Status Classification in Breast Cancer},\n  year = {2026},\n  note = {Under review at Scientific Reports; B. M. Tran and V. A. Nguyen contributed equally}\n}"
   },
   {
-    "id": "M2",
+    "id": "M1",
     "title": "H2F-GCN: Skeleton-based Hypergraph Frequency Coordinate Fusion Graph Convolution Network for Physical Rehabilitation Assessment",
     "authors": [
       "B. M. Tran",
@@ -147,46 +189,5 @@
     ],
     "links": [],
     "bibtex": "@unpublished{tran2026h2fgcn,\n  author = {Tran, B. M. and Nguyen, D. Q.-A. and Ha, M.-H. and Pham, D. M. and Nguyen, T. D. and Doan, Q. B. and Doan, D. T. and Nguyen, M.-A. and Nguyen, D.-T. and Chen, O. T.-C.},\n  title = {{H2F-GCN}: Skeleton-based Hypergraph Frequency Coordinate Fusion Graph Convolution Network for Physical Rehabilitation Assessment},\n  year = {2026},\n  note = {Under review at IEEE Access}\n}"
-  },
-  {
-    "id": "M3",
-    "title": "A Deep Learning Model Supporting Classification and Localisation of Breast Tumour Lesions on Ultrasound",
-    "authors": [
-      "T. B. V. Nguyen",
-      "N. M. H. Nguyen",
-      "B. M. Tran",
-      "Q. A. Dang",
-      "V. A. Nguyen"
-    ],
-    "equalContribution": [],
-    "year": 2026,
-    "status": "review",
-    "venue": "Journal of Medical Research",
-    "citation": "Manuscript in Vietnamese, under review at Journal of Medical Research (Hanoi Medical University), 2026.",
-    "topics": [
-      "Cancer AI"
-    ],
-    "links": [],
-    "bibtex": "@unpublished{nguyen2026ultrasound,\n  author = {Nguyen, T. B. V. and Nguyen, N. M. H. and Tran, B. M. and Dang, Q. A. and Nguyen, V. A.},\n  title = {A Deep Learning Model Supporting Classification and Localisation of Breast Tumour Lesions on Ultrasound},\n  year = {2026},\n  note = {Under review at Journal of Medical Research (Hanoi Medical University); manuscript in Vietnamese}\n}"
-  },
-  {
-    "id": "M4",
-    "title": "HiNT-Surv: Hierarchical Niche-Aware Multi-Microenvironment Learning from Imaging Mass Cytometry for Survival Prediction",
-    "authors": [
-      "B. M. Tran",
-      "L. Zhang",
-      "X. Wang"
-    ],
-    "equalContribution": [],
-    "year": 2027,
-    "status": "accepted",
-    "venue": "CIHM, SSCI 2027",
-    "citation": "Accepted at the IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), SSCI 2027.",
-    "topics": [
-      "Cancer AI",
-      "Graph learning"
-    ],
-    "links": [],
-    "bibtex": "@inproceedings{tran2026hintsurv,\n  author = {Tran, B. M. and Zhang, L. and Wang, X.},\n  title = {{HiNT-Surv}: Hierarchical Niche-Aware Multi-Microenvironment Learning from Imaging Mass Cytometry for Survival Prediction},\n  booktitle = {IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), SSCI 2027},\n  year = {2027},\n  note = {Accepted for publication}\n}"
   }
 ]

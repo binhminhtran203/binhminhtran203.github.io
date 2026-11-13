@@ -12,6 +12,54 @@ interface NewsItem {
 // Newest month first. Dates retain the precision available in the existing CV
 // and project records; publication years are not treated as acceptance dates.
 export const news: NewsItem[] = [
+  // The next three items first appear in the CV updated November 2026 (v11).
+  // "Update · Nov. 2026" is the website update month, not the date of the
+  // prize, acceptance notification, or internship offer.
+  {
+    id: 'youth-science-national-prize',
+    date: '2026-11',
+    dateLabel: { en: 'Update · Nov. 2026', vi: 'Cập nhật · 11/2026' },
+    before: { en: 'Our breast cancer receptor-status research received the ', vi: 'Nghiên cứu về tình trạng biểu hiện thụ thể trong ung thư vú của nhóm đạt ' },
+    link: {
+      href: '/about/#award-youth-science-national-2026',
+      label: { en: 'Fourth Prize', vi: 'giải Tư' },
+    },
+    after: {
+      en: ' at the 23rd Youth Science and Technology Conference of the Vietnamese Health Sector.',
+      vi: ' tại Hội nghị Khoa học và Công nghệ tuổi trẻ ngành Y tế lần thứ 23.',
+    },
+  },
+  {
+    id: 'ultrasound-jmr-accepted',
+    date: '2026-11',
+    dateLabel: { en: 'Update · Nov. 2026', vi: 'Cập nhật · 11/2026' },
+    before: { en: 'Our paper on ', vi: 'Bài báo về ' },
+    link: {
+      href: '/publications/#paper-J1',
+      label: {
+        en: 'deep learning for breast tumour lesions on ultrasound',
+        vi: 'mô hình học sâu hỗ trợ phân loại và định vị tổn thương u vú trên ảnh siêu âm',
+      },
+    },
+    after: {
+      en: ' has been accepted at the Journal of Medical Research (Hanoi Medical University).',
+      vi: ' đã được chấp nhận đăng tại Tạp chí Nghiên cứu Y học, Trường Đại học Y Hà Nội.',
+    },
+  },
+  {
+    id: 'vinbigdata-internship',
+    date: '2026-11',
+    dateLabel: { en: 'Upcoming · Nov. 2026', vi: 'Sắp tới · 11/2026' },
+    before: { en: 'I will join the Center for Biomedical Informatics at ', vi: 'Tôi sẽ tham gia Trung tâm Tin học Y sinh (Center for Biomedical Informatics) tại ' },
+    link: {
+      href: '/about/#experience',
+      label: { en: 'VinBigdata', vi: 'VinBigdata' },
+    },
+    after: {
+      en: ' (Vingroup Big Data Institute), Hanoi, as a Research Intern.',
+      vi: ' (Viện Nghiên cứu Dữ liệu lớn Vingroup), Hà Nội, với vai trò thực tập sinh nghiên cứu.',
+    },
+  },
   {
     // Acceptance confirmed by the author in November 2026. This is the website
     // update month, not a claim about the date on the acceptance notification.
@@ -20,7 +68,7 @@ export const news: NewsItem[] = [
     dateLabel: { en: 'Update · Nov. 2026', vi: 'Cập nhật · 11/2026' },
     before: { en: 'Our paper ', vi: 'Bài báo ' },
     link: {
-      href: '/publications/#paper-M4',
+      href: '/publications/#paper-C4',
       label: { en: 'HiNT-Surv', vi: 'HiNT-Surv' },
     },
     after: {
