@@ -15,10 +15,6 @@ const isHome = localizePath(Astro.url.pathname, 'en') === '/';
       <strong>{t("Visiting Researcher", "Nghiên cứu viên khách mời")}</strong>
       <span class="appointment-institution">{t("Australian National University", "Đại học Quốc gia Australia")}</span>
     </p>
-    <p>
-      <strong>{t("Honour Research Student", "Sinh viên nghiên cứu chương trình cử nhân danh dự")}</strong>
-      <span class="appointment-institution">{t("The University of Sydney", "Đại học Sydney")}</span>
-    </p>
   </div>
   <a class="profile-email" href={`mailto:${profile.email}`}>{profile.email}</a>
   <nav class="social-icons" aria-label={t("Academic profiles and CV", "Hồ sơ học thuật và CV")}>
