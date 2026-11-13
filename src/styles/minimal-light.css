@@ -96,12 +96,12 @@ strong { font-weight: 500; color: var(--strong); }
 .academic-section-heading .text-link { font-size: 13px; }
 .home-interests { margin-bottom: 24px; }
 .academic-selected-publications .publication-list { margin-top: 30px; }
-.research-interest-list, .home-project-list, .home-awards-list, .home-education-list, .home-experience-list, .news-list { padding-left: 40px; margin: 0 0 20px; }
+.research-interest-list, .home-awards-list, .home-education-list, .home-experience-list, .news-list { padding-left: 40px; margin: 0 0 20px; }
 .home-awards-list li, .home-education-list li, .home-experience-list li { margin-bottom: 5px; }
 .entry-detail { display: block; font-size: 13.5px; color: var(--muted); }
 .news-list li { margin-bottom: 5px; }
-.news-list a, .home-project-list a { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-.news-list a:hover, .home-project-list a:hover { text-decoration-color: currentColor; }
+.news-list a { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.news-list a:hover { text-decoration-color: currentColor; }
 .news-date { white-space: nowrap; }
 .news-scroll { max-height: 232px; overflow-y: auto; overflow-x: hidden; scrollbar-gutter: stable; padding-right: 12px; }
 .news-scroll .news-list { margin-bottom: 0; padding-block: 2px; }
@@ -113,8 +113,6 @@ strong { font-weight: 500; color: var(--strong); }
 @supports not selector(::-webkit-scrollbar) {
   .news-scroll { scrollbar-width: thin; scrollbar-color: var(--muted) var(--soft); }
 }
-.home-project-list li { margin-bottom: 5px; }
-.project-period { color: var(--muted); font-size: 13.5px; }
 
 .text-link { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; font-size: 13.5px; }
 .eyebrow, .academic-kicker { font-size: 13px; color: var(--muted); margin: 0 0 8px; }
@@ -237,7 +235,7 @@ strong { font-weight: 500; color: var(--strong); }
   .academic-profile { max-width: 280px; }
   .primary-nav { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px; font-size: 13.5px; }
   .primary-nav a { min-height: 44px; justify-content: center; text-align: center; }
-  .research-interest-list, .home-project-list, .home-awards-list, .home-education-list, .home-experience-list, .news-list { padding-left: 25px; }
+  .research-interest-list, .home-awards-list, .home-education-list, .home-experience-list, .news-list { padding-left: 25px; }
   .publication { grid-template-columns: minmax(0,1fr); gap: 12px; padding-inline: 0; }
   .pub-preview-column { width: 200px; }
   .pub-actions>a, .copy-bibtex, .button, .filter-group button { min-height: 44px; }
