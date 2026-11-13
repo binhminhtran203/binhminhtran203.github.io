@@ -96,8 +96,8 @@ strong { font-weight: 500; color: var(--strong); }
 .academic-section-heading .text-link { font-size: 13px; }
 .home-interests { margin-bottom: 24px; }
 .academic-selected-publications .publication-list { margin-top: 30px; }
-.research-interest-list, .home-project-list, .home-awards-list, .news-list { padding-left: 40px; margin: 0 0 20px; }
-.home-awards-list li { margin-bottom: 5px; }
+.research-interest-list, .home-project-list, .home-awards-list, .home-service-list, .news-list { padding-left: 40px; margin: 0 0 20px; }
+.home-awards-list li, .home-service-list li { margin-bottom: 5px; }
 .news-list li { margin-bottom: 5px; }
 .news-list a, .home-project-list a { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .news-list a:hover, .home-project-list a:hover { text-decoration-color: currentColor; }
@@ -115,7 +115,6 @@ strong { font-weight: 500; color: var(--strong); }
 .home-project-list li { margin-bottom: 5px; }
 .project-period { color: var(--muted); font-size: 13.5px; }
 
-.academic-community-note p { margin-bottom: 9px; }
 .text-link { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; font-size: 13.5px; }
 .eyebrow, .academic-kicker { font-size: 13px; color: var(--muted); margin: 0 0 8px; }
 .small-note { color: var(--muted); font-size: 13.5px; }
@@ -125,7 +124,6 @@ strong { font-weight: 500; color: var(--strong); }
 .section { padding-block: 20px; }
 .section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 19px; }
 .section-heading h2 { margin: 0; }
-.section-intro { margin: 8px 0; }
 .section-footnote { font-size: 13px; color: var(--muted); margin: 15px 0 0; }
 /* Publication entries follow Minimal Light's paper list
  * (github.com/yaoyao-liu/minimal-light): a preview card with a venue badge,
@@ -148,9 +146,6 @@ strong { font-weight: 500; color: var(--strong); }
 .pub-actions>a, .copy-bibtex, .button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 1.6px 8px; border: 1px solid var(--strong); background: transparent; border-radius: 0; color: var(--strong); font: inherit; font-size: 12px; line-height: 1.5; }
 .pub-actions>a:hover, .copy-bibtex:hover, .button:hover { border-color: var(--link); color: var(--link); text-decoration: none; background: var(--soft); }
 .pub-note { margin-left: 4px; font-size: 14px; color: var(--review); }
-.badge { color: var(--link); font-size: 13px; }
-.badge-accepted { font-weight: 600; }
-.badge-review { color: var(--review); font-style: italic; }
 .bibtex-details { font-size: 13px; margin-top: 5px; }
 .bibtex-details summary { cursor: pointer; color: var(--link); min-height: 32px; display: list-item; padding-top: 4px; }
 .bibtex-details pre { background: var(--soft); border: 1px solid var(--line); padding: 12px; font: 12px/1.5 var(--mono); overflow-x: auto; max-width: 100%; }
@@ -167,43 +162,7 @@ strong { font-weight: 500; color: var(--strong); }
 .publication-group>h2 { font-size: 21.5px; }
 .empty-state { padding: 20px 0; }
 /* Interior pages keep the theme's single reading column. */
-.about-sections-nav, .project-section-nav { display: flex; flex-wrap: wrap; gap: 0 18px; border-block: 1px solid var(--line); margin: 17px 0 23px; padding: 4px 0; }
-.about-sections-nav a { min-height: 36px; display: inline-flex; align-items: center; font-size: 13.5px; }
-.about-bio { margin-bottom: 18px; }
-.biography-cv { margin-bottom: 10px; }
-.about-section { padding-top: 27px; }
-.about-section-label h2 { margin-bottom: 21px; }
-.timeline-entry { position: relative; border-left: 1px solid var(--line); padding: 0 0 24px 20px; }
-.timeline-entry:before { content: ''; width: 5px; height: 5px; background: var(--link); border-radius: 50%; position: absolute; top: 7px; left: -3px; }
-.timeline-entry h3 { margin: 4px 0; font-size: 18px; }
-.timeline-date { font-size: 13px; color: var(--muted); }
-.timeline-entry p { margin: 0 0 7px; }
-.institution { color: var(--heading); }
-.timeline-entry .small-note { font-size: 13.5px; }
-.community-section, .media-section, .skills-section { padding-top: 28px; }
-.community-section .section-heading { display: block; }
-.leadership-grid, .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-.leadership-card h3 { margin: 5px 0 8px; }
-.leadership-card-top .eyebrow { display: none; }
-.leadership-organisation { color: var(--heading); margin-bottom: 5px; }
-.leadership-card .small-note { margin: 0; }
-.community-source { margin-top: 12px; }
-.media-section .section-heading { flex-wrap: wrap; gap: 6px; }
-.media-card { min-width: 0; }
-.media-card-meta { display: flex; flex-direction: column; gap: 4px; color: var(--muted); font-size: 13px; margin-bottom: 8px; }
-.media-outlet { color: var(--heading); font-size: 16px; }
-.media-card h3 { margin-bottom: 9px; font-size: 17px; }
-.media-card p { font-size: 14px; margin-bottom: 8px; }
-.skills-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px 28px; }
-.skills-languages { margin-top: 18px; }
-.skills-grid h3 { font-size: 17px; margin-bottom: 9px; }
-.skills-grid p { font-size: 13.5px; }
-.award-entry { display: grid; grid-template-columns: 40px minmax(0,1fr); gap: 15px; margin-bottom: 21px; }
-.award-entry>span { font-size: 13px; color: var(--muted); padding-top: 2px; }
-.award-entry h3 { font-size: 17px; margin: 0 0 3px; }
-.award-entry p { margin: 0; font-size: 14px; }
-.award-entry .institution { margin-bottom: 2px; font-size: 15px; }
-.awards-footnote { font-size: 13px; }
+.project-section-nav { display: flex; flex-wrap: wrap; gap: 0 18px; border-block: 1px solid var(--line); margin: 17px 0 23px; padding: 4px 0; }
 .research-overview { padding-bottom: 12px; }
 .research-direction h2 { margin-bottom: 14px; }
 .research-principles { border-left: 2px solid var(--line); margin: 22px 0; padding-left: 20px; }
@@ -277,16 +236,13 @@ strong { font-weight: 500; color: var(--strong); }
   .academic-profile { max-width: 280px; }
   .primary-nav { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px; font-size: 13.5px; }
   .primary-nav a { min-height: 44px; justify-content: center; text-align: center; }
-  .research-interest-list, .home-project-list, .home-awards-list, .news-list { padding-left: 25px; }
+  .research-interest-list, .home-project-list, .home-awards-list, .home-service-list, .news-list { padding-left: 25px; }
   .publication { grid-template-columns: minmax(0,1fr); gap: 12px; padding-inline: 0; }
   .pub-preview-column { width: 200px; }
   .pub-actions>a, .copy-bibtex, .button, .filter-group button { min-height: 44px; }
   .bibtex-details summary { min-height: 44px; }
   .publication h3 { font-size: 15px; }
-  .about-sections-nav a { min-height: 44px; }
   .section-heading { flex-wrap: wrap; gap: 5px; }
-  .leadership-grid, .media-grid, .skills-grid { grid-template-columns: 1fr; gap: 21px; }
-  .skills-grid p { font-size: 14px; }
   .project-card { grid-template-columns: minmax(0,1fr); gap: 15px; }
   .project-card-visual { width: 150px; }
   .project-facts dl>div { grid-template-columns: 1fr; gap: 3px; }
@@ -299,9 +255,9 @@ strong { font-weight: 500; color: var(--strong); }
   .news-scroll { max-height: none; overflow: visible; padding-right: 0; }
   .minimal-wrapper { display: block; padding: 0; width: 100%; }
   .minimal-sidebar { position: static; max-height: none; overflow: visible; }
-  .portrait, .social-icons, .language-switch, .theme-switch, .primary-nav, .site-footer, .about-sections-nav, .publication-toolbar, .pub-actions, .pub-preview-column, .project-card-visual { display: none; }
+  .portrait, .social-icons, .language-switch, .theme-switch, .primary-nav, .site-footer, .publication-toolbar, .pub-actions, .pub-preview-column, .project-card-visual { display: none; }
   .publication, .project-card { display: block; }
   h1,h2,h3 { break-after: avoid; }
-  .publication, .timeline-entry { break-inside: avoid; }
+  .publication { break-inside: avoid; }
   .publication-list .publication[hidden] { display: block !important; }
 }
