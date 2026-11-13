@@ -11,7 +11,14 @@
     "year": 2027,
     "status": "accepted",
     "venue": "CIHM, SSCI 2027",
-    "citation": "Accepted as a full paper at the IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), IEEE SSCI 2027.",
+    "citation": "IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), IEEE SSCI 2027.",
+    "note": "Accepted, full paper",
+    "summary": "Models tissue niches hierarchically from imaging mass cytometry and fuses them with clinicopathologic variables and genomic data to predict breast cancer survival.",
+    "project": "nimsurv",
+    "highlight": true,
+    "media": {
+      "art": "tissue"
+    },
     "topics": [
       "Cancer AI",
       "Graph learning",
@@ -34,7 +41,12 @@
     "year": 2026,
     "status": "accepted",
     "venue": "Journal of Medical Research",
-    "citation": "Accepted at Journal of Medical Research (Hanoi Medical University), 2026. Article in Vietnamese.",
+    "citation": "Journal of Medical Research (Hanoi Medical University), 2026. Article in Vietnamese.",
+    "note": "Accepted",
+    "summary": "A deep learning model that supports the classification of breast tumour lesions on ultrasound images and localises each lesion within the image.",
+    "media": {
+      "art": "ultrasound"
+    },
     "topics": [
       "Cancer AI"
     ],
@@ -63,6 +75,13 @@
     "status": "published",
     "venue": "IUKM 2026",
     "citation": "IUKM 2026, LNAI 16918, Part I, Springer, pp. 102–114, 2027.",
+    "summary": "Fuses clinical variables, H&E whole-slide images, and tumour RNA-seq with modality-level self-attention to predict ER, PR, and HER2 status jointly in breast cancer.",
+    "project": "receptor-prediction",
+    "highlight": true,
+    "media": {
+      "image": "/assets/figures/receptor-architecture.png",
+      "hover": "/assets/figures/receptor-cross-validation.png"
+    },
     "topics": [
       "Cancer AI",
       "Multimodal learning",
@@ -94,6 +113,12 @@
     "status": "published",
     "venue": "ACIIDS 2026",
     "citation": "Recent Challenges in Intelligent Information and Database Systems (ACIIDS 2026), CCIS 2964, Springer, pp. 355–369, 2026.",
+    "summary": "Combines attention-weighted multi-view graph convolutions, a variational graph autoencoder, and a gated predictor to prioritise candidate lncRNA–disease associations.",
+    "project": "lncrna-graphs",
+    "media": {
+      "image": "/assets/figures/lncrna-fig1-network-construction.png",
+      "hover": "/assets/figures/lncrna-fig6-cross-validation-curves.png"
+    },
     "topics": [
       "Graph learning",
       "RNA biology"
@@ -124,6 +149,11 @@
     "status": "published",
     "venue": "FJCAI 2026",
     "citation": "Proceedings of the FISU Joint Conference on Artificial Intelligence (FJCAI 2026), pp. 151–158, 2026. ISBN 978-604-45-2586-0.",
+    "summary": "A companion study to [C2] that predicts lncRNA–disease associations with dual-stream contrastive graph representation learning.",
+    "project": "lncrna-graphs",
+    "media": {
+      "art": "rna"
+    },
     "topics": [
       "Graph learning",
       "RNA biology"
@@ -156,7 +186,13 @@
     "year": 2026,
     "status": "review",
     "venue": "Scientific Reports",
-    "citation": "Manuscript under review at Scientific Reports, 2026.",
+    "citation": "Scientific Reports, 2026.",
+    "note": "Under review",
+    "summary": "A journal study related to [C3] that develops a multimodal deep-learning model for ER, PR, and HER2 status classification and evaluates it across independent cohorts.",
+    "project": "receptor-prediction",
+    "media": {
+      "art": "multimodal"
+    },
     "topics": [
       "Cancer AI"
     ],
@@ -182,7 +218,12 @@
     "year": 2026,
     "status": "review",
     "venue": "IEEE Access",
-    "citation": "Manuscript under review at IEEE Access, 2026.",
+    "citation": "IEEE Access, 2026.",
+    "note": "Under review",
+    "summary": "A skeleton-based graph convolution network that fuses hypergraph, frequency, and coordinate information for physical rehabilitation assessment.",
+    "media": {
+      "art": "skeleton"
+    },
     "topics": [
       "Graph learning",
       "Rehabilitation"
