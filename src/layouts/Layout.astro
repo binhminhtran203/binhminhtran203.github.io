@@ -22,7 +22,8 @@ const canonical = !noindex && origin && !origin.includes('example.invalid') ? ne
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#fcfbf7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#171a1f" media="(prefers-color-scheme: dark)" />
     <meta name="author" content={t(profile.name, "Trần Bình Minh")} />
     {noindex && <meta name="robots" content="noindex" />}
     <meta property="og:type" content="website" />
