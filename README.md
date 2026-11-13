@@ -35,8 +35,9 @@ The earlier single-page website remains available in Git history, before the Ast
 - `src/data/profile.ts`: profile links, research descriptions, evaluation results, and project status.
 - `src/data/publications.json`: bibliography, publication status, paper links, and BibTeX.
 - `src/data/news.ts`: bilingual homepage news, newest month first. Keep date precision and study status faithful to the source; the homepage renders localized links and a stable `#news` anchor.
+- `src/data/awards.ts`: bilingual award titles, full details, and concise homepage summaries shared by Home and About. Preserve finalist status and the awarding institution when editing.
 - `src/data/community.ts`: the supplied biography and community activity.
-- `src/views/AboutPage.astro`: education, experience, awards, and skills in both languages.
+- `src/views/AboutPage.astro`: education, experience, and skills in both languages, plus the shared awards list.
 - `src/data/paper-figures.json`: figure captions, alt text, dimensions, and PDF page references.
 - `public/assets/papers/`: the two supplied Springer chapter PDFs, unchanged.
 - `public/assets/figures/`: nine original figures extracted without resampling or redrawing.
