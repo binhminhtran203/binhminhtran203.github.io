@@ -24,6 +24,7 @@
   --card-ink: #555b64;
   --art-bg: #eef2f6;
   --shadow: 0 1px 2px rgba(20,32,52,.12), 0 2px 7px rgba(20,32,52,.09);
+  --card-filter: none;
   --green: var(--link);
   --sans: 'Crimson Pro', Georgia, serif;
   --serif: 'Crimson Pro', Georgia, serif;
@@ -76,6 +77,13 @@ strong { font-weight: 500; color: var(--strong); }
 .language-switch a { display: inline-flex; align-items: center; min-height: 28px; }
 .language-switch a[aria-current=true] { font-weight: 600; color: var(--heading); text-decoration: underline; text-underline-offset: 4px; }
 .language-switch>span { color: var(--muted); }
+/* Shown only when JavaScript runs (html[data-js]); the current choice is styled from html[data-theme]. */
+.theme-switch { display: none; justify-content: center; align-items: center; gap: 8px; margin-top: 2px; font-size: 13px; }
+:root[data-js] .theme-switch { display: flex; }
+.theme-switch button { display: inline-flex; align-items: center; gap: 4px; min-height: 28px; padding: 0; border: 0; background: none; color: var(--link); font: inherit; cursor: pointer; }
+.theme-switch button:hover { color: var(--link-hover); text-decoration: underline; text-underline-offset: 4px; }
+.theme-switch>span { color: var(--muted); }
+:root:not([data-theme]) [data-theme-choice="auto"], :root[data-theme="light"] [data-theme-choice="light"], :root[data-theme="dark"] [data-theme-choice="dark"] { font-weight: 600; color: var(--heading); text-decoration: underline; text-underline-offset: 4px; }
 .primary-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 13px; margin: 20px 0 0; font-size: 14px; }
 .primary-nav a { display: inline-flex; align-items: center; min-height: 28px; }
 .primary-nav a[aria-current=page] { color: var(--heading); text-decoration: underline; text-underline-offset: 3px; }
@@ -256,19 +264,24 @@ strong { font-weight: 500; color: var(--strong); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .site-footer { margin-top: 40px; }
 .theme-credit { font-size: 11px; color: var(--muted); margin: 0; }
-@media (prefers-color-scheme: dark) {
-  :root { --paper: #171a1f; --ink: #d5d9df; --strong: #f2f4f7; --heading: #c5d6ea; --link: #86b8ec; --link-hover: #b9d6f5; --muted: #9ba3ae; --line: #30363f; --soft: #20252c; --highlight: #38321f; --review: #f0a493; --selection: #2c4a6b; --shadow: 0 1px 3px rgba(0,0,0,.5); }
-  /* Light figure and illustration cards are dimmed slightly to reduce glare. */
-  .paper-thumb, .paper-figure-open, .project-card-visual, .detail-visual { filter: brightness(.92); }
-  .paper-figure-open, .figure-enlarge-label { color: #1d5a94; }
-  .figure-dialog, .figure-close, .figure-zoom { background: var(--paper); }
+/* Dark theme. It follows the system until the visitor picks Light or Dark in
+ * the sidebar switch, which sets html[data-theme]. Screen only, so printing
+ * always uses the print palette. Keep the two token lists identical. */
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { color-scheme: dark; --paper: #171a1f; --ink: #d5d9df; --strong: #f2f4f7; --heading: #c5d6ea; --link: #86b8ec; --link-hover: #b9d6f5; --muted: #9ba3ae; --line: #30363f; --soft: #20252c; --highlight: #38321f; --review: #f0a493; --selection: #2c4a6b; --shadow: 0 1px 3px rgba(0,0,0,.5); --card-filter: brightness(.92); }
 }
+@media screen {
+  :root[data-theme="dark"] { color-scheme: dark; --paper: #171a1f; --ink: #d5d9df; --strong: #f2f4f7; --heading: #c5d6ea; --link: #86b8ec; --link-hover: #b9d6f5; --muted: #9ba3ae; --line: #30363f; --soft: #20252c; --highlight: #38321f; --review: #f0a493; --selection: #2c4a6b; --shadow: 0 1px 3px rgba(0,0,0,.5); --card-filter: brightness(.92); }
+}
+:root[data-theme="light"] { color-scheme: light; }
+/* Light figure and illustration cards are dimmed slightly in dark mode to reduce glare. */
+.paper-thumb, .paper-figure-open, .project-card-visual, .detail-visual { filter: var(--card-filter); }
 @media (max-width: 960px) {
   .minimal-wrapper { display: block; width: calc(100% - 30px); padding-top: 15px; }
   .minimal-sidebar { position: static; max-height: none; overflow: visible; padding: 0 0 25px; }
   .academic-profile { max-width: 540px; margin-inline: auto; }
   .primary-nav { gap: 0 18px; margin: 16px 0 0; }
-  .primary-nav a, .language-switch a, .social-icons a { min-width: 44px; min-height: 44px; }
+  .primary-nav a, .language-switch a, .theme-switch button, .social-icons a { min-width: 44px; min-height: 44px; }
   .minimal-content { border-top: 1px solid var(--line); padding: 20px 0; }
 }
 @media (max-width: 480px) {
@@ -301,7 +314,7 @@ strong { font-weight: 500; color: var(--strong); }
   .news-scroll { max-height: none; overflow: visible; padding-right: 0; }
   .minimal-wrapper { display: block; padding: 0; width: 100%; }
   .minimal-sidebar { position: static; max-height: none; overflow: visible; }
-  .portrait, .social-icons, .language-switch, .primary-nav, .site-footer, .about-sections-nav, .publication-toolbar, .copy-bibtex, .paper-media, .project-card-visual { display: none; }
+  .portrait, .social-icons, .language-switch, .theme-switch, .primary-nav, .site-footer, .about-sections-nav, .publication-toolbar, .copy-bibtex, .paper-media, .project-card-visual { display: none; }
   .publication, .project-card { display: block; }
   .publication.highlighted { background: none; }
   h1,h2,h3 { break-after: avoid; }
