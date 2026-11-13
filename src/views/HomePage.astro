@@ -58,8 +58,7 @@ const interests = [
         </div>
         <ul class="home-awards-list">
           {awards.map(award => <li>
-            <strong class="award-year">[<time datetime={award.year}>{award.year}</time>]</strong>{' '}
-            <a href={path(`/about/#${award.id}`)}>{award.title[locale]}</a> — {award.summary[locale]}
+            <strong>{award.title[locale]}</strong>, {(award.organisationShort ?? award.organisation)[locale]}, <time datetime={award.year}>{award.year}</time>
           </li>)}
         </ul>
       </section>

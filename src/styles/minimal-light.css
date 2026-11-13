@@ -97,11 +97,10 @@ strong { font-weight: 500; color: var(--strong); }
 .home-interests { margin-bottom: 24px; }
 .academic-selected-publications .publication-list { margin-top: 30px; }
 .research-interest-list, .home-project-list, .home-awards-list, .news-list { padding-left: 40px; margin: 0 0 20px; }
-.home-awards-list li { margin-bottom: 8px; }
-.award-year { white-space: nowrap; }
+.home-awards-list li { margin-bottom: 5px; }
 .news-list li { margin-bottom: 5px; }
-.news-list a, .home-awards-list a, .home-project-list a { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-.news-list a:hover, .home-awards-list a:hover, .home-project-list a:hover { text-decoration-color: currentColor; }
+.news-list a, .home-project-list a { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.news-list a:hover, .home-project-list a:hover { text-decoration-color: currentColor; }
 .news-date { white-space: nowrap; }
 .news-scroll { max-height: 216px; overflow-y: auto; overflow-x: hidden; scrollbar-gutter: stable; padding-right: 12px; }
 .news-scroll .news-list { margin-bottom: 0; padding-block: 2px; }
@@ -201,8 +200,9 @@ strong { font-weight: 500; color: var(--strong); }
 .skills-grid p { font-size: 13.5px; }
 .award-entry { display: grid; grid-template-columns: 40px minmax(0,1fr); gap: 15px; margin-bottom: 21px; }
 .award-entry>span { font-size: 13px; color: var(--muted); padding-top: 2px; }
-.award-entry h3 { font-size: 17px; margin: 0 0 6px; }
+.award-entry h3 { font-size: 17px; margin: 0 0 3px; }
 .award-entry p { margin: 0; font-size: 14px; }
+.award-entry .institution { margin-bottom: 2px; font-size: 15px; }
 .awards-footnote { font-size: 13px; }
 .research-overview { padding-bottom: 12px; }
 .research-direction h2 { margin-bottom: 14px; }
