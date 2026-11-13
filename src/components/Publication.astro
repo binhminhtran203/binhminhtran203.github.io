@@ -11,7 +11,7 @@ const { paper, compact = false } = Astro.props;
 const translation = locale === 'vi' ? translations[paper.id as keyof typeof translations] : undefined;
 const displayTitle = translation?.title || paper.title;
 const figureCollections = locale === 'vi' ? figureCollectionsVi : figureCollectionsEn;
-const previewProjects: Record<string, keyof typeof figureCollections> = { C1: 'receptor-prediction', C2: 'lncrna-graphs' };
+const previewProjects: Record<string, keyof typeof figureCollections> = { C3: 'receptor-prediction', C2: 'lncrna-graphs' };
 const previewProject = previewProjects[paper.id];
 const preview = previewProject ? figureCollections[previewProject].figures.find(figure => figure.category === 'architecture') : undefined;
 ---

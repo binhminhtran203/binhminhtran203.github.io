@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Binh Minh Tran',
   email: 'btra8435@uni.sydney.edu.au',
-  updated: 'October 2026',
+  updated: 'November 2026',
   scholar: 'https://scholar.google.com/citations?user=AYgkeCkAAAAJ',
   orcid: 'https://orcid.org/0009-0009-5601-6531',
   linkedin: 'https://www.linkedin.com/in/binhminh2003',
@@ -29,7 +29,7 @@ export const projects = [
     ],
     note: 'HiNT-Surv is an earlier model, with a paper accepted at CIHM, IEEE SSCI 2027. It is distinct from NIMSurv.',
     technologies: ['Graph neural networks', 'Imaging mass cytometry', 'Survival analysis', 'PyTorch Geometric'],
-    papers: ['M4'],
+    papers: ['C4'],
     next: 'receptor-prediction',
   },
   {
@@ -51,10 +51,10 @@ export const projects = [
       'Frozen evaluation on an independent 122-patient CPTAC-BRCA cohort yielded a macro AUC of 0.931 and macro AUPRC of 0.914, without retraining, tuning, feature reselection, or threshold adjustment. Available receptor labels covered 120 patients for ER, 115 for PR, and 95 for HER2.',
       'Across seven modality combinations, the full three-modality model achieved the highest mean AUC. Gene rankings and slide-attention maps provided descriptive, non-causal evidence of biologically and morphologically coherent signals.',
     ],
-    evidence: { label: 'Published chapter [C1], Table 3 and Sections 3–4 (PDF)', url: '/assets/papers/tran-multimodal-breast-cancer-receptor.pdf' },
+    evidence: { label: 'Published chapter [C3], Table 3 and Sections 3–4 (PDF)', url: '/assets/papers/tran-multimodal-breast-cancer-receptor.pdf' },
     note: 'External estimates remain preliminary because the validation cohort is modest and includes few HER2-positive cases. The framework depends on RNA-seq; larger cohorts and reduced gene panels are needed to assess practical use. The IUKM 2026 chapter carries a 2027 publication imprint. The related journal manuscript remains under review at Scientific Reports.',
     technologies: ['Multimodal fusion', 'Multiple-instance learning', 'H&E whole-slide images', 'RNA-seq'],
-    papers: ['C1', 'M1'],
+    papers: ['C3', 'M2'],
     next: 'lncrna-graphs',
   },
   {
@@ -79,7 +79,7 @@ export const projects = [
     evidence: { label: 'Variational model [C2], Table 1 and Sections 2–4 (PDF)', url: '/assets/papers/nguyen-variational-gnn-lncrna-disease.pdf' },
     note: 'These are computational association-prediction results. The variational framework depends on input-network quality, with limitations in biological interpretability and prediction for previously unseen lncRNAs or diseases. The second dataset is a separate benchmark, rather than a frozen external or clinical validation study.',
     technologies: ['Variational graph neural networks', 'Multi-view learning', 'Contrastive learning', 'Biological networks'],
-    papers: ['C2', 'C3'],
+    papers: ['C2', 'C1'],
     next: 'nipt-probability',
   },
   {

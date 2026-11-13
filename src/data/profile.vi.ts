@@ -4,7 +4,7 @@ import type { projects } from './profile';
 export const profileVi: typeof profile = {
   ...profile,
   name: 'Trần Bình Minh',
-  updated: 'Tháng 10 năm 2026',
+  updated: 'Tháng 11 năm 2026',
 };
 
 export const projectsVi: typeof projects = [
@@ -28,7 +28,7 @@ export const projectsVi: typeof projects = [
     ],
     note: 'HiNT-Surv là mô hình trước đó, với bài báo đã được chấp nhận tại CIHM thuộc IEEE SSCI 2027. Đây là mô hình riêng biệt với NIMSurv.',
     technologies: ['Mạng nơ-ron đồ thị', 'Đo tế bào khối phổ tạo ảnh (IMC)', 'Phân tích sống còn', 'PyTorch Geometric'],
-    papers: ['M4'],
+    papers: ['C4'],
     next: 'receptor-prediction',
   },
   {
@@ -50,10 +50,10 @@ export const projectsVi: typeof projects = [
       'Thẩm định trên đoàn hệ CPTAC-BRCA độc lập gồm 122 bệnh nhân, giữ nguyên mô hình đã huấn luyện, ghi nhận AUC trung bình không trọng số giữa các thụ thể là 0.931 và AUPRC trung bình không trọng số giữa các thụ thể là 0.914. Không huấn luyện lại, tinh chỉnh, chọn lại đặc trưng hay điều chỉnh ngưỡng. Dữ liệu về tình trạng biểu hiện thụ thể có ở 120 bệnh nhân đối với ER, 115 đối với PR và 95 đối với HER2.',
       'Trong bảy tổ hợp dữ liệu được khảo sát, mô hình tích hợp đầy đủ ba phương thức đạt AUC trung bình cao nhất. Thứ hạng các gen và bản đồ trọng số chú ý trên tiêu bản cho thấy những tín hiệu phù hợp về sinh học và hình thái. Đây là bằng chứng mô tả, không chứng minh quan hệ nhân quả.',
     ],
-    evidence: { label: 'Chương sách đã xuất bản [C1], Bảng 3 và các Mục 3–4 (PDF)', url: '/assets/papers/tran-multimodal-breast-cancer-receptor.pdf' },
+    evidence: { label: 'Chương sách đã xuất bản [C3], Bảng 3 và các Mục 3–4 (PDF)', url: '/assets/papers/tran-multimodal-breast-cancer-receptor.pdf' },
     note: 'Kết quả thẩm định trên dữ liệu độc lập vẫn mang tính sơ bộ vì đoàn hệ có quy mô còn nhỏ và ít trường hợp HER2 dương tính. Mô hình hiện cần dữ liệu giải trình tự RNA; cần nghiên cứu trên các đoàn hệ lớn hơn và với tập gen rút gọn để đánh giá khả năng ứng dụng thực tế. Chương sách thuộc IUKM 2026 ghi năm xuất bản 2027. Bản thảo tạp chí liên quan vẫn đang được phản biện tại Scientific Reports.',
     technologies: ['Tích hợp đa phương thức', 'Học đa thể hiện', 'Ảnh toàn tiêu bản nhuộm H&E', 'Giải trình tự RNA'],
-    papers: ['C1', 'M1'],
+    papers: ['C3', 'M2'],
     next: 'lncrna-graphs',
   },
   {
@@ -78,7 +78,7 @@ export const projectsVi: typeof projects = [
     evidence: { label: 'Mô hình biến phân [C2], Bảng 1 và các Mục 2–4 (PDF)', url: '/assets/papers/nguyen-variational-gnn-lncrna-disease.pdf' },
     note: 'Đây là kết quả dự đoán mối liên hệ bằng phương pháp tính toán. Mô hình biến phân phụ thuộc vào chất lượng mạng đầu vào, đồng thời còn hạn chế về khả năng diễn giải sinh học và dự đoán cho lncRNA hoặc bệnh chưa xuất hiện trong dữ liệu. Bộ dữ liệu thứ hai là một bộ dữ liệu đánh giá riêng, không phải nghiên cứu thẩm định trên dữ liệu độc lập với mô hình đã huấn luyện được giữ nguyên, cũng không phải thẩm định lâm sàng.',
     technologies: ['Mạng nơ-ron đồ thị biến phân', 'Học đa góc nhìn', 'Học tương phản', 'Mạng sinh học'],
-    papers: ['C2', 'C3'],
+    papers: ['C2', 'C1'],
     next: 'nipt-probability',
   },
   {
