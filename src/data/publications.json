@@ -38,7 +38,7 @@
   },
   {
     "id": "J1",
-    "title": "A Deep Learning Model Supporting Classification and Localisation of Breast Tumour Lesions on Ultrasound",
+    "title": "A Deep Learning Model to Support Classification and Lesion-Region Guidance of Breast Tumors on Ultrasound",
     "authors": [
       "T. B. V. Nguyen",
       "N. M. H. Nguyen",
@@ -53,15 +53,18 @@
     "badge": "J. Med. Res.",
     "citation": "Journal of Medical Research (Hanoi Medical University), 2026. Article in Vietnamese.",
     "note": "Accepted",
-    "summary": "A deep learning model that supports the classification of breast tumour lesions on ultrasound images and localises each lesion within the image.",
+    "summary": "ResNet18-LGCT classifies benign and malignant breast lesions on ultrasound, with Grad-CAM heatmaps that point to the lesion region; evaluated on internal data and on external Chinese and Thai datasets.",
     "media": {
-      "art": "ultrasound"
+      "image": "/assets/figures/lgct-fig1a-gradcam.jpg",
+      "alt": "Grad-CAM heatmap from ResNet18-LGCT (Figure 1a): a correctly classified malignant lesion on an external-validation ultrasound image, with the heatmap centred on the lesion.",
+      "width": 513,
+      "height": 319
     },
     "topics": [
       "Cancer AI"
     ],
     "links": [],
-    "bibtex": "@article{nguyen2026ultrasound,\n  author = {Nguyen, T. B. V. and Nguyen, N. M. H. and Tran, B. M. and Dang, Q. A. and Nguyen, V. A.},\n  title = {A Deep Learning Model Supporting Classification and Localisation of Breast Tumour Lesions on Ultrasound},\n  journal = {Journal of Medical Research (Hanoi Medical University)},\n  year = {2026},\n  note = {Accepted for publication; article in Vietnamese}\n}"
+    "bibtex": "@article{nguyen2026ultrasound,\n  author = {Nguyen, T. B. V. and Nguyen, N. M. H. and Tran, B. M. and Dang, Q. A. and Nguyen, V. A.},\n  title = {A Deep Learning Model to Support Classification and Lesion-Region Guidance of Breast Tumors on Ultrasound},\n  journal = {Journal of Medical Research (Hanoi Medical University)},\n  year = {2026},\n  note = {Accepted for publication; article in Vietnamese}\n}"
   },
   {
     "id": "C3",
