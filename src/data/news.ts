@@ -35,7 +35,7 @@ export const news: NewsItem[] = [
     date: '2026-11',
     dateLabel: nov2026,
     before: { en: 'Our breast cancer receptor-status research won a national ', vi: 'Nghiên cứu về tình trạng biểu hiện thụ thể trong ung thư vú đạt ' },
-    link: { href: '/#awards', label: { en: 'Fourth Prize', vi: 'giải Tư' } },
+    link: { href: '/#awards', label: { en: 'Fourth Prize', vi: 'giải Khuyến khích' } },
     after: { en: '.', vi: ' toàn quốc.' },
   },
   {
