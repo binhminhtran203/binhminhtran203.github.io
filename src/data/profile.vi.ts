@@ -51,7 +51,7 @@ export const projectsVi: typeof projects = [
       'Trong bảy tổ hợp dữ liệu được khảo sát, mô hình tích hợp đầy đủ ba phương thức đạt AUC trung bình cao nhất. Thứ hạng các gen và bản đồ trọng số chú ý trên tiêu bản cho thấy những tín hiệu phù hợp về sinh học và hình thái. Đây là bằng chứng mô tả, không chứng minh quan hệ nhân quả.',
     ],
     evidence: { label: 'Chương sách đã xuất bản [C3], Bảng 3 và các Mục 3–4 (PDF)', url: '/assets/papers/tran-multimodal-breast-cancer-receptor.pdf' },
-    note: 'Kết quả thẩm định trên dữ liệu độc lập vẫn mang tính sơ bộ vì đoàn hệ có quy mô còn nhỏ và ít trường hợp HER2 dương tính. Mô hình hiện cần dữ liệu giải trình tự RNA; cần nghiên cứu trên các đoàn hệ lớn hơn và với tập gen rút gọn để đánh giá khả năng ứng dụng thực tế. Chương sách thuộc IUKM 2026 ghi năm xuất bản 2027. Bản thảo tạp chí liên quan vẫn đang được phản biện tại Scientific Reports.',
+    note: 'Kết quả thẩm định trên dữ liệu độc lập vẫn mang tính sơ bộ vì đoàn hệ có quy mô còn nhỏ và ít trường hợp HER2 dương tính. Mô hình hiện cần dữ liệu giải trình tự RNA; cần nghiên cứu trên các đoàn hệ lớn hơn và với tập gen rút gọn để đánh giá khả năng ứng dụng thực tế. Chương sách thuộc IUKM 2026 ghi năm xuất bản 2027. Bản thảo tạp chí liên quan đang được phản biện tại Scientific Reports và đã có bản tiền ấn phẩm trên bioRxiv.',
     technologies: ['Tích hợp đa phương thức', 'Học đa thể hiện', 'Ảnh toàn tiêu bản nhuộm H&E', 'Giải trình tự RNA'],
     papers: ['C3', 'M2'],
     next: 'lncrna-graphs',

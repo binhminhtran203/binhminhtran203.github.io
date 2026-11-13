@@ -22,6 +22,15 @@ const oct2026: BilingualText = { en: 'Oct. 2026', vi: '10/2026' };
 
 export const news: NewsItem[] = [
   {
+    // Posted on bioRxiv on 3 November 2026 (doi:10.64898/2026.11.01.761587).
+    id: 'receptor-biorxiv-preprint',
+    date: '2026-11',
+    dateLabel: nov2026,
+    before: { en: 'Our preprint on ', vi: 'Bản tiền ấn phẩm về ' },
+    link: { href: 'https://doi.org/10.64898/2026.11.01.761587', label: { en: 'ER, PR and HER2 classification', vi: 'phân loại ER, PR và HER2' } },
+    after: { en: ' is now on bioRxiv.', vi: ' đã có trên bioRxiv.' },
+  },
+  {
     id: 'youth-science-national-prize',
     date: '2026-11',
     dateLabel: nov2026,

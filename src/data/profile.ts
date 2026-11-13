@@ -52,7 +52,7 @@ export const projects = [
       'Across seven modality combinations, the full three-modality model achieved the highest mean AUC. Gene rankings and slide-attention maps provided descriptive, non-causal evidence of biologically and morphologically coherent signals.',
     ],
     evidence: { label: 'Published chapter [C3], Table 3 and Sections 3–4 (PDF)', url: '/assets/papers/tran-multimodal-breast-cancer-receptor.pdf' },
-    note: 'External estimates remain preliminary because the validation cohort is modest and includes few HER2-positive cases. The framework depends on RNA-seq; larger cohorts and reduced gene panels are needed to assess practical use. The IUKM 2026 chapter carries a 2027 publication imprint. The related journal manuscript remains under review at Scientific Reports.',
+    note: 'External estimates remain preliminary because the validation cohort is modest and includes few HER2-positive cases. The framework depends on RNA-seq; larger cohorts and reduced gene panels are needed to assess practical use. The IUKM 2026 chapter carries a 2027 publication imprint. The related journal manuscript is under review at Scientific Reports and available as a bioRxiv preprint.',
     technologies: ['Multimodal fusion', 'Multiple-instance learning', 'H&E whole-slide images', 'RNA-seq'],
     papers: ['C3', 'M2'],
     next: 'lncrna-graphs',
