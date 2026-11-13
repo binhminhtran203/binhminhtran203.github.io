@@ -36,7 +36,7 @@ const interests = [
         <ul class="home-education-list">
           {education.map(item => <li>
             <strong>{item.degree[locale]}</strong>, {item.institution[locale]}, {item.period[locale]}
-            {item.detail && <span class="entry-detail">{item.detail[locale]}</span>}
+            {item.detail && <span class="entry-detail">{item.detail[locale]}{item.link && <> · <a href={item.link.href} target="_blank" rel="noopener noreferrer" title={item.link.title}>{item.link.label[locale]}</a></>}</span>}
           </li>)}
         </ul>
       </section>

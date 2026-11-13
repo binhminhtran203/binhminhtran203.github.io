@@ -8,6 +8,8 @@ interface Education {
   period: BilingualText;
   /** Optional second line: field and supervisor. */
   detail?: BilingualText;
+  /** Optional link at the end of the second line, e.g. the thesis PDF. */
+  link?: { href: string; label: BilingualText; title?: string };
 }
 
 // Newest first, in the usual academic-homepage format ("Degree, institution,
@@ -31,7 +33,14 @@ export const education: Education[] = [
     period: { en: '2023 – 2026', vi: '2023 – 2026' },
     detail: {
       en: 'Computational Data Science · Honours supervisor: A/Prof. Xiuying Wang',
-      vi: 'Chuyên ngành Khoa học dữ liệu tính toán · Người hướng dẫn luận văn: PGS. Xiuying Wang',
+      vi: 'Khoa học dữ liệu tính toán · Người hướng dẫn: PGS. Xiuying Wang',
+    },
+    // Public copy of the honours thesis (6 November 2026): the student ID and the
+    // signed plagiarism statement page are removed; all other pages are unchanged.
+    link: {
+      href: '/assets/papers/tran-honours-thesis-2026.pdf',
+      label: { en: 'Thesis (PDF)', vi: 'Luận văn (PDF)' },
+      title: 'Multimodal Graph Learning for Breast Cancer Survival Prediction',
     },
   },
   {
