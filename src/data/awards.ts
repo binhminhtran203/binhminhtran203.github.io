@@ -60,6 +60,13 @@ export const awards: Award[] = [
     },
   },
   {
+    // Added at the author's request; not in the November 2026 CV.
+    id: 'award-vnus-merit-2026',
+    year: '2026',
+    title: { en: 'Certificate of Merit', vi: 'Bằng khen' },
+    organisation: { en: 'Vietnam National Union of Students', vi: 'Trung ương Hội Sinh viên Việt Nam' },
+  },
+  {
     id: 'award-january-star-2025',
     year: '2025',
     title: { en: 'January Star Award', vi: 'Giải thưởng Sao Tháng Giêng' },
