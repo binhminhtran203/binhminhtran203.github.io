@@ -34,7 +34,7 @@ The earlier single-page website remains available in Git history, before the Ast
 
 - `src/data/profile.ts`: profile links, research descriptions, evaluation results, and project status.
 - `src/data/publications.json`: bibliography, publication status, paper links, and BibTeX, plus `badge` (venue label on the preview), `note` (red status after the buttons), `project` (related project page), `media` (a paper figure by `image`, or a conceptual `art` kind), and `summary` (one sentence, used only by search). Vietnamese `title`, `citation`, `note`, and `summary` live in `publications.vi.json`.
-- `src/data/news.ts`: bilingual homepage news, newest month first. Keep date precision and study status faithful to the source; the homepage renders localized links and a stable `#news` anchor.
+- `src/data/news.ts`: bilingual homepage news, newest first, in the usual academic-homepage format: a bold `[Mon. YYYY]` date, one short sentence of about one line, and a single link on the key term. Keep date precision and study status faithful to the source; the homepage renders localized links and a stable `#news` anchor.
 - `src/data/awards.ts`: bilingual awards shared by Home and About, each with a title (the prize, in bold), the awarding organisation, and a detail sentence for the About page. The homepage shows one line per award, "**Title**, organisation, year", following the usual academic-homepage convention. Preserve finalist status and the awarding institution when editing.
 - `src/data/community.ts`: the supplied biography and community activity.
 - `src/views/AboutPage.astro`: education, experience, and skills in both languages, plus the shared awards list.
