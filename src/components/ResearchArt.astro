@@ -10,9 +10,27 @@ const nodes = Array.from({ length: 72 }, (_, i) => {
   return { x: 220 + Math.cos(angle) * radius, y: 186 + Math.sin(angle) * radius * 0.83, color: i % 7 === 0 ? '#c47758' : i % 3 === 0 ? '#a5bb9e' : '#427e70', r: 4 + (i * 7 % 8) / 2 };
 });
 const rnaNodes = Array.from({ length: 22 }, (_, i) => ({ x: 58 + i * 15.5, y: 180 + Math.sin(i * 0.62) * 62 }));
+// Ultrasound sector: apex at (220, 30), opening ±42° downwards.
+const sectorPoint = (radius: number, degrees: number) => ({ x: 220 + Math.sin(degrees * Math.PI / 180) * radius, y: 30 + Math.cos(degrees * Math.PI / 180) * radius });
+const depthArc = (radius: number) => { const a = sectorPoint(radius, -42), b = sectorPoint(radius, 42); return `M${a.x} ${a.y}A${radius} ${radius} 0 0 0 ${b.x} ${b.y}`; };
+const speckles = Array.from({ length: 170 }, (_, i) => {
+  const p = sectorPoint(Math.sqrt(52 ** 2 + ((i * 0.5698402910) % 1) * (300 ** 2 - 52 ** 2)), -38 + 76 * ((i * 0.7548776662) % 1));
+  return { ...p, r: 1.2 + (i * 7 % 5) * 0.35, opacity: 0.1 + (i * 11 % 7) * 0.035 };
+});
+const joints: Record<string, [number, number]> = { head: [220, 64], neck: [220, 104], chest: [220, 150], pelvis: [220, 198], lShoulder: [182, 112], rShoulder: [258, 112], lElbow: [142, 84], lWrist: [116, 44], rElbow: [296, 146], rWrist: [316, 190], lHip: [196, 204], rHip: [244, 204], lKnee: [186, 266], rKnee: [260, 262], lAnkle: [180, 326], rAnkle: [280, 322] };
+const bones = [['head', 'neck'], ['neck', 'chest'], ['chest', 'pelvis'], ['neck', 'lShoulder'], ['neck', 'rShoulder'], ['lShoulder', 'lElbow'], ['lElbow', 'lWrist'], ['rShoulder', 'rElbow'], ['rElbow', 'rWrist'], ['pelvis', 'lHip'], ['pelvis', 'rHip'], ['lHip', 'lKnee'], ['lKnee', 'lAnkle'], ['rHip', 'rKnee'], ['rKnee', 'rAnkle']];
+const labels: Record<string, [string, string]> = {
+  nipt: ['Conceptual NIPT research workflow: high-risk referrals, probability modelling, and planned calibration and validation', 'Sơ đồ nghiên cứu NIPT dự kiến: tiếp nhận các trường hợp có kết quả nguy cơ cao, xây dựng mô hình xác suất, đánh giá độ hiệu chuẩn và thẩm định mô hình'],
+  tissue: ['Conceptual graph of a tissue microenvironment, with linked cell populations', 'Sơ đồ minh họa vi môi trường mô dưới dạng đồ thị liên kết các quần thể tế bào'],
+  rna: ['Conceptual RNA network with linked molecular and disease representations', 'Sơ đồ minh họa mạng RNA kết nối thông tin phân tử và bệnh'],
+  multimodal: ['Conceptual integration of clinical, tissue, and RNA data into a shared model', 'Minh họa việc tích hợp dữ liệu lâm sàng, mô và RNA vào mô hình chung'],
+  ultrasound: ['Conceptual breast ultrasound image with a lesion outlined by a localisation box', 'Minh họa ảnh siêu âm vú với tổn thương được khoanh bằng khung định vị'],
+  skeleton: ['Conceptual skeleton graph: body joints linked by bones, with hyperedges grouping joints, alongside coordinate and frequency signals', 'Minh họa đồ thị khung xương: các khớp nối với nhau, các siêu cạnh nhóm nhiều khớp, kèm thông tin tọa độ và tần số'],
+};
+const [labelEn, labelVi] = labels[kind] ?? labels.multimodal;
 ---
-<svg class:list={['research-art', { 'research-art-large': large }]} viewBox="0 0 440 370" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={kind === 'nipt' ? t('Conceptual NIPT research workflow: high-risk referrals, probability modelling, and planned calibration and validation', 'Sơ đồ nghiên cứu NIPT dự kiến: tiếp nhận các trường hợp có kết quả nguy cơ cao, xây dựng mô hình xác suất, đánh giá độ hiệu chuẩn và thẩm định mô hình') : kind === 'tissue' ? t('Conceptual graph of a tissue microenvironment, with linked cell populations', 'Sơ đồ minh họa vi môi trường mô dưới dạng đồ thị liên kết các quần thể tế bào') : kind === 'rna' ? t('Conceptual RNA network with linked molecular and disease representations', 'Sơ đồ minh họa mạng RNA kết nối thông tin phân tử và bệnh') : t('Conceptual integration of clinical, tissue, and RNA data into a shared model', 'Minh họa việc tích hợp dữ liệu lâm sàng, mô và RNA vào mô hình chung')}>
-  {kind !== 'nipt' && <>
+<svg class:list={['research-art', { 'research-art-large': large }]} viewBox="0 0 440 370" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={t(labelEn, labelVi)}>
+  {['tissue', 'rna', 'multimodal'].includes(kind) && <>
   <circle cx="220" cy="185" r="151" stroke="currentColor" stroke-opacity=".1" stroke-dasharray="2 7" />
   <circle cx="220" cy="185" r="112" stroke="currentColor" stroke-opacity=".08" />
   <path d="M220 18v20m0 295v20M53 185H33m374 0h-20" stroke="currentColor" stroke-opacity=".25" />
@@ -56,5 +74,29 @@ const rnaNodes = Array.from({ length: 22 }, (_, i) => ({ x: 58 + i * 15.5, y: 18
     <path d="M190 288q15-30 30 0t30 0M190 288q15 30 30 0t30 0" stroke="#427e70" stroke-width="2" />
     <circle cx="220" cy="185" r="35" fill="#286454" /><path d="m206 185 10-11 13 6-6 16-17-11m10-11 7 22m6-16-23 5" stroke="#fafbf5" stroke-width="1.5" />
     <text x="78" y="156" class="art-label">{t("CLINICAL", "LÂM SÀNG")}</text><text x="304" y="156" class="art-label">{t("TISSUE", "MÔ")}</text><text x="195" y="353" class="art-label">{t("RNA-SEQ", "GIẢI TRÌNH TỰ RNA")}</text>
+  </>}
+  {kind === 'ultrasound' && <>
+    <path d={`M${sectorPoint(40, -42).x} ${sectorPoint(40, -42).y}L${sectorPoint(310, -42).x} ${sectorPoint(310, -42).y}A310 310 0 0 0 ${sectorPoint(310, 42).x} ${sectorPoint(310, 42).y}L${sectorPoint(40, 42).x} ${sectorPoint(40, 42).y}A40 40 0 0 1 ${sectorPoint(40, -42).x} ${sectorPoint(40, -42).y}Z`} fill="#dee7d9" />
+    {[120, 190, 260].map(radius => <path d={depthArc(radius)} stroke="#427e70" stroke-opacity=".14" />)}
+    {speckles.map(dot => <circle cx={dot.x} cy={dot.y} r={dot.r} fill="#427e70" fill-opacity={dot.opacity} />)}
+    <ellipse cx="236" cy="206" rx="52" ry="37" transform="rotate(-12 236 206)" fill="#427e70" fill-opacity=".16" />
+    <ellipse cx="236" cy="206" rx="45" ry="30" transform="rotate(-12 236 206)" fill="#2f5e52" fill-opacity=".78" />
+    <rect x="176" y="158" width="122" height="94" rx="2" stroke="#c47758" stroke-width="3" stroke-dasharray="8 6" />
+    <rect x="176" y="130" width="84" height="22" rx="2" fill="#c47758" />
+    <text x="183" y="146" class="art-label" fill="#fff">{t("LESION", "TỔN THƯƠNG")}</text>
+    <text x="30" y="52" class="art-label">{t("ULTRASOUND", "SIÊU ÂM")}</text>
+  </>}
+  {kind === 'skeleton' && <>
+    <ellipse cx="149" cy="78" rx="62" ry="25" transform="rotate(45.9 149 78)" fill="#c47758" fill-opacity=".13" stroke="#c47758" stroke-opacity=".55" stroke-dasharray="5 4" />
+    <ellipse cx="290" cy="149" rx="62" ry="25" transform="rotate(53.4 290 149)" fill="#c47758" fill-opacity=".13" stroke="#c47758" stroke-opacity=".55" stroke-dasharray="5 4" />
+    <ellipse cx="222" cy="234" rx="60" ry="48" fill="#a5bb9e" fill-opacity=".28" stroke="#427e70" stroke-opacity=".4" stroke-dasharray="5 4" />
+    {bones.map(([a, b]) => <line x1={joints[a][0]} y1={joints[a][1]} x2={joints[b][0]} y2={joints[b][1]} stroke="#427e70" stroke-width="5" stroke-linecap="round" />)}
+    <circle cx={joints.head[0]} cy={joints.head[1]} r="17" fill="#dee7d9" stroke="#427e70" stroke-width="4" />
+    {Object.entries(joints).filter(([name]) => name !== 'head').map(([, [x, y]]) => <><circle cx={x} cy={y} r="7" fill="#427e70" /><circle cx={x - 1.5} cy={y - 1.5} r="2" fill="#fafbf5" fill-opacity=".7" /></>)}
+    <path d="M332 70q10-24 20 0t20 0t20 0t20 0" stroke="#c47758" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M44 330V266m0 64h64M39 274l5-8 5 8M100 325l8 5-8 5" stroke="#427e70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M80 294V330M80 294H44" stroke="#427e70" stroke-opacity=".45" stroke-dasharray="3 3" />
+    <circle cx="80" cy="294" r="5" fill="#c47758" />
+    <text x="330" y="104" class="art-label">{t("FREQUENCY", "TẦN SỐ")}</text><text x="34" y="356" class="art-label">{t("COORDINATES", "TỌA ĐỘ")}</text>
   </>}
 </svg>

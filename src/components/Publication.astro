@@ -1,36 +1,80 @@
 ---
+import ResearchArt from './ResearchArt.astro';
 import { getLocale, localizePath, text } from '../i18n';
-import translations from '../data/publications.vi.json';
+import translationData from '../data/publications.vi.json';
 import figureCollectionsEn from '../data/paper-figures.json';
 import figureCollectionsVi from '../data/paper-figures.vi.json';
+
+// One paper row, laid out after Jon Barron's academic website
+// (github.com/jonbarron/jonbarron_website): a thumbnail that swaps to a second
+// figure on hover, then title, authors, venue with a bold status note, a
+// slash-separated link row, and a one-sentence summary. Representative papers
+// set `highlight` in publications.json.
+interface Link { label: string; url: string; download?: boolean; }
+interface Media { image?: string; hover?: string; art?: string; }
+interface Paper { id: string; title: string; authors: string[]; equalContribution: string[]; year: number; status: string; venue: string; citation: string; note?: string; summary?: string; project?: string; highlight?: boolean; media?: Media; topics: string[]; links: Link[]; bibtex: string; }
+interface Translation { title: string; citation: string; note?: string; summary?: string; }
+interface Props { paper: Paper; compact?: boolean; currentProject?: string; }
+const { paper, compact = false, currentProject } = Astro.props;
 const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
-interface Paper { id: string; title: string; authors: string[]; equalContribution: string[]; year: number; status: string; venue: string; citation: string; topics: string[]; links: {label: string;url: string;download?: boolean}[]; bibtex: string; }
-interface Props { paper: Paper; compact?: boolean; }
-const { paper, compact = false } = Astro.props;
-const translation = locale === 'vi' ? translations[paper.id as keyof typeof translations] : undefined;
+const translation = locale === 'vi' ? (translationData as Record<string, Translation>)[paper.id] : undefined;
+const lang = translation ? 'vi' : 'en';
 const displayTitle = translation?.title || paper.title;
-const figureCollections = locale === 'vi' ? figureCollectionsVi : figureCollectionsEn;
-const previewProjects: Record<string, keyof typeof figureCollections> = { C3: 'receptor-prediction', C2: 'lncrna-graphs' };
-const previewProject = previewProjects[paper.id];
-const preview = previewProject ? figureCollections[previewProject].figures.find(figure => figure.category === 'architecture') : undefined;
+const citation = translation?.citation || paper.citation;
+const note = translation ? translation.note : paper.note;
+const summary = translation?.summary || paper.summary;
+
+// Paper figures appear as small copies in /assets/thumbnails/; alt text comes
+// from the localised figure records used on the project pages.
+const collections = locale === 'vi' ? figureCollectionsVi : figureCollectionsEn;
+const figures = Object.values(collections).flatMap(collection => collection.figures);
+const thumbnail = (src?: string) => {
+  const figure = src ? figures.find(item => item.src === src) : undefined;
+  return figure ? { ...figure, thumb: figure.src.replace('/assets/figures/', '/assets/thumbnails/') } : undefined;
+};
+const image = thumbnail(paper.media?.image);
+const hover = thumbnail(paper.media?.hover);
+const art = paper.media?.art;
+
+const projectHref = paper.project && paper.project !== currentProject ? localizePath(`/research/${paper.project}/`, locale) : undefined;
+const linkLabel = (label: string) => label === 'Proceedings' ? t('proceedings', 'kỷ yếu') : label === 'Full paper (PDF)' ? 'PDF' : label;
+const links = [
+  ...(projectHref ? [{ label: t('project page', 'trang dự án'), url: projectHref, external: false, download: false }] : []),
+  ...paper.links.map(link => ({ label: linkLabel(link.label), url: link.url, external: true, download: Boolean(link.download) })),
+];
+const showLinkRow = links.length > 0 || !compact;
 ---
-<article id={`paper-${paper.id}`} class:list={['publication', { 'publication-compact': compact, 'has-preview': Boolean(preview) }]} data-status={paper.status} data-search={`${displayTitle} ${paper.title} ${paper.authors.join(' ')} ${paper.venue} ${paper.topics.join(' ')}`.toLowerCase()}>
-  {preview && previewProject ? <div class="pub-preview">
-    <a href={localizePath(`/research/${previewProject}/`, locale)} aria-label={`${t("Research project", "Dự án nghiên cứu")}: ${displayTitle}`}>
-      <img class="pub-preview-image" src={preview.src} alt={preview.alt} width={preview.width} height={preview.height} loading="lazy" decoding="async" />
-      <span class="pub-venue-label">{paper.venue.replace(/\s+20\d{2}$/, '')}</span>
-    </a>
-    <span class="sr-only">[{paper.id}]</span>
-  </div> : <div class="pub-index"><span>[{paper.id}]</span></div>}
+<article id={`paper-${paper.id}`} class:list={['publication', { 'publication-compact': compact, highlighted: paper.highlight }]} data-status={paper.status} data-search={`${displayTitle} ${paper.title} ${paper.authors.join(' ')} ${paper.venue} ${paper.topics.join(' ')} ${summary ?? ''}`.toLowerCase()}>
+  <figure class="paper-media">
+    <div class:list={['paper-thumb', { 'paper-thumb-art': art, 'has-hover': hover }]}>
+      {image && <img src={image.thumb} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />}
+      {art && <ResearchArt kind={art} />}
+      {hover && <img class="thumb-hover" src={hover.thumb} alt="" width={hover.width} height={hover.height} loading="lazy" decoding="async" />}
+    </div>
+    <figcaption>[{paper.id}]{art && <> · {t('Illustration', 'Minh họa')}</>}</figcaption>
+  </figure>
   <div class="pub-body">
-    <h3 lang={translation ? 'vi' : 'en'}>{paper.links[0] ? <a href={paper.links[0].url} target="_blank" rel="noopener noreferrer">{displayTitle}</a> : displayTitle}</h3>
+    <h3 lang={lang}>{paper.links[0] ? <a href={paper.links[0].url} target="_blank" rel="noopener noreferrer">{displayTitle}</a> : displayTitle}</h3>
     {translation && <p class="publication-original-title" lang="en">{paper.title}</p>}
-    <p class="authors">{paper.authors.map((author,i)=><>{i > 0 && ', '}{author === 'B. M. Tran' ? <strong>{author}</strong> : author}{paper.equalContribution.includes(author) && <sup>†</sup>}</>)}</p>
-    <p class="citation" lang={translation ? 'vi' : 'en'}>{translation?.citation || paper.citation}</p>
-    {paper.status === 'review' && <div class="pub-meta"><span class="badge badge-review">{t("Under review", "Đang phản biện")}</span></div>}
-    {paper.status === 'accepted' && <div class="pub-meta"><span class="badge badge-accepted">{t("Accepted", "Đã được chấp nhận")}</span></div>}
-    <div class="pub-actions">{paper.links.map(link=><a href={link.url} target="_blank" rel="noopener noreferrer" download={link.download || undefined} aria-label={link.download ? `${t("Download full paper (PDF)", "Tải toàn văn (PDF)")}: ${displayTitle}` : undefined}>{link.label === "Proceedings" ? t("Proceedings", "Kỷ yếu") : link.label === "Full paper (PDF)" ? "PDF" : link.label}</a>)}{!compact && <button class="copy-bibtex" type="button" data-bibtex={paper.bibtex} aria-label={`${t("Copy BibTeX for", "Sao chép BibTeX cho")} ${displayTitle}`}><span>{t("Copy BibTeX", "Sao chép BibTeX")}</span></button>}</div>
-    {!compact && <details class="bibtex-details"><summary>{t("BibTeX source", "Mã BibTeX")}</summary><pre><code>{paper.bibtex}</code></pre></details>}
+    <p class="authors">{paper.authors.map((author, i) => <>{i > 0 && ', '}{author === 'B. M. Tran' ? <strong>{author}</strong> : author}{paper.equalContribution.includes(author) && <sup>†</sup>}</>)}</p>
+    <p class="citation"><em lang={lang}>{citation}</em>{note && <> <strong class:list={['paper-note', `paper-note-${paper.status}`]} lang={lang}>({note})</strong></>}</p>
+    {showLinkRow && <p class="paper-links">
+      {links.map((link, i) => <>{i > 0 && <span class="paper-link-separator" aria-hidden="true"> / </span>}<a href={link.url} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined} download={link.download || undefined} aria-label={link.download ? `${t('Download full paper (PDF)', 'Tải toàn văn (PDF)')}: ${displayTitle}` : undefined}>{link.label}</a></>)}
+      {!compact && <>{links.length > 0 && <span class="paper-link-separator" aria-hidden="true"> / </span>}<button class="copy-bibtex" type="button" data-bibtex={paper.bibtex} aria-label={`${t('Copy BibTeX for', 'Sao chép BibTeX cho')} ${displayTitle}`}><span>bibtex</span></button></>}
+    </p>}
+    {summary && <p class="paper-desc" lang={lang}>{summary}</p>}
+    {!compact && <details class="bibtex-details"><summary>{t('BibTeX source', 'Mã BibTeX')}</summary><pre><code>{paper.bibtex}</code></pre></details>}
   </div>
 </article>
+<script>
+  // Touch screens have no hover, so a tap on a thumbnail toggles its second figure.
+  document.querySelectorAll<HTMLElement>('.paper-thumb.has-hover').forEach(thumb => {
+    const paper = thumb.closest<HTMLElement>('.publication');
+    thumb.addEventListener('touchstart', () => {
+      const show = !paper?.classList.contains('hover-active');
+      document.querySelectorAll('.publication.hover-active').forEach(item => item.classList.remove('hover-active'));
+      if (show) paper?.classList.add('hover-active');
+    }, { passive: true });
+  });
+</script>

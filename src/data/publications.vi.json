@@ -1,30 +1,41 @@
 {
   "C4": {
     "title": "HiNT-Surv: Dự đoán sống còn đa phương thức theo cấu trúc phân cấp, có xét đến vi vùng mô, từ dữ liệu đo tế bào khối phổ tạo ảnh, các biến lâm sàng – giải phẫu bệnh và dữ liệu hệ gen",
-    "citation": "Đã được chấp nhận đăng toàn văn tại Hội thảo IEEE về Trí tuệ tính toán trong Y tế và Y học (CIHM), thuộc IEEE SSCI 2027."
+    "citation": "Hội thảo IEEE về Trí tuệ tính toán trong Y tế và Y học (CIHM), thuộc IEEE SSCI 2027.",
+    "note": "Đã được chấp nhận, đăng toàn văn",
+    "summary": "Mô hình hóa các vi vùng mô theo cấu trúc phân cấp từ dữ liệu đo tế bào khối phổ tạo ảnh (IMC), rồi kết hợp với các biến lâm sàng – giải phẫu bệnh và dữ liệu hệ gen để dự đoán sống còn ở bệnh nhân ung thư vú."
   },
   "J1": {
     "title": "Mô hình học sâu hỗ trợ phân loại và định vị tổn thương u vú trên ảnh siêu âm",
-    "citation": "Đã được chấp nhận đăng tại Tạp chí Nghiên cứu Y học, Trường Đại học Y Hà Nội, 2026. Bài báo bằng tiếng Việt."
+    "citation": "Tạp chí Nghiên cứu Y học, Trường Đại học Y Hà Nội, 2026. Bài báo bằng tiếng Việt.",
+    "note": "Đã được chấp nhận",
+    "summary": "Mô hình học sâu hỗ trợ phân loại tổn thương u vú trên ảnh siêu âm và xác định vị trí của từng tổn thương trên ảnh."
   },
   "C3": {
     "title": "Mô hình học sâu đa phương thức để dự đoán tình trạng biểu hiện thụ thể trong ung thư vú",
-    "citation": "IUKM 2026, bộ sách LNAI, tập 16918, phần I, Springer, tr. 102–114, 2027."
+    "citation": "IUKM 2026, bộ sách LNAI, tập 16918, phần I, Springer, tr. 102–114, 2027.",
+    "summary": "Kết hợp các biến lâm sàng, ảnh toàn tiêu bản nhuộm H&E và dữ liệu giải trình tự RNA của khối u bằng cơ chế tự chú ý ở cấp phương thức, để dự đoán đồng thời tình trạng biểu hiện ER, PR và HER2 trong ung thư vú."
   },
   "C2": {
     "title": "Mạng nơ-ron đồ thị biến phân tích hợp đa góc nhìn để dự đoán mối liên hệ giữa RNA dài không mã hóa và bệnh",
-    "citation": "Recent Challenges in Intelligent Information and Database Systems (ACIIDS 2026), bộ sách CCIS, tập 2964, Springer, tr. 355–369, 2026."
+    "citation": "Recent Challenges in Intelligent Information and Database Systems (ACIIDS 2026), bộ sách CCIS, tập 2964, Springer, tr. 355–369, 2026.",
+    "summary": "Kết hợp mạng tích chập đồ thị đa góc nhìn có trọng số chú ý, bộ tự mã hóa đồ thị biến phân và bộ dự đoán có cơ chế cổng để xếp hạng các mối liên hệ lncRNA–bệnh tiềm năng."
   },
   "C1": {
     "title": "Học biểu diễn đồ thị tương phản hai luồng để dự đoán mối liên hệ giữa RNA dài không mã hóa và bệnh",
-    "citation": "Kỷ yếu FJCAI 2026, tr. 151–158, 2026. ISBN 978-604-45-2586-0."
+    "citation": "Kỷ yếu FJCAI 2026, tr. 151–158, 2026. ISBN 978-604-45-2586-0.",
+    "summary": "Nghiên cứu song hành với [C2], dự đoán mối liên hệ lncRNA–bệnh bằng phương pháp học biểu diễn đồ thị tương phản hai luồng."
   },
   "M2": {
     "title": "Phát triển và đánh giá mô hình học sâu đa phương thức trên nhiều đoàn hệ để phân loại tình trạng biểu hiện ER, PR và HER2 trong ung thư vú",
-    "citation": "Bản thảo đang được phản biện tại tạp chí Scientific Reports, 2026."
+    "citation": "Tạp chí Scientific Reports, 2026.",
+    "note": "Đang phản biện",
+    "summary": "Nghiên cứu tạp chí liên quan đến [C3]: phát triển mô hình học sâu đa phương thức để phân loại tình trạng biểu hiện ER, PR và HER2, đồng thời đánh giá trên các đoàn hệ độc lập."
   },
   "M1": {
     "title": "H2F-GCN: Mạng tích chập đồ thị kết hợp siêu đồ thị, thông tin tần số và tọa độ khung xương để đánh giá phục hồi chức năng",
-    "citation": "Bản thảo đang được phản biện tại tạp chí IEEE Access, 2026."
+    "citation": "Tạp chí IEEE Access, 2026.",
+    "note": "Đang phản biện",
+    "summary": "Mạng tích chập đồ thị dựa trên dữ liệu khung xương, kết hợp thông tin siêu đồ thị, tần số và tọa độ để đánh giá phục hồi chức năng."
   }
 }

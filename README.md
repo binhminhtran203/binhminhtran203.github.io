@@ -33,7 +33,7 @@ The earlier single-page website remains available in Git history, before the Ast
 ## Update content
 
 - `src/data/profile.ts`: profile links, research descriptions, evaluation results, and project status.
-- `src/data/publications.json`: bibliography, publication status, paper links, and BibTeX.
+- `src/data/publications.json`: bibliography, publication status, paper links, and BibTeX, plus the fields behind the paper rows: `summary` (one sentence), `note` (bold status after the venue), `project` (related project page), `highlight` (representative paper), and `media` (paper figures by `image`/`hover`, or a conceptual `art` kind). Vietnamese `title`, `citation`, `note`, and `summary` live in `publications.vi.json`.
 - `src/data/news.ts`: bilingual homepage news, newest month first. Keep date precision and study status faithful to the source; the homepage renders localized links and a stable `#news` anchor.
 - `src/data/awards.ts`: bilingual award titles, full details, and concise homepage summaries shared by Home and About. Preserve finalist status and the awarding institution when editing.
 - `src/data/community.ts`: the supplied biography and community activity.
@@ -41,6 +41,7 @@ The earlier single-page website remains available in Git history, before the Ast
 - `src/data/paper-figures.json`: figure captions, alt text, dimensions, and PDF page references.
 - `public/assets/papers/`: the two supplied Springer chapter PDFs, unchanged.
 - `public/assets/figures/`: nine original figures extracted without resampling or redrawing.
+- `public/assets/thumbnails/`: 360px-wide copies of four of those figures, used only as publication thumbnails.
 - `public/assets/binh-minh-tran-cv.pdf`: the current public CV (November 2026, v11), as supplied by the author. It includes the phone number and referee contacts.
 - `src/styles/minimal-light.css`: the active Minimal Light layout, typography, and responsive/dark-mode rules.
 - `src/styles/fonts.css` and `src/styles/paper-figures.css`: self-hosted fonts and scientific figure viewer styles.
@@ -63,10 +64,14 @@ The portrait was supplied by Binh Minh Tran. The paper figures retain the origin
 
 The production build, internal routes and assets, PDF downloads, citation copying, mobile layouts, and figure viewer were checked during implementation. Repository history records subsequent changes and deployments.
 
+## Publication list layout
+
+Paper rows follow [Jon Barron's academic website](https://github.com/jonbarron/jonbarron_website), whose source is offered for personal reuse: a thumbnail that swaps to a second paper figure on hover (or on tap, on touch screens), a bold title, authors with my name in bold, the venue in italics with a bold status note, slash-separated links, and a one-sentence summary. Papers with `highlight: true` get a soft yellow background, explained by the sentence above each list. The same component renders the home page, the publications page, and related work on project pages. It is restyled in the site's Minimal Light typography rather than copied.
+
 ## Minimal Light template
 
 The design is adapted from [Minimal Light by Yaoyao Liu](https://github.com/yaoyao-liu/minimal-light), upstream commit `dd114c3fef2d97adc1c6b6d46901e0d96ab83a7c`, under CC0-1.0 (see `licenses/minimal-light-CC0.txt`). The original 232px profile sidebar and 650px reading column, Crimson Pro typography, blue palette, circular portrait, publication previews, and automatic light/dark mode are adapted to the existing Astro pages. The main reading column starts directly with the introduction; compact site navigation and language links sit below the sidebar icons. Full affiliations remain in the biography, and the home page uses labelled interest bullets and a short project list. Navigation, two languages, publication filters, and figure viewers remain available. No Jekyll runtime or third-party analytics is required.
 
-Crimson Pro includes Latin, extended Latin and Vietnamese glyphs, including italic styles. Font licences are bundled in `public/assets/fonts/`. Genuine paper architecture figures are used as previews for C3 and C2; other publication records retain their bibliographic index.
+Crimson Pro includes Latin, extended Latin and Vietnamese glyphs, including italic styles. Font licences are bundled in `public/assets/fonts/`. Genuine paper figures are used as thumbnails for C3 and C2; the other papers use conceptual illustrations captioned “Illustration”.
 
 Academic profile icons use self-hosted Academicons 1.8.6 (SIL OFL 1.1 / MIT) and the Font Awesome 6.4.2 LinkedIn SVG (CC BY 4.0). Attribution and licence notices are in `licenses/academicons-license.txt` and `licenses/academicons-fontawesome-linkedin-license.txt`.
