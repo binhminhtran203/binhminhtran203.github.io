@@ -28,7 +28,7 @@ export const education: Education[] = [
     id: 'bachelor-sydney',
     degree: { en: 'Bachelor of Advanced Computing (Honours)', vi: 'Cử nhân Khoa học Máy tính nâng cao (danh dự)' },
     institution: { en: 'The University of Sydney', vi: 'Đại học Sydney' },
-    period: { en: '2023 – 2026 (expected)', vi: '2023 – 2026 (dự kiến)' },
+    period: { en: '2023 – 2026', vi: '2023 – 2026' },
     detail: {
       en: 'Computational Data Science · Honours supervisor: A/Prof. Xiuying Wang',
       vi: 'Chuyên ngành Khoa học dữ liệu tính toán · Người hướng dẫn luận văn: PGS. Xiuying Wang',

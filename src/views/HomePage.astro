@@ -7,6 +7,7 @@ import publications from '../data/publications.json';
 import { news } from '../data/news';
 import { awards } from '../data/awards';
 import { education } from '../data/education';
+import { researchExperience } from '../data/experience';
 import { getLocale, localizePath, text } from '../i18n';
 const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
@@ -30,6 +31,15 @@ const interests = [
         <p>{t('My research focuses on developing artificial intelligence methods for biomedicine, particularly graph learning and multimodal learning, to explore the relationships between molecular signals, tissue structure, and clinical outcomes. I aim to build AI models that are trustworthy, interpretable, and useful in practice, helping to bridge the gap between biological discovery and applications in precision medicine.', 'Nghiên cứu của tôi tập trung vào phát triển các phương pháp trí tuệ nhân tạo ứng dụng trong y sinh học, đặc biệt là học máy trên đồ thị và học đa phương thức, nhằm tìm hiểu mối liên hệ giữa các tín hiệu phân tử, cấu trúc mô và kết cục lâm sàng. Tôi hướng tới xây dựng những mô hình trí tuệ nhân tạo đáng tin cậy, có khả năng diễn giải và giá trị ứng dụng thực tiễn, qua đó góp phần kết nối những khám phá trong nghiên cứu sinh học với các ứng dụng trong y học chính xác.')}</p>
         <p>{t('I am currently conducting research in computational RNA biology with Professor Eduardo Eyras at the Centre for Computational Biomedical Sciences, John Curtin School of Medical Research, Australian National University. I am also a research collaborator at Hanoi Medical University, where I contribute to projects applying artificial intelligence to clinical research, particularly in oncology and obstetrics and gynaecology. This work focuses on developing and evaluating machine learning models to support data analysis and predict clinical outcomes.', 'Hiện nay, tôi đang nghiên cứu về sinh học RNA bằng các phương pháp tính toán, dưới sự hướng dẫn của Giáo sư Eduardo Eyras tại Trung tâm Khoa học Y sinh Tính toán, Trường Nghiên cứu Y khoa John Curtin, Đại học Quốc gia Úc (ANU). Bên cạnh đó, tôi cũng là cộng tác viên nghiên cứu tại Trường Đại học Y Hà Nội, tham gia các dự án ứng dụng trí tuệ nhân tạo trong nghiên cứu lâm sàng, đặc biệt trong lĩnh vực ung thư học và sản phụ khoa. Các hoạt động nghiên cứu này chủ yếu tập trung vào phát triển và đánh giá các mô hình học máy nhằm hỗ trợ phân tích dữ liệu và dự đoán kết cục lâm sàng.')}</p>
       </section>
+      <section class="academic-section home-education" id="education" aria-labelledby="education-title">
+        <h2 id="education-title">{t('Education', 'Học vấn')}</h2>
+        <ul class="home-education-list">
+          {education.map(item => <li>
+            <strong>{item.degree[locale]}</strong>, {item.institution[locale]}, {item.period[locale]}
+            {item.detail && <span class="entry-detail">{item.detail[locale]}</span>}
+          </li>)}
+        </ul>
+      </section>
       <section class="academic-section home-interests" aria-labelledby="interests-title">
         <h2 id="interests-title">{t('Research Interests', 'Hướng nghiên cứu')}</h2>
         <ul class="research-interest-list">{interests.map(interest=><li><strong>{interest.label}:</strong> {interest.topics}</li>)}</ul>
@@ -51,12 +61,12 @@ const interests = [
         <div class="publication-list">{featuredPublications.map(paper=><Publication paper={paper} compact />)}</div>
         <p class="section-footnote">{t('† Equal contribution. Manuscripts under review are listed separately on the publications page.', '† Các tác giả có đóng góp ngang nhau. Bản thảo đang phản biện được trình bày riêng trong danh sách công bố.')}</p>
       </section>
-      <section class="academic-section home-education" id="education" aria-labelledby="education-title">
-        <h2 id="education-title">{t('Education', 'Học vấn')}</h2>
-        <ul class="home-education-list">
-          {education.map(item => <li>
-            <strong>{item.degree[locale]}</strong>, {item.institution[locale]}, {item.period[locale]}
-            {item.detail && <span class="education-detail">{item.detail[locale]}</span>}
+      <section class="academic-section home-experience" id="experience" aria-labelledby="experience-title">
+        <h2 id="experience-title">{t('Research Experience', 'Kinh nghiệm nghiên cứu')}</h2>
+        <ul class="home-experience-list">
+          {researchExperience.map(item => <li>
+            <strong>{item.role[locale]}</strong>, {item.organisation[locale]}, {item.period[locale]}
+            {item.detail && <span class="entry-detail">{item.detail[locale]}</span>}
           </li>)}
         </ul>
       </section>
