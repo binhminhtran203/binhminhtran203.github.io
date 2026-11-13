@@ -17,14 +17,23 @@
     "summary": "Models tissue niches hierarchically from imaging mass cytometry and fuses them with clinicopathologic variables and genomic data to predict breast cancer survival.",
     "project": "nimsurv",
     "media": {
-      "art": "tissue"
+      "image": "/assets/figures/hintsurv-fig1-overview.png",
+      "alt": "Overview of HiNT-Surv: imaging mass cytometry tissue cores feed three parallel views (cell summaries, a spatial graph neural network, and niche interactions with learned prototypes), which are combined with clinical and genomic encoders by additive fusion to give patient risk and tissue contributions.",
+      "width": 1026,
+      "height": 730
     },
     "topics": [
       "Cancer AI",
       "Graph learning",
       "Multimodal learning"
     ],
-    "links": [],
+    "links": [
+      {
+        "label": "Preprint (PDF)",
+        "url": "/assets/papers/tran-hintsurv-niche-aware-survival.pdf",
+        "download": true
+      }
+    ],
     "bibtex": "@inproceedings{tran2026hintsurv,\n  author = {Tran, B. M. and Zhang, L. and Wang, X.},\n  title = {{HiNT-Surv}: Hierarchical Niche-Aware Multimodal Survival Prediction from Imaging Mass Cytometry, Clinicopathologic Variables, and Genomic Data},\n  booktitle = {IEEE Symposium on Computational Intelligence in Health and Medicine (CIHM), IEEE SSCI 2027},\n  year = {2027},\n  note = {Accepted for publication (full paper)}\n}"
   },
   {

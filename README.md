@@ -39,14 +39,14 @@ The earlier single-page website remains available in Git history, before the Ast
 - `src/data/community.ts`: the supplied biography and community activity.
 - `src/views/AboutPage.astro`: education, experience, and skills in both languages, plus the shared awards list.
 - `src/data/paper-figures.json`: figure captions, alt text, dimensions, and PDF page references.
-- `public/assets/papers/`: the two supplied Springer chapter PDFs, unchanged.
-- `public/assets/figures/`: nine original figures extracted without resampling or redrawing.
-- `public/assets/thumbnails/`: 360px-wide copies of the two architecture figures, used as publication previews.
+- `public/assets/papers/`: the two supplied Springer chapter PDFs and the HiNT-Surv manuscript (`tran-hintsurv-niche-aware-survival.pdf`), unchanged. The HiNT-Surv file is the submitted version (no author names, no IEEE notice) and is labelled "Preprint"; replace it with the accepted version carrying IEEE's copyright notice when that is available.
+- `public/assets/figures/`: nine original figures extracted without resampling or redrawing, plus HiNT-Surv Figure 1 (`hintsurv-fig1-overview.png`), rendered from the vector PDF at 300 dpi and cropped, not redrawn.
+- `public/assets/thumbnails/`: 360px-wide copies of the three overview/architecture figures (C4, C3, C2), used as publication previews.
 - `public/assets/binh-minh-tran-cv.pdf`: the current public CV (November 2026, v11), as supplied by the author. It includes the phone number and referee contacts.
 - `src/styles/minimal-light.css`: the active Minimal Light layout, typography, and responsive/dark-mode rules.
 - `src/styles/fonts.css` and `src/styles/paper-figures.css`: self-hosted fonts and scientific figure viewer styles.
 
-Preserve explicit academic status when editing: planned doctoral study remains subject to formal admission, NIPT is funded and planned, and manuscripts under review are not accepted publications. Publication identifiers follow the November 2026 CV: conference papers C1–C4, journal article J1, and manuscripts under review M1–M2. HiNT-Surv (C4, formerly M4) is accepted as a full paper at CIHM, IEEE SSCI 2027; J1 (formerly M3) is accepted at the Journal of Medical Research. Both have status `accepted`, separate from `published`; DOI and proceedings details have not been supplied. Keep the legacy BibTeX keys. NIMSurv and HiNT-Surv are distinct models. The IUKM 2026 chapter uses the publisher's 2027 imprint year.
+Preserve explicit academic status when editing: planned doctoral study remains subject to formal admission, NIPT is funded and planned, and manuscripts under review are not accepted publications. Publication identifiers follow the November 2026 CV: conference papers C1–C4, journal article J1, and manuscripts under review M1–M2. HiNT-Surv (C4, formerly M4) is accepted as a full paper at CIHM, IEEE SSCI 2027; J1 (formerly M3) is accepted at the Journal of Medical Research. Both have status `accepted`, separate from `published`; DOI and proceedings details have not been supplied; C4 links the submitted manuscript as a preprint. Keep the legacy BibTeX keys. NIMSurv and HiNT-Surv are distinct models. The IUKM 2026 chapter uses the publisher's 2027 imprint year.
 
 ## English and Vietnamese
 
@@ -76,6 +76,6 @@ The palette is a set of tokens at the top of `src/styles/minimal-light.css`: ivo
 
 The design is adapted from [Minimal Light by Yaoyao Liu](https://github.com/yaoyao-liu/minimal-light), upstream commit `dd114c3fef2d97adc1c6b6d46901e0d96ab83a7c`, under CC0-1.0 (see `licenses/minimal-light-CC0.txt`). The original 232px profile sidebar and 650px reading column, Crimson Pro typography, blue palette, circular portrait, publication previews, and automatic light/dark mode are adapted to the existing Astro pages. The main reading column starts directly with the introduction; compact site navigation and language links sit below the sidebar icons. Full affiliations remain in the biography, and the home page uses labelled interest bullets and a short project list. Navigation, two languages, publication filters, and figure viewers remain available. No Jekyll runtime or third-party analytics is required.
 
-Crimson Pro includes Latin, extended Latin and Vietnamese glyphs, including italic styles. Font licences are bundled in `public/assets/fonts/`. Genuine paper figures are used as previews for C3 and C2; the other papers use conceptual illustrations captioned “Illustration”.
+Crimson Pro includes Latin, extended Latin and Vietnamese glyphs, including italic styles. Font licences are bundled in `public/assets/fonts/`. Genuine paper figures are used as previews for C4, C3 and C2; the other papers use conceptual illustrations captioned “Illustration”. C4's preview alt text lives in its `media` fields (English) and `imageAlt` (Vietnamese), since its figure is not shown on a project page.
 
 Academic profile icons use self-hosted Academicons 1.8.6 (SIL OFL 1.1 / MIT) and the Font Awesome 6.4.2 LinkedIn SVG (CC BY 4.0). Attribution and licence notices are in `licenses/academicons-license.txt` and `licenses/academicons-fontawesome-linkedin-license.txt`.

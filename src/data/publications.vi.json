@@ -3,7 +3,8 @@
     "title": "HiNT-Surv: Dự đoán sống còn đa phương thức theo cấu trúc phân cấp, có xét đến vi vùng mô, từ dữ liệu đo tế bào khối phổ tạo ảnh, các biến lâm sàng – giải phẫu bệnh và dữ liệu hệ gen",
     "citation": "Hội thảo IEEE về Trí tuệ tính toán trong Y tế và Y học (CIHM), thuộc IEEE SSCI 2027.",
     "note": "Đã được chấp nhận, đăng toàn văn",
-    "summary": "Mô hình hóa các vi vùng mô theo cấu trúc phân cấp từ dữ liệu đo tế bào khối phổ tạo ảnh (IMC), rồi kết hợp với các biến lâm sàng – giải phẫu bệnh và dữ liệu hệ gen để dự đoán sống còn ở bệnh nhân ung thư vú."
+    "summary": "Mô hình hóa các vi vùng mô theo cấu trúc phân cấp từ dữ liệu đo tế bào khối phổ tạo ảnh (IMC), rồi kết hợp với các biến lâm sàng – giải phẫu bệnh và dữ liệu hệ gen để dự đoán sống còn ở bệnh nhân ung thư vú.",
+    "imageAlt": "Tổng quan HiNT-Surv: các lõi mô từ dữ liệu đo tế bào khối phổ tạo ảnh (IMC) được đưa vào ba nhánh song song (tóm tắt tế bào, mạng nơ-ron đồ thị cho ngữ cảnh không gian, và tương tác vi vùng với các nguyên mẫu học được), sau đó kết hợp với bộ mã hóa lâm sàng và hệ gen bằng cơ chế hợp nhất cộng để cho ra nguy cơ của bệnh nhân và đóng góp của mô."
   },
   "J1": {
     "title": "Mô hình học sâu hỗ trợ phân loại và định vị tổn thương u vú trên ảnh siêu âm",
