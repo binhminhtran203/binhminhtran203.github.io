@@ -39,9 +39,10 @@ export const awards: Award[] = [
     },
   },
   {
+    // Vietnamese title as given by the author.
     id: 'award-outstanding-student-2026',
     year: '2026',
-    title: { en: 'Outstanding Student Award', vi: 'Danh hiệu Sinh viên xuất sắc' },
+    title: { en: 'Outstanding Student Award', vi: 'Sinh viên tiêu biểu' },
     organisation: { en: 'Embassy of Vietnam in Australia', vi: 'Đại sứ quán Việt Nam tại Australia' },
   },
   {
