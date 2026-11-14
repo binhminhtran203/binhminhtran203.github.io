@@ -6,13 +6,15 @@ interface Experience {
   role: BilingualText;
   organisation: BilingualText;
   period: BilingualText;
-  /** Optional second line: unit, topic and supervisor or host. */
+  /** Optional second line: unit and supervisor or host. */
   detail?: BilingualText;
 }
 
 // Research experience from the November 2026 CV, newest first, in the usual
 // academic-homepage format: a bold role and the organisation, the dates at the
-// right of the line, and a short second line for topic and supervisor or host.
+// right of the line, and a short second line for the unit and supervisor or host.
+// At the author's request the entries say where the work was done, not what it
+// was; the CV and research pages describe the work. Units are from the CV.
 // VinBigdata is listed in the CV as "Nov 2026 (expected)".
 export const researchExperience: Experience[] = [
   {
@@ -28,8 +30,8 @@ export const researchExperience: Experience[] = [
     organisation: { en: 'Australian National University', vi: 'Đại học Quốc gia Australia' },
     period: { en: 'Oct 2026 – present', vi: '10/2026 – nay' },
     detail: {
-      en: 'AI/ML for genetic variants affecting RNA modifications · Host: Prof. Eduardo Eyras',
-      vi: 'AI cho biến thể di truyền ảnh hưởng đến biến đổi RNA · Người hướng dẫn: GS. Eduardo Eyras',
+      en: 'John Curtin School of Medical Research · Host: Prof. Eduardo Eyras',
+      vi: 'Trường Nghiên cứu Y khoa John Curtin · Người hướng dẫn: GS. Eduardo Eyras',
     },
   },
   {
@@ -38,8 +40,8 @@ export const researchExperience: Experience[] = [
     organisation: { en: 'The University of Sydney', vi: 'Đại học Sydney' },
     period: { en: 'Feb – Oct 2026', vi: '02/2026 – 10/2026' },
     detail: {
-      en: 'Survival prediction from imaging mass cytometry (NIMSurv, HiNT-Surv) · Supervisor: A/Prof. Xiuying Wang',
-      vi: 'Dự đoán sống còn từ dữ liệu IMC (NIMSurv, HiNT-Surv) · Người hướng dẫn: PGS. Xiuying Wang',
+      en: 'School of Computer Science · Supervisor: A/Prof. Xiuying Wang',
+      vi: 'Khoa Khoa học Máy tính · Người hướng dẫn: PGS. Xiuying Wang',
     },
   },
   {
@@ -47,19 +49,18 @@ export const researchExperience: Experience[] = [
     role: { en: 'Research Collaborator', vi: 'Cộng tác viên nghiên cứu' },
     organisation: { en: 'Hanoi Medical University', vi: 'Trường Đại học Y Hà Nội' },
     period: { en: 'Dec 2025 – present', vi: '12/2025 – nay' },
-    detail: {
-      en: 'Department of Obstetrics & Gynaecology · Multimodal ER, PR and HER2 status prediction',
-      vi: 'Bộ môn Phụ sản · Dự đoán tình trạng biểu hiện ER, PR và HER2 bằng học đa phương thức',
-    },
+    detail: { en: 'Department of Obstetrics & Gynaecology', vi: 'Bộ môn Phụ sản' },
   },
   {
     id: 'vast-assistant',
     role: { en: 'Research Assistant', vi: 'Trợ lý nghiên cứu' },
     organisation: { en: 'Vietnam Academy of Science and Technology', vi: 'Viện Hàn lâm Khoa học và Công nghệ Việt Nam' },
     period: { en: 'Dec 2025 – Mar 2026', vi: '12/2025 – 03/2026' },
+    // No official Vietnamese name for this centre was found; the Vietnamese line
+    // gives a translation followed by the English name, as for VinBigdata.
     detail: {
-      en: 'Reproducible NGS workflows for mutation and microbial gene-function analyses',
-      vi: 'Quy trình phân tích dữ liệu NGS có khả năng tái lập cho đột biến và chức năng gen',
+      en: 'Center for Biomedical and Pharmaceutical Research',
+      vi: 'Trung tâm Nghiên cứu Y sinh và Dược học (Center for Biomedical and Pharmaceutical Research)',
     },
   },
   {
@@ -67,9 +68,6 @@ export const researchExperience: Experience[] = [
     role: { en: 'Research Collaborator', vi: 'Cộng tác viên nghiên cứu' },
     organisation: { en: 'Hanoi University of Industry', vi: 'Trường Đại học Công nghiệp Hà Nội' },
     period: { en: 'Dec 2024 – Dec 2025', vi: '12/2024 – 12/2025' },
-    detail: {
-      en: 'Graph learning for lncRNA–disease association prediction · Supervisor: A/Prof. Dang Hung Tran',
-      vi: 'Học trên đồ thị để dự đoán mối liên hệ lncRNA–bệnh · Người hướng dẫn: PGS. Dang Hung Tran',
-    },
+    detail: { en: 'Supervisor: A/Prof. Dang Hung Tran', vi: 'Người hướng dẫn: PGS. Dang Hung Tran' },
   },
 ];
