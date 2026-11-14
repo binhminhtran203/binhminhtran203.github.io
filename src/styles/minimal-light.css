@@ -98,7 +98,11 @@ strong { font-weight: 500; color: var(--strong); }
 .academic-selected-publications .publication-list { margin-top: 30px; }
 .research-interest-list, .home-awards-list, .home-education-list, .home-experience-list, .news-list { padding-left: 40px; margin: 0 0 20px; }
 .home-awards-list li, .home-education-list li, .home-experience-list li { margin-bottom: 5px; }
-.entry-detail { display: block; font-size: 13.5px; color: var(--muted); }
+.entry-detail { display: block; clear: right; font-size: 13.5px; color: var(--muted); }
+/* Education and Research Experience: the dates sit at the right of the first line, as in most
+   academic CVs and homepages. On phones they move to their own line under the title. */
+.entry-date { float: right; margin-left: 16px; white-space: nowrap; color: var(--muted); }
+.home-education-list li::after, .home-experience-list li::after { content: ""; display: block; clear: both; }
 .news-list li { margin-bottom: 5px; }
 .news-list a { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .news-list a:hover { text-decoration-color: currentColor; }
@@ -236,6 +240,7 @@ strong { font-weight: 500; color: var(--strong); }
   .primary-nav { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px; font-size: 13.5px; }
   .primary-nav a { min-height: 44px; justify-content: center; text-align: center; }
   .research-interest-list, .home-awards-list, .home-education-list, .home-experience-list, .news-list { padding-left: 25px; }
+  .entry-date { float: none; display: block; margin-left: 0; }
   .publication { grid-template-columns: minmax(0,1fr); gap: 12px; padding-inline: 0; }
   .pub-preview-column { width: 200px; }
   .pub-actions>a, .copy-bibtex, .button, .filter-group button { min-height: 44px; }
