@@ -11,8 +11,9 @@ interface Experience {
 }
 
 // Research experience from the November 2026 CV, newest first, in the usual
-// academic-homepage format ("Role, organisation, dates" plus a short line for
-// topic and supervisor). VinBigdata is listed in the CV as "Nov 2026 (expected)".
+// academic-homepage format: a bold role and the organisation, the dates at the
+// right of the line, and a short second line for topic and supervisor or host.
+// VinBigdata is listed in the CV as "Nov 2026 (expected)".
 export const researchExperience: Experience[] = [
   {
     id: 'vinbigdata',

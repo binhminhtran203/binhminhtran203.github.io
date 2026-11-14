@@ -32,7 +32,7 @@ const interests = [
         <h2 id="education-title">{t('Education', 'Học vấn')}</h2>
         <ul class="home-education-list">
           {education.map(item => <li>
-            <strong>{item.degree[locale]}</strong>, {item.institution[locale]}, {item.period[locale]}
+            <strong>{item.degree[locale]}</strong>, {item.institution[locale]}<span class="sr-only">, </span><span class="entry-date">{item.period[locale]}</span>
             {item.detail && <span class="entry-detail">{item.detail[locale]}{item.link && <> · <a href={item.link.href} target="_blank" rel="noopener noreferrer" title={item.link.title}>{item.link.label[locale]}</a></>}</span>}
           </li>)}
         </ul>
@@ -62,7 +62,7 @@ const interests = [
         <h2 id="experience-title">{t('Research Experience', 'Kinh nghiệm nghiên cứu')}</h2>
         <ul class="home-experience-list">
           {researchExperience.map(item => <li>
-            <strong>{item.role[locale]}</strong>, {item.organisation[locale]}, {item.period[locale]}
+            <strong>{item.role[locale]}</strong>, {item.organisation[locale]}<span class="sr-only">, </span><span class="entry-date">{item.period[locale]}</span>
             {item.detail && <span class="entry-detail">{item.detail[locale]}</span>}
           </li>)}
         </ul>

@@ -12,9 +12,10 @@ interface Education {
   link?: { href: string; label: BilingualText; title?: string };
 }
 
-// Newest first, in the usual academic-homepage format ("Degree, institution,
-// years"), from the November 2026 CV. The doctoral study starts in 2027, so it
-// stays marked as incoming. Keep the official English degree names.
+// Newest first, from the November 2026 CV, in the usual academic-homepage format:
+// a bold degree and the institution, with the years at the right of the line.
+// The doctoral study starts in 2027, so it stays marked as incoming. Keep the
+// official English degree names.
 export const education: Education[] = [
   {
     id: 'phd-anu',
