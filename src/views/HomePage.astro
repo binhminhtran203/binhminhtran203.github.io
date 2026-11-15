@@ -6,6 +6,7 @@ import { news } from '../data/news';
 import { awards } from '../data/awards';
 import { education } from '../data/education';
 import { researchExperience } from '../data/experience';
+import { grants } from '../data/grants';
 import { getLocale, localizePath, text } from '../i18n';
 const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
@@ -64,6 +65,15 @@ const interests = [
           {researchExperience.map(item => <li>
             <strong>{item.role[locale]}</strong>, {item.organisation[locale]}<span class="sr-only">, </span><span class="entry-date">{item.period[locale]}</span>
             {item.detail && <span class="entry-detail">{item.detail[locale]}</span>}
+          </li>)}
+        </ul>
+      </section>
+      <section class="academic-section home-grants" id="grants" aria-labelledby="grants-title">
+        <h2 id="grants-title">{t('Research Grants', 'Tài trợ nghiên cứu')}</h2>
+        <ul class="home-grants-list">
+          {grants.map(grant => <li>
+            <strong>{grant.title[locale]}</strong>{grant.period && <><span class="sr-only">, </span><span class="entry-date">{grant.period[locale]}</span></>}
+            {grant.detail && <span class="entry-detail">{grant.detail[locale]}</span>}
           </li>)}
         </ul>
       </section>
