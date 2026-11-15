@@ -72,8 +72,8 @@ const interests = [
         <h2 id="grants-title">{t('Research Grants', 'Tài trợ nghiên cứu')}</h2>
         <ul class="home-grants-list">
           {grants.map(grant => <li>
-            <strong>{grant.title[locale]}</strong>{grant.period && <><span class="sr-only">, </span><span class="entry-date">{grant.period[locale]}</span></>}
-            {grant.detail && <span class="entry-detail">{grant.detail[locale]}</span>}
+            <strong>{grant.scheme[locale]}</strong>, {grant.funder[locale]}{grant.period && <><span class="sr-only">, </span><span class="entry-date">{grant.period[locale]}</span></>}
+            {(grant.project || grant.detail) && <span class="entry-detail">{grant.project && <em>{grant.project[locale]}</em>}{grant.project && grant.detail && ' · '}{grant.detail?.[locale]}</span>}
           </li>)}
         </ul>
       </section>

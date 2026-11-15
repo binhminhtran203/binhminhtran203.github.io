@@ -2,41 +2,47 @@ type BilingualText = { en: string; vi: string };
 
 interface Grant {
   id: string;
-  /** Grant or project title, shown in bold. */
-  title: BilingualText;
+  /** Funding scheme, shown in bold. */
+  scheme: BilingualText;
+  /** Funding body, after the scheme. */
+  funder: BilingualText;
   /** Optional funding period, at the right of the line. */
   period?: BilingualText;
-  /** Optional second line: funder, role and amount. */
+  /** Optional project title, in italics on the second line. */
+  project?: BilingualText;
+  /** Optional role and amount, after the project title. */
   detail?: BilingualText;
 }
 
-// Research grants, newest first, in the format of Research Experience: a bold
-// title, the period at the right of the line, and a short second line for the
-// funder, role and amount.
+// Research grants, newest first. Most academic homepages and CV guides lead
+// with the funding scheme and funder, then give the project title, role,
+// amount and years. Here the scheme is bold, the funder follows it, the period
+// sits at the right of the line, and a second line gives the project title,
+// role and amount.
 // The NIPT grant is the one in the November 2026 CV (Research Grants).
 // The seed fund is named in the acknowledgments of a 2026 manuscript on breast
-// cancer survival prediction, which gives no year, role or amount; add them
-// when the author supplies them. No official Vietnamese name for the fund was
-// found, so the Vietnamese title is a translation.
+// cancer survival prediction, which gives no year, project, role or amount;
+// add them when the author supplies them. No official Vietnamese name for the
+// fund was found, so the Vietnamese name is a translation.
 export const grants: Grant[] = [
   {
     id: 'grant-nipt-hmu-2026',
-    title: {
+    scheme: { en: 'Student Research Grant', vi: 'Đề tài nghiên cứu khoa học sinh viên' },
+    funder: { en: 'Hanoi Medical University', vi: 'Trường Đại học Y Hà Nội' },
+    period: { en: 'Dec 2026 – Nov 2027', vi: '12/2026 – 11/2027' },
+    project: {
       en: 'AI Model for Individualised Post-Test Probability after High-Risk NIPT',
       vi: 'Mô hình AI ước tính xác suất cá thể hóa sau kết quả NIPT nguy cơ cao',
     },
-    period: { en: 'Dec 2026 – Nov 2027', vi: '12/2026 – 11/2027' },
+    // A no-break space keeps the amount and currency on one line.
     detail: {
-      // A no-break space keeps the amount and currency on one line.
-      en: 'Hanoi Medical University · Co-principal investigator · VND 10,000,000',
-      vi: 'Trường Đại học Y Hà Nội · Đồng chủ nhiệm đề tài · 10.000.000 đồng',
+      en: 'Co-principal investigator · VND 10,000,000',
+      vi: 'Đồng chủ nhiệm · 10.000.000 đồng',
     },
   },
   {
     id: 'grant-hmu-australia-seed-fund',
-    title: {
-      en: 'Hanoi Medical University–Australia Young Researchers Seed Fund',
-      vi: 'Quỹ hạt giống dành cho nhà nghiên cứu trẻ Đại học Y Hà Nội–Australia',
-    },
+    scheme: { en: 'Young Researchers Seed Fund', vi: 'Quỹ hạt giống dành cho nhà nghiên cứu trẻ' },
+    funder: { en: 'Hanoi Medical University–Australia', vi: 'Đại học Y Hà Nội–Australia' },
   },
 ];
