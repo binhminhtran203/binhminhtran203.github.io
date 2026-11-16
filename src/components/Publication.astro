@@ -1,19 +1,17 @@
 ---
-import ResearchArt from './ResearchArt.astro';
 import { getLocale, localizePath, text } from '../i18n';
 import translationData from '../data/publications.vi.json';
-import figureCollectionsEn from '../data/paper-figures.json';
-import figureCollectionsVi from '../data/paper-figures.vi.json';
 
-// One paper in Minimal Light's list layout: a preview card with a venue badge,
-// then title, authors, venue, outlined buttons, and an optional red status
-// note (like the template's "Early Accept").
+// One paper in a traditional reference list, numbered as in the CV: the
+// identifier in a hanging column, then the authors (my name in bold, † for
+// equal contribution), title, venue and year in italics, and status, with
+// bracketed links on the line below. BibTeX copies to the clipboard; if that
+// is not allowed, the source opens under the entry.
 interface Link { label: string; url: string; download?: boolean; }
-interface Media { image?: string; alt?: string; width?: number; height?: number; art?: string; }
-interface Paper { id: string; title: string; authors: string[]; equalContribution: string[]; year: number; status: string; venue: string; badge?: string; citation: string; note?: string; summary?: string; project?: string; media?: Media; topics: string[]; links: Link[]; bibtex: string; }
-interface Translation { title: string; citation: string; note?: string; summary?: string; imageAlt?: string; }
-interface Props { paper: Paper; compact?: boolean; currentProject?: string; }
-const { paper, compact = false, currentProject } = Astro.props;
+interface Paper { id: string; title: string; authors: string[]; equalContribution: string[]; year: number; status: string; venue: string; citation: string; note?: string; summary?: string; project?: string; topics: string[]; links: Link[]; bibtex: string; }
+interface Translation { title: string; citation: string; note?: string; summary?: string; }
+interface Props { paper: Paper; currentProject?: string; }
+const { paper, currentProject } = Astro.props;
 const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
 const translation = locale === 'vi' ? (translationData as Record<string, Translation>)[paper.id] : undefined;
@@ -22,16 +20,6 @@ const displayTitle = translation?.title || paper.title;
 const citation = translation?.citation || paper.citation;
 const note = translation ? translation.note : paper.note;
 const summary = translation?.summary || paper.summary;
-
-// Paper figures appear as small copies in /assets/thumbnails/. Alt text comes
-// from the localised figure records used on the project pages, or from the
-// paper's own media fields for figures shown only in the publication list.
-const collections = locale === 'vi' ? figureCollectionsVi : figureCollectionsEn;
-const media = paper.media;
-const figure = media?.image ? (Object.values(collections).flatMap(collection => collection.figures).find(item => item.src === media.image)
-  ?? (media.alt ? { src: media.image, alt: translation?.imageAlt || media.alt, width: media.width, height: media.height } : undefined)) : undefined;
-const thumb = figure?.src.replace('/assets/figures/', '/assets/thumbnails/');
-const art = paper.media?.art;
 
 const projectHref = paper.project && paper.project !== currentProject ? localizePath(`/research/${paper.project}/`, locale) : undefined;
 const linkLabels: Record<string, string> = {
@@ -42,37 +30,21 @@ const linkLabels: Record<string, string> = {
 const downloadLabels: Record<string, string> = {
   'Preprint (PDF)': t('Download preprint (PDF)', 'Tải bản thảo (PDF)'),
 };
-const buttons = [
+const links = [
   ...(projectHref ? [{ label: t('Project page', 'Trang dự án'), url: projectHref, external: false, download: false, aria: undefined }] : []),
   ...paper.links.map(link => ({ label: linkLabels[link.label] ?? link.label, url: link.url, external: true, download: Boolean(link.download), aria: link.download ? `${downloadLabels[link.label] ?? t('Download full paper (PDF)', 'Tải toàn văn (PDF)')}: ${displayTitle}` : undefined })),
 ];
 ---
-<article id={`paper-${paper.id}`} class:list={['publication', { 'publication-compact': compact }]} data-status={paper.status} data-search={`${displayTitle} ${paper.title} ${paper.authors.join(' ')} ${paper.venue} ${paper.topics.join(' ')} ${summary ?? ''}`.toLowerCase()}>
-  <figure class="pub-preview-column">
-    <div class:list={['pub-preview', { 'pub-preview-art': art }]}>
-      {projectHref ? <a href={projectHref} aria-label={`${t('Research project', 'Dự án nghiên cứu')}: ${displayTitle}`}>
-        {thumb && figure && <img class="pub-preview-image" src={thumb} alt={figure.alt} width={figure.width} height={figure.height} loading="lazy" decoding="async" />}
-        {art && <ResearchArt kind={art} />}
-      </a> : <>
-        {thumb && figure && <img class="pub-preview-image" src={thumb} alt={figure.alt} width={figure.width} height={figure.height} loading="lazy" decoding="async" />}
-        {art && <ResearchArt kind={art} />}
-      </>}
-      {paper.badge && <span class="pub-venue-label">{paper.badge}</span>}
-    </div>
-    {art && <figcaption>{t('Illustration', 'Minh họa')}</figcaption>}
-  </figure>
+<article id={`paper-${paper.id}`} class="publication" data-status={paper.status} data-search={`${displayTitle} ${paper.title} ${paper.authors.join(' ')} ${paper.venue} ${paper.topics.join(' ')} ${summary ?? ''}`.toLowerCase()}>
+  <span class="pub-label">[{paper.id}]</span>
   <div class="pub-body">
-    <span class="sr-only">[{paper.id}]</span>
-    <h3 lang={lang}>{paper.links[0] ? <a href={paper.links[0].url} target="_blank" rel="noopener noreferrer">{displayTitle}</a> : displayTitle}</h3>
+    <p class="pub-citation"><span class="authors">{paper.authors.map((author, i) => <>{i > 0 && ', '}{author === 'B. M. Tran' ? <strong>{author}</strong> : author}{paper.equalContribution.includes(author) && <sup>†</sup>}</>)}</span>.{' '}<span class="pub-title" lang={lang}>{displayTitle}</span>.{' '}<em class="citation" lang={lang}>{citation}</em>{note && <>{' '}<span class="pub-note" lang={lang}>{note}.</span></>}</p>
     {translation && <p class="publication-original-title" lang="en">{paper.title}</p>}
-    <p class="authors">{paper.authors.map((author, i) => <>{i > 0 && ', '}{author === 'B. M. Tran' ? <strong>{author}</strong> : author}{paper.equalContribution.includes(author) && <sup>†</sup>}</>)}</p>
-    <p class="citation" lang={lang}>{citation}</p>
-    <div class="pub-actions">
-      {buttons.map(button => <a href={button.url} target={button.external ? '_blank' : undefined} rel={button.external ? 'noopener noreferrer' : undefined} download={button.download || undefined} aria-label={button.aria}>{button.label}</a>)}
-      <button class="copy-bibtex" type="button" data-bibtex={paper.bibtex} aria-label={`${t('Copy BibTeX for', 'Sao chép BibTeX cho')} ${displayTitle}`}><span>BibTeX</span></button>
-      {note && <strong class:list={['pub-note', `pub-note-${paper.status}`]} lang={lang}><em>{note}</em></strong>}
-    </div>
-    <details class="bibtex-details" hidden={compact}><summary>{t('BibTeX source', 'Mã BibTeX')}</summary><pre><code>{paper.bibtex}</code></pre></details>
+    <p class="pub-links">
+      {links.map(link => <a href={link.url} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined} download={link.download || undefined} aria-label={link.aria}><span aria-hidden="true">[</span>{link.label}<span aria-hidden="true">]</span></a>)}
+      <button class="copy-bibtex" type="button" data-bibtex={paper.bibtex} aria-label={`${t('Copy BibTeX for', 'Sao chép BibTeX cho')} ${displayTitle}`}><span aria-hidden="true">[</span><span class="copy-bibtex-label">BibTeX</span><span aria-hidden="true">]</span></button>
+    </p>
+    <details class="bibtex-details" hidden><summary>{t('BibTeX source', 'Mã BibTeX')}</summary><pre><code>{paper.bibtex}</code></pre></details>
   </div>
 </article>
 <script>
@@ -90,7 +62,7 @@ const buttons = [
     return status;
   };
   document.querySelectorAll<HTMLButtonElement>('.copy-bibtex').forEach(button => button.addEventListener('click', async () => {
-    const label = button.querySelector('span');
+    const label = button.querySelector('.copy-bibtex-label');
     try {
       await navigator.clipboard.writeText(button.dataset.bibtex || '');
       if (label) label.textContent = vietnamese ? 'Đã sao chép' : 'Copied';
