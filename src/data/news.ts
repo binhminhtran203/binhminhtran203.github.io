@@ -20,6 +20,8 @@ interface NewsItem {
 // 16 November 2026.
 const nov2026: BilingualText = { en: 'Nov. 2026', vi: '11/2026' };
 const oct2026: BilingualText = { en: 'Oct. 2026', vi: '10/2026' };
+const jun2026: BilingualText = { en: 'Jun. 2026', vi: '06/2026' };
+const mar2026: BilingualText = { en: 'Mar. 2026', vi: '03/2026' };
 
 export const news: NewsItem[] = [
   {
@@ -72,6 +74,35 @@ export const news: NewsItem[] = [
     before: { en: 'Our ', vi: 'Đề tài ' },
     link: { href: '/research/nipt-probability/', label: { en: 'NIPT probability project', vi: 'mô hình xác suất sau NIPT' } },
     after: { en: ' received funding from Hanoi Medical University.', vi: ' được Trường Đại học Y Hà Nội cấp kinh phí.' },
+  },
+  {
+    // Dated June 2026 in the news of the author's first homepage (August 2026),
+    // as accepted to IUKM 2026; Crossref gives 11 October 2026 for the chapter.
+    id: 'receptor-iukm-accepted',
+    date: '2026-06',
+    dateLabel: jun2026,
+    before: { en: 'Our ', vi: 'Bài báo về ' },
+    link: { href: '/publications/#paper-C3', label: { en: 'breast cancer receptor-status paper', vi: 'thụ thể trong ung thư vú' } },
+    after: { en: ' is accepted to IUKM 2026.', vi: ' được chấp nhận tại IUKM 2026.' },
+  },
+  {
+    // Crossref gives 1 June 2026 as the online date of the ACIIDS 2026 chapter
+    // (Springer CCIS 2964); the first homepage dated it June 2026.
+    id: 'lncrna-aciids-published',
+    date: '2026-06',
+    dateLabel: jun2026,
+    before: { en: 'Our ', vi: 'Bài báo về ' },
+    link: { href: '/publications/#paper-C2', label: { en: 'variational graph neural network paper', vi: 'mạng nơ-ron đồ thị biến phân' } },
+    after: { en: ' is published in ACIIDS 2026.', vi: ' được đăng trong kỷ yếu ACIIDS 2026.' },
+  },
+  {
+    // Dated March 2026 in the news of the author's first homepage.
+    id: 'lncrna-fjcai-published',
+    date: '2026-03',
+    dateLabel: mar2026,
+    before: { en: 'Our ', vi: 'Bài báo về ' },
+    link: { href: '/publications/#paper-C1', label: { en: 'dual-stream contrastive graph learning paper', vi: 'học tương phản hai luồng trên đồ thị' } },
+    after: { en: ' is published in FJCAI 2026.', vi: ' được đăng trong kỷ yếu FJCAI 2026.' },
   },
   {
     id: 'sydney-honours-research',
