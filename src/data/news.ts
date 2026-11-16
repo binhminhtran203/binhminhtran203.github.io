@@ -15,9 +15,9 @@ interface NewsItem {
 //
 // Dating of the November 2026 items: the CV of 28 October 2026 still listed
 // HiNT-Surv and the ultrasound paper as under review and did not list the
-// Fourth Prize; the CV of 13 November 2026 lists all three. VinBigdata was
-// listed there as "Nov 2026 (expected)", hence "I will join"; the revised CV of
-// 16 November 2026 no longer lists it.
+// Fourth Prize; the CV of 13 November 2026 lists all three. The VinBigdata
+// internship item was removed at the author's request, as in the CV of
+// 16 November 2026.
 const nov2026: BilingualText = { en: 'Nov. 2026', vi: '11/2026' };
 const oct2026: BilingualText = { en: 'Oct. 2026', vi: '10/2026' };
 
@@ -46,14 +46,6 @@ export const news: NewsItem[] = [
     before: { en: 'Our ', vi: 'Bài báo về ' },
     link: { href: '/publications/#paper-J1', label: { en: 'breast ultrasound paper', vi: 'siêu âm tổn thương u vú' } },
     after: { en: ' is accepted to the Journal of Medical Research.', vi: ' được chấp nhận đăng tại Tạp chí Nghiên cứu Y học.' },
-  },
-  {
-    id: 'vinbigdata-internship',
-    date: '2026-11',
-    dateLabel: nov2026,
-    before: { en: 'I will join ', vi: 'Tôi sẽ thực tập nghiên cứu về tin học y sinh tại ' },
-    link: { href: 'https://vingen.vinbigdata.org/en/', label: { en: 'VinBigdata', vi: 'VinBigdata' } },
-    after: { en: ' in Hanoi as a Research Intern in biomedical informatics.', vi: ', Hà Nội.' },
   },
   {
     id: 'hintsurv-ssci-accepted',
