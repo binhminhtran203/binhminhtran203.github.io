@@ -2,11 +2,11 @@
 import { getLocale, localizePath, text } from '../i18n';
 import translationData from '../data/publications.vi.json';
 
-// One paper in a traditional reference list, numbered as in the CV: the
-// identifier in a hanging column, then the authors (my name in bold, † for
-// equal contribution), title, venue and year in italics, and status, with
-// bracketed links on the line below. BibTeX copies to the clipboard; if that
-// is not allowed, the source opens under the entry.
+// One paper in the usual academic-homepage list (as in al-folio,
+// academicpages and Jon Barron's page): the title in bold, then the authors
+// (my name in bold, † for equal contribution), the venue and year in italics
+// with the status, and a row of bracketed links. BibTeX copies to the
+// clipboard; if that is not allowed, the source opens under the entry.
 interface Link { label: string; url: string; download?: boolean; }
 interface Paper { id: string; title: string; authors: string[]; equalContribution: string[]; year: number; status: string; venue: string; citation: string; note?: string; summary?: string; project?: string; topics: string[]; links: Link[]; bibtex: string; }
 interface Translation { title: string; citation: string; note?: string; summary?: string; }
@@ -36,16 +36,15 @@ const links = [
 ];
 ---
 <article id={`paper-${paper.id}`} class="publication" data-status={paper.status} data-search={`${displayTitle} ${paper.title} ${paper.authors.join(' ')} ${paper.venue} ${paper.topics.join(' ')} ${summary ?? ''}`.toLowerCase()}>
-  <span class="pub-label">[{paper.id}]</span>
-  <div class="pub-body">
-    <p class="pub-citation"><span class="authors">{paper.authors.map((author, i) => <>{i > 0 && ', '}{author === 'B. M. Tran' ? <strong>{author}</strong> : author}{paper.equalContribution.includes(author) && <sup>†</sup>}</>)}</span>.{' '}<span class="pub-title" lang={lang}>{displayTitle}</span>.{' '}<em class="citation" lang={lang}>{citation}</em>{note && <>{' '}<span class="pub-note" lang={lang}>{note}.</span></>}</p>
-    {translation && <p class="publication-original-title" lang="en">{paper.title}</p>}
-    <p class="pub-links">
-      {links.map(link => <a href={link.url} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined} download={link.download || undefined} aria-label={link.aria}><span aria-hidden="true">[</span>{link.label}<span aria-hidden="true">]</span></a>)}
-      <button class="copy-bibtex" type="button" data-bibtex={paper.bibtex} aria-label={`${t('Copy BibTeX for', 'Sao chép BibTeX cho')} ${displayTitle}`}><span aria-hidden="true">[</span><span class="copy-bibtex-label">BibTeX</span><span aria-hidden="true">]</span></button>
-    </p>
-    <details class="bibtex-details" hidden><summary>{t('BibTeX source', 'Mã BibTeX')}</summary><pre><code>{paper.bibtex}</code></pre></details>
-  </div>
+  <h3 class="pub-title" lang={lang}>{displayTitle}</h3>
+  {translation && <p class="publication-original-title" lang="en">{paper.title}</p>}
+  <p class="authors">{paper.authors.map((author, i) => <>{i > 0 && ', '}{author === 'B. M. Tran' ? <strong>{author}</strong> : author}{paper.equalContribution.includes(author) && <sup>†</sup>}</>)}</p>
+  <p class="pub-venue"><em class="citation" lang={lang}>{citation}</em>{note && <>{' '}<span class="pub-note" lang={lang}>{note}</span></>}</p>
+  <p class="pub-links">
+    {links.map(link => <a href={link.url} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined} download={link.download || undefined} aria-label={link.aria}><span aria-hidden="true">[</span>{link.label}<span aria-hidden="true">]</span></a>)}
+    <button class="copy-bibtex" type="button" data-bibtex={paper.bibtex} aria-label={`${t('Copy BibTeX for', 'Sao chép BibTeX cho')} ${displayTitle}`}><span aria-hidden="true">[</span><span class="copy-bibtex-label">BibTeX</span><span aria-hidden="true">]</span></button>
+  </p>
+  <details class="bibtex-details" hidden><summary>{t('BibTeX source', 'Mã BibTeX')}</summary><pre><code>{paper.bibtex}</code></pre></details>
 </article>
 <script>
   // Copy BibTeX to the clipboard; if that is not allowed, open the source below the entry.
@@ -69,7 +68,7 @@ const links = [
       liveStatus().textContent = vietnamese ? 'Đã sao chép trích dẫn BibTeX vào bảng nhớ tạm.' : 'BibTeX citation copied to clipboard.';
       setTimeout(() => { if (label) label.textContent = 'BibTeX'; }, 2200);
     } catch {
-      const details = button.closest('.pub-body')?.querySelector<HTMLDetailsElement>('.bibtex-details');
+      const details = button.closest('.publication')?.querySelector<HTMLDetailsElement>('.bibtex-details');
       if (details) { details.hidden = false; details.open = true; }
       liveStatus().textContent = vietnamese ? 'Không thể truy cập bảng nhớ tạm. Trích dẫn đã được mở bên dưới để bạn sao chép thủ công.' : 'Clipboard unavailable. The citation is open below for manual copying.';
     }

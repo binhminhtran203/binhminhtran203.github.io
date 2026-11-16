@@ -128,15 +128,16 @@ strong { font-weight: 500; color: var(--strong); }
 .section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 19px; }
 .section-heading h2 { margin: 0; }
 .section-footnote { font-size: 13px; color: var(--muted); margin: 15px 0 0; }
-/* Publications are a traditional reference list, numbered as in the CV: the
- * identifier in a hanging column, then authors, title, venue and year in
- * italics, and status, with bracketed links on the line below. */
-.publication { display: grid; grid-template-columns: 2.4em minmax(0,1fr); gap: 0 6px; margin-bottom: 14px; }
-.pub-label { color: var(--muted); }
-.pub-body { min-width: 0; }
-.pub-citation { margin: 0; text-wrap: pretty; }
+/* Publications follow the usual academic-homepage list (al-folio,
+ * academicpages, Jon Barron's page): the title in bold, the authors with my
+ * name in bold, the venue and year in italics with the status, and a row of
+ * bracketed links. Text only, no preview images. */
+.publication { margin-bottom: 18px; }
+.pub-title { font: 700 15px/1.5 var(--serif); margin: 0; text-wrap: pretty; }
+.publication-original-title { font-size: 13.5px; font-style: italic; line-height: 1.45; color: var(--muted); margin: 0; }
+.authors, .pub-venue { margin: 0; }
 .citation { font-style: italic; }
-.publication-original-title { font-size: 13.5px; font-style: italic; line-height: 1.45; color: var(--muted); margin: 2px 0 0; }
+.pub-note { color: var(--review); white-space: nowrap; }
 .pub-links { display: flex; flex-wrap: wrap; gap: 0 10px; margin: 2px 0 0; font-size: 14px; }
 .pub-links a, .copy-bibtex { color: var(--link); }
 .copy-bibtex { padding: 0; border: 0; background: none; font: inherit; cursor: pointer; }
@@ -255,5 +256,5 @@ strong { font-weight: 500; color: var(--strong); }
   .project-card { display: block; }
   h1,h2,h3 { break-after: avoid; }
   .publication { break-inside: avoid; }
-  .publication-list .publication[hidden] { display: grid !important; }
+  .publication-list .publication[hidden] { display: block !important; }
 }

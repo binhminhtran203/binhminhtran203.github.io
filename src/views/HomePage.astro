@@ -11,8 +11,8 @@ import { getLocale, localizePath, text } from '../i18n';
 const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
 const path = (value: string) => localizePath(value, locale);
-// Accepted and published papers, numbered and ordered as in the CV:
-// conference papers first, then journal articles.
+// Accepted and published papers in CV order: conference papers first, then
+// journal articles.
 const featuredPublications = ['C', 'J'].flatMap(prefix => publications.filter(p => p.status !== 'review' && p.id.startsWith(prefix)));
 const interests = [
   { label: t('Machine learning', 'Học máy'), topics: t('multimodal learning, graph neural networks, survival analysis', 'học đa phương thức, mạng nơ-ron đồ thị, phân tích sống còn') },
