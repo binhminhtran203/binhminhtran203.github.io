@@ -35,7 +35,9 @@ const interests = [
             <span class="entry-date">{item.period[locale]}</span>
             <div class="entry-body">
               <span class="entry-line"><strong>{item.degree[locale]}</strong>, {item.institution[locale]}</span>
-              {item.detail && item.detail[locale].split(' · ').map((line, i, lines) => <span class="entry-detail">{line}{item.link && i === lines.length - 1 && <> · <a href={item.link.href} target="_blank" rel="noopener noreferrer" title={item.link.title}>{item.link.label[locale]}</a></>}</span>)}
+              {item.field && <span class="entry-detail">{item.field[locale]}</span>}
+              {item.thesis && <span class="entry-detail">{t('Thesis', 'Luận văn')}: <a href={item.thesis.href} target="_blank" rel="noopener noreferrer" lang="en"><em>{item.thesis.title}</em></a> (PDF)</span>}
+              {item.supervisor && <span class="entry-detail">{item.supervisor[locale]}</span>}
             </div>
           </li>)}
         </ul>
@@ -82,17 +84,18 @@ const interests = [
             <span class="entry-date">{grant.period?.[locale]}</span>
             <div class="entry-body">
               <span class="entry-line"><strong>{grant.funder[locale]}</strong>, {grant.scheme[locale]}</span>
-              {grant.project && <em class="entry-title">{grant.project[locale]}</em>}
+              {grant.project && <em class="entry-title">{grant.project[locale].split(' ').map((word, i) => <>{i > 0 && ' '}{word.includes('-') ? <span class="nowrap">{word}</span> : word}</>)}</em>}
               {(grant.role || grant.amount) && <span class="entry-detail">{[grant.role && `${t('Role', 'Vai trò')}: ${grant.role[locale]}`, grant.amount && `${t('Amount', 'Kinh phí')}: ${grant.amount[locale]}`].filter(Boolean).join(' · ')}</span>}
             </div>
           </li>)}
         </ul>
       </section>
       <section class="academic-section home-awards" id="awards" aria-labelledby="awards-title">
-        <h2 id="awards-title">{t('Awards', 'Giải thưởng')}</h2>
-        <ul class="home-awards-list">
+        <h2 id="awards-title">{t('Honours and Awards', 'Giải thưởng và danh hiệu')}</h2>
+        <ul class="cv-list home-awards-list" role="list">
           {awards.map(award => <li>
-            <strong>{award.title[locale]}</strong>, {(award.organisationShort ?? award.organisation)[locale]}, <time datetime={award.year}>{award.year}</time>
+            <time class="entry-date" datetime={award.year}>{award.year}</time>
+            <div class="entry-body"><span class="entry-line"><strong>{award.title[locale]}</strong>, {(award.organisationShort ?? award.organisation)[locale]}</span></div>
           </li>)}
         </ul>
       </section>
