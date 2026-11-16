@@ -6,14 +6,15 @@ interface Education {
   degree: BilingualText;
   institution: BilingualText;
   period: BilingualText;
-  /** Optional second line: field and supervisor. */
+  /** Optional details: field, then supervisor. Each part between " · " gets its own line. */
   detail?: BilingualText;
   /** Optional link at the end of the second line, e.g. the thesis PDF. */
   link?: { href: string; label: BilingualText; title?: string };
 }
 
-// Newest first, from the November 2026 CV, in the usual academic-homepage format:
-// a bold degree and the institution, with the years at the right of the line.
+// Newest first, from the November 2026 CV, set like an academic CV: the years
+// in a left column, then a bold degree and the institution, with the field and
+// supervisor on a second line.
 // The doctoral study starts in 2027, so it stays marked as incoming. At the
 // author's request the bachelor's degree is shown as complete, although the CV
 // of 16 November 2026 still marks it as expected. Keep the official English

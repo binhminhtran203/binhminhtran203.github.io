@@ -96,13 +96,17 @@ strong { font-weight: 500; color: var(--strong); }
 .academic-section-heading .text-link { font-size: 13px; }
 .home-interests { margin-bottom: 24px; }
 .academic-selected-publications .publication-list { margin-top: 16px; }
-.research-interest-list, .home-awards-list, .home-education-list, .home-experience-list, .home-grants-list, .news-list { padding-left: 40px; margin: 0 0 20px; }
-.home-awards-list li, .home-education-list li, .home-experience-list li, .home-grants-list li { margin-bottom: 5px; }
-.entry-detail { display: block; clear: right; font-size: 13.5px; color: var(--muted); }
-/* Education, Research Experience and Research Grants: the dates sit at the right of the first line, as in most
-   academic CVs and homepages. On phones they move to their own line under the title. */
-.entry-date { float: right; margin-left: 16px; white-space: nowrap; color: var(--muted); }
-.home-education-list li::after, .home-experience-list li::after, .home-grants-list li::after { content: ""; display: block; clear: both; }
+.research-interest-list, .home-awards-list, .news-list { padding-left: 40px; margin: 0 0 20px; }
+.home-awards-list li { margin-bottom: 5px; }
+/* Education, Research Experience and Research Grants are set like an academic CV, and like the author's own:
+   the dates in a left column and no bullets, then the bold lead (degree, position or funder) and its details.
+   On phones the dates move to their own line above the entry. */
+.cv-list { list-style: none; padding: 0; margin: 0 0 20px; }
+.cv-list li { display: grid; grid-template-columns: 9.6em minmax(0,1fr); gap: 0 14px; margin-bottom: 9px; }
+.entry-date { color: var(--muted); }
+.entry-line { display: block; text-wrap: balance; }
+.entry-title { display: block; font-style: italic; text-wrap: pretty; }
+.entry-detail { display: block; font-size: 13.5px; color: var(--muted); }
 .news-list li { margin-bottom: 5px; }
 .news-list a { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .news-list a:hover { text-decoration-color: currentColor; }
@@ -234,8 +238,9 @@ strong { font-weight: 500; color: var(--strong); }
   .academic-profile { max-width: 280px; }
   .primary-nav { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; font-size: 13.5px; }
   .primary-nav a { min-height: 44px; justify-content: center; text-align: center; }
-  .research-interest-list, .home-awards-list, .home-education-list, .home-experience-list, .home-grants-list, .news-list { padding-left: 25px; }
-  .entry-date { float: none; display: block; margin-left: 0; }
+  .research-interest-list, .home-awards-list, .news-list { padding-left: 25px; }
+  .cv-list li { grid-template-columns: minmax(0,1fr); }
+  .entry-date { font-size: 13.5px; }
   .pub-links a, .copy-bibtex, .button, .filter-group button { min-height: 44px; }
   .pub-links a, .copy-bibtex { display: inline-flex; align-items: center; }
   .bibtex-details summary { min-height: 44px; }
