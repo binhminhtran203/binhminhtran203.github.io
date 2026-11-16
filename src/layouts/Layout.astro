@@ -12,7 +12,9 @@ const href = (path: string) => localizePath(path, locale);
 interface Props { title?: string; description?: string; noindex?: boolean; }
 const { title, description = t('Binh Minh Tran works on graph and multimodal learning for biomedical research, with interests in computational RNA biology, spatial omics, and cancer AI.', 'Trần Bình Minh nghiên cứu các phương pháp học trên đồ thị và học đa phương thức trong y sinh, tập trung vào sinh học RNA tính toán, dữ liệu phân tử theo không gian và ứng dụng trí tuệ nhân tạo trong nghiên cứu ung thư.'), noindex = false } = Astro.props;
 const pageTitle = title ? `${title} — ${t("Binh Minh Tran", "Trần Bình Minh")}` : t('Binh Minh Tran — Biomedical AI & Computational Biology', 'Trần Bình Minh — Trí tuệ nhân tạo y sinh và Sinh học tính toán');
-const nav = [{ href: '/', label: t('Home', 'Trang chủ') }, { href: '/research/', label: t('Research', 'Nghiên cứu') }, { href: '/publications/', label: t('Publications', 'Công bố') }].map(item => ({ ...item, href: href(item.href) }));
+// At the author's request the navigation has no Research link; the research
+// pages are still reached from publication, news and project links.
+const nav = [{ href: '/', label: t('Home', 'Trang chủ') }, { href: '/publications/', label: t('Publications', 'Công bố') }].map(item => ({ ...item, href: href(item.href) }));
 const path = Astro.url.pathname;
 const origin = Astro.site?.origin;
 const canonical = !noindex && origin && !origin.includes('example.invalid') ? new URL(path, origin).href : undefined;

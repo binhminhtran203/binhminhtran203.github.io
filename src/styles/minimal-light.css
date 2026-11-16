@@ -232,7 +232,7 @@ strong { font-weight: 500; color: var(--strong); }
 }
 @media (max-width: 480px) {
   .academic-profile { max-width: 280px; }
-  .primary-nav { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 8px; font-size: 13.5px; }
+  .primary-nav { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; font-size: 13.5px; }
   .primary-nav a { min-height: 44px; justify-content: center; text-align: center; }
   .research-interest-list, .home-awards-list, .home-education-list, .home-experience-list, .home-grants-list, .news-list { padding-left: 25px; }
   .entry-date { float: none; display: block; margin-left: 0; }
