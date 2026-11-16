@@ -96,17 +96,19 @@ strong { font-weight: 500; color: var(--strong); }
 .academic-section-heading .text-link { font-size: 13px; }
 .home-interests { margin-bottom: 24px; }
 .academic-selected-publications .publication-list { margin-top: 16px; }
-.research-interest-list, .home-awards-list, .news-list { padding-left: 40px; margin: 0 0 20px; }
-.home-awards-list li { margin-bottom: 5px; }
-/* Education, Research Experience and Research Grants are set like an academic CV, and like the author's own:
-   the dates in a left column and no bullets, then the bold lead (degree, position or funder) and its details.
-   On phones the dates move to their own line above the entry. */
+.research-interest-list, .news-list { padding-left: 40px; margin: 0 0 20px; }
+/* Education, Research Experience, Research Grants and Honours and Awards are set like an academic CV, and like
+   the author's own: the dates in a left column and no bullets, then the bold lead (degree, position, funder or
+   award) and its details. On phones the dates move to their own line above the entry; the award years stay
+   beside each award. */
 .cv-list { list-style: none; padding: 0; margin: 0 0 20px; }
 .cv-list li { display: grid; grid-template-columns: 9.6em minmax(0,1fr); gap: 0 14px; margin-bottom: 9px; }
 .entry-date { color: var(--muted); }
 .entry-line { display: block; text-wrap: balance; }
 .entry-title { display: block; font-style: italic; text-wrap: pretty; }
+.nowrap { white-space: nowrap; }
 .entry-detail { display: block; font-size: 13.5px; color: var(--muted); }
+.cv-list.home-awards-list li { margin-bottom: 5px; }
 .news-list li { margin-bottom: 5px; }
 .news-list a { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .news-list a:hover { text-decoration-color: currentColor; }
@@ -238,9 +240,11 @@ strong { font-weight: 500; color: var(--strong); }
   .academic-profile { max-width: 280px; }
   .primary-nav { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; font-size: 13.5px; }
   .primary-nav a { min-height: 44px; justify-content: center; text-align: center; }
-  .research-interest-list, .home-awards-list, .news-list { padding-left: 25px; }
+  .research-interest-list, .news-list { padding-left: 25px; }
   .cv-list li { grid-template-columns: minmax(0,1fr); }
+  .cv-list.home-awards-list li { grid-template-columns: 2.9em minmax(0,1fr); gap: 0 8px; }
   .entry-date { font-size: 13.5px; }
+  .home-awards-list .entry-date { font-size: inherit; }
   .pub-links a, .copy-bibtex, .button, .filter-group button { min-height: 44px; }
   .pub-links a, .copy-bibtex { display: inline-flex; align-items: center; }
   .bibtex-details summary { min-height: 44px; }

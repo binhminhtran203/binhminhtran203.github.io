@@ -11,8 +11,9 @@ interface Award {
   organisationShort?: BilingualText;
 }
 
-// Newest first, in the order of the CV of 16 November 2026. The homepage shows
-// one line per award, "Title, organisation, year", as the CV does.
+// Newest first, in the order of the CV of 16 November 2026. The homepage sets
+// them like its other CV sections: the year in the left column, then the bold
+// title and the organisation.
 // Preserve the distinctions between prizes, finalist recognition, and the
 // national versus university level of the two Youth Science conferences.
 export const awards: Award[] = [
