@@ -10,21 +10,14 @@ interface Experience {
   detail?: BilingualText;
 }
 
-// Research experience from the November 2026 CV, newest first, in the usual
+// Research experience from the CV of 16 November 2026, newest first, in the usual
 // academic-homepage format: a bold role and the organisation, the dates at the
 // right of the line, and a short second line for the unit and supervisor or host.
 // At the author's request the entries say where the work was done, not what it
 // was; the CV and research pages describe the work. Units are from the CV.
-// VinBigdata was listed in the CV of 13 November 2026 as "Nov 2026 (expected)";
-// the revised CV of 16 November 2026 no longer lists it.
+// The VinBigdata internship is no longer listed, at the author's request and as
+// in the CV.
 export const researchExperience: Experience[] = [
-  {
-    id: 'vinbigdata',
-    role: { en: 'Research Intern', vi: 'Thực tập sinh nghiên cứu' },
-    organisation: { en: 'VinBigdata', vi: 'VinBigdata' },
-    period: { en: 'Nov 2026 (incoming)', vi: '11/2026 (dự kiến)' },
-    detail: { en: 'Center for Biomedical Informatics, Hanoi', vi: 'Trung tâm Tin học Y sinh (Center for Biomedical Informatics), Hà Nội' },
-  },
   {
     id: 'anu-visiting',
     role: { en: 'Visiting Researcher', vi: 'Nghiên cứu viên khách mời' },
@@ -58,7 +51,7 @@ export const researchExperience: Experience[] = [
     organisation: { en: 'Vietnam Academy of Science and Technology', vi: 'Viện Hàn lâm Khoa học và Công nghệ Việt Nam' },
     period: { en: 'Dec 2025 – Mar 2026', vi: '12/2025 – 03/2026' },
     // No official Vietnamese name for this centre was found; the Vietnamese line
-    // gives a translation followed by the English name, as for VinBigdata.
+    // gives a translation followed by the English name.
     detail: {
       en: 'Center for Biomedical and Pharmaceutical Research',
       vi: 'Trung tâm Nghiên cứu Y sinh và Dược học (Center for Biomedical and Pharmaceutical Research)',
