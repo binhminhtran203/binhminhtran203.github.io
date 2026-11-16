@@ -54,7 +54,9 @@ const canonical = !noindex && origin && !origin.includes('example.invalid') ? ne
     <meta property="og:locale:alternate" content={locale === 'vi' ? 'en_AU' : 'vi_VN'} />
     {canonical && <>{(['en', 'vi'] as const).map(language => <link rel="alternate" hreflang={language} href={new URL(localizePath(path, language), origin).href} />)}<link rel="alternate" hreflang="x-default" href={new URL(localizePath(path, 'en'), origin).href} /></>}
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" href="/assets/fonts/crimson-pro-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
     <title>{pageTitle}</title>
   </head>

@@ -47,6 +47,7 @@ The earlier single-page website remains available in Git history, before the Ast
 - `public/assets/thumbnails/`: 360px-wide copies of the figures that served as publication previews (C4, C3, C2 and J1); not shown since the list became text-only.
 - `public/assets/figures/lgct-fig1a-gradcam.jpg`: the Grad-CAM heatmap from panel a of Figure 1 in the final J1 manuscript ("Bản thảo LGCT - cuối"), cropped without its Vietnamese labels, formerly the J1 preview; not shown at present.
 - `public/assets/binh-minh-tran-cv.pdf`: the current public CV (16 November 2026, revised v18_1), as supplied by the author. It includes the phone number and referee contacts.
+- `public/favicon.svg`, `public/favicon.ico` (16, 32 and 48px) and `public/apple-touch-icon.png` (180px): the site icon, a sunrise for the author's given name, Bình Minh ("dawn"): a gold half-sun with ivory rays over a horizon line, on the site's navy. The SVG is the source; the ICO and PNG repeat its geometry.
 - `src/styles/minimal-light.css`: the active Minimal Light layout, typography, and responsive/dark-mode rules.
 - `src/styles/fonts.css` and `src/styles/paper-figures.css`: self-hosted fonts and scientific figure viewer styles.
 
