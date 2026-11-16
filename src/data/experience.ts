@@ -15,7 +15,8 @@ interface Experience {
 // right of the line, and a short second line for the unit and supervisor or host.
 // At the author's request the entries say where the work was done, not what it
 // was; the CV and research pages describe the work. Units are from the CV.
-// VinBigdata is listed in the CV as "Nov 2026 (expected)".
+// VinBigdata was listed in the CV of 13 November 2026 as "Nov 2026 (expected)";
+// the revised CV of 16 November 2026 no longer lists it.
 export const researchExperience: Experience[] = [
   {
     id: 'vinbigdata',

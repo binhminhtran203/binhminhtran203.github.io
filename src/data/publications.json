@@ -180,6 +180,36 @@
     "bibtex": "@inproceedings{nguyen2026dualstream,\n  author = {Nguyen, L. H. and Tran, B. M. and Tran, D. H.},\n  title = {Dual-Stream Contrastive Graph Representation Learning for {lncRNA}--Disease Association Prediction},\n  booktitle = {Proceedings of the FISU Joint Conference on Artificial Intelligence (FJCAI 2026)},\n  pages = {151--158},\n  year = {2026},\n  isbn = {978-604-45-2586-0}\n}"
   },
   {
+    "id": "M3",
+    "title": "Hierarchical Graph Learning with Multimodal Distillation for Breast Cancer Survival Prediction",
+    "authors": [
+      "B. M. Tran",
+      "V. A. Nguyen",
+      "Q. A. Dang",
+      "N. M. H. Nguyen",
+      "H. N. Tran",
+      "D. H. Tran"
+    ],
+    "equalContribution": [],
+    "year": 2027,
+    "status": "review",
+    "venue": "ACIIDS 2027",
+    "badge": "ACIIDS",
+    "citation": "Asian Conference on Intelligent Information and Database Systems (ACIIDS), 2027.",
+    "note": "Under review",
+    "summary": "A breast cancer survival model that combines hierarchical graph learning on imaging mass cytometry with multimodal knowledge distillation.",
+    "media": {
+      "art": "tissue"
+    },
+    "topics": [
+      "Cancer AI",
+      "Graph learning",
+      "Multimodal learning"
+    ],
+    "links": [],
+    "bibtex": "@unpublished{tran2027distillation,\n  author = {Tran, B. M. and Nguyen, V. A. and Dang, Q. A. and Nguyen, N. M. H. and Tran, H. N. and Tran, D. H.},\n  title = {Hierarchical Graph Learning with Multimodal Distillation for Breast Cancer Survival Prediction},\n  year = {2027},\n  note = {Under review at the Asian Conference on Intelligent Information and Database Systems (ACIIDS 2027)}\n}"
+  },
+  {
     "id": "M2",
     "title": "Development and Cross-Cohort Evaluation of a Multimodal Deep-Learning Model for ER, PR and HER2 Status Classification in Breast Cancer",
     "authors": [
