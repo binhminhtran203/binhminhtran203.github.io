@@ -30,10 +30,13 @@ const interests = [
       </section>
       <section class="academic-section home-education" id="education" aria-labelledby="education-title">
         <h2 id="education-title">{t('Education', 'Học vấn')}</h2>
-        <ul class="home-education-list">
+        <ul class="cv-list home-education-list" role="list">
           {education.map(item => <li>
-            <strong>{item.degree[locale]}</strong>, {item.institution[locale]}<span class="sr-only">, </span><span class="entry-date">{item.period[locale]}</span>
-            {item.detail && <span class="entry-detail">{item.detail[locale]}{item.link && <> · <a href={item.link.href} target="_blank" rel="noopener noreferrer" title={item.link.title}>{item.link.label[locale]}</a></>}</span>}
+            <span class="entry-date">{item.period[locale]}</span>
+            <div class="entry-body">
+              <span class="entry-line"><strong>{item.degree[locale]}</strong>, {item.institution[locale]}</span>
+              {item.detail && item.detail[locale].split(' · ').map((line, i, lines) => <span class="entry-detail">{line}{item.link && i === lines.length - 1 && <> · <a href={item.link.href} target="_blank" rel="noopener noreferrer" title={item.link.title}>{item.link.label[locale]}</a></>}</span>)}
+            </div>
           </li>)}
         </ul>
       </section>
@@ -60,19 +63,28 @@ const interests = [
       </section>
       <section class="academic-section home-experience" id="experience" aria-labelledby="experience-title">
         <h2 id="experience-title">{t('Research Experience', 'Kinh nghiệm nghiên cứu')}</h2>
-        <ul class="home-experience-list">
+        <ul class="cv-list home-experience-list" role="list">
           {researchExperience.map(item => <li>
-            <strong>{item.role[locale]}</strong>, {item.organisation[locale]}<span class="sr-only">, </span><span class="entry-date">{item.period[locale]}</span>
-            {item.detail && <span class="entry-detail">{item.detail[locale]}</span>}
+            <span class="entry-date">{item.period[locale]}</span>
+            <div class="entry-body">
+              {item.unit
+                ? <><span class="entry-line"><strong>{item.role[locale]}</strong>, {item.unit[locale]},</span><span class="entry-line">{item.organisation[locale]}, {item.location[locale]}</span></>
+                : <span class="entry-line"><strong>{item.role[locale]}</strong>, {item.organisation[locale]}, {item.location[locale]}</span>}
+              {item.detail && <span class="entry-detail">{item.detail[locale]}</span>}
+            </div>
           </li>)}
         </ul>
       </section>
       <section class="academic-section home-grants" id="grants" aria-labelledby="grants-title">
         <h2 id="grants-title">{t('Research Grants', 'Tài trợ nghiên cứu')}</h2>
-        <ul class="home-grants-list">
+        <ul class="cv-list home-grants-list" role="list">
           {grants.map(grant => <li>
-            <strong>{grant.scheme[locale]}</strong>, {grant.funder[locale]}{grant.period && <><span class="sr-only">, </span><span class="entry-date">{grant.period[locale]}</span></>}
-            {(grant.project || grant.detail) && <span class="entry-detail">{grant.project && <em>{grant.project[locale]}</em>}{grant.project && grant.detail && ' · '}{grant.detail?.[locale]}</span>}
+            <span class="entry-date">{grant.period?.[locale]}</span>
+            <div class="entry-body">
+              <span class="entry-line"><strong>{grant.funder[locale]}</strong>, {grant.scheme[locale]}</span>
+              {grant.project && <em class="entry-title">{grant.project[locale]}</em>}
+              {(grant.role || grant.amount) && <span class="entry-detail">{[grant.role && `${t('Role', 'Vai trò')}: ${grant.role[locale]}`, grant.amount && `${t('Amount', 'Kinh phí')}: ${grant.amount[locale]}`].filter(Boolean).join(' · ')}</span>}
+            </div>
           </li>)}
         </ul>
       </section>
