@@ -11,8 +11,8 @@ interface Award {
   organisationShort?: BilingualText;
 }
 
-// Newest first, in the order of the November 2026 CV. The homepage shows one
-// line per award: "Title, organisation, year". Full details are in the CV.
+// Newest first, in the order of the CV of 16 November 2026. The homepage shows
+// one line per award, "Title, organisation, year", as the CV does.
 // Preserve the distinctions between prizes, finalist recognition, and the
 // national versus university level of the two Youth Science conferences.
 export const awards: Award[] = [
@@ -61,15 +61,15 @@ export const awards: Award[] = [
     },
   },
   {
-    // Added at the author's request; not in the November 2026 CV. The English
-    // name omits "Communist" at the author's request.
+    // Added at the author's request and listed in the CV of 16 November 2026.
+    // The English name omits "Communist" at the author's request.
     id: 'award-youth-union-merit-2026',
     year: '2026',
     title: { en: 'Certificate of Merit', vi: 'Bằng khen' },
     organisation: { en: 'Central Committee of the Ho Chi Minh Youth Union', vi: 'Trung ương Đoàn Thanh niên Cộng sản Hồ Chí Minh' },
   },
   {
-    // Added at the author's request; not in the November 2026 CV.
+    // Added at the author's request and listed in the CV of 16 November 2026.
     id: 'award-vnus-merit-2026',
     year: '2026',
     title: { en: 'Certificate of Merit', vi: 'Bằng khen' },

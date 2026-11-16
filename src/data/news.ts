@@ -15,8 +15,9 @@ interface NewsItem {
 //
 // Dating of the November 2026 items: the CV of 28 October 2026 still listed
 // HiNT-Surv and the ultrasound paper as under review and did not list the
-// Fourth Prize; the CV of November 2026 lists all three. VinBigdata is listed
-// there as "Nov 2026 (expected)", hence "I will join".
+// Fourth Prize; the CV of 13 November 2026 lists all three. VinBigdata was
+// listed there as "Nov 2026 (expected)", hence "I will join"; the revised CV of
+// 16 November 2026 no longer lists it.
 const nov2026: BilingualText = { en: 'Nov. 2026', vi: '11/2026' };
 const oct2026: BilingualText = { en: 'Oct. 2026', vi: '10/2026' };
 

@@ -14,8 +14,10 @@ interface Education {
 
 // Newest first, from the November 2026 CV, in the usual academic-homepage format:
 // a bold degree and the institution, with the years at the right of the line.
-// The doctoral study starts in 2027, so it stays marked as incoming. Keep the
-// official English degree names.
+// The doctoral study starts in 2027, so it stays marked as incoming. At the
+// author's request the bachelor's degree is shown as complete, although the CV
+// of 16 November 2026 still marks it as expected. Keep the official English
+// degree names.
 export const education: Education[] = [
   {
     id: 'phd-anu',
