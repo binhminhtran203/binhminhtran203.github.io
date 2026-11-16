@@ -37,7 +37,7 @@ export const education: Education[] = [
   },
   {
     id: 'bachelor-sydney',
-    degree: { en: 'Bachelor of Advanced Computing (Honours)', vi: 'Cử nhân Khoa học Máy tính nâng cao (danh dự)' },
+    degree: { en: 'Bachelor of Advanced Computing (Honours)', vi: 'Cử nhân Khoa học Máy tính nâng cao (Honours)' },
     institution: { en: 'The University of Sydney', vi: 'Đại học Sydney' },
     period: { en: '2023 – 2026', vi: '2023 – 2026' },
     field: { en: 'Computational Data Science', vi: 'Khoa học dữ liệu tính toán' },
