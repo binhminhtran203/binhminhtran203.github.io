@@ -14,6 +14,16 @@ const path = (value: string) => localizePath(value, locale);
 // Accepted and published papers in CV order: conference papers first, then
 // journal articles.
 const featuredPublications = ['C', 'J'].flatMap(prefix => publications.filter(p => p.status !== 'review' && p.id.startsWith(prefix)));
+// News dates: "Nov 2026" in English and "11/2026" in Vietnamese, like the other
+// dated sections. Every item shows while the list is short; past twelve, the
+// ten newest stay visible and the rest sit under "Earlier news".
+const monthsEn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const newsDate = (iso: string) => {
+  const [year, month] = iso.split('-');
+  return locale === 'vi' ? `${month}/${year}` : `${monthsEn[Number(month) - 1]} ${year}`;
+};
+const recentNews = news.length > 12 ? news.slice(0, 10) : news;
+const earlierNews = news.slice(recentNews.length);
 const interests = [
   { label: t('Machine learning', 'Học máy'), topics: t('multimodal learning, graph neural networks, survival analysis', 'học đa phương thức, mạng nơ-ron đồ thị, phân tích sống còn') },
   { label: t('Biomedical research', 'Nghiên cứu y sinh'), topics: t('AI in medicine, computational biology, RNA biology, cancer genomics', 'AI trong y học, sinh học tính toán, sinh học RNA, hệ gen học ung thư') },
@@ -51,14 +61,21 @@ const interests = [
       </div>
       <section class="academic-section home-news" id="news" aria-labelledby="news-title">
         <h2 id="news-title">{t('News', 'Tin mới')}</h2>
-        <div class="news-scroll" tabindex="0" role="region" aria-label={t('Scrollable news', 'Tin mới có thể cuộn')}>
-          <ul class="news-list">
-            {news.map(item => <li id={`news-${item.id}`}>
-              <strong class="news-date">[<time datetime={item.date}>{item.dateLabel[locale]}</time>]</strong>{' '}
-              {item.before[locale]}<a href={path(item.link.href)}>{item.link.label[locale]}</a>{item.after[locale]}
+        <ul class="cv-list news-list" role="list">
+          {recentNews.map(item => <li id={`news-${item.id}`}>
+            <time class="entry-date" datetime={item.date}>{newsDate(item.date)}</time>
+            <div class="entry-body">{item.before[locale]}<a href={path(item.link.href)}>{item.link.label[locale]}</a>{item.after[locale]}</div>
+          </li>)}
+        </ul>
+        {earlierNews.length > 0 && <details class="news-earlier">
+          <summary>{t(`Earlier news (${earlierNews.length})`, `Tin cũ hơn (${earlierNews.length})`)}</summary>
+          <ul class="cv-list news-list" role="list">
+            {earlierNews.map(item => <li id={`news-${item.id}`}>
+              <time class="entry-date" datetime={item.date}>{newsDate(item.date)}</time>
+              <div class="entry-body">{item.before[locale]}<a href={path(item.link.href)}>{item.link.label[locale]}</a>{item.after[locale]}</div>
             </li>)}
           </ul>
-        </div>
+        </details>}
       </section>
       <section class="academic-section academic-selected-publications" aria-labelledby="selected-title">
         <div class="academic-section-heading"><h2 id="selected-title">{t('Publications', 'Công bố tiêu biểu')}</h2><a class="text-link" href={path('/publications/')}>{t('All publications', 'Danh sách công bố')}</a></div>

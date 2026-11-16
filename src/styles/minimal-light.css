@@ -96,11 +96,11 @@ strong { font-weight: 500; color: var(--strong); }
 .academic-section-heading .text-link { font-size: 13px; }
 .home-interests { margin-bottom: 24px; }
 .academic-selected-publications .publication-list { margin-top: 16px; }
-.research-interest-list, .news-list { padding-left: 40px; margin: 0 0 20px; }
-/* Education, Research Experience, Research Grants and Honours and Awards are set like an academic CV, and like
-   the author's own: the dates in a left column and no bullets, then the bold lead (degree, position, funder or
-   award) and its details. On phones the dates move to their own line above the entry; the award years stay
-   beside each award. */
+.research-interest-list { padding-left: 40px; margin: 0 0 20px; }
+/* Education, News, Research Experience, Research Grants and Honours and Awards are set like an academic CV, and
+   like the author's own: the dates in a left column and no bullets, then the entry (a bold degree, position,
+   funder or award with its details, or a news sentence). On phones the dates move to their own line above the
+   entry; the news months and award years stay beside each item. */
 .cv-list { list-style: none; padding: 0; margin: 0 0 20px; }
 .cv-list li { display: grid; grid-template-columns: 9.6em minmax(0,1fr); gap: 0 14px; margin-bottom: 9px; }
 .entry-date { color: var(--muted); }
@@ -108,21 +108,13 @@ strong { font-weight: 500; color: var(--strong); }
 .entry-title { display: block; font-style: italic; text-wrap: pretty; }
 .nowrap { white-space: nowrap; }
 .entry-detail { display: block; font-size: 13.5px; color: var(--muted); }
-.cv-list.home-awards-list li { margin-bottom: 5px; }
-.news-list li { margin-bottom: 5px; }
+.cv-list.home-awards-list li, .cv-list.news-list li { margin-bottom: 5px; }
+.news-list .entry-body { text-wrap: pretty; }
 .news-list a { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .news-list a:hover { text-decoration-color: currentColor; }
-.news-date { white-space: nowrap; }
-.news-scroll { max-height: 232px; overflow-y: auto; overflow-x: hidden; scrollbar-gutter: stable; padding-right: 12px; }
-.news-scroll .news-list { margin-bottom: 0; padding-block: 2px; }
-.news-scroll .news-list li:last-child { margin-bottom: 0; }
-.news-scroll::-webkit-scrollbar { width: 10px; }
-.news-scroll::-webkit-scrollbar-track { background: var(--soft); border-radius: 8px; }
-.news-scroll::-webkit-scrollbar-thumb { background: var(--muted); border: 2px solid var(--soft); border-radius: 8px; }
-.news-scroll::-webkit-scrollbar-thumb:hover { background: var(--link); }
-@supports not selector(::-webkit-scrollbar) {
-  .news-scroll { scrollbar-width: thin; scrollbar-color: var(--muted) var(--soft); }
-}
+.news-earlier { margin: -12px 0 20px; }
+.news-earlier summary { cursor: pointer; color: var(--link); font-size: 13.5px; min-height: 28px; }
+.news-earlier .news-list { margin: 6px 0 0; }
 
 .text-link { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; font-size: 13.5px; }
 .eyebrow, .academic-kicker { font-size: 13px; color: var(--muted); margin: 0 0 8px; }
@@ -240,11 +232,13 @@ strong { font-weight: 500; color: var(--strong); }
   .academic-profile { max-width: 280px; }
   .primary-nav { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; font-size: 13.5px; }
   .primary-nav a { min-height: 44px; justify-content: center; text-align: center; }
-  .research-interest-list, .news-list { padding-left: 25px; }
+  .research-interest-list { padding-left: 25px; }
   .cv-list li { grid-template-columns: minmax(0,1fr); }
   .cv-list.home-awards-list li { grid-template-columns: 2.9em minmax(0,1fr); gap: 0 8px; }
+  .cv-list.news-list li { grid-template-columns: 4.6em minmax(0,1fr); gap: 0 8px; }
   .entry-date { font-size: 13.5px; }
-  .home-awards-list .entry-date { font-size: inherit; }
+  .home-awards-list .entry-date, .news-list .entry-date { font-size: inherit; }
+  .news-earlier summary { min-height: 44px; }
   .pub-links a, .copy-bibtex, .button, .filter-group button { min-height: 44px; }
   .pub-links a, .copy-bibtex { display: inline-flex; align-items: center; }
   .bibtex-details summary { min-height: 44px; }
@@ -258,7 +252,6 @@ strong { font-weight: 500; color: var(--strong); }
 @media print {
   :root { --paper: #fff; --ink: #000; --heading: #000; --link: #000; --muted: #333; --line: #ccc; --soft: #fff; }
   body { font-size: 11pt; }
-  .news-scroll { max-height: none; overflow: visible; padding-right: 0; }
   .minimal-wrapper { display: block; padding: 0; width: 100%; }
   .minimal-sidebar { position: static; max-height: none; overflow: visible; }
   .portrait, .social-icons, .language-switch, .theme-switch, .primary-nav, .site-footer, .publication-toolbar, .pub-links, .bibtex-details, .project-card-visual { display: none; }
