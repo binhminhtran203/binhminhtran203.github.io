@@ -13,13 +13,12 @@ interface Award {
 
 // Newest year first. Within a year: research prizes first, from the national
 // level down (the national health-sector conference, the Vietnamese Young
-// Intellectuals Forum in Australia, then the university conference); then
-// the Embassy's award for academic and research achievement; then the
-// certificates of merit. The CV of 17 November 2026 lists the 2026 awards in
-// a different order and also lists the AURORA finalist place, which is left
-// off the site at the author's request. The homepage sets them like its other
-// CV sections: the year in the left column, then the bold title and the
-// organisation.
+// Intellectuals Forum in Australia, then the university conference); then the
+// certificates of merit. The CV of 17 November 2026 lists the 2026 awards in a
+// different order and also lists the AURORA finalist place and the Embassy's
+// Outstanding Student Award, which are left off the site at the author's
+// request. The homepage sets them like its other CV sections: the year in the
+// left column, then the bold title and the organisation.
 // Preserve the distinction between the national and university levels of the
 // two Youth Science conferences.
 export const awards: Award[] = [
@@ -46,13 +45,6 @@ export const awards: Award[] = [
       en: 'Youth Science and Technology Conference, Hanoi Medical University',
       vi: 'Hội nghị Khoa học và Công nghệ tuổi trẻ, Trường Đại học Y Hà Nội',
     },
-  },
-  {
-    // Vietnamese title as given by the author.
-    id: 'award-outstanding-student-2026',
-    year: '2026',
-    title: { en: 'Outstanding Student Award', vi: 'Sinh viên tiêu biểu' },
-    organisation: { en: 'Embassy of Vietnam in Australia', vi: 'Đại sứ quán Việt Nam tại Australia' },
   },
   {
     // Added at the author's request and listed in the CV of 16 November 2026.
