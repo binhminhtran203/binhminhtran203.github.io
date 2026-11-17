@@ -11,9 +11,13 @@ interface Award {
   organisationShort?: BilingualText;
 }
 
-// Newest first, in the order of the CV of 16 November 2026. The homepage sets
-// them like its other CV sections: the year in the left column, then the bold
-// title and the organisation.
+// Newest year first. Within a year: research prizes first, from the national
+// level down (the national health-sector conference, then the two
+// Vietnam–Australia awards, then the university conference); then the
+// Embassy's award for academic and research achievement; then the
+// certificates of merit. The CV of 16 November 2026 lists the 2026 awards in
+// a different order. The homepage sets them like its other CV sections: the
+// year in the left column, then the bold title and the organisation.
 // Preserve the distinctions between prizes, finalist recognition, and the
 // national versus university level of the two Youth Science conferences.
 export const awards: Award[] = [
@@ -40,13 +44,6 @@ export const awards: Award[] = [
     },
   },
   {
-    // Vietnamese title as given by the author.
-    id: 'award-outstanding-student-2026',
-    year: '2026',
-    title: { en: 'Outstanding Student Award', vi: 'Sinh viên tiêu biểu' },
-    organisation: { en: 'Embassy of Vietnam in Australia', vi: 'Đại sứ quán Việt Nam tại Australia' },
-  },
-  {
     id: 'award-young-intellectuals-2026',
     year: '2026',
     title: { en: 'Second Prize', vi: 'Giải Nhì' },
@@ -60,6 +57,13 @@ export const awards: Award[] = [
       en: 'Youth Science and Technology Conference, Hanoi Medical University',
       vi: 'Hội nghị Khoa học và Công nghệ tuổi trẻ, Trường Đại học Y Hà Nội',
     },
+  },
+  {
+    // Vietnamese title as given by the author.
+    id: 'award-outstanding-student-2026',
+    year: '2026',
+    title: { en: 'Outstanding Student Award', vi: 'Sinh viên tiêu biểu' },
+    organisation: { en: 'Embassy of Vietnam in Australia', vi: 'Đại sứ quán Việt Nam tại Australia' },
   },
   {
     // Added at the author's request and listed in the CV of 16 November 2026.
