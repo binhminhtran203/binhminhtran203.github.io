@@ -15,7 +15,7 @@ interface Award {
 // level down (the national health-sector conference, the Vietnamese Young
 // Intellectuals Forum in Australia, then the university conference); then
 // the Embassy's award for academic and research achievement; then the
-// certificates of merit. The CV of 16 November 2026 lists the 2026 awards in
+// certificates of merit. The CV of 17 November 2026 lists the 2026 awards in
 // a different order and also lists the AURORA finalist place, which is left
 // off the site at the author's request. The homepage sets them like its other
 // CV sections: the year in the left column, then the bold title and the
