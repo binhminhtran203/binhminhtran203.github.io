@@ -7,6 +7,7 @@ import { awards } from '../data/awards';
 import { education } from '../data/education';
 import { researchExperience } from '../data/experience';
 import { grants } from '../data/grants';
+import { presentations } from '../data/presentations';
 import { getLocale, localizePath, text } from '../i18n';
 const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
@@ -14,10 +15,10 @@ const path = (value: string) => localizePath(value, locale);
 // Accepted and published papers in CV order: conference papers first, then
 // journal articles.
 const featuredPublications = ['C', 'J'].flatMap(prefix => publications.filter(p => p.status !== 'review' && p.id.startsWith(prefix)));
-// News dates: "Nov 2026" in English and "11/2026" in Vietnamese, like the other
-// dated sections.
+// Month dates for News and Presentations: "Nov 2026" in English and "11/2026"
+// in Vietnamese, like the other dated sections.
 const monthsEn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const newsDate = (iso: string) => {
+const monthYear = (iso: string) => {
   const [year, month] = iso.split('-');
   return locale === 'vi' ? `${month}/${year}` : `${monthsEn[Number(month) - 1]} ${year}`;
 };
@@ -61,7 +62,7 @@ const interests = [
         <div class="news-scroll" tabindex="0" role="region" aria-label={t('Scrollable news', 'Tin mới có thể cuộn')}>
           <ul class="cv-list news-list" role="list">
             {news.map(item => <li id={`news-${item.id}`}>
-              <time class="entry-date" datetime={item.date}>{newsDate(item.date)}</time>
+              <time class="entry-date" datetime={item.date}>{monthYear(item.date)}</time>
               <div class="entry-body">{item.before[locale]}<a href={path(item.link.href)}>{item.link.label[locale]}</a>{item.after[locale]}</div>
             </li>)}
           </ul>
@@ -105,6 +106,19 @@ const interests = [
           {awards.map(award => <li>
             <time class="entry-date" datetime={award.year}>{award.year}</time>
             <div class="entry-body"><span class="entry-line"><strong>{award.title[locale]}</strong>, {(award.organisationShort ?? award.organisation)[locale]}</span></div>
+          </li>)}
+        </ul>
+      </section>
+      <section class="academic-section home-presentations" id="presentations" aria-labelledby="presentations-title">
+        <h2 id="presentations-title">{t('Presentations', 'Báo cáo khoa học')}</h2>
+        <ul class="cv-list home-presentations-list" role="list">
+          {presentations.map(item => <li>
+            <time class="entry-date" datetime={item.date}>{monthYear(item.date)}</time>
+            <div class="entry-body">
+              <span class="entry-line"><strong>{item.type[locale]}</strong>{item.language && ` (${item.language[locale]})`}, {item.event[locale]},</span>
+              <span class="entry-line">{item.venue[locale]}</span>
+              <em class="entry-title">{item.href ? <a href={path(item.href)}>{item.title[locale]}</a> : item.title[locale]}</em>
+            </div>
           </li>)}
         </ul>
       </section>

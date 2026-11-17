@@ -19,10 +19,9 @@ interface Education {
 // in a left column, then a bold degree and the institution, followed by the
 // field, the thesis title and the supervisor on their own lines, as the CV
 // gives them.
-// The doctoral study starts in 2027, so it stays marked as incoming. At the
-// author's request the bachelor's degree is shown as complete, although the CV
-// of 16 November 2026 still marks it as expected. Keep the official English
-// degree names.
+// The doctoral study starts in 2027, so it stays marked as incoming. The
+// bachelor's degree is complete, as in the CV of 17 November 2026. Keep the
+// official English degree names.
 export const education: Education[] = [
   {
     id: 'phd-anu',
