@@ -12,14 +12,16 @@ interface Award {
 }
 
 // Newest year first. Within a year: research prizes first, from the national
-// level down (the national health-sector conference, then the two
-// Vietnam–Australia awards, then the university conference); then the
-// Embassy's award for academic and research achievement; then the
+// level down (the national health-sector conference, the Vietnamese Young
+// Intellectuals Forum in Australia, then the university conference); then
+// the Embassy's award for academic and research achievement; then the
 // certificates of merit. The CV of 16 November 2026 lists the 2026 awards in
-// a different order. The homepage sets them like its other CV sections: the
-// year in the left column, then the bold title and the organisation.
-// Preserve the distinctions between prizes, finalist recognition, and the
-// national versus university level of the two Youth Science conferences.
+// a different order and also lists the AURORA finalist place, which is left
+// off the site at the author's request. The homepage sets them like its other
+// CV sections: the year in the left column, then the bold title and the
+// organisation.
+// Preserve the distinction between the national and university levels of the
+// two Youth Science conferences.
 export const awards: Award[] = [
   {
     id: 'award-youth-science-national-2026',
@@ -28,19 +30,6 @@ export const awards: Award[] = [
     organisation: {
       en: '23rd Youth Science and Technology Conference of the Vietnamese Health Sector',
       vi: 'Hội nghị Khoa học và Công nghệ tuổi trẻ ngành Y tế lần thứ 23',
-    },
-  },
-  {
-    id: 'award-aurora-2026',
-    year: '2026',
-    title: { en: 'Top 10 Finalist', vi: 'Nhóm 10 xuất sắc nhất' },
-    organisation: {
-      en: 'AURORA Scientific Research Awards, Vietnam–Australia Innovation Network (NIC-AU)',
-      vi: 'Giải thưởng Nghiên cứu Khoa học AURORA, Mạng lưới Đổi mới sáng tạo Việt Nam–Australia (NIC-AU)',
-    },
-    organisationShort: {
-      en: 'AURORA Scientific Research Awards (NIC-AU)',
-      vi: 'Giải thưởng Nghiên cứu Khoa học AURORA (NIC-AU)',
     },
   },
   {
