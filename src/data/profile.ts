@@ -66,7 +66,7 @@ export const projects = [
     short: 'lncRNA–disease association prediction',
     description: 'Multi-view and contrastive graph representations for learning associations between long non-coding RNAs and disease.',
     period: 'December 2024 – December 2025',
-    role: 'Research collaboration · Hanoi University of Industry',
+    role: 'Research assistant · Hanoi University of Industry',
     status: 'Two peer-reviewed conference papers',
     visual: 'rna',
     question: 'How can complementary views of biological networks help identify associations between lncRNAs and disease?',

@@ -65,7 +65,7 @@ export const projectsVi: typeof projects = [
     short: 'Dự đoán mối liên hệ lncRNA–bệnh',
     description: 'Học biểu diễn đồ thị đa góc nhìn và học tương phản để tìm hiểu mối liên hệ giữa RNA dài không mã hóa (lncRNA) và bệnh.',
     period: 'Tháng 12 năm 2024 – tháng 12 năm 2025',
-    role: 'Hợp tác nghiên cứu · Trường Đại học Công nghiệp Hà Nội',
+    role: 'Trợ lý nghiên cứu · Trường Đại học Công nghiệp Hà Nội',
     status: 'Hai bài báo hội nghị có phản biện',
     visual: 'rna',
     question: 'Các góc nhìn bổ sung về mạng sinh học có thể hỗ trợ xác định mối liên hệ giữa lncRNA và bệnh như thế nào?',
