@@ -100,15 +100,6 @@ const interests = [
           </li>)}
         </ul>
       </section>
-      <section class="academic-section home-awards" id="awards" aria-labelledby="awards-title">
-        <h2 id="awards-title">{t('Honours and Awards', 'Giải thưởng và danh hiệu')}</h2>
-        <ul class="cv-list home-awards-list" role="list">
-          {awards.map(award => <li>
-            <time class="entry-date" datetime={award.year}>{award.year}</time>
-            <div class="entry-body"><span class="entry-line"><strong>{award.title[locale]}</strong>, {(award.organisationShort ?? award.organisation)[locale]}</span></div>
-          </li>)}
-        </ul>
-      </section>
       <section class="academic-section home-presentations" id="presentations" aria-labelledby="presentations-title">
         <h2 id="presentations-title">{t('Presentations', 'Báo cáo khoa học')}</h2>
         <ul class="cv-list home-presentations-list" role="list">
@@ -119,6 +110,15 @@ const interests = [
               <span class="entry-line">{item.venue[locale]}</span>
               <em class="entry-title">{item.href ? <a href={path(item.href)}>{item.title[locale]}</a> : item.title[locale]}</em>
             </div>
+          </li>)}
+        </ul>
+      </section>
+      <section class="academic-section home-awards" id="awards" aria-labelledby="awards-title">
+        <h2 id="awards-title">{t('Honours and Awards', 'Giải thưởng và danh hiệu')}</h2>
+        <ul class="cv-list home-awards-list" role="list">
+          {awards.map(award => <li>
+            <time class="entry-date" datetime={award.year}>{award.year}</time>
+            <div class="entry-body"><span class="entry-line"><strong>{award.title[locale]}</strong>, {(award.organisationShort ?? award.organisation)[locale]}</span></div>
           </li>)}
         </ul>
       </section>

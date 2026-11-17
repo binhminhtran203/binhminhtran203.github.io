@@ -16,7 +16,7 @@ interface Experience {
   detail?: BilingualText;
 }
 
-// Research experience from the CV of 16 November 2026, newest first, set like
+// Research experience from the CV of 18 November 2026, newest first, set like
 // an academic CV and like the CV itself: the dates in a left column, then the
 // position (bold), department, institution and location, with the supervisor
 // or host on a second line. University CV guides give the same fields in the
@@ -37,7 +37,7 @@ export const researchExperience: Experience[] = [
   },
   {
     id: 'sydney-honours',
-    role: { en: 'Honours Research Student', vi: 'Sinh viên nghiên cứu chương trình cử nhân danh dự' },
+    role: { en: 'Honours Researcher', vi: 'Nghiên cứu viên chương trình cử nhân danh dự' },
     unit: { en: 'School of Computer Science', vi: 'Khoa Khoa học Máy tính' },
     organisation: { en: 'The University of Sydney', vi: 'Đại học Sydney' },
     location: { en: 'Australia', vi: 'Australia' },
@@ -66,8 +66,8 @@ export const researchExperience: Experience[] = [
     period: { en: 'Dec 2025 – Mar 2026', vi: '12/2025 – 03/2026' },
   },
   {
-    id: 'haui-collaborator',
-    role: { en: 'Research Collaborator', vi: 'Cộng tác viên nghiên cứu' },
+    id: 'haui-assistant',
+    role: { en: 'Research Assistant', vi: 'Trợ lý nghiên cứu' },
     organisation: { en: 'Hanoi University of Industry', vi: 'Trường Đại học Công nghiệp Hà Nội' },
     location: { en: 'Vietnam', vi: 'Việt Nam' },
     period: { en: 'Dec 2024 – Dec 2025', vi: '12/2024 – 12/2025' },
