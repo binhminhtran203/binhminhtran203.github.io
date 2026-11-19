@@ -24,8 +24,20 @@ interface Experience {
 // At the author's request the entries say where the work was done, not what it
 // was; the CV and research pages describe the work. Units and locations are
 // from the CV. The VinBigdata internship is no longer listed, at the author's
-// request and as in the CV.
+// request and as in the CV. The VinUniversity position began after that CV and
+// is added from the author's LinkedIn profile, at the author's request. Its
+// Vietnamese names are the ones the institute and the university use
+// (Viện Nghiên cứu Dữ liệu lớn VinUni, Trường Đại học VinUni). Its location is
+// given as the country alone, like the other Vietnamese entries.
 export const researchExperience: Experience[] = [
+  {
+    id: 'vinuni-researcher',
+    role: { en: 'Biomedical AI Researcher', vi: 'Nghiên cứu viên trí tuệ nhân tạo y sinh' },
+    unit: { en: 'VinUni Big Data Research Institute', vi: 'Viện Nghiên cứu Dữ liệu lớn VinUni' },
+    organisation: { en: 'VinUniversity', vi: 'Trường Đại học VinUni' },
+    location: { en: 'Vietnam', vi: 'Việt Nam' },
+    period: { en: 'Nov 2026 – present', vi: '11/2026 – nay' },
+  },
   {
     id: 'anu-visiting',
     role: { en: 'Visiting Researcher', vi: 'Nghiên cứu viên khách mời' },
