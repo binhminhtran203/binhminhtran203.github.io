@@ -23,12 +23,13 @@ const monthYear = (iso: string) => {
   return locale === 'vi' ? `${month}/${year}` : `${monthsEn[Number(month) - 1]} ${year}`;
 };
 // Research interests as one plain numbered list (no bold, one indent), in the
-// author's own Vietnamese wording and order; the English text is a translation.
+// Vietnamese wording the author chose; the English text is a translation. So
+// that the items do not overlap, the list leaves out the general area (AI in
+// medicine), which the biography already states, and merges the RNA and
+// genetics topics into one item.
 const interests = [
-  t('Applications of artificial intelligence in medicine', 'Ứng dụng trí tuệ nhân tạo trong y học'),
   t('Analysing genomic and RNA data', 'Phân tích dữ liệu gen và RNA'),
-  t('Studying the role of RNA in disease', 'Nghiên cứu vai trò của RNA trong bệnh tật'),
-  t('Investigating genetic factors associated with human disease', 'Tìm hiểu các yếu tố di truyền liên quan đến bệnh ở người'),
+  t('Studying the role of RNA and genetic factors in human disease', 'Nghiên cứu vai trò của RNA và các yếu tố di truyền trong bệnh ở người'),
   t('Developing models for cancer classification and prognosis', 'Phát triển mô hình phân loại và tiên lượng ung thư'),
 ];
 ---
