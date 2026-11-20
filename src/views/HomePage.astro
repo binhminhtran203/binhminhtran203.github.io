@@ -22,9 +22,14 @@ const monthYear = (iso: string) => {
   const [year, month] = iso.split('-');
   return locale === 'vi' ? `${month}/${year}` : `${monthsEn[Number(month) - 1]} ${year}`;
 };
+// Research interests in the author's own Vietnamese wording and numbering; the
+// English text is a translation.
+const interestArea = t('Applications of artificial intelligence in medicine', 'Ứng dụng trí tuệ nhân tạo trong y học');
 const interests = [
-  { label: t('Machine learning', 'Học máy'), topics: t('multimodal learning, graph neural networks, survival analysis', 'học đa phương thức, mạng nơ-ron đồ thị, phân tích sống còn') },
-  { label: t('Biomedical research', 'Nghiên cứu y sinh'), topics: t('AI in medicine, computational biology, RNA biology, cancer genomics', 'AI trong y học, sinh học tính toán, sinh học RNA, hệ gen học ung thư') },
+  t('Analysing genomic and RNA data', 'Phân tích dữ liệu gen và RNA'),
+  t('Studying the role of RNA in disease', 'Nghiên cứu vai trò của RNA trong bệnh tật'),
+  t('Investigating genetic factors associated with human disease', 'Tìm hiểu các yếu tố di truyền liên quan đến bệnh ở người'),
+  t('Developing models for cancer classification and prognosis', 'Phát triển mô hình phân loại và tiên lượng ung thư'),
 ];
 ---
 <Layout>
@@ -54,7 +59,8 @@ const interests = [
       </section>
       <section class="academic-section home-interests" aria-labelledby="interests-title">
         <h2 id="interests-title">{t('Research Interests', 'Hướng nghiên cứu')}</h2>
-        <ul class="research-interest-list">{interests.map(interest=><li><strong>{interest.label}:</strong> {interest.topics}</li>)}</ul>
+        <p class="research-interest-area"><strong>{interestArea}</strong></p>
+        <ol class="research-interest-list">{interests.map(interest => <li>{interest}</li>)}</ol>
       </section>
       </div>
       <section class="academic-section home-news" id="news" aria-labelledby="news-title">
