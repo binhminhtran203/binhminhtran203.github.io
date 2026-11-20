@@ -16,11 +16,11 @@ interface Experience {
   detail?: BilingualText;
 }
 
-// Research experience from the CV of 18 November 2026, newest first, set like
-// an academic CV and like the CV itself: the dates in a left column, then the
-// position (bold), department, institution and location, with the supervisor
-// or host on a second line. University CV guides give the same fields in the
-// same order: position, department or lab, institution, location, dates.
+// Research experience from the CV of 18 November 2026, set like an academic CV
+// and like the CV itself: the dates in a left column, then the position (bold),
+// department, institution and location, with the supervisor or host on a
+// second line. University CV guides give the same fields in the same order:
+// position, department or lab, institution, location, dates.
 // At the author's request the entries say where the work was done, not what it
 // was; the CV and research pages describe the work. Units and locations are
 // from the CV. The VinBigdata internship is no longer listed, at the author's
@@ -29,6 +29,11 @@ interface Experience {
 // Vietnamese names are the ones the institute and the university use
 // (Viện Nghiên cứu Dữ liệu lớn VinUni, Trường Đại học VinUni). Its location is
 // given as the country alone, like the other Vietnamese entries.
+//
+// Order, at the author's request: ongoing positions first, the latest start
+// first, then finished positions, the latest end first. The CV orders by start
+// date alone, which put the ongoing Hanoi Medical University role below the
+// finished Sydney honours year.
 export const researchExperience: Experience[] = [
   {
     id: 'vinuni-researcher',
@@ -48,6 +53,14 @@ export const researchExperience: Experience[] = [
     detail: { en: 'Host: Prof. Eduardo Eyras', vi: 'Người hướng dẫn: GS. Eduardo Eyras' },
   },
   {
+    id: 'hmu-collaborator',
+    role: { en: 'Research Collaborator', vi: 'Cộng tác viên nghiên cứu' },
+    unit: { en: 'Department of Obstetrics & Gynaecology', vi: 'Bộ môn Phụ sản' },
+    organisation: { en: 'Hanoi Medical University', vi: 'Trường Đại học Y Hà Nội' },
+    location: { en: 'Vietnam', vi: 'Việt Nam' },
+    period: { en: 'Dec 2025 – present', vi: '12/2025 – nay' },
+  },
+  {
     id: 'sydney-honours',
     role: { en: 'Honours Researcher', vi: 'Nghiên cứu viên chương trình cử nhân danh dự' },
     unit: { en: 'School of Computer Science', vi: 'Khoa Khoa học Máy tính' },
@@ -55,14 +68,6 @@ export const researchExperience: Experience[] = [
     location: { en: 'Australia', vi: 'Australia' },
     period: { en: 'Feb – Oct 2026', vi: '02/2026 – 10/2026' },
     detail: { en: 'Supervisor: A/Prof. Xiuying Wang', vi: 'Người hướng dẫn: PGS. Xiuying Wang' },
-  },
-  {
-    id: 'hmu-collaborator',
-    role: { en: 'Research Collaborator', vi: 'Cộng tác viên nghiên cứu' },
-    unit: { en: 'Department of Obstetrics & Gynaecology', vi: 'Bộ môn Phụ sản' },
-    organisation: { en: 'Hanoi Medical University', vi: 'Trường Đại học Y Hà Nội' },
-    location: { en: 'Vietnam', vi: 'Việt Nam' },
-    period: { en: 'Dec 2025 – present', vi: '12/2025 – nay' },
   },
   {
     id: 'vast-assistant',
