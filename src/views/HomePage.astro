@@ -22,16 +22,16 @@ const monthYear = (iso: string) => {
   const [year, month] = iso.split('-');
   return locale === 'vi' ? `${month}/${year}` : `${monthsEn[Number(month) - 1]} ${year}`;
 };
-// Research interests as one plain numbered list (no bold, one indent). At the
-// author's request the items are short phrases, one field each, with no
-// overlap: the AI methods first, then the biology (RNA, genetics), then the
-// clinical application (cancer). The Vietnamese text uses the author's earlier
-// list and the site's own terms; the English text is a translation.
+// Research interests as one plain numbered list (no bold, one indent). The
+// items are short phrases, one field each, with no overlap: the AI methods
+// first, then the biology (RNA, genetic variants), then the clinical
+// application (cancer). The Vietnamese text is the author's own; the English
+// text is a translation.
 const interests = [
   t('Multimodal AI and graph learning', 'Trí tuệ nhân tạo đa phương thức và học trên đồ thị'),
   t('Computational RNA biology', 'Sinh học RNA tính toán'),
-  t('Genetic basis of human disease', 'Cơ sở di truyền của bệnh ở người'),
-  t('Cancer classification and prognosis', 'Phân loại và tiên lượng ung thư'),
+  t('Genetic variant interpretation in disease', 'Diễn giải biến thể di truyền liên quan đến bệnh'),
+  t('Cancer biomarker prediction and prognosis', 'Dự đoán dấu ấn sinh học và tiên lượng ung thư'),
 ];
 ---
 <Layout>
