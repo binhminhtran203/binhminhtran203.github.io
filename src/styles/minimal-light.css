@@ -97,9 +97,6 @@ strong { font-weight: 500; color: var(--strong); }
 .home-interests { margin-bottom: 24px; }
 .academic-selected-publications .publication-list { margin-top: 16px; }
 .research-interest-list { padding-left: 40px; margin: 0 0 20px; text-wrap: pretty; }
-.research-interest-list > li + li { margin-top: 10px; }
-.research-interest-list > li::marker { color: var(--strong); font-weight: 500; }
-.research-interest-topics { padding-left: 24px; margin: 4px 0 0; }
 /* Education, News, Research Experience, Research Grants and Honours and Awards are set like an academic CV, and
    like the author's own: the dates in a left column and no bullets, then the entry (a bold degree, position,
    funder or award with its details, or a news sentence). On phones the dates move to their own line above the
