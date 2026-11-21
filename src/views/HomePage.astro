@@ -19,9 +19,9 @@ const path = (value: string) => localizePath(value, locale);
 // each one like a CV publication list: the authors (my name in bold, † for
 // equal contribution), the title in quotation marks, linked to the paper (its
 // DOI, else its project page, else its entry on the publications page), then
-// the reference up to the year and, in brackets, the status of an accepted
-// paper. Notes after the year (an ISBN, the article's language), PDFs and
-// BibTeX are on the publications page.
+// the reference up to the year and, in brackets, the venue's rank where it has
+// one ("CORE B") and the status of an accepted paper. Notes after the year (an
+// ISBN, the article's language), PDFs and BibTeX are on the publications page.
 type PublicationTranslation = { title?: string; citation?: string; note?: string };
 const featuredPublications = ['C', 'J'].flatMap(prefix => publications.filter(p => p.status !== 'review' && p.id.startsWith(prefix))).map(paper => {
   const translation = locale === 'vi' ? (publicationTranslations as Record<string, PublicationTranslation>)[paper.id] : undefined;
@@ -31,6 +31,8 @@ const featuredPublications = ['C', 'J'].flatMap(prefix => publications.filter(p 
   // "…, pp. 151–158, 2026. ISBN 978-…" becomes "…, pp. 151–158, 2026".
   const reference = citation.match(new RegExp(`^.*?\\b${year}(?=\\.\\s|$)`))?.[0] ?? (citation.includes(year) ? citation : `${citation}, ${year}`);
   const note = locale === 'vi' ? translation?.note : paper.note;
+  const rank = (paper as { rank?: string }).rank;
+  const brackets = [rank, note && `${note.charAt(0).toLowerCase()}${note.slice(1)}`].filter(Boolean).join('; ');
   const doi = paper.links.find(link => link.label === 'DOI')?.url;
   return {
     authors: paper.authors.map(name => ({ name, self: name === 'B. M. Tran', equal: paper.equalContribution.includes(name) })),
@@ -38,7 +40,7 @@ const featuredPublications = ['C', 'J'].flatMap(prefix => publications.filter(p 
     titleLang: locale === 'vi' && !translation?.title ? 'en' : undefined,
     href: doi ?? (paper.project ? path(`/research/${paper.project}/`) : `${path('/publications/')}#paper-${paper.id}`),
     external: Boolean(doi),
-    reference: `${reference}${note ? ` (${note.charAt(0).toLowerCase()}${note.slice(1)})` : ''}.`,
+    reference: `${reference}${brackets ? ` (${brackets})` : ''}.`,
     referenceLang: locale === 'vi' && !translation?.citation ? 'en' : undefined,
   };
 });
