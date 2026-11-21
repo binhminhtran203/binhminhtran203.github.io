@@ -95,8 +95,11 @@ strong { font-weight: 500; color: var(--strong); }
 .academic-section-heading h2 { margin: 0; }
 .academic-section-heading .text-link { font-size: 13px; }
 .home-interests { margin-bottom: 24px; }
-.academic-selected-publications .publication-list { margin-top: 16px; }
 .research-interest-list { padding-left: 40px; margin: 0 0 20px; text-wrap: pretty; }
+/* Homepage publications, one bullet per paper: the italic title linked to the paper, then the venue and year. */
+.selected-publication-list { padding-left: 40px; margin: 0; text-wrap: pretty; }
+.selected-publication-list li { margin-bottom: 8px; }
+.selected-publication-more { margin: 0 0 20px; }
 /* Education, News, Research Experience, Research Grants and Honours and Awards are set like an academic CV, and
    like the author's own: the dates in a left column and no bullets, then the entry (a bold degree, position,
    funder or award with its details, or a news sentence). On phones the dates move to their own line above the
@@ -111,8 +114,8 @@ strong { font-weight: 500; color: var(--strong); }
 .cv-list.home-awards-list li { margin-bottom: 5px; }
 .cv-list.news-list li { grid-template-columns: 5.2em minmax(0,1fr); gap: 0 12px; margin-bottom: 8px; }
 .news-list .entry-body { text-wrap: pretty; }
-.news-list a { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-.news-list a:hover { text-decoration-color: currentColor; }
+.news-list a, .selected-publication-list a { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.news-list a:hover, .selected-publication-list a:hover { text-decoration-color: currentColor; }
 /* News scrolls in its own box, as in Minimal Light, so a long list does not push the publications down. */
 .news-scroll { max-height: 300px; overflow-y: auto; overflow-x: hidden; scrollbar-gutter: stable; padding-right: 12px; margin-bottom: 20px; }
 .news-scroll .news-list { margin-bottom: 0; padding-block: 2px; }
@@ -134,7 +137,6 @@ strong { font-weight: 500; color: var(--strong); }
 .section { padding-block: 20px; }
 .section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 19px; }
 .section-heading h2 { margin: 0; }
-.section-footnote { font-size: 13px; color: var(--muted); margin: 15px 0 0; }
 /* Publications follow the usual academic-homepage list (al-folio,
  * academicpages, Jon Barron's page): the title in bold, the authors with my
  * name in bold, the venue and year in italics with the status, and a row of
@@ -241,7 +243,7 @@ strong { font-weight: 500; color: var(--strong); }
   .academic-profile { max-width: 280px; }
   .primary-nav { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; font-size: 13.5px; }
   .primary-nav a { min-height: 44px; justify-content: center; text-align: center; }
-  .research-interest-list { padding-left: 25px; }
+  .research-interest-list, .selected-publication-list { padding-left: 25px; }
   .cv-list li { grid-template-columns: minmax(0,1fr); }
   .cv-list.home-awards-list li { grid-template-columns: 2.9em minmax(0,1fr); gap: 0 8px; }
   .cv-list.news-list li { grid-template-columns: minmax(0,1fr); }

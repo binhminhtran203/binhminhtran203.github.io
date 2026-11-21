@@ -8,6 +8,7 @@
   },
   "J1": {
     "title": "Mô hình học sâu hỗ trợ phân loại và định hướng vùng tổn thương u vú trên siêu âm",
+    "venue": "Tạp chí Nghiên cứu Y học",
     "citation": "Tạp chí Nghiên cứu Y học, Trường Đại học Y Hà Nội, 2026. Bài báo bằng tiếng Việt.",
     "note": "Đã được chấp nhận",
     "summary": "ResNet18-LGCT phân loại u vú lành tính – ác tính trên siêu âm, kèm bản đồ nhiệt Grad-CAM định hướng vùng tổn thương; được kiểm định nội bộ và kiểm định ngoài trên dữ liệu Trung Quốc và Thái Lan.",
