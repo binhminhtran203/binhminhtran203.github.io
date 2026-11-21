@@ -96,7 +96,7 @@ strong { font-weight: 500; color: var(--strong); }
 .academic-section-heading .text-link { font-size: 13px; }
 .home-interests { margin-bottom: 24px; }
 .research-interest-list { padding-left: 40px; margin: 0 0 20px; text-wrap: pretty; }
-/* Homepage publications, one bullet per paper: the italic title linked to the paper, then the venue and year. */
+/* Homepage publications, numbered 1, 2, 3, one paper each: the italic title linked to the paper, then the venue and year. */
 .selected-publication-list { padding-left: 40px; margin: 0; text-wrap: pretty; }
 .selected-publication-list li { margin-bottom: 8px; }
 .selected-publication-more { margin: 0 0 20px; }
