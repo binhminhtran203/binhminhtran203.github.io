@@ -42,7 +42,7 @@ export const presentations: Presentation[] = [
       en: 'A Multimodal Deep Learning Framework for Breast Cancer Receptor Status Prediction',
       vi: 'Mô hình học sâu đa phương thức để dự đoán tình trạng biểu hiện thụ thể trong ung thư vú',
     },
-    href: '#paper-C3',
+    href: '/publications/#paper-C3',
   },
   {
     id: 'young-intellectuals-forum-2026-oral',
