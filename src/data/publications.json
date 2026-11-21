@@ -124,6 +124,7 @@
     "year": 2026,
     "status": "published",
     "venue": "ACIIDS 2026",
+    "rank": "CORE B",
     "badge": "ACIIDS",
     "citation": "Recent Challenges in Intelligent Information and Database Systems (ACIIDS 2026), CCIS 2964, Springer, pp. 355–369, 2026.",
     "summary": "Combines attention-weighted multi-view graph convolutions, a variational graph autoencoder, and a gated predictor to prioritise candidate lncRNA–disease associations.",
