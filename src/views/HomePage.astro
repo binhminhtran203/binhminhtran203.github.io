@@ -96,9 +96,9 @@ const interests = [
       </section>
       <section class="academic-section academic-selected-publications" aria-labelledby="selected-title">
         <div class="academic-section-heading"><h2 id="selected-title">{t('Publications', 'Công bố tiêu biểu')}</h2><a class="text-link" href={path('/publications/')}>{t('All publications', 'Danh sách công bố')}</a></div>
-        <ul class="selected-publication-list">
+        <ol class="selected-publication-list">
           {featuredPublications.map(paper => <li><a href={paper.href} target={paper.external ? '_blank' : undefined} rel={paper.external ? 'noopener noreferrer' : undefined}><em lang={paper.titleLang}>{paper.title}</em></a>{paper.details}</li>)}
-        </ul>
+        </ol>
         <p class="selected-publication-more"><a class="text-link" href={profile.scholar} target="_blank" rel="noopener noreferrer"><Icon name="arrow" size={15} />{t('Full list on Google Scholar', 'Danh sách đầy đủ trên Google Scholar')}</a></p>
       </section>
       <section class="academic-section home-experience" id="experience" aria-labelledby="experience-title">
