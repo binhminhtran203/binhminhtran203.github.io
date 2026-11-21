@@ -5,10 +5,11 @@ import translationData from '../data/publications.vi.json';
 // One paper in the usual academic-homepage list (as in al-folio,
 // academicpages and Jon Barron's page): the title in bold, then the authors
 // (my name in bold, † for equal contribution), the venue and year in italics
-// with the status, and a row of bracketed links. BibTeX copies to the
+// with the venue's rank in brackets where it has one ("(CORE B)") and the
+// status, and a row of bracketed links. BibTeX copies to the
 // clipboard; if that is not allowed, the source opens under the entry.
 interface Link { label: string; url: string; download?: boolean; }
-interface Paper { id: string; title: string; authors: string[]; equalContribution: string[]; year: number; status: string; venue: string; citation: string; note?: string; summary?: string; project?: string; topics: string[]; links: Link[]; bibtex: string; }
+interface Paper { id: string; title: string; authors: string[]; equalContribution: string[]; year: number; status: string; venue: string; rank?: string; citation: string; note?: string; summary?: string; project?: string; topics: string[]; links: Link[]; bibtex: string; }
 interface Translation { title: string; citation: string; note?: string; summary?: string; }
 interface Props { paper: Paper; currentProject?: string; }
 const { paper, currentProject } = Astro.props;
@@ -35,11 +36,11 @@ const links = [
   ...paper.links.map(link => ({ label: linkLabels[link.label] ?? link.label, url: link.url, external: true, download: Boolean(link.download), aria: link.download ? `${downloadLabels[link.label] ?? t('Download full paper (PDF)', 'Tải toàn văn (PDF)')}: ${displayTitle}` : undefined })),
 ];
 ---
-<article id={`paper-${paper.id}`} class="publication" data-status={paper.status} data-search={`${displayTitle} ${paper.title} ${paper.authors.join(' ')} ${paper.venue} ${paper.topics.join(' ')} ${summary ?? ''}`.toLowerCase()}>
+<article id={`paper-${paper.id}`} class="publication" data-status={paper.status} data-search={`${displayTitle} ${paper.title} ${paper.authors.join(' ')} ${paper.venue} ${paper.rank ?? ''} ${paper.topics.join(' ')} ${summary ?? ''}`.toLowerCase()}>
   <h3 class="pub-title" lang={lang}>{displayTitle}</h3>
   {translation && <p class="publication-original-title" lang="en">{paper.title}</p>}
   <p class="authors">{paper.authors.map((author, i) => <>{i > 0 && ', '}{author === 'B. M. Tran' ? <strong>{author}</strong> : author}{paper.equalContribution.includes(author) && <sup>†</sup>}</>)}</p>
-  <p class="pub-venue"><em class="citation" lang={lang}>{citation}</em>{note && <>{' '}<span class="pub-note" lang={lang}>{note}</span></>}</p>
+  <p class="pub-venue"><em class="citation" lang={lang}>{citation}</em>{paper.rank && <>{' '}<span class="pub-rank">({paper.rank})</span></>}{note && <>{' '}<span class="pub-note" lang={lang}>{note}</span></>}</p>
   <p class="pub-links">
     {links.map(link => <a href={link.url} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined} download={link.download || undefined} aria-label={link.aria}><span aria-hidden="true">[</span>{link.label}<span aria-hidden="true">]</span></a>)}
     <button class="copy-bibtex" type="button" data-bibtex={paper.bibtex} aria-label={`${t('Copy BibTeX for', 'Sao chép BibTeX cho')} ${displayTitle}`}><span aria-hidden="true">[</span><span class="copy-bibtex-label">BibTeX</span><span aria-hidden="true">]</span></button>
