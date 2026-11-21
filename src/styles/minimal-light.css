@@ -96,9 +96,12 @@ strong { font-weight: 500; color: var(--strong); }
 .academic-section-heading .text-link { font-size: 13px; }
 .home-interests { margin-bottom: 24px; }
 .research-interest-list { padding-left: 40px; margin: 0 0 20px; text-wrap: pretty; }
-/* Homepage publications, numbered 1, 2, 3, one paper each: the italic title linked to the paper, then the venue and year. */
+/* Homepage publications, numbered 1, 2, 3 and set like a CV publication list: the authors, the title in quotation
+   marks linked to the paper, then the reference and year. A note under the list explains the † mark. */
 .selected-publication-list { padding-left: 40px; margin: 0; text-wrap: pretty; }
-.selected-publication-list li { margin-bottom: 8px; }
+.selected-publication-list li { margin-bottom: 10px; }
+.selected-publication-list sup { line-height: 0; }
+.selected-publication-note { font-size: 13.5px; color: var(--muted); margin: 0 0 6px; }
 .selected-publication-more { margin: 0 0 20px; }
 /* Education, News, Research Experience, Research Grants and Honours and Awards are set like an academic CV, and
    like the author's own: the dates in a left column and no bullets, then the entry (a bold degree, position,
