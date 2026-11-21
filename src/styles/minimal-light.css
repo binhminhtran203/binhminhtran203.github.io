@@ -149,6 +149,7 @@ strong { font-weight: 500; color: var(--strong); }
 .publication-original-title { font-size: 13.5px; font-style: italic; line-height: 1.45; color: var(--muted); margin: 0; }
 .authors, .pub-venue { margin: 0; }
 .citation { font-style: italic; }
+.pub-rank { white-space: nowrap; }
 .pub-note { color: var(--review); white-space: nowrap; }
 .pub-links { display: flex; flex-wrap: wrap; gap: 0 10px; margin: 2px 0 0; font-size: 14px; }
 .pub-links a, .copy-bibtex { color: var(--link); }
