@@ -42,16 +42,18 @@ const monthYear = (iso: string) => {
   const [year, month] = iso.split('-');
   return locale === 'vi' ? `${month}/${year}` : `${monthsEn[Number(month) - 1]} ${year}`;
 };
-// Research interests as one plain numbered list (no bold, one indent). The
-// items are short phrases, one field each, with no overlap: the AI methods
-// first, then the biology (RNA, genetic variants), then the clinical
-// application (cancer). The Vietnamese text is the author's own; the English
-// text is a translation.
+// Research interests as one plain bulleted list (no bold, one indent), in the
+// author's own English wording. The Vietnamese text is a translation that uses
+// the site's existing terms: "dữ liệu phân tử theo không gian" for spatial
+// omics, "biến đổi hóa học của RNA" for epitranscriptomics and "diễn giải biến
+// thể" for variant interpretation.
 const interests = [
-  t('Multimodal AI and graph learning', 'Trí tuệ nhân tạo đa phương thức và học trên đồ thị'),
-  t('Computational RNA biology', 'Sinh học RNA tính toán'),
-  t('Genetic variant interpretation in disease', 'Diễn giải biến thể di truyền liên quan đến bệnh'),
-  t('Cancer biomarker prediction and prognosis', 'Dự đoán dấu ấn sinh học và tiên lượng ung thư'),
+  t('Biomedical AI and multimodal learning', 'Trí tuệ nhân tạo y sinh và học đa phương thức'),
+  t('Graph representation learning for biological systems', 'Học biểu diễn đồ thị cho các hệ thống sinh học'),
+  t('Computational pathology and spatial omics', 'Giải phẫu bệnh tính toán và dữ liệu phân tử theo không gian'),
+  t('Computational RNA biology and epitranscriptomics', 'Sinh học RNA tính toán và biến đổi hóa học của RNA'),
+  t('Computational genomics and variant interpretation', 'Hệ gen học tính toán và diễn giải biến thể di truyền'),
+  t('Cancer biomarkers and clinical risk prediction', 'Dấu ấn sinh học ung thư và dự đoán nguy cơ lâm sàng'),
 ];
 ---
 <Layout>
@@ -81,7 +83,7 @@ const interests = [
       </section>
       <section class="academic-section home-interests" aria-labelledby="interests-title">
         <h2 id="interests-title">{t('Research Interests', 'Hướng nghiên cứu')}</h2>
-        <ol class="research-interest-list">{interests.map(interest => <li>{interest}</li>)}</ol>
+        <ul class="research-interest-list">{interests.map(interest => <li>{interest}</li>)}</ul>
       </section>
       </div>
       <section class="academic-section home-news" id="news" aria-labelledby="news-title">
