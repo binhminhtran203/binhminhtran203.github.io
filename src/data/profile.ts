@@ -4,6 +4,8 @@ export const profile = {
   updated: 'November 2026',
   scholar: 'https://scholar.google.com/citations?user=AYgkeCkAAAAJ',
   orcid: 'https://orcid.org/0009-0009-5601-6531',
+  // The profile address the author gave, without its ?ev=prf_overview tracking parameter.
+  researchgate: 'https://www.researchgate.net/profile/Binh-Tran-104',
   linkedin: 'https://www.linkedin.com/in/binhminh2003',
   cv: '/assets/binh-minh-tran-cv.pdf',
 };

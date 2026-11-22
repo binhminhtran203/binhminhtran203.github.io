@@ -84,4 +84,4 @@ The design is adapted from [Minimal Light by Yaoyao Liu](https://github.com/yaoy
 
 Crimson Pro includes Latin, extended Latin and Vietnamese glyphs, including italic styles. Font licences are bundled in `public/assets/fonts/`. The publication previews (genuine paper figures for C4, C3, C2 and J1, conceptual illustrations for the others) are no longer shown; their data and files are kept in case they return.
 
-Academic profile icons use self-hosted Academicons 1.8.6 (SIL OFL 1.1 / MIT) and the Font Awesome 6.4.2 LinkedIn SVG (CC BY 4.0). Attribution and licence notices are in `licenses/academicons-license.txt` and `licenses/academicons-fontawesome-linkedin-license.txt`.
+Academic profile icons use self-hosted Academicons 1.8.6 (SIL OFL 1.1 / MIT) for Google Scholar, the CV, ORCID and ResearchGate, and the Font Awesome 6.4.2 LinkedIn SVG (CC BY 4.0). Attribution and licence notices are in `licenses/academicons-license.txt` and `licenses/academicons-fontawesome-linkedin-license.txt`.
