@@ -13,8 +13,9 @@ interface Award {
 
 // Newest year first. Within a year: research prizes first, from the national
 // level down (the national health-sector conference, the Vietnamese Young
-// Intellectuals Forum in Australia, then the university conference); then the
-// certificates of merit. The CV of 17 November 2026 lists the 2026 awards in a
+// Intellectuals Forum in Australia, then the university conference); then
+// other contest placings (the Top 30 place in the national healthcare ideas
+// contest); then the certificates of merit. The CV of 17 November 2026 lists the 2026 awards in a
 // different order and also lists the AURORA finalist place and the Embassy's
 // Outstanding Student Award, which are left off the site at the author's
 // request. The homepage sets them like its other CV sections: the year in the
@@ -44,6 +45,19 @@ export const awards: Award[] = [
     organisation: {
       en: 'Youth Science and Technology Conference, Hanoi Medical University',
       vi: 'Hội nghị Khoa học và Công nghệ tuổi trẻ, Trường Đại học Y Hà Nội',
+    },
+  },
+  {
+    // Added at the author's request, in the author's Vietnamese wording. No
+    // official English name of the contest was found; the English is a
+    // translation. Hội Sinh viên Việt Nam is named as in the entries below, and
+    // Hội Thầy thuốc trẻ Việt Nam by the English name used in the national press.
+    id: 'award-healthcare-ideas-top30-2026',
+    year: '2026',
+    title: { en: 'Top 30', vi: 'Top 30' },
+    organisation: {
+      en: 'Vietnamese Healthcare Ideas Contest 2026, Vietnam National Union of Students and Vietnam Young Physicians’ Association',
+      vi: 'Ý tưởng chăm sóc sức khỏe Việt 2026, Trung ương Hội Sinh viên Việt Nam và Trung ương Hội Thầy thuốc trẻ Việt Nam',
     },
   },
   {
