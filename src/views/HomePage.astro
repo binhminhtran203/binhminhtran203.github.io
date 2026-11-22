@@ -60,11 +60,14 @@ const monthYear = (iso: string) => {
   return locale === 'vi' ? `${month}/${year}` : `${monthsEn[Number(month) - 1]} ${year}`;
 };
 // Research interests as one plain bulleted list (no bold, one indent). Both the
-// English and the Vietnamese are the author's own wording.
+// English and the Vietnamese are the author's own wording, except that medical
+// image processing, added later at the author's request, sits beside the other
+// imaging topic and has a translated Vietnamese name ("xử lý ảnh y tế").
 const interests = [
   t('Biomedical AI and multimodal learning', 'Trí tuệ nhân tạo trong y sinh học và học đa phương thức'),
   t('Graph representation learning for biological systems', 'Học biểu diễn đồ thị cho các hệ thống sinh học'),
   t('Computational pathology and spatial omics', 'Giải phẫu bệnh học tính toán và phân tích omics không gian'),
+  t('Medical image processing', 'Xử lý ảnh y tế'),
   t('Computational RNA biology and epitranscriptomics', 'Sinh học RNA tính toán và biểu sinh RNA'),
   t('Computational genomics and variant interpretation', 'Hệ gen học tính toán và diễn giải biến thể di truyền'),
   t('Cancer biomarkers and clinical risk prediction', 'Dấu ấn sinh học ung thư và dự báo nguy cơ lâm sàng'),
