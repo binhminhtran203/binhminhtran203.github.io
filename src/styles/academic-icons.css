@@ -29,4 +29,7 @@
 .academic-icon-scholar::before { content: '\e9d4'; }
 .academic-icon-cv::before { content: '\e9a5'; }
 .academic-icon-orcid::before { content: '\e9d9'; }
+/* ResearchGate uses the square glyph (ai-researchgate-square), a filled badge like
+ * the ORCID and LinkedIn icons. The plain R-G letters read as "R6" at this size. */
+.academic-icon-researchgate::before { content: '\e99e'; }
 .academic-icon-linkedin { width: 1.00625rem; height: 1.15rem; }
