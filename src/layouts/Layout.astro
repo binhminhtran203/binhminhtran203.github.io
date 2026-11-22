@@ -25,6 +25,9 @@ const canonical = !noindex && origin && !origin.includes('example.invalid') ? ne
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {/* Google Search Console ownership check for the URL-prefix property https://binhminhtran203.github.io/.
+        Google reads it from the home page. Keep it, or the site loses its verified status. */}
+    <meta name="google-site-verification" content="QFj5cSlES4HqWwsEdBIzzmN6COJuxWBWWNEgyrsponc" />
     <meta name="theme-color" content="#fcfbf7" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#171a1f" media="(prefers-color-scheme: dark)" />
     <script is:inline>
