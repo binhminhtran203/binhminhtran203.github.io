@@ -5,8 +5,8 @@ import translationData from '../data/publications.vi.json';
 // One paper in the usual academic-homepage list (as in al-folio,
 // academicpages and Jon Barron's page): the title in bold, then the authors
 // (my name in bold, † for equal contribution), the venue and year in italics
-// with the venue's rank in brackets where it has one ("(CORE B)") and the
-// status, and a row of bracketed links. BibTeX copies to the
+// with the venue's rank in brackets where it has one ("(CORE B)" for a
+// conference, "(Q1, IF: 4.9)" for a journal) and the status, and a row of bracketed links. BibTeX copies to the
 // clipboard; if that is not allowed, the source opens under the entry.
 interface Link { label: string; url: string; download?: boolean; }
 interface Paper { id: string; title: string; authors: string[]; equalContribution: string[]; year: number; status: string; venue: string; rank?: string; citation: string; note?: string; summary?: string; project?: string; topics: string[]; links: Link[]; bibtex: string; }
