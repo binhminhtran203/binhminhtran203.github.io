@@ -71,8 +71,42 @@ const interests = [
   t('Computational genomics and variant interpretation', 'Hệ gen học tính toán và diễn giải biến thể di truyền'),
   t('Cancer biomarkers and clinical risk prediction', 'Dấu ấn sinh học ung thư và dự báo nguy cơ lâm sàng'),
 ];
+// Structured data (schema.org JSON-LD) for search engines. Google reads a
+// personal "About me" page as a profile page (ProfilePage) about one person, and
+// reads the site name from WebSite data on the root home page only, so the
+// English home page carries both and the Vietnamese one the profile alone. Each
+// value repeats what the page shows: the name in the heading (the other
+// language's form is the alternate name), the portrait, the visiting appointment
+// shown in the sidebar and under Research Experience, the bachelor's degree under
+// Education, the research interests and the profile links in the sidebar.
+const site = Astro.site ?? Astro.url;
+const home = new URL('/', site).href;
+const appointment = researchExperience.find(item => item.id === 'anu-visiting')!;
+const bachelor = education.find(item => item.id === 'bachelor-sydney')!;
+const person = {
+  '@type': 'Person',
+  '@id': `${home}#person`,
+  name: t(profile.name, 'Trần Bình Minh'),
+  alternateName: t('Trần Bình Minh', profile.name),
+  url: home,
+  image: new URL('/assets/binh-minh-tran-avatar.jpg', site).href,
+  description: [appointment.role, appointment.unit!, appointment.organisation].map(part => part[locale]).join(', '),
+  jobTitle: appointment.role[locale],
+  affiliation: {
+    '@type': 'Organization',
+    name: appointment.unit![locale],
+    parentOrganization: { '@type': 'CollegeOrUniversity', name: appointment.organisation[locale] },
+  },
+  alumniOf: { '@type': 'CollegeOrUniversity', name: bachelor.institution[locale] },
+  knowsAbout: interests,
+  sameAs: [profile.scholar, profile.orcid, profile.researchgate, profile.linkedin],
+};
+const structuredData = [
+  ...(locale === 'en' ? [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${home}#website`, name: profile.name, alternateName: ['Trần Bình Minh'], url: home }] : []),
+  { '@context': 'https://schema.org', '@type': 'ProfilePage', url: new URL(path('/'), site).href, inLanguage: locale, mainEntity: person },
+];
 ---
-<Layout>
+<Layout structuredData={structuredData}>
   <div class="container academic-shell">
     <div class="academic-main">
       <div class="home-overview-grid">
