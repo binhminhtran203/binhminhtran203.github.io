@@ -23,7 +23,8 @@ const path = (value: string) => localizePath(value, locale);
 // DOI or preprint DOI, else its project page, else its entry on the
 // publications page), then
 // the reference up to the year and, in brackets, the venue's rank where it has
-// one ("CORE B") and the status of an accepted paper. Notes after the year (an
+// one ("CORE B" for a conference, "Q1, IF: 4.9" for a journal) and the status
+// of a paper that is accepted or under review. Notes after the year (an
 // ISBN, the article's language), PDFs and BibTeX are on the publications page.
 type PublicationTranslation = { title?: string; citation?: string; note?: string };
 const featuredPublications = [
