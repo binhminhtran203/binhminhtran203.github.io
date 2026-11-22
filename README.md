@@ -26,7 +26,9 @@ The generated website is in `dist/`. The `prebuild` script also preserves the pr
 
 GitHub Pages uses **GitHub Actions** as its publishing source. Every push to `main` runs `.github/workflows/deploy.yml`, which installs dependencies, builds the Astro site, uploads `dist/`, and deploys it to GitHub Pages. The workflow can also be run manually from the Actions tab.
 
-`SITE_URL` sets the canonical origin, Open Graph URLs, and sitemap origin. This repository deploys at the domain root, so no Astro `base` is required. If using a custom domain, update the workflow environment, the fallback in `astro.config.mjs`, `public/robots.txt`, and the paper URLs embedded in the public CV.
+`SITE_URL` sets the canonical origin, Open Graph URLs, sitemap origin, and the URLs in the home pages' structured data. This repository deploys at the domain root, so no Astro `base` is required. If using a custom domain, update the workflow environment, the fallback in `astro.config.mjs`, `public/robots.txt`, and the paper URLs embedded in the public CV.
+
+The home pages carry schema.org structured data (JSON-LD) for search engines, built in `src/views/HomePage.astro` and printed by the layout. Both carry a `ProfilePage` about the author with the name, portrait, visiting appointment, bachelor's degree, research interests and profile links, as the page shows them. The English root page also carries `WebSite` data with the site name, because Google reads site names only from the root home page.
 
 The earlier single-page website remains available in Git history, before the Astro migration commit. Restore via a reviewed revert rather than deleting history.
 

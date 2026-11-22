@@ -9,8 +9,8 @@ import { getLocale, localizePath, text } from '../i18n';
 const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
 const href = (path: string) => localizePath(path, locale);
-interface Props { title?: string; description?: string; noindex?: boolean; }
-const { title, description = t('Binh Minh Tran works on graph and multimodal learning for biomedical research, with interests in computational RNA biology, spatial omics, and cancer AI.', 'Trần Bình Minh nghiên cứu các phương pháp học trên đồ thị và học đa phương thức trong y sinh, tập trung vào sinh học RNA tính toán, dữ liệu phân tử theo không gian và ứng dụng trí tuệ nhân tạo trong nghiên cứu ung thư.'), noindex = false } = Astro.props;
+interface Props { title?: string; description?: string; noindex?: boolean; structuredData?: Record<string, unknown>[]; }
+const { title, description = t('Binh Minh Tran works on graph and multimodal learning for biomedical research, with interests in computational RNA biology, spatial omics, and cancer AI.', 'Trần Bình Minh nghiên cứu các phương pháp học trên đồ thị và học đa phương thức trong y sinh, tập trung vào sinh học RNA tính toán, dữ liệu phân tử theo không gian và ứng dụng trí tuệ nhân tạo trong nghiên cứu ung thư.'), noindex = false, structuredData = [] } = Astro.props;
 const pageTitle = title ? `${title} — ${t("Binh Minh Tran", "Trần Bình Minh")}` : t('Binh Minh Tran — Biomedical AI & Computational Biology', 'Trần Bình Minh — Trí tuệ nhân tạo y sinh và Sinh học tính toán');
 // At the author's request the navigation has no Research link; the research
 // pages are still reached from publication, news and project links.
@@ -53,6 +53,8 @@ const canonical = !noindex && origin && !origin.includes('example.invalid') ? ne
     <meta property="og:locale" content={locale === 'vi' ? 'vi_VN' : 'en_AU'} />
     <meta property="og:locale:alternate" content={locale === 'vi' ? 'en_AU' : 'vi_VN'} />
     {canonical && <>{(['en', 'vi'] as const).map(language => <link rel="alternate" hreflang={language} href={new URL(localizePath(path, language), origin).href} />)}<link rel="alternate" hreflang="x-default" href={new URL(localizePath(path, 'en'), origin).href} /></>}
+    {/* Schema.org JSON-LD from the page, one block per item; "<" is escaped so the text cannot end the script. */}
+    {canonical && structuredData.map(item => <script type="application/ld+json" set:html={JSON.stringify(item).replace(/</g, '\\u003c')} />)}
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
