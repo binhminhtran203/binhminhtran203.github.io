@@ -14,8 +14,8 @@ import { getLocale, localizePath, text } from '../i18n';
 const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
 const path = (value: string) => localizePath(value, locale);
-// At the author's request the manuscript under review at Scientific Reports
-// (M2, with its bioRxiv preprint) leads the list, marked as under review. Then
+// At the author's request the manuscript under revision at Scientific Reports
+// (M2, with its bioRxiv preprint) leads the list, marked as under revision. Then
 // come the accepted and published papers in CV order: conference papers first,
 // then journal articles. At the author's request the homepage numbers them and
 // sets each one like a CV publication list: the authors (my name in bold, † for
@@ -24,7 +24,7 @@ const path = (value: string) => localizePath(value, locale);
 // publications page), then
 // the reference up to the year and, in brackets, the venue's rank where it has
 // one ("CORE B" for a conference, "Q1, IF: 4.9" for a journal) and the status
-// of a paper that is accepted or under review. Notes after the year (an
+// of a paper that is not yet published. Notes after the year (an
 // ISBN, the article's language), PDFs and BibTeX are on the publications page.
 type PublicationTranslation = { title?: string; citation?: string; note?: string };
 const featuredPublications = [
