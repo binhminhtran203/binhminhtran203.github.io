@@ -14,16 +14,22 @@ import { getLocale, localizePath, text } from '../i18n';
 const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
 const path = (value: string) => localizePath(value, locale);
-// Accepted and published papers in CV order: conference papers first, then
-// journal articles. At the author's request the homepage numbers them and sets
-// each one like a CV publication list: the authors (my name in bold, † for
+// At the author's request the manuscript under review at Scientific Reports
+// (M2, with its bioRxiv preprint) leads the list, marked as under review. Then
+// come the accepted and published papers in CV order: conference papers first,
+// then journal articles. At the author's request the homepage numbers them and
+// sets each one like a CV publication list: the authors (my name in bold, † for
 // equal contribution), the title in quotation marks, linked to the paper (its
-// DOI, else its project page, else its entry on the publications page), then
+// DOI or preprint DOI, else its project page, else its entry on the
+// publications page), then
 // the reference up to the year and, in brackets, the venue's rank where it has
 // one ("CORE B") and the status of an accepted paper. Notes after the year (an
 // ISBN, the article's language), PDFs and BibTeX are on the publications page.
 type PublicationTranslation = { title?: string; citation?: string; note?: string };
-const featuredPublications = ['C', 'J'].flatMap(prefix => publications.filter(p => p.status !== 'review' && p.id.startsWith(prefix))).map(paper => {
+const featuredPublications = [
+  ...publications.filter(p => p.id === 'M2'),
+  ...['C', 'J'].flatMap(prefix => publications.filter(p => p.status !== 'review' && p.id.startsWith(prefix))),
+].map(paper => {
   const translation = locale === 'vi' ? (publicationTranslations as Record<string, PublicationTranslation>)[paper.id] : undefined;
   const citation = (translation?.citation || paper.citation).replace(/\.$/, '');
   const year = String(paper.year);
@@ -33,7 +39,7 @@ const featuredPublications = ['C', 'J'].flatMap(prefix => publications.filter(p 
   const note = locale === 'vi' ? translation?.note : paper.note;
   const rank = (paper as { rank?: string }).rank;
   const brackets = [rank, note && `${note.charAt(0).toLowerCase()}${note.slice(1)}`].filter(Boolean).join('; ');
-  const doi = paper.links.find(link => link.label === 'DOI')?.url;
+  const doi = paper.links.find(link => link.url.startsWith('https://doi.org/'))?.url;
   return {
     authors: paper.authors.map(name => ({ name, self: name === 'B. M. Tran', equal: paper.equalContribution.includes(name) })),
     title: translation?.title || paper.title,
