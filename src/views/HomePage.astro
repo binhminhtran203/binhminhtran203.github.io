@@ -15,8 +15,9 @@ const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
 const path = (value: string) => localizePath(value, locale);
 // At the author's request the manuscript under revision at Scientific Reports
-// (M2, with its bioRxiv preprint) leads the list, marked as under revision. Then
-// come the accepted and published papers in CV order: conference papers first,
+// (M2, with its bioRxiv preprint) leads the list, marked as under revision,
+// followed by the ACIIDS 2027 manuscript (M3, with its medRxiv preprint), marked
+// as under review. Then come the accepted and published papers in CV order: conference papers first,
 // then journal articles. At the author's request the homepage numbers them and
 // sets each one like a CV publication list: the authors (my name in bold, † for
 // equal contribution), the title in quotation marks, linked to the paper (its
@@ -28,7 +29,7 @@ const path = (value: string) => localizePath(value, locale);
 // ISBN, the article's language), PDFs and BibTeX are on the publications page.
 type PublicationTranslation = { title?: string; citation?: string; note?: string };
 const featuredPublications = [
-  ...publications.filter(p => p.id === 'M2'),
+  ...['M2', 'M3'].map(id => publications.find(p => p.id === id)!),
   ...['C', 'J'].flatMap(prefix => publications.filter(p => p.status !== 'review' && p.id.startsWith(prefix))),
 ].map(paper => {
   const translation = locale === 'vi' ? (publicationTranslations as Record<string, PublicationTranslation>)[paper.id] : undefined;
