@@ -73,7 +73,7 @@ export const projects = [
     visual: 'rna',
     question: 'How can complementary views of biological networks help identify associations between lncRNAs and disease?',
     approach: 'The ACIIDS 2026 study combines attention-weighted multi-view graph convolutional networks, a variational graph autoencoder, and a gated multilayer perceptron to prioritise potential lncRNA–disease associations. It integrates similarity networks and known interactions among lncRNAs, diseases, and miRNAs, combining precomputed topological features with learned probabilistic embeddings. A separate FJCAI 2026 paper investigates dual-stream contrastive graph representation learning.',
-    contribution: 'I developed and implemented both models, evaluated their performance, and drafted the manuscripts with collaborators under the supervision of Associate Professor Dang Hung Tran.',
+    contribution: 'I developed and implemented both models, evaluated their performance, and drafted the manuscripts with collaborators.',
     evaluation: [
       'For the variational multi-view model, five-fold benchmark evaluation on Dataset 1 — 665 lncRNAs, 316 diseases, and 3,833 known lncRNA–disease associations — reported an AUC of 0.9584 and AUPR of 0.9590.',
       'Evaluation on Dataset 2 — 240 lncRNAs, 412 diseases, and 2,697 known lncRNA–disease associations — reported an AUC of 0.9300 and AUPR of 0.9344.',
@@ -108,7 +108,6 @@ export const projects = [
     ],
     details: [
       { label: 'Student project lead', value: 'Nguyen Van An' },
-      { label: 'Supervisors', value: 'Nguyen Thi Bich Van, MD, PhD; Nguyen Ngoc Minh Hai' },
       { label: 'Study setting', value: 'National Hospital of Obstetrics and Gynecology; analysis at Hanoi Medical University' },
       { label: 'Funding', value: 'VND 10,000,000 · Hanoi Medical University student research funding' },
       { label: 'Proposal review', value: 'Funding supported by the review council on 8 October 2026' },
