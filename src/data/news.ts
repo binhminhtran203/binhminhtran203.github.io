@@ -71,14 +71,15 @@ export const news: NewsItem[] = [
   },
   {
     // The project is described as the host suggested and as the CV does; the
-    // Vietnamese follows the author's own translation in About Me.
+    // Vietnamese follows the author's own translation in About Me. At the
+    // author's request the item names the centre, not the supervisor.
     id: 'anu-visiting-research',
     date: '2026-10',
-    before: { en: 'I joined ', vi: 'Tôi bắt đầu làm nghiên cứu viên khách mời trong ' },
-    link: { href: 'https://researchportalplus.anu.edu.au/en/persons/eduardo-eyras/', label: { en: "Prof. Eduardo Eyras's group", vi: 'nhóm GS. Eduardo Eyras' } },
+    before: { en: 'I joined the ', vi: 'Tôi bắt đầu làm nghiên cứu viên khách mời tại ' },
+    link: { href: 'https://jcsmr.anu.edu.au/research/centres/ccbs', label: { en: 'Centre for Computational Biomedical Sciences', vi: 'Trung tâm Khoa học Y sinh Tính toán' } },
     after: {
       en: ' at ANU as a Visiting Researcher, investigating how multimodal deep learning can incorporate epitranscriptomic evidence into genetic variant interpretation.',
-      vi: ' tại ANU, nghiên cứu cách ứng dụng học sâu đa phương thức để tích hợp bằng chứng về các biến đổi hóa học trên RNA vào quá trình diễn giải ý nghĩa của các biến thể di truyền.',
+      vi: ' của ANU, nghiên cứu cách ứng dụng học sâu đa phương thức để tích hợp bằng chứng về các biến đổi hóa học trên RNA vào quá trình diễn giải ý nghĩa của các biến thể di truyền.',
     },
   },
   {
@@ -132,8 +133,8 @@ export const news: NewsItem[] = [
     id: 'sydney-honours-research',
     date: '2026-02',
     before: {
-      en: 'I started my honours research with A/Prof. Xiuying Wang at the University of Sydney, developing ',
-      vi: 'Tôi bắt đầu nghiên cứu tốt nghiệp (Honours) tại Đại học Sydney dưới sự hướng dẫn của PGS. Xiuying Wang, phát triển ',
+      en: 'I started my honours research at the University of Sydney, developing ',
+      vi: 'Tôi bắt đầu nghiên cứu tốt nghiệp (Honours) tại Đại học Sydney, phát triển ',
     },
     link: { href: '/research/nimsurv/', label: { en: 'NIMSurv', vi: 'NIMSurv' } },
     after: {

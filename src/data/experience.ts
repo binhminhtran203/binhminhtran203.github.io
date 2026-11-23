@@ -12,15 +12,14 @@ interface Experience {
   location: BilingualText;
   /** Dates, shown in the left column. */
   period: BilingualText;
-  /** Optional second line: supervisor or host. */
-  detail?: BilingualText;
 }
 
 // Research experience from the CV of 18 November 2026, set like an academic CV
 // and like the CV itself: the dates in a left column, then the position (bold),
-// department, institution and location, with the supervisor or host on a
-// second line. University CV guides give the same fields in the same order:
-// position, department or lab, institution, location, dates.
+// department, institution and location. University CV guides give the same
+// fields in the same order: position, department or lab, institution,
+// location, dates. At the author's request the entries do not name
+// supervisors or hosts.
 // At the author's request the entries say where the work was done, not what it
 // was; the CV and research pages describe the work. Units and locations are
 // from the CV. The VinBigdata internship is no longer listed, at the author's
@@ -50,7 +49,6 @@ export const researchExperience: Experience[] = [
     organisation: { en: 'Australian National University', vi: 'Đại học Quốc gia Australia' },
     location: { en: 'Canberra, Australia', vi: 'Canberra, Australia' },
     period: { en: 'Oct 2026 – present', vi: '10/2026 – nay' },
-    detail: { en: 'Host: Prof. Eduardo Eyras', vi: 'Người hướng dẫn: GS. Eduardo Eyras' },
   },
   {
     id: 'hmu-collaborator',
@@ -67,7 +65,6 @@ export const researchExperience: Experience[] = [
     organisation: { en: 'The University of Sydney', vi: 'Đại học Sydney' },
     location: { en: 'Australia', vi: 'Australia' },
     period: { en: 'Feb – Oct 2026', vi: '02/2026 – 10/2026' },
-    detail: { en: 'Supervisor: A/Prof. Xiuying Wang', vi: 'Người hướng dẫn: PGS. Xiuying Wang' },
   },
   {
     id: 'vast-assistant',
@@ -88,6 +85,5 @@ export const researchExperience: Experience[] = [
     organisation: { en: 'Hanoi University of Industry', vi: 'Trường Đại học Công nghiệp Hà Nội' },
     location: { en: 'Vietnam', vi: 'Việt Nam' },
     period: { en: 'Dec 2024 – Dec 2025', vi: '12/2024 – 12/2025' },
-    detail: { en: 'Supervisor: A/Prof. Dang Hung Tran', vi: 'Người hướng dẫn: PGS. Dang Hung Tran' },
   },
 ];

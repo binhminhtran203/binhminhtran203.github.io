@@ -70,7 +70,7 @@ export const projectsVi: typeof projects = [
     visual: 'rna',
     question: 'Các góc nhìn bổ sung về mạng sinh học có thể hỗ trợ xác định mối liên hệ giữa lncRNA và bệnh như thế nào?',
     approach: 'Nghiên cứu tại ACIIDS 2026 kết hợp mạng tích chập đồ thị đa góc nhìn có cơ chế chú ý, bộ tự mã hóa đồ thị biến phân và mạng nơ-ron truyền thẳng đa tầng có cơ chế cổng để xếp hạng các mối liên hệ lncRNA–bệnh tiềm năng. Mô hình tích hợp các mạng tương đồng và những tương tác đã biết giữa lncRNA, bệnh và miRNA. Các đặc trưng cấu trúc mạng được tính trước được kết hợp với biểu diễn nhúng xác suất do mô hình học được. Bài báo riêng tại FJCAI 2026 nghiên cứu phương pháp học biểu diễn đồ thị tương phản hai luồng.',
-    contribution: 'Tôi phát triển và triển khai cả hai mô hình, đánh giá hiệu năng và cùng các cộng sự viết bản thảo dưới sự hướng dẫn của Phó Giáo sư Dang Hung Tran.',
+    contribution: 'Tôi phát triển và triển khai cả hai mô hình, đánh giá hiệu năng và cùng các cộng sự viết bản thảo.',
     evaluation: [
       'Mô hình biến phân đa góc nhìn được đánh giá chéo 5 phần trên Bộ dữ liệu 1, gồm 665 lncRNA, 316 bệnh và 3,833 mối liên hệ lncRNA–bệnh đã biết. Kết quả ghi nhận AUC 0.9584 và AUPR 0.9590.',
       'Đánh giá trên Bộ dữ liệu 2, gồm 240 lncRNA, 412 bệnh và 2,697 mối liên hệ lncRNA–bệnh đã biết, ghi nhận AUC 0.9300 và AUPR 0.9344.',
@@ -105,7 +105,6 @@ export const projectsVi: typeof projects = [
     ],
     details: [
       { label: 'Chủ nhiệm đề tài sinh viên', value: 'Nguyen Van An' },
-      { label: 'Người hướng dẫn', value: 'Nguyen Thi Bich Van, Bác sĩ, Tiến sĩ; Nguyen Ngoc Minh Hai' },
       { label: 'Địa điểm nghiên cứu', value: 'Bệnh viện Phụ sản Trung ương; phân tích tại Trường Đại học Y Hà Nội' },
       { label: 'Kinh phí', value: '10.000.000 đồng · Kinh phí nghiên cứu khoa học sinh viên của Trường Đại học Y Hà Nội' },
       { label: 'Phản biện đề cương', value: 'Hội đồng phản biện ủng hộ cấp kinh phí ngày 8 tháng 10 năm 2026' },

@@ -11,14 +11,12 @@ interface Education {
   field?: BilingualText;
   /** Thesis title, in its original language, and its public PDF. */
   thesis?: { title: string; href: string };
-  /** Supervisor line. */
-  supervisor?: BilingualText;
 }
 
 // Newest first, from the November 2026 CV, set like an academic CV: the years
 // in a left column, then a bold degree and the institution, followed by the
-// field, the thesis title and the supervisor on their own lines, as the CV
-// gives them.
+// field and the thesis title on their own lines, as the CV gives them. At the
+// author's request the site does not name supervisors.
 // The doctoral study starts in 2027, so it stays marked as incoming. The
 // bachelor's degree is complete, as in the CV of 17 November 2026. Keep the
 // official English degree names.
@@ -32,7 +30,6 @@ export const education: Education[] = [
       en: 'Computational RNA biology, John Curtin School of Medical Research',
       vi: 'Sinh học RNA tính toán, Trường Nghiên cứu Y khoa John Curtin',
     },
-    supervisor: { en: 'Supervisor: Prof. Eduardo Eyras', vi: 'Người hướng dẫn: GS. Eduardo Eyras' },
   },
   {
     id: 'bachelor-sydney',
@@ -46,7 +43,6 @@ export const education: Education[] = [
       title: 'Multimodal Graph Learning for Breast Cancer Survival Prediction',
       href: '/assets/papers/tran-honours-thesis-2026.pdf',
     },
-    supervisor: { en: 'Supervisor: A/Prof. Xiuying Wang', vi: 'Người hướng dẫn: PGS. Xiuying Wang' },
   },
   {
     id: 'high-school-hus',
