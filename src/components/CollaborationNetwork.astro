@@ -13,7 +13,11 @@ interface Translation { title: string; venue?: string; note?: string; }
 const locale = getLocale(Astro.url.pathname);
 const t = (en: string, vi: string) => text(locale, en, vi);
 const translations = translationData as Record<string, Translation>;
-const network = buildNetwork(publications);
+// At the author's request the network leaves out M1 (H2F-GCN, with
+// O. T.-C. Chen and others); the paper stays in the list above.
+const leftOut = new Set(['M1']);
+const works = publications.filter(paper => !leftOut.has(paper.id));
+const network = buildNetwork(works);
 const drawings = [
   { name: 'wide', width: 650, height: 430, fontSize: 12.5 },
   { name: 'tall', width: 360, height: 540, fontSize: 12 },
@@ -24,7 +28,7 @@ const coauthors = network.people
 
 // Joint works in the order of the list above: conference papers, journal
 // articles, then manuscripts under review.
-const order = ['C', 'J', 'M'].flatMap(prefix => publications.filter(paper => paper.id.startsWith(prefix)).map(paper => paper.id));
+const order = ['C', 'J', 'M'].flatMap(prefix => works.filter(paper => paper.id.startsWith(prefix)).map(paper => paper.id));
 const papers = new Map(publications.map(paper => [paper.id, paper]));
 const work = (id: string) => {
   const paper = papers.get(id)!;
@@ -39,8 +43,8 @@ const joint = (n: number) => t(`${n} joint ${n === 1 ? 'work' : 'works'}`, `${n}
 <section class="container collaboration-section" id="collaboration-network" aria-labelledby="collaboration-network-title" data-network>
   <h2 id="collaboration-network-title">{t('Collaboration network', 'Mạng lưới cộng tác')}</h2>
   <p class="network-lead">{t(
-    `My co-authors on the ${publications.length} works above, including manuscripts under review. A larger, darker circle means more joint works, and a line joins two people who wrote a work together. Co-authors who also worked with one another sit side by side.`,
-    `Các đồng tác giả của tôi trong ${publications.length} công trình ở trên, kể cả các bản thảo đang phản biện. Vòng tròn càng lớn và càng đậm thì số công trình chung càng nhiều; đường nối hai người là họ đã cùng viết một công trình. Những đồng tác giả cũng làm việc với nhau được xếp cạnh nhau.`)}</p>
+    `My co-authors on ${works.length} of the works above, including manuscripts under review. A larger, darker circle means more joint works, and a line joins two people who wrote a work together. Co-authors who also worked with one another sit side by side.`,
+    `Các đồng tác giả của tôi trong ${works.length} công trình ở trên, kể cả các bản thảo đang phản biện. Vòng tròn càng lớn và càng đậm thì số công trình chung càng nhiều; đường nối hai người là họ đã cùng viết một công trình. Những đồng tác giả cũng làm việc với nhau được xếp cạnh nhau.`)}</p>
   <figure class="network-figure">
     {drawings.map(drawing => (
       <svg class={`network-graph network-graph-${drawing.name}`} viewBox={drawing.viewBox} font-size={drawing.fontSize} role="img" aria-label={t(`Network of my ${coauthors.length} co-authors; the list below names each one with the number of joint works.`, `Mạng lưới ${coauthors.length} đồng tác giả của tôi; danh sách bên dưới ghi tên từng người và số công trình chung.`)}>
@@ -57,8 +61,8 @@ const joint = (n: number) => t(`${n} joint ${n === 1 ? 'work' : 'works'}`, `${n}
     ))}
     <figcaption class="network-details" aria-live="polite">
       <p data-detail="">{t(
-        `${coauthors.length} co-authors across ${publications.length} works. Select a circle or a name below to see the joint works.`,
-        `${coauthors.length} đồng tác giả trong ${publications.length} công trình. Chọn một vòng tròn hoặc một tên bên dưới để xem các công trình chung.`)}</p>
+        `${coauthors.length} co-authors across ${works.length} works. Select a circle or a name below to see the joint works.`,
+        `${coauthors.length} đồng tác giả trong ${works.length} công trình. Chọn một vòng tròn hoặc một tên bên dưới để xem các công trình chung.`)}</p>
       {coauthors.map(person => (
         <p data-detail={person.key} hidden>
           <strong>{person.name}</strong>: {joint(person.works.length)} —{' '}

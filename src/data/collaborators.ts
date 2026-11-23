@@ -109,11 +109,13 @@ export function layoutNetwork({ people, ties }: Network, { width, height, fontSi
   const inner = Math.min(rx * 0.3, 40);
   const placed = new Map<string, PlacedPerson>();
   if (self) placed.set(self.key, { ...self, x: cx, y: cy, r: radius(self), label: { x: 0, y: radius(self) + 4 + fontSize * 0.72, anchor: 'middle' } });
+  // A shorter side keeps the same spacing and is centred on the middle.
+  const slots = Math.max(...sides.map(side => side.length));
   sides.forEach((side, s) => {
     const dir = s === 0 ? -1 : 1;
     side.forEach((person, i) => {
       if (!person) return;
-      const t = side.length === 1 ? 0 : -1 + (2 * i) / (side.length - 1);
+      const t = slots === 1 ? 0 : (2 * i - (side.length - 1)) / (slots - 1);
       const x = cx + dir * (inner + (rx - inner) * Math.sqrt(1 - t * t));
       const r = radius(person);
       placed.set(person.key, { ...person, x, y: cy + t * ry, r, label: { x: dir * (r + 4), y: fontSize * 0.32, anchor: dir > 0 ? 'start' : 'end' } });
