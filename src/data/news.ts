@@ -107,6 +107,19 @@ export const news: NewsItem[] = [
     },
   },
   {
+    // Added at the author's request, dated June 2026 by the author: the Third
+    // Prize under Honours and Awards (awards.ts). No source names the research
+    // it was awarded for, so the item does not either.
+    id: 'youth-science-university-prize',
+    date: '2026-06',
+    before: { en: 'Our research won a ', vi: 'Nghiên cứu của chúng tôi đạt ' },
+    link: { href: '/#awards', label: { en: 'Third Prize', vi: 'giải Ba' } },
+    after: {
+      en: ' at the university-level Youth Science and Technology Conference of Hanoi Medical University.',
+      vi: ' tại Hội nghị Khoa học và Công nghệ tuổi trẻ Trường Đại học Y Hà Nội, cấp trường.',
+    },
+  },
+  {
     // Dated June 2026 in the news of the author's first homepage (August 2026),
     // as accepted to IUKM 2026; Crossref gives 11 October 2026 for the chapter.
     id: 'receptor-iukm-accepted',
