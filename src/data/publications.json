@@ -196,9 +196,9 @@
     "status": "review",
     "venue": "ACIIDS 2027",
     "badge": "ACIIDS",
-    "citation": "Asian Conference on Intelligent Information and Database Systems (ACIIDS), 2027.",
+    "citation": "medRxiv preprint, 2026; submitted to the Asian Conference on Intelligent Information and Database Systems (ACIIDS), 2027.",
     "note": "Under review",
-    "summary": "A breast cancer survival model that combines hierarchical graph learning on imaging mass cytometry with multimodal knowledge distillation.",
+    "summary": "HEAL-Surv, a breast cancer survival model that combines hierarchical graph learning on imaging mass cytometry with multimodal knowledge distillation.",
     "media": {
       "art": "tissue"
     },
@@ -207,8 +207,13 @@
       "Graph learning",
       "Multimodal learning"
     ],
-    "links": [],
-    "bibtex": "@unpublished{tran2027distillation,\n  author = {Tran, B. M. and Nguyen, V. A. and Dang, Q. A. and Nguyen, N. M. H. and Tran, H. N. and Tran, D. H.},\n  title = {Hierarchical Graph Learning with Multimodal Distillation for Breast Cancer Survival Prediction},\n  year = {2027},\n  note = {Under review at the Asian Conference on Intelligent Information and Database Systems (ACIIDS 2027)}\n}"
+    "links": [
+      {
+        "label": "medRxiv",
+        "url": "https://doi.org/10.64898/2026.11.14.26368121"
+      }
+    ],
+    "bibtex": "@article{tran2026distillation,\n  author = {Tran, B. M. and Nguyen, V. A. and Dang, Q. A. and Nguyen, N. M. H. and Tran, H. N. and Tran, D. H.},\n  title = {Hierarchical Graph Learning with Multimodal Distillation for Breast Cancer Survival Prediction},\n  journal = {medRxiv},\n  year = {2026},\n  doi = {10.64898/2026.11.14.26368121},\n  note = {Preprint; under review at the Asian Conference on Intelligent Information and Database Systems (ACIIDS 2027)}\n}"
   },
   {
     "id": "M2",

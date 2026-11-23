@@ -31,9 +31,9 @@
   },
   "M3": {
     "title": "Học trên đồ thị phân cấp kết hợp chưng cất tri thức đa phương thức để dự đoán sống còn ở bệnh nhân ung thư vú",
-    "citation": "Hội nghị châu Á về Hệ thống thông tin và Cơ sở dữ liệu thông minh (ACIIDS), 2027.",
+    "citation": "medRxiv (bản tiền ấn phẩm), 2026; đã nộp Hội nghị châu Á về Hệ thống thông tin và Cơ sở dữ liệu thông minh (ACIIDS), 2027.",
     "note": "Đang phản biện",
-    "summary": "Mô hình dự đoán sống còn ở bệnh nhân ung thư vú, kết hợp học trên đồ thị phân cấp từ dữ liệu đo tế bào khối phổ tạo ảnh (IMC) với chưng cất tri thức đa phương thức."
+    "summary": "HEAL-Surv, mô hình dự đoán sống còn ở bệnh nhân ung thư vú, kết hợp học trên đồ thị phân cấp từ dữ liệu đo tế bào khối phổ tạo ảnh (IMC) với chưng cất tri thức đa phương thức."
   },
   "M2": {
     "title": "Phát triển và đánh giá mô hình học sâu đa phương thức trên nhiều đoàn hệ để phân loại tình trạng biểu hiện ER, PR và HER2 trong ung thư vú",
