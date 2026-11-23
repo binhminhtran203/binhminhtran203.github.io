@@ -26,6 +26,18 @@ interface NewsItem {
 // 16 November 2026.
 export const news: NewsItem[] = [
   {
+    // Posted on medRxiv on 17 November 2026 (doi:10.64898/2026.11.14.26368121);
+    // the preprint of M3, under review at ACIIDS 2027. Wording from its abstract.
+    id: 'heal-surv-medrxiv-preprint',
+    date: '2026-11',
+    before: { en: 'Our new preprint is on ', vi: 'Bản tiền ấn phẩm mới của chúng tôi đã được đăng trên ' },
+    link: { href: 'https://doi.org/10.64898/2026.11.14.26368121', label: { en: 'medRxiv', vi: 'medRxiv' } },
+    after: {
+      en: ': HEAL-Surv, a breast cancer survival model that learns from imaging mass cytometry and DNA methylation during training, then predicts survival from clinical and molecular data alone.',
+      vi: ': HEAL-Surv, mô hình dự đoán sống còn ở bệnh nhân ung thư vú, học từ dữ liệu đo tế bào khối phổ tạo ảnh (IMC) và methyl hóa DNA trong quá trình huấn luyện, sau đó chỉ cần dữ liệu lâm sàng và phân tử để dự đoán.',
+    },
+  },
+  {
     // Posted on bioRxiv on 3 November 2026 (doi:10.64898/2026.11.01.761587).
     id: 'receptor-biorxiv-preprint',
     date: '2026-11',
