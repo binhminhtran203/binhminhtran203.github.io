@@ -50,14 +50,14 @@ export const awards: Award[] = [
   {
     // Added at the author's request, in the author's Vietnamese wording. No
     // official English name of the contest was found; the English is a
-    // translation. Hội Sinh viên Việt Nam is named as in the entries below, and
-    // Hội Thầy thuốc trẻ Việt Nam by the English name used in the national press.
+    // translation. At the author's request the entry names only the contest,
+    // not its organisers (Hội Sinh viên Việt Nam and Hội Thầy thuốc trẻ Việt Nam).
     id: 'award-healthcare-ideas-top30-2026',
     year: '2026',
     title: { en: 'Top 30', vi: 'Top 30' },
     organisation: {
-      en: 'Vietnamese Healthcare Ideas Contest 2026, Vietnam National Union of Students and Vietnam Young Physicians’ Association',
-      vi: 'Ý tưởng chăm sóc sức khỏe Việt 2026, Trung ương Hội Sinh viên Việt Nam và Trung ương Hội Thầy thuốc trẻ Việt Nam',
+      en: 'Vietnamese Healthcare Ideas Contest 2026',
+      vi: 'Ý tưởng chăm sóc sức khỏe Việt 2026',
     },
   },
   {
