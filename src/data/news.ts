@@ -108,11 +108,14 @@ export const news: NewsItem[] = [
   },
   {
     // Added at the author's request, dated June 2026 by the author: the Third
-    // Prize under Honours and Awards (awards.ts). No source names the research
-    // it was awarded for, so the item does not either.
+    // Prize under Honours and Awards (awards.ts), for the breast cancer
+    // receptor-status research, as the author reported.
     id: 'youth-science-university-prize',
     date: '2026-06',
-    before: { en: 'Our research won a ', vi: 'Nghiên cứu của chúng tôi đạt ' },
+    before: {
+      en: 'Our breast cancer receptor-status research won a ',
+      vi: 'Nghiên cứu về tình trạng biểu hiện thụ thể trong ung thư vú đạt ',
+    },
     link: { href: '/#awards', label: { en: 'Third Prize', vi: 'giải Ba' } },
     after: {
       en: ' at the university-level Youth Science and Technology Conference of Hanoi Medical University.',
