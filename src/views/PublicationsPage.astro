@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
 import Publication from '../components/Publication.astro';
+import CollaborationNetwork from '../components/CollaborationNetwork.astro';
 import publications from '../data/publications.json';
 import { profile } from '../data/profile';
 import { getLocale, text } from '../i18n';
@@ -43,6 +44,7 @@ const groups = [
         'Peer-reviewed conference papers and journal articles, followed by manuscripts under review. My name is in bold; † indicates equal contribution.',
         'Các bài báo hội nghị và bài báo tạp chí có phản biện, tiếp theo là các bản thảo đang phản biện. Tên tôi được in đậm; dấu † chỉ các tác giả có đóng góp ngang nhau. Tên bài được dịch sang tiếng Việt; tên trong danh mục gốc được giữ ở dòng dưới để tiện tra cứu.')}</p>
       <a class="text-link" href={profile.scholar} target="_blank" rel="noopener noreferrer">Google Scholar <Icon name="external" /></a>
+      <a class="text-link network-link" href="#collaboration-network">{text(locale, 'Collaboration network', 'Mạng lưới cộng tác')} <Icon /></a>
     </div>
   </section>
   <section class="container publication-section" data-locale={locale}>
@@ -77,6 +79,7 @@ const groups = [
     </div>
     <p class="sr-only" id="clipboard-status" aria-live="polite"></p>
   </section>
+  <CollaborationNetwork />
   <script>
     const section = document.querySelector<HTMLElement>('.publication-section');
     const vietnamese = section?.dataset.locale === 'vi';
@@ -114,4 +117,6 @@ const groups = [
 <style>
   .filter-group { flex-wrap: wrap; }
   .publication-results { flex-wrap: wrap; gap: 8px 20px; }
+  .network-link { margin-left: 18px; }
+  .network-link :global(svg) { transform: rotate(90deg); }
 </style>
