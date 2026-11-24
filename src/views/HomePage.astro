@@ -61,16 +61,17 @@ const monthYear = (iso: string) => {
   return locale === 'vi' ? `${month}/${year}` : `${monthsEn[Number(month) - 1]} ${year}`;
 };
 // Research interests as one plain bulleted list (no bold, one indent). The
-// English is the author's own five-item list. The Vietnamese keeps the author's
-// own wording for the last three items. The first two items join the author's
-// earlier Vietnamese phrases, with "phân tích ảnh y tế" (medical image analysis)
-// translated.
+// English is the author's own five-item list (revised 25 November 2026). The
+// Vietnamese keeps the author's own wording for items three and four. The first
+// two items join the author's earlier Vietnamese phrases, with "phân tích ảnh y
+// tế" (medical image analysis) translated; the last item is translated from the
+// revised English.
 const interests = [
   t('Biomedical AI, multimodal learning, and graph representation learning', 'Trí tuệ nhân tạo trong y sinh học, học đa phương thức và học biểu diễn đồ thị'),
   t('Medical image analysis, computational pathology, and spatial omics', 'Phân tích ảnh y tế, giải phẫu bệnh học tính toán và phân tích omics không gian'),
   t('Computational RNA biology and epitranscriptomics', 'Sinh học RNA tính toán và biểu sinh RNA'),
-  t('Computational genomics and variant interpretation', 'Hệ gen học tính toán và diễn giải biến thể di truyền'),
-  t('Cancer biomarkers and clinical risk prediction', 'Dấu ấn sinh học ung thư và dự báo nguy cơ lâm sàng'),
+  t('Computational genomics and genetic variant interpretation', 'Hệ gen học tính toán và diễn giải biến thể di truyền'),
+  t('Cancer biomarker discovery and clinical outcome prediction', 'Phát hiện dấu ấn sinh học ung thư và dự đoán kết cục lâm sàng'),
 ];
 // Structured data (schema.org JSON-LD) for search engines. Google reads a
 // personal "About me" page as a profile page (ProfilePage) about one person, and
